@@ -1,0 +1,16 @@
+Nordora Vital — public/images layout
+=====================================
+
+This tree mirrors material from the project References folder (see /Website/References).
+
+references/     Curated web assets (hero, pillars, modular, sectors, offers, lifestyle photos).
+brand/          Nordora spiral logo (PNG) and legacy placeholders.
+sanzanet/       Traceability copy of selected sanza reference files (e.g. hero source PNG).
+
+references/lifestyle/  Warm lifestyle JPGs from References/sanzanet/images/happy-aging-main
+                       (calm sessions, treatment spaces). Used on home hero, pillars, testimonials.
+
+To refresh from References after adding files there:
+  bash web/scripts/sync-reference-images.sh
+
+Replace placeholders under references/ with final photography when available; keep filenames stable or update src/lib/public-images.ts.
