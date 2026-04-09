@@ -299,9 +299,9 @@ function ContentLV() {
 /* ── Page ─────────────────────────────────────────────────────────────────── */
 
 const pageMeta = {
-  en: { title: "Cookie Policy", subtitle: "Last updated: January 2025" },
-  de: { title: "Cookie-Richtlinie", subtitle: "Stand: Januar 2025" },
-  lv: { title: "Sīkdatņu politika", subtitle: "Pēdējo reizi atjaunināts: 2025. gada janvārī" },
+  en: { title: "Cookie Policy", subtitle: "Last updated: April 2026" },
+  de: { title: "Cookie-Richtlinie", subtitle: "Stand: April 2026" },
+  lv: { title: "Sīkdatņu politika", subtitle: "Pēdējo reizi atjaunināts: 2026. gada aprīlī" },
 } as const;
 
 export default async function CookiePolicyPage({ params }: Props) {

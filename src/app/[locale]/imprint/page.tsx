@@ -169,9 +169,18 @@ function ContentLV() {
 /* ── Page ─────────────────────────────────────────────────────────────────── */
 
 const meta = {
-  en: { title: "Legal Notice", subtitle: "Imprint — company details and legal disclosures" },
-  de: { title: "Impressum", subtitle: "Pflichtangaben gemäß lettischem Recht" },
-  lv: { title: "Impressums", subtitle: "Obligātā informācija saskaņā ar Latvijas tiesību aktiem" },
+  en: {
+    title: "Legal Notice",
+    subtitle: "Imprint — company details and legal disclosures · Last updated: April 2026",
+  },
+  de: {
+    title: "Impressum",
+    subtitle: "Pflichtangaben gemäß lettischem Recht · Stand: April 2026",
+  },
+  lv: {
+    title: "Impressums",
+    subtitle: "Obligātā informācija saskaņā ar Latvijas tiesību aktiem · Pēdējo reizi atjaunināts: 2026. gada aprīlī",
+  },
 } as const;
 
 export default async function ImprintPage({ params }: Props) {

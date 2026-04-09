@@ -179,22 +179,22 @@ export default async function ProfessionalsIndexPage() {
         </div>
       </div>
 
-      {/* ── CTA band ── */}
-      <div className="home-band-full home-band--cta py-20 md:py-24 lg:py-28">
+      {/* ── CTA band — light band (matches welcome / explainer) ── */}
+      <div className="home-band-full home-band--welcome py-20 md:py-24 lg:py-28">
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
           <FadeUp>
             <div className="mx-auto max-w-[540px] text-center">
-              <h2 className="font-heading text-[clamp(1.6rem,3.5vw,2.4rem)] font-bold text-white">
+              <h2 className="font-heading text-[clamp(1.6rem,3.5vw,2.4rem)] font-bold text-[var(--text)]">
                 {t("ctaHeadline")}
               </h2>
-              <p className="mt-5 text-base leading-relaxed text-white/75">
+              <p className="mt-5 text-base leading-relaxed text-[var(--muted)]">
                 {t("ctaSubhead")}
               </p>
               <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4">
                 <Link href="/pilot" className="btn-primary inline-flex justify-center">
                   {t("ctaCta")}
                 </Link>
-                <Link href="/how-it-works" className="btn-ghost-white inline-flex justify-center">
+                <Link href="/how-it-works" className="btn-outline inline-flex justify-center">
                   {t("ctaSecondaryCta")}
                 </Link>
               </div>

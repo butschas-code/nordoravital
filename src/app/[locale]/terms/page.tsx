@@ -281,9 +281,9 @@ function ContentLV() {
 /* ── Page ─────────────────────────────────────────────────────────────────── */
 
 const meta = {
-  en: { title: "Terms of Use", subtitle: "Last updated: January 2025" },
-  de: { title: "Nutzungsbedingungen", subtitle: "Stand: Januar 2025" },
-  lv: { title: "Lietošanas noteikumi", subtitle: "Pēdējo reizi atjaunināts: 2025. gada janvārī" },
+  en: { title: "Terms of Use", subtitle: "Last updated: April 2026" },
+  de: { title: "Nutzungsbedingungen", subtitle: "Stand: April 2026" },
+  lv: { title: "Lietošanas noteikumi", subtitle: "Pēdējo reizi atjaunināts: 2026. gada aprīlī" },
 } as const;
 
 export default async function TermsPage({ params }: Props) {

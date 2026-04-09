@@ -181,13 +181,15 @@ export async function HomeClientOutcomes() {
                     <p className="mt-2 flex-1 text-[0.78rem] leading-relaxed text-[var(--muted)]">
                       {t(o.forClients)}
                     </p>
-                    <p
-                      className="mt-3 border-t border-[var(--border)] pt-2.5 text-[0.68rem] font-medium leading-snug"
-                      style={{ color: o.accent }}
-                    >
-                      <span className="font-semibold uppercase tracking-wider opacity-80">{t("outcomeForPracticePrefix")} </span>
-                      <span className="text-[var(--text)]/75">{t(o.forPractice)}</span>
-                    </p>
+                    {t(o.forPractice).trim() !== "" ? (
+                      <p
+                        className="mt-3 border-t border-[var(--border)] pt-2.5 text-[0.68rem] font-medium leading-snug"
+                        style={{ color: o.accent }}
+                      >
+                        <span className="font-semibold uppercase tracking-wider opacity-80">{t("outcomeForPracticePrefix")} </span>
+                        <span className="text-[var(--text)]/75">{t(o.forPractice)}</span>
+                      </p>
+                    ) : null}
                   </div>
                 </li>
               )}

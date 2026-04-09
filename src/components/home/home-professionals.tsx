@@ -186,7 +186,7 @@ export async function HomeProfessionals() {
           </Link>
         </FadeUp>
 
-        {/* Grid — equal height per row: stretch li → FadeUp → Link; teaser flex-1 fills */}
+        {/* Grid — equal height per row: stretch li → FadeUp → card; teaser flex-1 fills */}
         <ul className="relative grid items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {SECTORS.map((sector, i) => (
             <li key={sector.slug} className="h-full min-h-0">
@@ -194,12 +194,8 @@ export async function HomeProfessionals() {
                 delay={(Math.min(i + 1, 6)) as 1 | 2 | 3 | 4 | 5 | 6}
                 className="flex h-full min-h-0 flex-col"
               >
-                <Link
-                  href={`/professionals/${sector.slug}`}
-                  className="group card-brand flex min-h-0 flex-1 flex-col gap-4 p-6"
-                >
-                  {/* Icon badge with hover accent */}
-                  <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[var(--brand)]/20 bg-[var(--brand)]/10 text-[var(--brand-strong)] transition group-hover:border-[var(--brand)]/40 group-hover:bg-[var(--brand)]/18 group-hover:text-[var(--brand-deep)]">
+                <div className="card-brand flex min-h-0 flex-1 flex-col gap-4 p-6">
+                  <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[var(--brand)]/20 bg-[var(--brand)]/10 text-[var(--brand-strong)]">
                     <SectorIcon id={sector.icon} />
                   </div>
 
@@ -209,13 +205,7 @@ export async function HomeProfessionals() {
                   <p className="min-h-0 flex-1 text-small leading-relaxed text-[var(--muted)]">
                     {t(sector.teaserKey)}
                   </p>
-                  <span className="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-[var(--brand)] transition group-hover:gap-2.5 group-hover:text-[var(--brand-strong)]">
-                    {t("learnMore")}{" "}
-                    <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-0.5">
-                      →
-                    </span>
-                  </span>
-                </Link>
+                </div>
               </FadeUp>
             </li>
           ))}

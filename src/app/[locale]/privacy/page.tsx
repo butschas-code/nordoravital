@@ -325,9 +325,9 @@ function ContentLV() {
 /* ── Page ─────────────────────────────────────────────────────────────────── */
 
 const meta = {
-  en: { title: "Privacy Policy", subtitle: "Last updated: January 2025" },
-  de: { title: "Datenschutzerklärung", subtitle: "Stand: Januar 2025" },
-  lv: { title: "Privātuma politika", subtitle: "Pēdējo reizi atjaunināts: 2025. gada janvārī" },
+  en: { title: "Privacy Policy", subtitle: "Last updated: April 2026" },
+  de: { title: "Datenschutzerklärung", subtitle: "Stand: April 2026" },
+  lv: { title: "Privātuma politika", subtitle: "Pēdējo reizi atjaunināts: 2026. gada aprīlī" },
 } as const;
 
 export default async function PrivacyPage({ params }: Props) {
