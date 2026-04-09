@@ -18,9 +18,17 @@ function setLocaleCookie(loc: Locale) {
 type LanguageSwitcherProps = {
   /** Light controls for dark green / dark section backgrounds */
   appearance?: "default" | "onDark";
+  /** Vertical link list for mobile drawer (no dropdown) */
+  variant?: "dropdown" | "stacked";
+  /** Called after choosing a locale (e.g. close mobile menu) */
+  onLocaleChange?: () => void;
 };
 
-export function LanguageSwitcher({ appearance = "default" }: LanguageSwitcherProps) {
+export function LanguageSwitcher({
+  appearance = "default",
+  variant = "dropdown",
+  onLocaleChange,
+}: LanguageSwitcherProps) {
   const t = useTranslations("Language");
   const onDark = appearance === "onDark";
   const pathname = usePathname();
@@ -48,6 +56,51 @@ export function LanguageSwitcher({ appearance = "default" }: LanguageSwitcherPro
       document.removeEventListener("keydown", onKey);
     };
   }, [open]);
+
+  if (variant === "stacked") {
+    return (
+      <ul className="flex flex-col gap-0.5" role="list">
+        {locales.map((loc) => {
+          const active = loc === locale;
+          return (
+            <li key={loc}>
+              <Link
+                href={pathname}
+                locale={loc}
+                prefetch={false}
+                className={`flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm transition ${
+                  onDark
+                    ? active
+                      ? "bg-white/12 font-semibold text-[var(--brand-secondary)]"
+                      : "text-white/90 hover:bg-white/10"
+                    : active
+                      ? "bg-[var(--panel)] font-semibold text-[var(--brand)]"
+                      : "text-[var(--text)] hover:bg-[var(--panel)]"
+                }`}
+                onClick={() => {
+                  setLocaleCookie(loc);
+                  onLocaleChange?.();
+                }}
+              >
+                <span>{t(loc)}</span>
+                <span
+                  className={`text-xs tabular-nums ${
+                    onDark
+                      ? active
+                        ? "text-[var(--brand-secondary)]"
+                        : "text-white/55"
+                      : `text-[var(--muted)] ${active ? "text-[var(--brand)]" : ""}`
+                  }`}
+                >
+                  {loc.toUpperCase()}
+                </span>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    );
+  }
 
   return (
     <div className="relative" ref={rootRef}>

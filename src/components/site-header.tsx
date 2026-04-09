@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { ContactDrawerTrigger } from "@/components/contact/contact-drawer-trigger";
 import { LanguageSwitcher } from "@/components/language-switcher";
+import { SiteHeaderMobileNav } from "@/components/site-header-mobile-nav";
 import { IMAGE_PATHS } from "@/lib/public-images";
 
 export async function SiteHeader() {
@@ -54,31 +55,13 @@ export async function SiteHeader() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-          <LanguageSwitcher />
-          <ContactDrawerTrigger />
+          <SiteHeaderMobileNav links={navLinks} />
+          <div className="hidden items-center gap-2 sm:gap-3 lg:flex">
+            <LanguageSwitcher />
+            <ContactDrawerTrigger />
+          </div>
         </div>
       </div>
-
-      {/* Mobile nav — single row; horizontal scroll if needed */}
-      <nav
-        className="border-t border-[var(--border)] bg-white lg:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        aria-label="Main mobile"
-      >
-        <div className="overflow-x-auto">
-          <ul className="mx-auto flex w-max min-w-full max-w-none flex-nowrap items-center justify-center gap-x-2 px-4 py-2 text-[0.9375rem] sm:gap-x-3 sm:text-base">
-            {navLinks.map((link) => (
-              <li key={link.href} className="shrink-0">
-                <Link
-                  href={link.href}
-                  className="block whitespace-nowrap rounded-md px-2 py-1.5 font-normal text-[var(--muted)] transition hover:text-[var(--text)]"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </nav>
     </header>
   );
 }

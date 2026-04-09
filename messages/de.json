@@ -12,7 +12,10 @@
     "pilotProgram": "Pilotprogramm",
     "brandLabel": "Nordora Vital",
     "offers": "sanza für Sie",
-    "contactUs": "Kontakt"
+    "contactUs": "Kontakt",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "mobileMenuTitle": "Menü"
   },
   "Home": {
     "heroKicker": "<strong>sanza</strong>-Technologie · für Therapeut:innen, Kliniken & Inhaber:innen",

@@ -12,7 +12,10 @@
     "professionals": "for professionals",
     "pilotProgram": "Pilot program",
     "brandLabel": "Nordora Vital",
-    "contactUs": "Contact us"
+    "contactUs": "Contact us",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "mobileMenuTitle": "Menu"
   },
   "Home": {
     "heroKicker": "<strong>sanza</strong> technology · built for therapists, clinics & owners",

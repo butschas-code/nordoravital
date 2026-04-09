@@ -12,7 +12,10 @@
     "pilotProgram": "Pilotprogramma",
     "brandLabel": "Nordora Vital",
     "offers": "sanza jums",
-    "contactUs": "Sazināties"
+    "contactUs": "Sazināties",
+    "openMenu": "Atvērt izvēlni",
+    "closeMenu": "Aizvērt izvēlni",
+    "mobileMenuTitle": "Izvēlne"
   },
   "Home": {
     "heroKicker": "<strong>sanza</strong> tehnoloģija · terapeitiem, klīnikām un īpašniekiem",
