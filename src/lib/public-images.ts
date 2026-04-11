@@ -5,8 +5,8 @@
  */
 export const IMAGE_PATHS = {
   brand: {
-    /** Source: Brand/nordora_logo_trans_01.png */
-    logo: "/images/brand/nordora_logo_trans_01.png",
+    /** Source: Brand/nordora_logo_trans_02.png */
+    logo: "/images/brand/nordora_logo_trans_02.png",
     logoPlaceholder: "/images/brand/logo-placeholder.svg",
   },
   hero: {
