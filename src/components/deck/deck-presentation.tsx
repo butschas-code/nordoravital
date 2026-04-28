@@ -266,12 +266,12 @@ function SlideExperience() {
             aria-hidden
           />
         </div>
-        {/* sm+: one grid row, equal-height columns; flex column per card (avoids subgrid collapsing the micro-card row in WebKit/Blink). */}
-        <div className="mt-5 flex min-h-0 flex-1 flex-col gap-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:items-stretch sm:gap-x-6 sm:gap-y-0 lg:gap-x-7">
+        {/* sm+: subgrid aligns headers + micro rows across columns; row 3 uses minmax(min-content,auto) so it cannot collapse to 0. */}
+        <div className="mt-5 flex min-h-0 flex-1 flex-col gap-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:grid-rows-[auto_minmax(0,1fr)_minmax(min-content,auto)] sm:gap-x-6 sm:gap-y-0 lg:gap-x-7">
           {DECK_SLIDE3_TWO_PATHS_CARDS.map((c) => (
             <article
               key={c.title}
-              className={`group relative flex min-h-[220px] flex-col overflow-hidden rounded-2xl ring-2 sm:h-full sm:min-h-0 sm:rounded-3xl ${
+              className={`group relative flex min-h-[220px] flex-col overflow-hidden rounded-2xl ring-2 sm:row-span-3 sm:grid sm:min-h-0 sm:grid-rows-subgrid sm:rounded-3xl ${
                 c.accent === "sage"
                   ? "shadow-[0_28px_70px_-22px_rgba(14,61,52,0.45),0_12px_40px_-16px_rgba(111,138,122,0.22)] ring-[#6F8A7A]/55"
                   : "shadow-[0_28px_70px_-22px_rgba(74,48,56,0.38),0_12px_40px_-16px_rgba(165,133,146,0.28)] ring-[#A58592]/50"
@@ -315,10 +315,10 @@ function SlideExperience() {
                 </h3>
               </div>
               {/* Pushes micro panels to the bottom; absorbs extra vertical space */}
-              <div className="min-h-0 flex-1" aria-hidden />
-              <div className="two-paths-micro-row relative z-10 shrink-0 px-5 pb-5 pt-4 sm:px-6 sm:pb-6 sm:pt-4 lg:px-7 lg:pb-7">
-                <div className="two-paths-micro-cell">
-                  <div className="flex min-h-0 w-full flex-col overflow-hidden rounded-2xl border-2 border-[#6F8A7A]/55 bg-white shadow-[0_12px_32px_-8px_rgba(14,61,52,0.35)] sm:min-h-[5.5rem] sm:rounded-[1.35rem]">
+              <div className="min-h-0 min-w-0 flex-1 sm:min-h-0" aria-hidden />
+              <div className="two-paths-micro-row relative z-10 min-h-min px-5 pb-5 pt-4 sm:px-6 sm:pb-6 sm:pt-4 lg:px-7 lg:pb-7">
+                <div className="two-paths-micro-cell min-h-min sm:min-h-0">
+                  <div className="flex h-full min-h-0 w-full flex-col overflow-hidden rounded-2xl border-2 border-[#6F8A7A]/55 bg-white shadow-[0_12px_32px_-8px_rgba(14,61,52,0.35)] sm:rounded-[1.35rem]">
                     <div className="shrink-0 px-4 pb-0 pt-3 sm:px-4 sm:pt-3.5 lg:px-5 lg:pt-4">
                       <p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-[#0E3D34] sm:text-[0.7rem] lg:text-[0.72rem]">
                         {t("twoPathsMicroPracticeLabel")}
@@ -329,8 +329,8 @@ function SlideExperience() {
                     </p>
                   </div>
                 </div>
-                <div className="two-paths-micro-cell">
-                  <div className="flex min-h-0 w-full flex-col overflow-hidden rounded-2xl border-2 border-[#6F8A7A]/55 bg-white shadow-[0_12px_32px_-8px_rgba(14,61,52,0.35)] sm:min-h-[5.5rem] sm:rounded-[1.35rem]">
+                <div className="two-paths-micro-cell min-h-min sm:min-h-0">
+                  <div className="flex h-full min-h-0 w-full flex-col overflow-hidden rounded-2xl border-2 border-[#6F8A7A]/55 bg-white shadow-[0_12px_32px_-8px_rgba(14,61,52,0.35)] sm:rounded-[1.35rem]">
                     <div className="shrink-0 px-4 pb-0 pt-3 sm:px-4 sm:pt-3.5 lg:px-5 lg:pt-4">
                       <p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-[#0E3D34] sm:text-[0.7rem] lg:text-[0.72rem]">
                         {t("twoPathsMicroPatientsLabel")}
