@@ -98,6 +98,7 @@
     "stepsCtaContact": "Talk to us",
     "stepsCtaPilot": "Pilot programme",
     "rolloutCtaNote": "Every practice is different. We'll help you find the right way to introduce <strong>sanza</strong> so it feels natural for your team, your rooms, and your clients.",
+    "deckClosingKicker": "THANK YOU",
     "pillarsSectionTitle": "What <strong>sanza</strong> adds to your practice",
     "pillarPemfTitle": "Chronobiological PEMF signals",
     "pillarPemfBody": "A calm, structured full-body input that supports relaxation and “settling” on the table or chair. Patients feel the room slow down—useful before demanding visits, between steps, or to improve overall comfort.",
@@ -199,7 +200,9 @@
     "ctaKicker": "NEXT STEPS",
     "ctaTitle": "Want to find out how to integrate <strong>sanza</strong> into your practice?",
     "ctaBody": "We’ll map <strong>sanza</strong> into your space in a way that fits your setting and your audience — clinic, practice, studio, or performance environment — then define a simple routine your team can run daily.",
-    "ctaBookDemo": "Book a demo"
+    "ctaBookDemo": "Book a demo",
+    "closingWebsiteLabel": "Website",
+    "closingWebsiteDisplay": "nordoravital.com"
   },
   "Pilot": {
     "metaTitle": "14-day pilot programme | Nordora Vital",
@@ -424,8 +427,8 @@
     "email": "Email",
     "phone": "Phone",
     "companyEmail": "info@nordoravital.com",
-    "companyPhone": "+371 2000 0000",
-    "companyPhoneTel": "+37120000000",
+    "companyPhone": "+371 20 727 915",
+    "companyPhoneTel": "+37120727915",
     "preferredContactMethod": "Preferred contact method",
     "contactMethodEmail": "Email",
     "contactMethodPhone": "Phone call",

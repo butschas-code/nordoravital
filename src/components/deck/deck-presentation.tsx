@@ -1,15 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useState } from "react";
 import { BrandArc } from "@/components/brand-arc";
 import { BrandAtmosphere } from "@/components/brand-atmosphere";
+import { outcomePhotoCoverPosition } from "@/lib/outcome-photo-cover-focus";
 import { IMAGE_PATHS } from "@/lib/public-images";
 import { richParts } from "@/lib/i18n-rich";
 
 const SLIDE_COUNT = 11;
+
+/** Clears fixed `DeckLogo` — use on the main content column */
+const DECK_TOP_PAD = "pt-[6.5rem] sm:pt-[7.25rem]";
+
+/** Centered headline + lead (light slides) */
+const DECK_HEAD_CENTER = "mx-auto w-full max-w-4xl text-center px-1";
 
 function useDeckNav(count: number) {
   const [index, setIndex] = useState(() => {
@@ -94,15 +100,17 @@ function DeckFooterChrome({ index }: { index: number }) {
   );
 }
 
-function DeckLogo({ className = "", invert = false }: { className?: string; invert?: boolean }) {
+/** Same top-left placement on every slide; height is ~3× the previous deck mark */
+function DeckLogo({ invert = false }: { invert?: boolean }) {
   return (
-    <div className={className}>
+    <div className="pointer-events-none absolute left-5 top-5 z-20 sm:left-8 sm:top-6">
       <Image
         src={IMAGE_PATHS.brand.logo}
         alt="Nordora Vital"
-        width={160}
-        height={40}
-        className={`h-6 w-auto sm:h-7 ${invert ? "brightness-0 invert opacity-90" : ""}`}
+        width={480}
+        height={120}
+        className={`h-[4.5rem] w-auto sm:h-[5.25rem] ${invert ? "brightness-0 invert opacity-90" : ""}`}
+        sizes="(max-width: 640px) 60vw, 420px"
         priority
       />
     </div>
@@ -124,32 +132,29 @@ function Stage({ children }: { children: React.ReactNode }) {
   );
 }
 
-/* ─── Slide 1: Home hero (video + site overlay) ─────────────────────────── */
+/* ─── Slide 1: Deck hero (static mat photo + site overlay) ───────────────── */
 function SlideHero() {
   const t = useTranslations("Home");
 
   return (
     <div className="relative flex h-full w-full flex-col justify-end">
       <div className="absolute inset-0">
-        <video
-          className="absolute inset-0 h-full w-full object-cover object-center"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          poster={encodeURI(IMAGE_PATHS.hero.backgroundPhoto)}
-        >
-          <source src={IMAGE_PATHS.hero.backgroundVideo} type="video/mp4" />
-        </video>
+        <Image
+          src={encodeURI(IMAGE_PATHS.deck.slide1Background)}
+          alt=""
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+          priority
+        />
         <div className="home-hero-overlay pointer-events-none absolute inset-0" aria-hidden />
       </div>
       <div className="arc-watermark pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
         <BrandArc color="#FFFFFF" size={520} className="absolute -right-16 -top-16 opacity-[0.06] sm:size-[700]" />
       </div>
-      <DeckLogo className="absolute left-5 top-5 z-20 sm:left-8 sm:top-6" invert />
+      <DeckLogo invert />
       <div className="relative z-10 mx-auto flex h-full w-full max-w-[1200px] flex-col justify-end px-5 pb-10 pt-16 sm:px-8 sm:pb-12 sm:pt-20">
-        <div className="ml-auto w-full max-w-xl pb-2 text-right sm:max-w-2xl">
+        <div className="mx-auto w-full max-w-3xl pb-2 text-center sm:max-w-3xl">
           <p className="mb-3 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white sm:mb-4 sm:text-[0.75rem] [&_strong]:normal-case [&_strong]:font-semibold">
             {t.rich("heroKicker", richParts.onDark)}
           </p>
@@ -159,14 +164,6 @@ function SlideHero() {
           <p className="mt-4 text-[clamp(0.9rem,1.9vw,1.1rem)] leading-relaxed text-white/90 sm:mt-5 sm:text-lg">
             {t.rich("heroSubheadline", richParts.onDark)}
           </p>
-          <div className="mt-6 flex flex-col items-end gap-2 sm:mt-8 sm:flex-row sm:justify-end sm:gap-3">
-            <Link href="/pilot-program" className="btn-primary inline-flex justify-center px-5 py-2.5 text-sm sm:px-6 sm:py-3">
-              {t("ctaBookDemo")}
-            </Link>
-            <Link href="/how-it-works" className="btn-ghost-white inline-flex justify-center px-5 py-2.5 text-sm sm:px-6 sm:py-3">
-              {t("heroSecondaryCta")}
-            </Link>
-          </div>
         </div>
       </div>
     </div>
@@ -178,10 +175,12 @@ function SlideWelcome() {
   const t = useTranslations("Home");
 
   return (
-    <div className="home-band--welcome flex h-full w-full flex-col overflow-hidden">
-      <DeckLogo className="absolute left-5 top-5 z-20 sm:left-8 sm:top-6" />
-      <div className="grid min-h-0 flex-1 grid-rows-1 gap-6 px-5 py-10 sm:gap-8 sm:px-8 sm:py-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-center lg:gap-10 lg:px-10 lg:py-8">
-        <div className="flex min-h-0 min-w-0 flex-col justify-center overflow-y-auto">
+    <div className="relative home-band--welcome flex h-full w-full flex-col overflow-hidden">
+      <DeckLogo />
+      <div
+        className={`grid min-h-0 flex-1 grid-rows-1 gap-6 px-5 pb-10 sm:gap-8 sm:px-8 sm:pb-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-stretch lg:gap-10 lg:px-10 lg:pb-8 ${DECK_TOP_PAD}`}
+      >
+        <div className="flex min-h-0 min-w-0 flex-col justify-center overflow-y-auto text-center lg:py-1">
           <h2 className="font-heading text-[clamp(1.25rem,3.2vw,2.35rem)] font-bold leading-[1.1] tracking-tight text-[var(--text)]">
             {t("welcomeP1")}
           </h2>
@@ -190,13 +189,14 @@ function SlideWelcome() {
             <p>{t.rich("welcomeP3", richParts.default)}</p>
           </div>
         </div>
-        <div className="relative min-h-[180px] shrink-0 overflow-hidden rounded-2xl shadow-[var(--shadow-raised)] ring-1 ring-[var(--border)] sm:min-h-[220px] lg:min-h-0 lg:rounded-3xl">
+        {/* `fill` + next/image needs a non-zero box; lg:min-h-0 + items-center collapsed this column */}
+        <div className="relative min-h-[14rem] w-full overflow-hidden rounded-2xl shadow-[var(--shadow-raised)] ring-1 ring-[var(--border)] sm:min-h-[18rem] lg:h-full lg:min-h-[16rem] lg:rounded-3xl">
           <Image
-            src={encodeURI("/images/sanza hand electrode 01.jpg")}
-            alt={t("welcomeImageAlt")}
+            src={encodeURI(IMAGE_PATHS.deck.slide2Welcome)}
+            alt={t("outcome2ImageAlt")}
             fill
-            className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 38vw"
+            className="object-cover object-center"
+            sizes="(max-width: 1023px) 100vw, 40vw"
             priority
           />
         </div>
@@ -205,33 +205,143 @@ function SlideWelcome() {
   );
 }
 
-/* ─── Slide 3: In-room layer (client experience) ────────────────────────── */
+const DECK_SLIDE3_TWO_PATHS_CARDS: {
+  title: "twoPathsCard1Title" | "twoPathsCard2Title";
+  tag: "twoPathsCard1Tag" | "twoPathsCard2Tag";
+  forPractice: "twoPathsCard1ForPractice" | "twoPathsCard2ForPractice";
+  forClients: "twoPathsCard1ForClients" | "twoPathsCard2ForClients";
+  variant: "grid" | "waves";
+  /** Presentation accent — tag tint + card wash */
+  accent: "sage" | "mauve";
+}[] = [
+  {
+    title: "twoPathsCard1Title",
+    tag: "twoPathsCard1Tag",
+    forPractice: "twoPathsCard1ForPractice",
+    forClients: "twoPathsCard1ForClients",
+    variant: "grid",
+    accent: "sage",
+  },
+  {
+    title: "twoPathsCard2Title",
+    tag: "twoPathsCard2Tag",
+    forPractice: "twoPathsCard2ForPractice",
+    forClients: "twoPathsCard2ForClients",
+    variant: "waves",
+    accent: "mauve",
+  },
+];
+
+/* ─── Slide 3: Two paths — deck scale (large type + saturated brand color) */
 function SlideExperience() {
   const t = useTranslations("Home");
 
   return (
-    <div className="home-band--partner-visual flex h-full w-full flex-col overflow-hidden">
-      <DeckLogo className="absolute left-5 top-5 z-20 sm:left-8 sm:top-6" />
-      <div className="grid min-h-0 flex-1 grid-rows-1 items-stretch gap-6 px-5 py-10 sm:gap-8 sm:px-8 sm:py-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] lg:px-10 lg:py-8">
-        <div className="flex min-h-0 flex-col justify-center overflow-y-auto">
-          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[var(--brand)]">
-            {t("benefitLabelClients")}
-          </p>
-          <p className="mt-3 font-heading text-[clamp(1.05rem,2.6vw,1.85rem)] font-bold leading-[1.15] tracking-tight text-[var(--text)]">
+    <div className="relative flex h-full w-full flex-col overflow-hidden">
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background: `
+            radial-gradient(ellipse 90% 80% at 10% 20%, rgba(111, 138, 122, 0.55) 0%, transparent 50%),
+            radial-gradient(ellipse 85% 75% at 95% 75%, rgba(165, 133, 146, 0.5) 0%, transparent 52%),
+            radial-gradient(ellipse 70% 60% at 50% -5%, rgba(200, 230, 210, 0.2) 0%, transparent 45%),
+            radial-gradient(ellipse 60% 50% at 80% 30%, rgba(255, 255, 255, 0.06) 0%, transparent 40%),
+            linear-gradient(155deg, #061a16 0%, #0E3D34 32%, #0a2822 58%, #152a22 100%)
+          `,
+        }}
+        aria-hidden
+      />
+      <DeckLogo invert />
+      <div
+        className={`relative z-[1] flex min-h-0 flex-1 flex-col px-5 pb-8 sm:px-8 sm:pb-10 lg:px-10 lg:pb-8 ${DECK_TOP_PAD}`}
+      >
+        <div className={`${DECK_HEAD_CENTER} max-w-4xl shrink-0`}>
+          <h2 className="font-heading text-[clamp(1.25rem,3.2vw,2.35rem)] font-bold leading-[1.1] tracking-tight text-white [text-shadow:0_2px_28px_rgba(0,0,0,0.35)]">
             {t("twoPathsTitle")}
-          </p>
-          <div className="mt-4 text-[clamp(0.8rem,1.35vw,1rem)] leading-relaxed text-[var(--muted)]">
-            {t.rich("clientExperienceBody", richParts.default)}
-          </div>
-        </div>
-        <div className="relative min-h-[200px] shrink-0 overflow-hidden rounded-2xl ring-1 ring-[var(--border)] sm:min-h-[240px] lg:min-h-0 lg:rounded-3xl">
-          <Image
-            src={encodeURI(IMAGE_PATHS.home.twoPathsA)}
-            alt={t("twoPathsCard1ImageAlt")}
-            fill
-            className="object-cover"
-            sizes="45vw"
+          </h2>
+          <div
+            className="mx-auto mt-3 h-1 w-[min(12rem,40vw)] max-w-full rounded-full bg-gradient-to-r from-[#6F8A7A] via-[#A58592] to-[#6F8A7A] opacity-95 sm:mt-4"
+            aria-hidden
           />
+        </div>
+        {/* sm+: subgrid — row2 flexes so white panels sit low; row3 auto height, equal across both columns */}
+        <div className="mt-5 flex min-h-0 flex-1 flex-col gap-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:grid-rows-[auto_minmax(0,1fr)_auto] sm:gap-x-6 sm:gap-y-0 lg:gap-x-7">
+          {DECK_SLIDE3_TWO_PATHS_CARDS.map((c) => (
+            <article
+              key={c.title}
+              className={`group relative flex min-h-[220px] flex-col overflow-hidden rounded-2xl ring-2 sm:row-span-3 sm:grid sm:min-h-0 sm:grid-rows-subgrid sm:rounded-3xl ${
+                c.accent === "sage"
+                  ? "shadow-[0_28px_70px_-22px_rgba(14,61,52,0.45),0_12px_40px_-16px_rgba(111,138,122,0.22)] ring-[#6F8A7A]/55"
+                  : "shadow-[0_28px_70px_-22px_rgba(74,48,56,0.38),0_12px_40px_-16px_rgba(165,133,146,0.28)] ring-[#A58592]/50"
+              }`}
+            >
+              <BrandAtmosphere variant={c.variant} />
+              <div
+                className={`pointer-events-none absolute inset-0 z-[1] ${
+                  c.accent === "sage"
+                    ? "bg-gradient-to-br from-[#6F8A7A]/38 via-[#6F8A7A]/12 to-transparent"
+                    : "bg-gradient-to-br from-[#A58592]/36 via-[#A58592]/10 to-transparent"
+                }`}
+                aria-hidden
+              />
+              <div
+                className="absolute inset-x-0 bottom-0 z-[1] h-[80%] sm:h-[70%]"
+                style={{
+                  background:
+                    c.accent === "sage"
+                      ? "linear-gradient(180deg, rgba(6,26,22,0) 0%, rgba(111,138,122,0.35) 18%, rgba(14,61,52,0.72) 48%, rgba(4,22,18,0.97) 100%)"
+                      : "linear-gradient(180deg, rgba(6,26,22,0) 0%, rgba(165,133,146,0.32) 20%, rgba(14,61,52,0.68) 50%, rgba(4,22,18,0.97) 100%)",
+                }}
+                aria-hidden
+              />
+              <div
+                className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-[55%] bg-gradient-to-t from-[#061a16]/92 via-[#082721]/45 to-transparent sm:hidden"
+                aria-hidden
+              />
+              <div className="relative z-10 flex shrink-0 flex-col px-5 pb-0 pt-5 sm:px-6 sm:pt-6 lg:px-7 lg:pt-7">
+                <p
+                  className={`mb-2 inline-flex w-max max-w-full items-center rounded-full border-2 px-3.5 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.16em] shadow-sm sm:mb-2.5 sm:px-4 sm:py-2 sm:text-[0.72rem] ${
+                    c.accent === "sage"
+                      ? "border-[#6F8A7A]/65 bg-[#0E3D34]/88 text-[#E8F0EA]"
+                      : "border-[#C4A8B5]/75 bg-[#4A3038]/88 text-[#F5EAED]"
+                  }`}
+                >
+                  {t(c.tag)}
+                </p>
+                <h3 className="font-heading text-[clamp(1.05rem,2.5vw,1.75rem)] font-bold leading-[1.12] text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.45)]">
+                  {t(c.title)}
+                </h3>
+              </div>
+              {/* Pushes micro panels to the bottom; absorbs extra vertical space */}
+              <div className="min-h-0 flex-1 sm:h-full" aria-hidden />
+              <div className="two-paths-micro-row relative z-10 min-h-0 px-5 pb-5 pt-4 sm:min-h-0 sm:px-6 sm:pb-6 sm:pt-4 lg:px-7 lg:pb-7">
+                <div className="two-paths-micro-cell">
+                  <div className="flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border-2 border-[#6F8A7A]/55 bg-white shadow-[0_12px_32px_-8px_rgba(14,61,52,0.35)] sm:rounded-[1.35rem]">
+                    <div className="shrink-0 px-4 pb-0 pt-3 sm:px-4 sm:pt-3.5 lg:px-5 lg:pt-4">
+                      <p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-[#0E3D34] sm:text-[0.7rem] lg:text-[0.72rem]">
+                        {t("twoPathsMicroPracticeLabel")}
+                      </p>
+                    </div>
+                    <p className="min-h-0 flex-1 overflow-y-auto px-4 py-2 text-[clamp(0.78rem,1.2vw,0.98rem)] leading-relaxed text-[#082721] sm:px-4 sm:pb-3.5 sm:pt-1 lg:px-5 lg:pb-4">
+                      {t(c.forPractice)}
+                    </p>
+                  </div>
+                </div>
+                <div className="two-paths-micro-cell">
+                  <div className="flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border-2 border-[#6F8A7A]/55 bg-white shadow-[0_12px_32px_-8px_rgba(14,61,52,0.35)] sm:rounded-[1.35rem]">
+                    <div className="shrink-0 px-4 pb-0 pt-3 sm:px-4 sm:pt-3.5 lg:px-5 lg:pt-4">
+                      <p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-[#0E3D34] sm:text-[0.7rem] lg:text-[0.72rem]">
+                        {t("twoPathsMicroPatientsLabel")}
+                      </p>
+                    </div>
+                    <p className="min-h-0 flex-1 overflow-y-auto px-4 py-2 text-[clamp(0.78rem,1.2vw,0.98rem)] leading-relaxed text-[#082721] sm:px-4 sm:pb-3.5 sm:pt-1 lg:px-5 lg:pb-4">
+                      {t(c.forClients)}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </div>
@@ -243,34 +353,60 @@ function SlideThreeTech() {
   const t = useTranslations("HowItWorks");
 
   const items = [
-    { icon: IMAGE_PATHS.pillars.pemf, label: t("block3Item1Title"), body: t("block3Item1Body") },
-    { icon: IMAGE_PATHS.pillars.biofrequency, label: t("block3Item2Title"), body: t("block3Item2Body") },
-    { icon: IMAGE_PATHS.pillars.light, label: t("block3Item3Title"), body: t("block3Item3Body") },
+    {
+      src: IMAGE_PATHS.deck.slide4ThreeTechLeft,
+      label: t("block3Item1Title"),
+      body: t("block3Item1Body"),
+    },
+    {
+      src: IMAGE_PATHS.home.productHandElectrode,
+      label: t("block3Item2Title"),
+      body: t("block3Item2Body"),
+    },
+    {
+      src: IMAGE_PATHS.home.productPen,
+      label: t("block3Item3Title"),
+      body: t("block3Item3Body"),
+    },
   ];
 
   return (
-    <div className="home-band--system-visual flex h-full w-full flex-col overflow-hidden">
-      <DeckLogo className="absolute left-5 top-5 z-20 sm:left-8 sm:top-6" />
-      <div className="flex min-h-0 flex-1 flex-col px-5 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-10">
-        <h2 className="max-w-4xl font-heading text-[clamp(1.2rem,3.1vw,2.25rem)] font-bold leading-[1.08] tracking-tight text-[var(--text)]">
-          {t.rich("block2Title", richParts.default)}
-        </h2>
-        <p className="mt-3 max-w-3xl text-[clamp(0.8rem,1.35vw,1rem)] leading-relaxed text-[var(--muted)] sm:mt-4">
-          {t.rich("block2Lead", richParts.default)}
-        </p>
-        <div className="mt-6 grid min-h-0 flex-1 grid-cols-1 gap-3 sm:mt-8 sm:grid-cols-3 sm:gap-4">
-          {items.map((item) => (
+    <div className="home-band--system-visual relative flex h-full w-full flex-col overflow-hidden">
+      <DeckLogo />
+      {/* Title + lead on top; three product cards in one horizontal row pinned to the bottom */}
+      <div className="flex min-h-0 flex-1 flex-col px-5 pb-12 pt-[6.5rem] sm:px-8 sm:pb-14 sm:pt-[7.25rem] lg:px-10 lg:pb-16 lg:pt-28">
+        <div className={`min-h-0 shrink-0 overflow-y-auto ${DECK_HEAD_CENTER}`}>
+          <h2 className="font-heading text-[clamp(1.25rem,3.2vw,2.35rem)] font-bold leading-[1.1] tracking-tight text-[var(--text)]">
+            {t.rich("block2Title", richParts.default)}
+          </h2>
+          <div className="mx-auto mt-5 max-w-3xl space-y-3 text-[clamp(0.8rem,1.35vw,0.98rem)] leading-relaxed text-[var(--muted)] sm:mt-6 sm:space-y-4">
+            <p>{t.rich("block2Lead", richParts.default)}</p>
+          </div>
+        </div>
+        <div className="mt-auto grid min-h-0 w-full grid-cols-3 gap-2 pt-6 sm:gap-4 sm:pt-8">
+          {items.map((item, idx) => (
             <article
               key={item.label}
-              className="flex min-h-0 flex-col rounded-2xl border border-[var(--border)] bg-[var(--surface)]/95 p-4 shadow-[var(--shadow-card)] sm:rounded-3xl sm:p-5"
+              className="flex min-w-0 flex-col rounded-xl border border-[var(--border)] bg-[var(--surface)]/95 p-2 shadow-[var(--shadow-card)] sm:rounded-3xl sm:p-4"
             >
-              <div className="relative mx-auto mb-3 h-12 w-12 shrink-0 sm:mb-4 sm:h-14 sm:w-14">
-                <Image src={item.icon} alt="" fill className="object-contain" sizes="56px" />
+              {/* Same 4:3 box. Left + middle use object-cover when source isn’t 4:3; right (pen) stays contain for native 4:3. */}
+              <div className="relative mb-2 aspect-[4/3] w-full shrink-0 overflow-hidden sm:mb-3">
+                <Image
+                  src={encodeURI(item.src)}
+                  alt=""
+                  fill
+                  className={
+                    idx === 2
+                      ? "object-contain object-center"
+                      : "object-cover object-center"
+                  }
+                  sizes="(max-width: 640px) 30vw, 33vw"
+                />
               </div>
-              <h3 className="text-center font-heading text-[0.85rem] font-bold leading-snug text-[var(--text)] sm:text-[0.95rem]">
+              <h3 className="text-center font-heading text-[0.65rem] font-bold leading-snug text-[var(--text)] sm:text-[0.85rem] md:text-[0.9rem]">
                 {item.label}
               </h3>
-              <p className="mt-2 flex-1 text-center text-[0.72rem] leading-relaxed text-[var(--muted)] sm:text-[0.8rem]">
+              <p className="mt-2 text-center text-[0.58rem] leading-snug text-[var(--muted)] sm:text-[0.72rem] sm:leading-relaxed md:text-[0.76rem]">
                 {item.body}
               </p>
             </article>
@@ -300,17 +436,21 @@ function SlideSystem() {
   const t = useTranslations("Home");
 
   return (
-    <div className="home-band--system-visual flex h-full w-full flex-col overflow-hidden">
-      <DeckLogo className="absolute left-5 top-5 z-20 sm:left-8 sm:top-6" />
-      <div className="grid min-h-0 flex-1 grid-rows-1 gap-5 px-5 py-8 sm:gap-6 sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-center lg:gap-8 lg:px-10 lg:py-8">
+    <div className="relative home-band--system-visual flex h-full w-full flex-col overflow-hidden">
+      <DeckLogo />
+      <div
+        className={`grid min-h-0 flex-1 grid-rows-1 gap-5 px-5 pb-8 sm:gap-6 sm:px-8 sm:pb-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-center lg:gap-8 lg:px-10 lg:pb-8 ${DECK_TOP_PAD}`}
+      >
         <div className="flex min-h-0 min-w-0 flex-col justify-center overflow-y-auto">
-          <h2 className="font-heading text-[clamp(1.15rem,2.8vw,2rem)] font-bold leading-[1.08] tracking-tight text-[var(--text)]">
-            {t.rich("systemTitle", richParts.default)}
-          </h2>
-          <p className="mt-3 text-[clamp(0.78rem,1.25vw,0.95rem)] leading-relaxed text-[var(--muted)] sm:mt-4">
-            {t.rich("systemLead", richParts.default)}
-          </p>
-          <ul className="mt-4 space-y-2 sm:mt-5 sm:space-y-2.5">
+          <div className={DECK_HEAD_CENTER}>
+            <h2 className="font-heading text-[clamp(1.15rem,2.8vw,2rem)] font-bold leading-[1.08] tracking-tight text-[var(--text)]">
+              {t.rich("systemTitle", richParts.default)}
+            </h2>
+            <p className="mt-3 text-[clamp(0.78rem,1.25vw,0.95rem)] leading-relaxed text-[var(--muted)] sm:mt-4">
+              {t.rich("systemLead", richParts.default)}
+            </p>
+          </div>
+          <ul className="mx-auto mt-4 w-full max-w-2xl space-y-2 text-left sm:mt-5 sm:space-y-2.5">
             {SYSTEM_BULLETS.map((b, i) => (
               <li
                 key={b.titleKey}
@@ -362,105 +502,6 @@ function SlideSystem() {
   );
 }
 
-/* ─── Slide 6: Two paths (same card DNA as homepage) ────────────────────── */
-function SlideTwoPaths() {
-  const t = useTranslations("Home");
-
-  const cards = [
-    {
-      title: "twoPathsCard1Title" as const,
-      forPractice: "twoPathsCard1ForPractice" as const,
-      forClients: "twoPathsCard1ForClients" as const,
-      tag: "twoPathsCard1Tag" as const,
-      variant: "grid" as const,
-      photo: IMAGE_PATHS.home.twoPathsA,
-      alt: "twoPathsCard1ImageAlt" as const,
-    },
-    {
-      title: "twoPathsCard2Title" as const,
-      forPractice: "twoPathsCard2ForPractice" as const,
-      forClients: "twoPathsCard2ForClients" as const,
-      tag: "twoPathsCard2Tag" as const,
-      variant: "waves" as const,
-      photo: IMAGE_PATHS.home.twoPathsB,
-      alt: "twoPathsCard2ImageAlt" as const,
-    },
-  ];
-
-  return (
-    <div className="home-band--two-paths flex h-full w-full flex-col overflow-hidden">
-      <DeckLogo className="absolute left-5 top-5 z-20 sm:left-8 sm:top-6" />
-      <div className="flex min-h-0 flex-1 flex-col px-5 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-8">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-heading text-[clamp(1.2rem,3.2vw,2.2rem)] font-bold leading-[1.06] tracking-tight text-[var(--text)]">
-            {t("twoPathsTitle")}
-          </h2>
-          <p className="mt-2 text-[clamp(0.78rem,1.35vw,0.95rem)] leading-relaxed text-[var(--muted)] sm:mt-3">
-            {t.rich("twoPathsLead", richParts.default)}
-          </p>
-        </div>
-        <div className="mt-5 grid min-h-0 flex-1 grid-cols-1 gap-4 sm:mt-6 sm:grid-cols-2 sm:gap-5">
-          {cards.map((c) => (
-            <article
-              key={c.title}
-              className="group relative flex min-h-[200px] flex-col justify-end overflow-hidden rounded-2xl shadow-[var(--shadow-raised)] ring-1 ring-[var(--border)] sm:min-h-0 sm:rounded-3xl"
-            >
-              <Image
-                src={encodeURI(c.photo)}
-                alt={t(c.alt)}
-                fill
-                className="object-cover transition duration-500 group-hover:scale-[1.02]"
-                sizes="50vw"
-              />
-              <div className="pointer-events-none absolute inset-0 z-[1]" aria-hidden>
-                <BrandAtmosphere variant={c.variant} />
-              </div>
-              <div
-                className="absolute inset-x-0 bottom-0 z-[2] h-[72%]"
-                style={{
-                  background:
-                    "linear-gradient(180deg, rgba(8,39,33,0) 0%, rgba(8,39,33,0.35) 35%, rgba(8,39,33,0.78) 100%)",
-                }}
-                aria-hidden
-              />
-              <div className="relative z-10 flex flex-col p-4 sm:p-6">
-                <p className="mb-1.5 inline-flex w-max max-w-full items-center rounded-full border border-white/25 bg-[#082721]/55 px-3 py-1 text-[0.58rem] font-semibold uppercase tracking-[0.18em] text-white/95 backdrop-blur-md sm:text-[0.62rem]">
-                  {t(c.tag)}
-                </p>
-                <h3 className="font-heading text-lg font-bold leading-tight text-white [text-shadow:0_1px_12px_rgba(0,0,0,0.4)] sm:text-xl">
-                  {t(c.title)}
-                </h3>
-                <div className="two-paths-micro-row mt-3">
-                  <div className="two-paths-micro-cell">
-                    <div className="flex min-h-0 flex-1 flex-col rounded-xl border border-white/20 bg-white/[0.12] px-3 py-2 backdrop-blur-md sm:rounded-2xl sm:px-3.5 sm:py-2.5">
-                      <p className="text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-white/75">
-                        {t("twoPathsMicroPracticeLabel")}
-                      </p>
-                      <p className="mt-1.5 text-[0.72rem] leading-relaxed text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.25)] sm:text-[0.78rem]">
-                        {t(c.forPractice)}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="two-paths-micro-cell">
-                    <div className="flex min-h-0 flex-1 flex-col rounded-xl border border-white/20 bg-white/[0.12] px-3 py-2 backdrop-blur-md sm:rounded-2xl sm:px-3.5 sm:py-2.5">
-                      <p className="text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-white/75">
-                        {t("twoPathsMicroPatientsLabel")}
-                      </p>
-                      <p className="mt-1.5 text-[0.72rem] leading-relaxed text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.25)] sm:text-[0.78rem]">
-                        {t(c.forClients)}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 const OUTCOME_FIRST_FOUR = [
   { title: "outcome1Title" as const, clients: "outcome1ForClients" as const, practice: "outcome1ForPractice" as const, alt: "outcome1ImageAlt" as const, i: 0 },
   { title: "outcome2Title" as const, clients: "outcome2ForClients" as const, practice: "outcome2ForPractice" as const, alt: "outcome2ImageAlt" as const, i: 1 },
@@ -468,15 +509,15 @@ const OUTCOME_FIRST_FOUR = [
   { title: "outcome4Title" as const, clients: "outcome4ForClients" as const, practice: "outcome4ForPractice" as const, alt: "outcome4ImageAlt" as const, i: 3 },
 ];
 
-/* ─── Slide 7: Outcomes bento (4 tiles) ─────────────────────────────────── */
+/* ─── Slide 6: Outcomes bento (4 tiles) ─────────────────────────────────── */
 function SlideOutcomes() {
   const t = useTranslations("Home");
 
   return (
-    <div className="home-band--outcomes-grid flex h-full w-full flex-col overflow-hidden">
-      <DeckLogo className="absolute left-5 top-5 z-20 sm:left-8 sm:top-6" />
-      <div className="flex min-h-0 flex-1 flex-col px-5 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-8">
-        <div className="mx-auto max-w-3xl text-center">
+    <div className="relative home-band--outcomes-grid flex h-full w-full flex-col overflow-hidden">
+      <DeckLogo />
+      <div className={`flex min-h-0 flex-1 flex-col px-5 pb-8 sm:px-8 sm:pb-10 lg:px-10 lg:pb-8 ${DECK_TOP_PAD}`}>
+        <div className={`${DECK_HEAD_CENTER} max-w-3xl`}>
           <h2 className="font-heading text-[clamp(1.15rem,3vw,2rem)] font-bold leading-[1.06] tracking-tight text-[var(--text)]">
             {t("outcomesTitle")}
           </h2>
@@ -486,28 +527,29 @@ function SlideOutcomes() {
           {OUTCOME_FIRST_FOUR.map((o) => (
             <li
               key={o.title}
-              className="relative flex min-h-[140px] flex-col justify-end overflow-hidden rounded-2xl ring-1 ring-[var(--border)] sm:min-h-[180px] sm:rounded-3xl"
+              className="relative flex min-h-[150px] flex-col justify-end overflow-hidden rounded-2xl ring-1 ring-[var(--border)] sm:min-h-[200px] sm:rounded-3xl"
             >
               <Image
                 src={encodeURI(IMAGE_PATHS.home.outcomePhotos[o.i])}
                 alt={t(o.alt)}
                 fill
                 className="object-cover"
+                style={{ objectPosition: outcomePhotoCoverPosition(o.i) }}
                 sizes="25vw"
               />
               <div
-                className="absolute inset-x-0 bottom-0 z-[1] h-[62%]"
+                className="absolute inset-x-0 bottom-0 z-[1] h-[68%]"
                 style={{
                   background:
-                    "linear-gradient(180deg, transparent 0%, rgba(8,39,33,0.5) 45%, rgba(8,39,33,0.88) 100%)",
+                    "linear-gradient(180deg, transparent 0%, rgba(8,39,33,0.48) 40%, rgba(8,39,33,0.9) 100%)",
                 }}
                 aria-hidden
               />
-              <div className="relative z-10 p-3 sm:p-4">
-                <h3 className="font-heading text-[0.8rem] font-bold leading-tight text-white sm:text-[0.9rem]">
+              <div className="relative z-10 p-4 sm:p-5">
+                <h3 className="font-heading text-[clamp(0.95rem,2.6vw,1.35rem)] font-bold leading-[1.12] tracking-tight text-white">
                   {t(o.title)}
                 </h3>
-                <p className="mt-1 line-clamp-2 text-[0.62rem] leading-snug text-white/85 sm:line-clamp-3 sm:text-[0.68rem]">
+                <p className="mt-2 line-clamp-2 text-[clamp(0.78rem,1.85vw,1.02rem)] leading-snug text-white/92 sm:mt-2.5 sm:line-clamp-3 sm:leading-relaxed">
                   {t(o.clients)}
                 </p>
               </div>
@@ -519,122 +561,118 @@ function SlideOutcomes() {
   );
 }
 
-const OFFER_CARDS = [
+/** Deep-dive rows — copy + atmosphere variants match `/how-it-works` block 4 (tech details). */
+const DECK_HIW_TECH_ROWS = [
   {
-    title: "arrivalTitle" as const,
-    desc: "arrivalDescription" as const,
-    icon: IMAGE_PATHS.offers.arrival,
-    minKey: "arrivalMin" as const,
-    maxKey: "arrivalMax" as const,
+    atmosphere: "pulse" as const,
+    accent: "var(--brand)",
+    imageRight: false,
+    kicker: "tech1Kicker",
+    title: "tech1Title",
+    whatIsLabel: "tech1WhatIsLabel",
+    whatIs: "tech1WhatIs",
+    scienceLabel: "tech1ScienceLabel",
+    science: "tech1Science",
   },
   {
-    title: "decompTitle" as const,
-    desc: "decompDescription" as const,
-    icon: IMAGE_PATHS.offers.decompression,
-    minKey: "decompMin" as const,
-    maxKey: "decompMax" as const,
+    atmosphere: "waves" as const,
+    accent: "var(--brand-secondary)",
+    imageRight: true,
+    kicker: "tech2Kicker",
+    title: "tech2Title",
+    whatIsLabel: "tech2WhatIsLabel",
+    whatIs: "tech2WhatIs",
+    scienceLabel: "tech2ScienceLabel",
+    science: "tech2Science",
   },
   {
-    title: "membershipTitle" as const,
-    desc: "membershipDescription" as const,
-    icon: IMAGE_PATHS.offers.membership,
-    minKey: null,
-    maxKey: null,
+    atmosphere: "lattice" as const,
+    accent: "var(--brand-deep)",
+    imageRight: false,
+    kicker: "tech3Kicker",
+    title: "tech3Title",
+    whatIsLabel: "tech3WhatIsLabel",
+    whatIs: "tech3WhatIs",
+    scienceLabel: "tech3ScienceLabel",
+    science: "tech3Science",
   },
-  {
-    title: "staffTitle" as const,
-    desc: "staffDescription" as const,
-    icon: IMAGE_PATHS.offers.staff,
-    minKey: null,
-    maxKey: null,
-  },
-];
+] as const;
 
-/* ─── Slide 8: Offers / commercial formats ──────────────────────────────── */
-function SlideOffers() {
-  const t = useTranslations("Offers");
+/* ─── Slides 7–9: One technology per slide (how-it-works copy + BrandAtmosphere) ─ */
+function SlideTechDetail({ rowIndex }: { rowIndex: 0 | 1 | 2 }) {
+  const t = useTranslations("HowItWorks");
+  const row = DECK_HIW_TECH_ROWS[rowIndex];
+  const n = rowIndex + 1;
 
   return (
-    <div className="flex h-full w-full flex-col overflow-hidden bg-[var(--bg)]">
-      <DeckLogo className="absolute left-5 top-5 z-20 sm:left-8 sm:top-6" />
-      <div className="flex min-h-0 flex-1 flex-col px-5 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-8">
-        <h2 className="max-w-3xl font-heading text-[clamp(1.15rem,2.9vw,1.95rem)] font-bold leading-[1.08] tracking-tight text-[var(--text)]">
-          {t("title")}
-        </h2>
-        <p className="mt-2 max-w-3xl text-[clamp(0.75rem,1.25vw,0.9rem)] leading-relaxed text-[var(--muted)] sm:mt-3">
-          {t.rich("lead", richParts.default)}
-        </p>
-        <div className="mt-5 grid min-h-0 flex-1 grid-cols-2 gap-3 sm:mt-6 sm:gap-4">
-          {OFFER_CARDS.map((c) => (
-            <article
-              key={c.title}
-              className="flex min-h-0 flex-col rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-3 shadow-[var(--shadow-card)] sm:rounded-3xl sm:p-4"
-            >
-              <div className="relative mx-auto h-10 w-10 shrink-0 sm:h-12 sm:w-12">
-                <Image src={c.icon} alt="" fill className="object-contain" sizes="48px" />
-              </div>
-              <h3 className="mt-2 text-center font-heading text-[0.8rem] font-bold text-[var(--text)] sm:mt-3 sm:text-[0.88rem]">
-                {t(c.title)}
-              </h3>
-              <p className="mt-2 flex-1 text-center text-[0.65rem] leading-relaxed text-[var(--muted)] sm:text-[0.72rem]">
-                {c.minKey && c.maxKey
-                  ? t(c.desc, { min: t(c.minKey), max: t(c.maxKey) })
-                  : t.rich(c.desc, richParts.default)}
+    <div className="relative home-band--system-visual flex h-full w-full flex-col overflow-hidden">
+      <DeckLogo />
+      <div
+        className={`grid min-h-0 flex-1 grid-cols-1 gap-5 px-5 pb-8 sm:gap-6 sm:px-8 sm:pb-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-center lg:gap-8 lg:px-10 lg:pb-8 ${DECK_TOP_PAD}`}
+      >
+        <div
+          className={`flex min-h-0 min-w-0 flex-col justify-center ${row.imageRight ? "lg:order-2" : ""}`}
+        >
+          <div className="relative mx-auto aspect-[4/3] w-full max-w-lg overflow-hidden rounded-2xl bg-gradient-to-br from-[var(--surface)] via-[var(--panel)] to-[var(--panel-deep)] shadow-[var(--shadow-raised)] ring-1 ring-[var(--border)] sm:rounded-3xl lg:mx-0 lg:max-w-none">
+            <BrandAtmosphere variant={row.atmosphere} />
+            <div className="pointer-events-none absolute inset-0 flex items-end p-4 sm:p-6" aria-hidden>
+              <span
+                className="font-heading text-[clamp(2.5rem,10vw,4.5rem)] font-bold leading-none opacity-[0.16]"
+                style={{ color: row.accent }}
+              >
+                {String(n).padStart(2, "0")}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          className={`flex min-h-0 min-w-0 flex-col justify-center overflow-hidden ${row.imageRight ? "lg:order-1" : ""}`}
+        >
+          {/* Kicker / title: same scale as slide 4 (HowItWorks) + slide 5 system band */}
+          <p
+            className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] sm:text-[0.7rem]"
+            style={{ color: row.accent }}
+          >
+            {t(row.kicker)}
+          </p>
+          <h2 className="mt-2 font-heading text-[clamp(1.25rem,3.2vw,2.35rem)] font-bold leading-[1.1] tracking-tight text-[var(--text)] sm:mt-3">
+            {t(row.title)}
+          </h2>
+          {/* Copy blocks: same card shell + type scale as SlideSystem bullets */}
+          <div className="mt-4 grid gap-2 sm:mt-5 sm:gap-2.5">
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)]/95 px-3 py-2.5 shadow-sm sm:px-3.5 sm:py-3">
+              <p
+                className="mb-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] sm:mb-2 sm:text-[0.7rem]"
+                style={{ color: row.accent }}
+              >
+                {t(row.whatIsLabel)}
               </p>
-            </article>
-          ))}
+              <p className="text-[0.72rem] leading-relaxed text-[var(--text)] sm:text-[0.78rem]">
+                {t.rich(row.whatIs, richParts.default)}
+              </p>
+            </div>
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)]/95 px-3 py-2.5 shadow-sm sm:px-3.5 sm:py-3">
+              <p className="mb-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-[var(--muted)] sm:mb-2 sm:text-[0.7rem]">
+                {t(row.scienceLabel)}
+              </p>
+              <p className="text-[0.72rem] leading-relaxed text-[var(--muted)] sm:text-[0.78rem]">{t(row.science)}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
-const SECTOR_ROW = [
-  { title: "sectorTherapistsTitle", teaser: "sectorTherapistsTeaser", icon: IMAGE_PATHS.sectors.therapists },
-  { title: "sectorBeautyTitle", teaser: "sectorBeautyTeaser", icon: IMAGE_PATHS.sectors["beauty-cosmetic"] },
-  { title: "sectorSportsTitle", teaser: "sectorSportsTeaser", icon: IMAGE_PATHS.sectors["sports-performance"] },
-  { title: "sectorPhysioTitle", teaser: "sectorPhysioTeaser", icon: IMAGE_PATHS.sectors.physiotherapists },
-  { title: "sectorDentistsTitle", teaser: "sectorDentistsTeaser", icon: IMAGE_PATHS.sectors.dentists },
-  { title: "sectorClinicsTitle", teaser: "sectorClinicsTeaser", icon: IMAGE_PATHS.sectors.clinics },
-] as const;
-
-/* ─── Slide 9: Who it’s for ─────────────────────────────────────────────── */
-function SlideProfessionals() {
-  const t = useTranslations("Home");
-
-  return (
-    <div className="home-band--welcome flex h-full w-full flex-col overflow-hidden">
-      <DeckLogo className="absolute left-5 top-5 z-20 sm:left-8 sm:top-6" />
-      <div className="flex min-h-0 flex-1 flex-col px-5 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-8">
-        <h2 className="max-w-3xl font-heading text-[clamp(1.1rem,2.8vw,1.9rem)] font-bold leading-[1.08] tracking-tight text-[var(--text)]">
-          {t.rich("professionalsTitle", richParts.default)}
-        </h2>
-        <div className="mt-5 grid min-h-0 flex-1 grid-cols-2 gap-3 sm:mt-6 sm:grid-cols-3 sm:gap-4">
-          {SECTOR_ROW.map((s) => (
-            <div
-              key={s.title}
-              className="flex min-h-0 flex-col rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-3 shadow-sm sm:rounded-3xl sm:p-4"
-            >
-              <div className="relative mx-auto h-9 w-9 shrink-0 sm:h-10 sm:w-10">
-                <Image src={s.icon} alt="" fill className="object-contain" sizes="40px" />
-              </div>
-              <h3 className="mt-2 text-center font-heading text-[0.72rem] font-bold text-[var(--text)] sm:text-[0.78rem]">
-                {t(s.title)}
-              </h3>
-              <p className="mt-1 flex-1 text-center text-[0.62rem] leading-snug text-[var(--muted)] sm:text-[0.68rem]">
-                {t(s.teaser)}
-              </p>
-            </div>
-          ))}
-        </div>
-        <div className="mt-4 flex justify-center sm:mt-5">
-          <Link href="/professionals" className="btn-outline inline-flex px-5 py-2 text-sm">
-            {t("professionalsExploreApplications")}
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
+function SlideTechPemf() {
+  return <SlideTechDetail rowIndex={0} />;
+}
+function SlideTechBiofrequency() {
+  return <SlideTechDetail rowIndex={1} />;
+}
+function SlideTechColdLaser() {
+  return <SlideTechDetail rowIndex={2} />;
 }
 
 const ROLLOUT_STEPS = [
@@ -644,61 +682,68 @@ const ROLLOUT_STEPS = [
   { n: 4, titleKey: "rolloutStep4Title", detailKey: "rolloutStep4Detail" },
 ] as const;
 
-/* ─── Slide 10: Rollout ─────────────────────────────────────────────────── */
+/* ─── Slide 10: Rollout — 2×2 step grid, presentation-scale type ─────────── */
 function SlideRollout() {
   const t = useTranslations("Home");
 
   return (
-    <div className="home-band--sectors flex h-full w-full flex-col overflow-hidden">
-      <DeckLogo className="absolute left-5 top-5 z-20 sm:left-8 sm:top-6" />
-      <div className="mx-auto flex min-h-0 w-full max-w-[720px] flex-1 flex-col px-5 py-8 sm:px-8 sm:py-10 lg:py-12">
-        <h2 className="text-center font-heading text-[clamp(1.1rem,2.8vw,1.85rem)] font-bold leading-[1.08] tracking-tight text-[var(--text)]">
-          {t.rich("rolloutTitle", richParts.default)}
-        </h2>
-        <p className="mt-3 text-center text-[clamp(0.78rem,1.25vw,0.92rem)] leading-relaxed text-[var(--muted)] sm:mt-4">
-          {t("rolloutLead")}
-        </p>
-        <p className="mb-2 mt-6 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[var(--brand-strong)] sm:mb-2.5 sm:mt-8 sm:text-[0.7rem]">
+    <div className="relative home-band--system-visual flex h-full w-full flex-col overflow-hidden">
+      <DeckLogo />
+      <div
+        className={`mx-auto flex min-h-0 w-full max-w-6xl flex-1 flex-col px-5 pb-6 sm:px-8 sm:pb-8 lg:px-10 lg:pb-8 ${DECK_TOP_PAD}`}
+      >
+        <div className={`${DECK_HEAD_CENTER} max-w-4xl shrink-0`}>
+          <h2 className="font-heading text-[clamp(1.2rem,3.2vw,2.35rem)] font-bold leading-[1.1] tracking-tight text-[var(--text)]">
+            {t.rich("rolloutTitle", richParts.default)}
+          </h2>
+          <p className="mx-auto mt-3 max-w-3xl text-[clamp(0.85rem,1.5vw,1.05rem)] leading-relaxed text-[var(--muted)] sm:mt-4">
+            {t("rolloutLead")}
+          </p>
+        </div>
+
+        <p className="mt-5 shrink-0 text-center text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-[var(--brand-strong)] sm:mt-6 sm:text-[0.78rem]">
           {t("rolloutWeeksIntro")}
         </p>
-        <ol className="m-0 max-h-[min(50dvh,420px)] list-none space-y-2 overflow-y-auto p-0 sm:max-h-none sm:space-y-2.5">
+
+        <ol className="mt-4 grid min-h-0 flex-1 grid-cols-1 content-start gap-4 sm:mt-5 sm:grid-cols-2 sm:gap-5 lg:mt-6 lg:gap-6">
           {ROLLOUT_STEPS.map((step) => (
             <li
               key={step.n}
-              className="flex gap-2.5 rounded-xl border border-[var(--border)] bg-[var(--surface)]/95 px-3 py-2.5 text-[0.72rem] shadow-sm sm:gap-3 sm:px-3.5 sm:py-3 sm:text-[0.8rem]"
+              className="flex min-h-0 min-w-0 flex-col gap-4 rounded-2xl border border-[var(--border)] bg-[var(--surface)]/95 p-5 shadow-[var(--shadow-card)] ring-1 ring-[var(--border)]/60 sm:flex-row sm:items-start sm:gap-5 sm:rounded-3xl sm:p-6 lg:p-7"
             >
               <span
-                className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--brand)] text-[0.6rem] font-bold text-white sm:h-6 sm:w-6 sm:text-xs"
+                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--brand)] font-heading text-lg font-bold text-white shadow-[0_8px_24px_-6px_rgba(14,61,52,0.45)] sm:h-14 sm:w-14 sm:text-xl"
                 aria-hidden
               >
                 {step.n}
               </span>
-              <span className="flex min-w-0 flex-col gap-0.5">
-                <span className="font-semibold leading-snug text-[var(--text)]">{t(step.titleKey)}</span>
-                <span className="leading-snug text-[var(--muted)]">
+              <div className="min-w-0 flex-1">
+                <h3 className="font-heading text-[clamp(0.95rem,2.2vw,1.28rem)] font-bold leading-snug tracking-tight text-[var(--text)]">
+                  {t(step.titleKey)}
+                </h3>
+                <p className="mt-2 text-[clamp(0.82rem,1.5vw,1.05rem)] leading-relaxed text-[var(--muted)] sm:mt-3 sm:leading-[1.55]">
                   {t.rich(step.detailKey, richParts.default)}
-                </span>
-              </span>
+                </p>
+              </div>
             </li>
           ))}
         </ol>
-        <div className="mt-6 flex flex-wrap justify-center gap-3 sm:mt-8">
-          <Link href="/contact" className="btn-primary inline-flex px-5 py-2.5 text-sm">
-            {t("stepsCtaContact")}
-          </Link>
-          <Link href="/pilot-program" className="btn-outline inline-flex px-5 py-2.5 text-sm">
-            {t("stepsCtaPilot")}
-          </Link>
-        </div>
       </div>
     </div>
   );
 }
 
-/* ─── Slide 11: CTA (offers-style hero photography) ─────────────────────── */
+const DECK_CLOSING_SITE_URL = "https://nordoravital.com";
+
+/* ─── Slide 11: Closing — hero + website & contact (no CTAs) ──────────────── */
 function SlideClosing() {
   const t = useTranslations("HowItWorks");
   const tHome = useTranslations("Home");
+  const tContact = useTranslations("Contact");
+
+  const mail = tContact("companyEmail");
+  const phone = tContact("companyPhone");
+  const phoneTel = tContact("companyPhoneTel");
 
   return (
     <div className="relative flex h-full w-full flex-col justify-end overflow-hidden">
@@ -716,22 +761,55 @@ function SlideClosing() {
           aria-hidden
         />
       </div>
-      <DeckLogo className="absolute left-5 top-5 z-20 sm:left-8 sm:top-6" invert />
-      <div className="relative z-10 px-5 pb-10 pt-16 sm:px-10 sm:pb-12">
-        <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white/80">{t("ctaKicker")}</p>
-        <h2 className="mt-3 max-w-3xl font-heading text-[clamp(1.2rem,3.2vw,2.35rem)] font-bold leading-[1.06] tracking-tight text-white">
+      <DeckLogo invert />
+      <div className="relative z-10 mx-auto max-w-3xl px-5 pb-10 pt-16 text-center sm:px-10 sm:pb-12">
+        <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white/80">{tHome("deckClosingKicker")}</p>
+        <h2 className="mt-3 font-heading text-[clamp(1.2rem,3.2vw,2.35rem)] font-bold leading-[1.06] tracking-tight text-white">
           {t.rich("ctaTitle", richParts.onDark)}
         </h2>
-        <p className="mt-4 max-w-2xl text-[clamp(0.82rem,1.45vw,1.05rem)] leading-relaxed text-white/88">
+        <p className="mt-4 text-[clamp(0.82rem,1.45vw,1.05rem)] leading-relaxed text-white/88">
           {t.rich("ctaBody", richParts.onDark)}
         </p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Link href="/pilot-program" className="btn-primary inline-flex px-6 py-3">
-            {t("ctaBookDemo")}
-          </Link>
-          <Link href="/offers" className="btn-ghost-white inline-flex px-6 py-3">
-            {tHome("learnMore")}
-          </Link>
+
+        <div className="mt-8 rounded-2xl border border-white/18 bg-[#061a16]/55 px-5 py-6 text-left shadow-[0_20px_50px_-20px_rgba(0,0,0,0.5)] backdrop-blur-sm sm:mt-10 sm:px-8 sm:py-7">
+          <dl className="m-0 grid gap-5 sm:grid-cols-3 sm:gap-6">
+            <div className="min-w-0 sm:text-center">
+              <dt className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/55">{t("closingWebsiteLabel")}</dt>
+              <dd className="m-0 mt-2">
+                <a
+                  href={DECK_CLOSING_SITE_URL}
+                  className="break-all text-[clamp(0.9rem,1.6vw,1.08rem)] font-semibold text-white underline decoration-white/35 underline-offset-[5px] transition hover:decoration-white/80"
+                >
+                  {t("closingWebsiteDisplay")}
+                </a>
+              </dd>
+            </div>
+            <div className="min-w-0 sm:text-center">
+              <dt className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/55">{tContact("email")}</dt>
+              <dd className="m-0 mt-2">
+                <a
+                  href={`mailto:${mail}`}
+                  className="break-all text-[clamp(0.9rem,1.6vw,1.08rem)] font-semibold text-white underline decoration-white/35 underline-offset-[5px] transition hover:decoration-white/80"
+                >
+                  {mail}
+                </a>
+              </dd>
+            </div>
+            <div className="min-w-0 sm:text-center">
+              <dt className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/55">{tContact("phone")}</dt>
+              <dd className="m-0 mt-2">
+                <a
+                  href={`tel:${phoneTel}`}
+                  className="text-[clamp(0.9rem,1.6vw,1.08rem)] font-semibold text-white underline decoration-white/35 underline-offset-[5px] transition hover:decoration-white/80"
+                >
+                  {phone}
+                </a>
+              </dd>
+            </div>
+          </dl>
+          <p className="mt-5 border-t border-white/12 pt-4 text-center text-[0.72rem] leading-snug text-white/65 sm:mt-6 sm:text-[0.76rem]">
+            {tContact("companyName")}
+          </p>
         </div>
       </div>
     </div>
@@ -744,10 +822,10 @@ const SLIDES = [
   SlideExperience,
   SlideThreeTech,
   SlideSystem,
-  SlideTwoPaths,
   SlideOutcomes,
-  SlideOffers,
-  SlideProfessionals,
+  SlideTechPemf,
+  SlideTechBiofrequency,
+  SlideTechColdLaser,
   SlideRollout,
   SlideClosing,
 ];

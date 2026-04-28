@@ -1,20 +1,27 @@
 #!/usr/bin/env node
 /**
- * Deck copy spreadsheet: A = value (key), B = English, C = German, D = LV
- * Run: node scripts/generate-deck-copy-xlsx.mjs
- * Output: public/downloads/sanza-deck-copy.xlsx
+ * Deck-only translation sheet (same keys as `src/lib/deck-message-keys.ts`, slide order).
+ *
+ * Columns: A = Website value (key), B = English, C = German, D = Latvian
+ *
+ * Run: npm run deck:export-xlsx
+ * Output: deck-messages-all-languages.xlsx (project root)
  */
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import * as XLSX from "xlsx";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
 
 const keysFile = fs.readFileSync(path.join(root, "src/lib/deck-message-keys.ts"), "utf8");
-const keyMatches = [...keysFile.matchAll(/"((?:Home|Offers|HowItWorks)\.[^"]+)"/g)];
-const keys = [...new Set(keyMatches.map((m) => m[1]))];
+const block = keysFile.match(/export const DECK_MESSAGE_KEYS = \[([\s\S]*?)\] as const/);
+if (!block) {
+  throw new Error("Could not parse DECK_MESSAGE_KEYS from deck-message-keys.ts");
+}
+/** @type {string[]} */
+const keys = [...block[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]);
 
 function loadJson(locale) {
   return JSON.parse(fs.readFileSync(path.join(root, "messages", `${locale}.json`), "utf8"));
@@ -27,16 +34,11 @@ function getByPath(obj, fullKey) {
   }, obj);
 }
 
-function stripTags(s) {
-  if (typeof s !== "string") return "";
-  return s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
-}
-
 function pick(messages, fullKey) {
   const v = getByPath(messages, fullKey);
   if (v === undefined || v === null) return "";
   if (typeof v === "object") return JSON.stringify(v);
-  return stripTags(String(v));
+  return String(v);
 }
 
 const en = loadJson("en");
@@ -44,12 +46,13 @@ const de = loadJson("de");
 const lv = loadJson("lv");
 
 const dataRows = keys.map((k) => [k, pick(en, k), pick(de, k), pick(lv, k)]);
-const ws = XLSX.utils.aoa_to_sheet([["value", "English", "German", "LV"], ...dataRows]);
+const ws = XLSX.utils.aoa_to_sheet([
+  ["Website value", "English", "German", "Latvian"],
+  ...dataRows,
+]);
 const wb = XLSX.utils.book_new();
-XLSX.utils.book_append_sheet(wb, ws, "Deck copy");
+XLSX.utils.book_append_sheet(wb, ws, "Deck");
 
-const outDir = path.join(root, "public", "downloads");
-fs.mkdirSync(outDir, { recursive: true });
-const outFile = path.join(outDir, "sanza-deck-copy.xlsx");
+const outFile = path.join(root, "deck-messages-all-languages.xlsx");
 XLSX.writeFile(wb, outFile);
-console.log("Wrote", outFile, `(${keys.length} keys)`);
+console.log(`Wrote ${outFile} (${keys.length} deck keys, slide order)`);

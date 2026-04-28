@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { FadeUp } from "@/components/fade-up";
 import { BrandAtmosphere } from "@/components/brand-atmosphere";
+import { outcomePhotoCoverPosition } from "@/lib/outcome-photo-cover-focus";
 import { IMAGE_PATHS } from "@/lib/public-images";
 
 type Variant = "pulse" | "aurora" | "waves" | "grid" | "lattice";
@@ -110,6 +111,7 @@ export async function HomeClientOutcomes() {
                       alt={t(o.imageAlt)}
                       fill
                       className="object-cover"
+                      style={{ objectPosition: outcomePhotoCoverPosition(i) }}
                       sizes="(max-width: 1024px) 100vw, min(1200px, 66vw)"
                       priority={i === 0}
                     />
@@ -170,6 +172,7 @@ export async function HomeClientOutcomes() {
                         alt={t(o.imageAlt)}
                         fill
                         className="object-cover"
+                        style={{ objectPosition: outcomePhotoCoverPosition(i) }}
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                     </div>

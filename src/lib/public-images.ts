@@ -73,6 +73,8 @@ export const IMAGE_PATHS = {
     systemHero: "/images/sanza_gesamtsystem_645.png",
     productMat: "/images/02_sanza_mat_700.jpg",
     productPad: "/images/02_sanza_pad_700.jpg",
+    /** Hand electrodes — matches How it works / biofrequency copy */
+    productHandElectrode: "/images/sanza hand electrode 01.jpg",
     productPen: "/images/02_sanza_pen_700.jpg",
     productGenerator: "/images/02_sanza_generator_shadow.png",
     partnerSide: "/images/references/lifestyle/wellness-room-natural-materials.jpg",
@@ -84,5 +86,12 @@ export const IMAGE_PATHS = {
       "/images/sanza focus and presence.jpg",
       "/images/sanza comfort routines.jpg",
     ] as const,
+  },
+  /** Lead deck — static photography under public/images/ */
+  deck: {
+    slide1Background: "/images/Sanza mat 01.jpg",
+    slide2Welcome: "/images/sanza a softer landing.jpg",
+    /** Slide 4 (three technologies) — left card photography */
+    slide4ThreeTechLeft: "/images/sanza comfort routines 01.png",
   },
 } as const;
