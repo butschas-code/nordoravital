@@ -6,7 +6,7 @@ import { Link } from "@/i18n/navigation";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { useContactDrawer } from "@/components/contact/contact-drawer-context";
 
-export type MobileNavLink = { href: string; label: string };
+export type MobileNavLink = { href: string; label: string; external?: boolean };
 
 export function SiteHeaderMobileNav({ links }: { links: MobileNavLink[] }) {
   const t = useTranslations("Nav");
@@ -102,13 +102,25 @@ export function SiteHeaderMobileNav({ links }: { links: MobileNavLink[] }) {
               <ul className="flex flex-col gap-1">
                 {links.map((link) => (
                   <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="block rounded-xl px-3 py-3 text-base font-medium text-[var(--text)] transition hover:bg-[var(--panel)]"
-                      onClick={() => setOpen(false)}
-                    >
-                      {link.label}
-                    </Link>
+                    {link.external ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block rounded-xl px-3 py-3 text-base font-medium text-[var(--text)] transition hover:bg-[var(--panel)]"
+                        onClick={() => setOpen(false)}
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="block rounded-xl px-3 py-3 text-base font-medium text-[var(--text)] transition hover:bg-[var(--panel)]"
+                        onClick={() => setOpen(false)}
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

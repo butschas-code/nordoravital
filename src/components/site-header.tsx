@@ -13,6 +13,7 @@ export async function SiteHeader() {
     { href: "/how-it-works", label: t("howItWorks") },
     { href: "/offers", label: t("offers") },
     { href: "/professionals", label: t("professionals") },
+    { href: "https://nordoravital.sanzanet.com/shop-en", label: t("visitShop"), external: true },
   ];
 
   return (
@@ -43,12 +44,23 @@ export async function SiteHeader() {
           <ul className="flex flex-nowrap items-center justify-center gap-1 md:gap-2">
             {navLinks.map((link) => (
               <li key={link.href} className="shrink-0">
-                <Link
-                  href={link.href}
-                  className="block whitespace-nowrap rounded-lg px-3 py-2.5 text-base font-normal tracking-tight text-[var(--muted)] transition-colors hover:bg-[var(--panel)] hover:text-[var(--text)]"
-                >
-                  {link.label}
-                </Link>
+                {link.external ? (
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block whitespace-nowrap rounded-lg px-3 py-2.5 text-base font-normal tracking-tight text-[var(--muted)] transition-colors hover:bg-[var(--panel)] hover:text-[var(--text)]"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    href={link.href}
+                    className="block whitespace-nowrap rounded-lg px-3 py-2.5 text-base font-normal tracking-tight text-[var(--muted)] transition-colors hover:bg-[var(--panel)] hover:text-[var(--text)]"
+                  >
+                    {link.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
