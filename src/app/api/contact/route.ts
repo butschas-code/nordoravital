@@ -14,7 +14,7 @@ const bodySchema = z.object({
   source: z.literal("contact").optional(),
 });
 
-const DEFAULT_TO = "butschas@gmail.com";
+const DEFAULT_TO = "info@nordoravital.com";
 
 function escapeHtml(s: string) {
   return s

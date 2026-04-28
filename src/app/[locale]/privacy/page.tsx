@@ -26,9 +26,9 @@ function ContentEN() {
       </p>
       <div className="legal-info-block">
         <strong>Nordora Vital SIA</strong>
-        <p>[Street Address], Riga LV-[XXXX], Latvia</p>
-        <p>Commercial Register No.: [000000-0]</p>
-        <p>Email: hello@nordoravital.com</p>
+        <p>Vēja iela 4–2, Ādaži, LV-2164, Latvia</p>
+        <p>Commercial Register No.: 40203739804</p>
+        <p>Email: info@nordoravital.com</p>
       </div>
 
       <h2>2. Data We Collect</h2>
@@ -88,7 +88,7 @@ function ContentEN() {
         <li><strong>Withdraw consent</strong> (Art. 7(3)) — where processing is based on consent, withdraw it at any time without affecting the lawfulness of prior processing</li>
       </ul>
       <p>
-        To exercise any of these rights, please email us at <a href="mailto:hello@nordoravital.com">hello@nordoravital.com</a>. We will respond within one calendar month (extendable by a further two months in complex cases, with notice).
+        To exercise any of these rights, please email us at <a href="mailto:info@nordoravital.com">info@nordoravital.com</a>. We will respond within one calendar month (extendable by a further two months in complex cases, with notice).
       </p>
 
       <h2>9. Right to Lodge a Complaint</h2>
@@ -116,7 +116,7 @@ function ContentEN() {
       <h2>12. Contact</h2>
       <p>
         For any questions about this Privacy Policy or our data practices, please contact us at:{" "}
-        <a href="mailto:hello@nordoravital.com">hello@nordoravital.com</a>
+        <a href="mailto:info@nordoravital.com">info@nordoravital.com</a>
       </p>
     </>
   );
@@ -129,9 +129,9 @@ function ContentDE() {
       <p>Verantwortlich im Sinne der DSGVO ist:</p>
       <div className="legal-info-block">
         <strong>Nordora Vital SIA</strong>
-        <p>[Straße, Hausnummer], Riga LV-[XXXX], Lettland</p>
-        <p>Handelsregisternummer: [000000-0]</p>
-        <p>E-Mail: hello@nordoravital.com</p>
+        <p>Vēja iela 4–2, Ādaži, LV-2164, Lettland</p>
+        <p>Handelsregisternummer: 40203739804</p>
+        <p>E-Mail: info@nordoravital.com</p>
       </div>
 
       <h2>2. Erhobene Daten</h2>
@@ -190,7 +190,7 @@ function ContentDE() {
         <li><strong>Widerruf der Einwilligung</strong> (Art. 7 Abs. 3) — jederzeitiger Widerruf, ohne Rückwirkung auf die vorangegangene Verarbeitung</li>
       </ul>
       <p>
-        Bitte wenden Sie sich an <a href="mailto:hello@nordoravital.com">hello@nordoravital.com</a>. Wir antworten innerhalb eines Kalendermonats.
+        Bitte wenden Sie sich an <a href="mailto:info@nordoravital.com">info@nordoravital.com</a>. Wir antworten innerhalb eines Kalendermonats.
       </p>
 
       <h2>9. Beschwerderecht</h2>
@@ -216,7 +216,7 @@ function ContentDE() {
       <h2>12. Kontakt</h2>
       <p>
         Bei Fragen zu dieser Datenschutzerklärung wenden Sie sich bitte an:{" "}
-        <a href="mailto:hello@nordoravital.com">hello@nordoravital.com</a>
+        <a href="mailto:info@nordoravital.com">info@nordoravital.com</a>
       </p>
     </>
   );
@@ -229,9 +229,9 @@ function ContentLV() {
       <p>Par jūsu personas datu apstrādi atbildīgais pārzinis ir:</p>
       <div className="legal-info-block">
         <strong>Nordora Vital SIA</strong>
-        <p>[Iela, mājas numurs], Rīga LV-[XXXX], Latvija</p>
-        <p>Reģistrācijas numurs: [000000-0]</p>
-        <p>E-pasts: hello@nordoravital.com</p>
+        <p>Vēja iela 4–2, Ādaži, LV-2164, Latvija</p>
+        <p>Reģistrācijas numurs: 40203739804</p>
+        <p>E-pasts: info@nordoravital.com</p>
       </div>
 
       <h2>2. Mūsu apkopotie dati</h2>
@@ -290,7 +290,7 @@ function ContentLV() {
         <li><strong>Piekrišanas atsaukšanu</strong> (7. panta 3. punkts) — jebkurā laikā bez ietekmes uz iepriekšējo apstrādi</li>
       </ul>
       <p>
-        Lai izmantotu savas tiesības, sazinieties ar mums: <a href="mailto:hello@nordoravital.com">hello@nordoravital.com</a>. Mēs atbildēsim viena kalendārā mēneša laikā.
+        Lai izmantotu savas tiesības, sazinieties ar mums: <a href="mailto:info@nordoravital.com">info@nordoravital.com</a>. Mēs atbildēsim viena kalendārā mēneša laikā.
       </p>
 
       <h2>9. Tiesības iesniegt sūdzību</h2>
@@ -316,7 +316,7 @@ function ContentLV() {
       <h2>12. Kontakti</h2>
       <p>
         Jautājumu gadījumā par šo privātuma politiku vai mūsu datu apstrādi sazinieties ar mums:{" "}
-        <a href="mailto:hello@nordoravital.com">hello@nordoravital.com</a>
+        <a href="mailto:info@nordoravital.com">info@nordoravital.com</a>
       </p>
     </>
   );

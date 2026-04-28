@@ -1,5 +1,5 @@
 import createMiddleware from "next-intl/middleware";
-import { type NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { routing } from "./i18n/routing";
 import {
   LOCALE_COOKIE_MAX_AGE_SECONDS,
@@ -21,19 +21,32 @@ function isPublicAsset(pathname: string): boolean {
   return PUBLIC_FILE.test(pathname);
 }
 
+function withPathnameHeader(request: NextRequest): NextResponse {
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-nordora-pathname", request.nextUrl.pathname);
+  return NextResponse.next({ request: { headers: requestHeaders } });
+}
+
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  /** Legacy /deck → canonical localized URL */
+  if (pathname === "/deck" || pathname === "/deck/") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/en/deck";
+    return NextResponse.redirect(url);
+  }
 
   if (
     pathname.startsWith("/api") ||
     pathname.startsWith("/_next") ||
     pathname.startsWith("/_vercel")
   ) {
-    return NextResponse.next();
+    return withPathnameHeader(request);
   }
 
   if (isPublicAsset(pathname)) {
-    return NextResponse.next();
+    return withPathnameHeader(request);
   }
 
   if (!pathnameHasLocale(pathname)) {
@@ -50,7 +63,9 @@ export default function middleware(request: NextRequest) {
     return response;
   }
 
-  return intlMiddleware(request);
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-nordora-pathname", pathname);
+  return intlMiddleware(new NextRequest(request.url, { headers: requestHeaders }));
 }
 
 export const config = {

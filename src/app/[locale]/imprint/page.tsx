@@ -26,8 +26,8 @@ function ContentEN() {
       <h2>1. Service Provider</h2>
       <div className="legal-info-block">
         <strong>Nordora Vital SIA</strong>
-        <p>[Street Name, Number]</p>
-        <p>Riga, LV-[XXXX]</p>
+        <p>Vēja iela 4–2, Ādaži</p>
+        <p>LV-2164, Latvia</p>
         <p>Latvia</p>
       </div>
 
@@ -35,18 +35,18 @@ function ContentEN() {
       <ul>
         <li><strong>Legal form:</strong> SIA (<em>sabiedrība ar ierobežotu atbildību</em> / limited liability company), registered in Latvia</li>
         <li><strong>Commercial Register:</strong> Latvijas Uzņēmumu reģistrs (Enterprise Register of Latvia)</li>
-        <li><strong>Registration number:</strong> [000000-0]</li>
-        <li><strong>VAT registration number:</strong> LV[00000000000]</li>
+        <li><strong>Registration number:</strong> 40203739804</li>
+        <li><strong>VAT registration number:</strong> LV40203739804</li>
       </ul>
 
       <h2>3. Contact</h2>
       <ul>
-        <li><strong>Email:</strong> <a href="mailto:hello@nordoravital.com">hello@nordoravital.com</a></li>
-        <li><strong>Telephone:</strong> [+371 XX XXX XXX]</li>
+        <li><strong>Email:</strong> <a href="mailto:info@nordoravital.com">info@nordoravital.com</a></li>
+        <li><strong>Telephone:</strong> +371 20 727 915</li>
       </ul>
 
       <h2>4. Authorised Representative</h2>
-      <p>[First Name Last Name], Director</p>
+      <p>Sascha Butschalowski, Managing Director</p>
 
       <h2>5. Content Responsibility</h2>
       <p>
@@ -76,8 +76,8 @@ function ContentDE() {
       <h2>1. Anbieter</h2>
       <div className="legal-info-block">
         <strong>Nordora Vital SIA</strong>
-        <p>[Straße, Hausnummer]</p>
-        <p>Riga, LV-[XXXX]</p>
+        <p>Vēja iela 4–2, Ādaži</p>
+        <p>LV-2164, Lettland</p>
         <p>Lettland</p>
       </div>
 
@@ -85,18 +85,18 @@ function ContentDE() {
       <ul>
         <li><strong>Rechtsform:</strong> SIA (<em>sabiedrība ar ierobežotu atbildību</em> / Gesellschaft mit beschränkter Haftung), registriert in Lettland</li>
         <li><strong>Handelsregister:</strong> Latvijas Uzņēmumu reģistrs (Unternehmensregister Lettlands)</li>
-        <li><strong>Registernummer:</strong> [000000-0]</li>
-        <li><strong>Umsatzsteuer-Identifikationsnummer:</strong> LV[00000000000]</li>
+        <li><strong>Registernummer:</strong> 40203739804</li>
+        <li><strong>Umsatzsteuer-Identifikationsnummer:</strong> LV40203739804</li>
       </ul>
 
       <h2>3. Kontakt</h2>
       <ul>
-        <li><strong>E-Mail:</strong> <a href="mailto:hello@nordoravital.com">hello@nordoravital.com</a></li>
-        <li><strong>Telefon:</strong> [+371 XX XXX XXX]</li>
+        <li><strong>E-Mail:</strong> <a href="mailto:info@nordoravital.com">info@nordoravital.com</a></li>
+        <li><strong>Telefon:</strong> +371 20 727 915</li>
       </ul>
 
       <h2>4. Vertretungsberechtigte Person</h2>
-      <p>[Vorname Nachname], Geschäftsführer</p>
+      <p>Sascha Butschalowski, Geschäftsführer</p>
 
       <h2>5. Inhaltliche Verantwortlichkeit</h2>
       <p>
@@ -126,8 +126,8 @@ function ContentLV() {
       <h2>1. Pakalpojumu sniedzējs</h2>
       <div className="legal-info-block">
         <strong>Nordora Vital SIA</strong>
-        <p>[Iela, mājas numurs]</p>
-        <p>Rīga, LV-[XXXX]</p>
+        <p>Vēja iela 4–2, Ādaži</p>
+        <p>LV-2164, Latvija</p>
         <p>Latvija</p>
       </div>
 
@@ -135,18 +135,18 @@ function ContentLV() {
       <ul>
         <li><strong>Juridiskā forma:</strong> SIA (sabiedrība ar ierobežotu atbildību), reģistrēta Latvijā</li>
         <li><strong>Komercreģistrs:</strong> Latvijas Uzņēmumu reģistrs</li>
-        <li><strong>Reģistrācijas numurs:</strong> [000000-0]</li>
-        <li><strong>PVN reģistrācijas numurs:</strong> LV[00000000000]</li>
+        <li><strong>Reģistrācijas numurs:</strong> 40203739804</li>
+        <li><strong>PVN reģistrācijas numurs:</strong> LV40203739804</li>
       </ul>
 
       <h2>3. Kontaktinformācija</h2>
       <ul>
-        <li><strong>E-pasts:</strong> <a href="mailto:hello@nordoravital.com">hello@nordoravital.com</a></li>
-        <li><strong>Tālrunis:</strong> [+371 XX XXX XXX]</li>
+        <li><strong>E-pasts:</strong> <a href="mailto:info@nordoravital.com">info@nordoravital.com</a></li>
+        <li><strong>Tālrunis:</strong> +371 20 727 915</li>
       </ul>
 
       <h2>4. Pilnvarotā persona</h2>
-      <p>[Vārds Uzvārds], Direktors</p>
+      <p>Sascha Butschalowski, Direktors</p>
 
       <h2>5. Atbildība par saturu</h2>
       <p>

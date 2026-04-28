@@ -118,7 +118,7 @@ function ContentEN() {
       </p>
       <p>
         For any questions about our use of cookies, please contact us at:{" "}
-        <a href="mailto:hello@nordoravital.com">hello@nordoravital.com</a>
+        <a href="mailto:info@nordoravital.com">info@nordoravital.com</a>
       </p>
     </>
   );
@@ -204,7 +204,7 @@ function ContentDE() {
       </p>
       <p>
         Bei Fragen zu Cookies kontaktieren Sie uns bitte unter:{" "}
-        <a href="mailto:hello@nordoravital.com">hello@nordoravital.com</a>
+        <a href="mailto:info@nordoravital.com">info@nordoravital.com</a>
       </p>
     </>
   );
@@ -290,7 +290,7 @@ function ContentLV() {
       </p>
       <p>
         Jautājumu gadījumā par sīkdatnēm sazinieties ar mums:{" "}
-        <a href="mailto:hello@nordoravital.com">hello@nordoravital.com</a>
+        <a href="mailto:info@nordoravital.com">info@nordoravital.com</a>
       </p>
     </>
   );

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
@@ -50,6 +51,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+function isDeckPath(pathname: string) {
+  return /^\/(de|en|lv)\/deck\/?$/.test(pathname);
+}
+
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
   if (!routing.locales.includes(locale as "de" | "en" | "lv")) {
@@ -59,23 +64,37 @@ export default async function LocaleLayout({ children, params }: Props) {
   setRequestLocale(locale);
   const messages = await getMessages();
 
+  const heads = await headers();
+  const pathname = heads.get("x-nordora-pathname") ?? "";
+  const deckFullscreen = isDeckPath(pathname);
+
   return (
     <html
       lang={locale}
       className={`${inter.variable} ${manrope.variable} font-sans h-full`}
     >
-      <body className="min-h-full overflow-x-hidden bg-[var(--bg)] font-sans text-[var(--text)] antialiased">
-        <NextIntlClientProvider messages={messages}>
-          <ContactDrawerProvider>
-            <div className="flex min-h-full flex-col">
-              <SiteHeader />
-              <main className="layout-main flex flex-col gap-0 flex-1 px-4 pb-12 pt-0 sm:px-6 md:px-8 lg:mx-auto lg:max-w-[1200px] lg:px-10">
-                {children}
-              </main>
-              <SiteFooter />
-              <CookieBanner />
-            </div>
-          </ContactDrawerProvider>
+      <body
+        className={
+          deckFullscreen
+            ? "h-full overflow-hidden bg-[#070a09] font-sans text-[var(--text)] antialiased"
+            : "min-h-full overflow-x-hidden bg-[var(--bg)] font-sans text-[var(--text)] antialiased"
+        }
+      >
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          {deckFullscreen ? (
+            children
+          ) : (
+            <ContactDrawerProvider>
+              <div className="flex min-h-full flex-col">
+                <SiteHeader />
+                <main className="layout-main flex flex-col gap-0 flex-1 px-4 pb-12 pt-0 sm:px-6 md:px-8 lg:mx-auto lg:max-w-[1200px] lg:px-10">
+                  {children}
+                </main>
+                <SiteFooter />
+                <CookieBanner />
+              </div>
+            </ContactDrawerProvider>
+          )}
         </NextIntlClientProvider>
       </body>
     </html>
