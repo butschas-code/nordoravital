@@ -1,21 +1,16 @@
-# Production deploy for **nordoravital** on Vercel (team: woodlandwonderstudioetsy / Hobby).
-# Dashboard: project **nordoravital** → domains www.nordoravital.com
+# Production deploy for **nordoravital** (Vercel team: woodlandwonderstudioetsy).
+# Dashboard: project **nordoravital** → www.nordoravital.com
 #
-# If production is stuck on an old commit (e.g. f9d73ba) while GitHub main is newer,
-# Git→Vercel auto-build may be paused or broken — this workflow fixes that once secrets exist.
+# If the site stays on an old commit while `main` moves, Git→Vercel auto-build is often
+# paused, wrong repo/branch, or the wrong Vercel team. This workflow is a backup that
+# always runs on pushes to `main`.
 #
-# FASTEST (2 minutes): Deploy Hook
-#   1) Vercel (logged in as woodlandwonderstudioetsy) → nordoravital → Settings → Git
-#      → Deploy Hooks → Create → Branch: main → copy URL
-#   2) GitHub butschas-code/nordoravital → Settings → Secrets → Actions
-#      → New secret VERCEL_DEPLOY_HOOK = paste URL
-#   3) Actions → "Deploy production (Vercel)" → Run workflow (or push to main)
+# RECOMMENDED: set VERCEL_DEPLOY_HOOK (Vercel → Project → Settings → Git → Deploy Hooks
+# → branch `main`). Hooks trigger a production build from the latest Git revision — most
+# reliable when the native Git integration is flaky.
 #
-# OR use token deploy (CI same as local `vercel deploy --prod`):
-#   Vercel → nordoravital → Settings → General → Project ID
-#   Vercel → Team Settings → copy Team ID (VERCEL_ORG_ID)
-#   Vercel → Account → Tokens → create → VERCEL_TOKEN
-#   GitHub secrets: VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID
+# ALTERNATIVE secrets (same as `vercel deploy --prod`): VERCEL_TOKEN, VERCEL_ORG_ID,
+# VERCEL_PROJECT_ID from the **woodlandwonderstudioetsy** team / **nordoravital** project.
 
 name: Deploy production (Vercel)
 
@@ -30,24 +25,30 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Deploy with Vercel token
-        id: vercel_token
-        continue-on-error: true
+      - name: Choose deploy method
+        id: pick
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          if [ -n "${HOOK}" ]; then
+            echo "method=hook" >> "$GITHUB_OUTPUT"
+          else
+            echo "method=token" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Deploy via Vercel deploy hook
+        if: steps.pick.outputs.method == 'hook'
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          curl -fsS -X POST "$HOOK"
+          echo "Deploy hook accepted (build runs on Vercel)."
+
+      - name: Deploy via Vercel token (CLI)
+        if: steps.pick.outputs.method == 'token'
         uses: amondnet/vercel-action@v25
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-args: "--prod"
-
-      - name: Fallback — deploy hook
-        if: steps.vercel_token.outcome == 'failure'
-        env:
-          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
-        run: |
-          if [ -z "$HOOK" ]; then
-            echo "::error::Add VERCEL_DEPLOY_HOOK (see workflow comments) or VERCEL_TOKEN + VERCEL_ORG_ID + VERCEL_PROJECT_ID from the woodlandwonderstudioetsy / nordoravital project."
-            exit 1
-          fi
-          curl -fsS -X POST "$HOOK"
-          echo "Deploy hook OK."
