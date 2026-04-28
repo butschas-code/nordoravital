@@ -764,7 +764,7 @@ function SlideClosing() {
         />
       </div>
       <DeckLogo invert />
-      <div className="relative z-10 mx-auto max-w-3xl px-5 pb-10 pt-16 text-center sm:px-10 sm:pb-12">
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-10 pt-16 text-center sm:px-10 sm:pb-12">
         <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white/80">{tHome("deckClosingKicker")}</p>
         <h2 className="mt-3 font-heading text-[clamp(1.2rem,3.2vw,2.35rem)] font-bold leading-[1.06] tracking-tight text-white">
           {t.rich("ctaTitle", richParts.onDark)}
@@ -773,8 +773,8 @@ function SlideClosing() {
           {t.rich("ctaBody", richParts.onDark)}
         </p>
 
-        <div className="mt-8 rounded-2xl border border-white/18 bg-[#061a16]/55 px-5 py-6 text-left shadow-[0_20px_50px_-20px_rgba(0,0,0,0.5)] backdrop-blur-sm sm:mt-10 sm:px-8 sm:py-7">
-          <dl className="m-0 grid gap-5 sm:grid-cols-3 sm:gap-6">
+        <div className="mx-auto mt-8 w-full max-w-5xl rounded-2xl border border-white/18 bg-[#061a16]/55 px-5 py-6 text-left shadow-[0_20px_50px_-20px_rgba(0,0,0,0.5)] backdrop-blur-sm sm:mt-10 sm:px-10 sm:py-7">
+          <dl className="m-0 grid gap-5 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.55fr)_minmax(0,1fr)] sm:gap-x-8 sm:gap-y-0">
             <div className="min-w-0 sm:text-center">
               <dt className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/55">{t("closingWebsiteLabel")}</dt>
               <dd className="m-0 mt-2">
@@ -791,7 +791,7 @@ function SlideClosing() {
               <dd className="m-0 mt-2">
                 <a
                   href={`mailto:${mail}`}
-                  className="break-all text-[clamp(0.9rem,1.6vw,1.08rem)] font-semibold text-white underline decoration-white/35 underline-offset-[5px] transition hover:decoration-white/80"
+                  className="break-words text-[clamp(0.9rem,1.6vw,1.08rem)] font-semibold text-white underline decoration-white/35 underline-offset-[5px] transition hover:decoration-white/80 sm:whitespace-nowrap"
                 >
                   {mail}
                 </a>
