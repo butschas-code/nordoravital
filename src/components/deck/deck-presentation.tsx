@@ -132,7 +132,8 @@ function Stage({ children }: { children: React.ReactNode }) {
   );
 }
 
-/* ─── Slide 1: Deck hero (static mat photo + site overlay) ───────────────── */
+/* ─── Slide 1: Deck hero (static mat photo + site overlay) ─────────────────
+ *  No primary/secondary CTAs — presentation-only (use closing slide for contact). */
 function SlideHero() {
   const t = useTranslations("Home");
 
