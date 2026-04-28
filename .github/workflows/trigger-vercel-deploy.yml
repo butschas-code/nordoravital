@@ -1,31 +1,53 @@
-# After push to main, POSTs your Vercel *Deploy Hook* so production rebuilds
-# even if the Git integration is mis-linked or stuck.
+# Production deploy on every push to `main`.
 #
-# One-time setup (project that serves nordoravital.com):
-#   Vercel → that project → Settings → Git → Deploy Hooks
-#   → Create Hook (Branch: main) → copy URL
-#   GitHub → repo → Settings → Secrets and variables → Actions
-#   → New repository secret: VERCEL_DEPLOY_HOOK = <paste URL>
+# Your repo path is correct: this file lives in the Next.js app root that pushes to
+# `butschas-code/nordoravital`. The issue was a local Vercel CLI logged into a
+# different team (gustafsonmarketing), not the project for nordoravital.com.
 #
-# If the secret is missing, this workflow exits 0 and does nothing (no failed checks).
+# Configure ONE of these in GitHub → Settings → Secrets and variables → Actions:
+#
+# A) Recommended — Vercel token deploy (same as `vercel deploy --prod` from CI)
+#    - Vercel → Team that owns nordoravital.com → Project → Settings → General:
+#      copy "Project ID" and (Team) "Team ID" (or use `vercel link` locally with
+#      the RIGHT account and read `.vercel/project.json`).
+#    - Vercel → Account Settings → Tokens → create token.
+#    Secrets: VERCEL_TOKEN, VERCEL_ORG_ID (team id), VERCEL_PROJECT_ID
+#
+# B) Deploy Hook — Vercel → Project → Settings → Git → Deploy Hooks → main
+#    Secret: VERCEL_DEPLOY_HOOK = full hook URL
+#
+# If (A) fails (e.g. secrets not set yet), we try (B). If both missing, the job fails.
 
-name: Trigger Vercel production deploy
+name: Deploy production (Vercel)
 
 on:
   push:
     branches: [main]
 
 jobs:
-  hook:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: POST deploy hook
+      - uses: actions/checkout@v4
+
+      - name: Deploy with Vercel token
+        id: vercel_token
+        continue-on-error: true
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: "--prod"
+
+      - name: Fallback — deploy hook
+        if: steps.vercel_token.outcome == 'failure'
         env:
           HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
         run: |
           if [ -z "$HOOK" ]; then
-            echo "Skip: add repository secret VERCEL_DEPLOY_HOOK (Vercel → Deploy Hooks)."
-            exit 0
+            echo "::error::Configure GitHub Actions secrets: either VERCEL_TOKEN + VERCEL_ORG_ID + VERCEL_PROJECT_ID, or VERCEL_DEPLOY_HOOK. See workflow header in .github/workflows/trigger-vercel-deploy.yml"
+            exit 1
           fi
           curl -fsS -X POST "$HOOK"
-          echo "Deploy hook triggered."
+          echo "Deploy hook OK."
