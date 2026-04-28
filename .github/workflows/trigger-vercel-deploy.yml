@@ -1,28 +1,28 @@
-# Production deploy on every push to `main`.
+# Production deploy for **nordoravital** on Vercel (team: woodlandwonderstudioetsy / Hobby).
+# Dashboard: project **nordoravital** → domains www.nordoravital.com
 #
-# Your repo path is correct: this file lives in the Next.js app root that pushes to
-# `butschas-code/nordoravital`. The issue was a local Vercel CLI logged into a
-# different team (gustafsonmarketing), not the project for nordoravital.com.
+# If production is stuck on an old commit (e.g. f9d73ba) while GitHub main is newer,
+# Git→Vercel auto-build may be paused or broken — this workflow fixes that once secrets exist.
 #
-# Configure ONE of these in GitHub → Settings → Secrets and variables → Actions:
+# FASTEST (2 minutes): Deploy Hook
+#   1) Vercel (logged in as woodlandwonderstudioetsy) → nordoravital → Settings → Git
+#      → Deploy Hooks → Create → Branch: main → copy URL
+#   2) GitHub butschas-code/nordoravital → Settings → Secrets → Actions
+#      → New secret VERCEL_DEPLOY_HOOK = paste URL
+#   3) Actions → "Deploy production (Vercel)" → Run workflow (or push to main)
 #
-# A) Recommended — Vercel token deploy (same as `vercel deploy --prod` from CI)
-#    - Vercel → Team that owns nordoravital.com → Project → Settings → General:
-#      copy "Project ID" and (Team) "Team ID" (or use `vercel link` locally with
-#      the RIGHT account and read `.vercel/project.json`).
-#    - Vercel → Account Settings → Tokens → create token.
-#    Secrets: VERCEL_TOKEN, VERCEL_ORG_ID (team id), VERCEL_PROJECT_ID
-#
-# B) Deploy Hook — Vercel → Project → Settings → Git → Deploy Hooks → main
-#    Secret: VERCEL_DEPLOY_HOOK = full hook URL
-#
-# If (A) fails (e.g. secrets not set yet), we try (B). If both missing, the job fails.
+# OR use token deploy (CI same as local `vercel deploy --prod`):
+#   Vercel → nordoravital → Settings → General → Project ID
+#   Vercel → Team Settings → copy Team ID (VERCEL_ORG_ID)
+#   Vercel → Account → Tokens → create → VERCEL_TOKEN
+#   GitHub secrets: VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID
 
 name: Deploy production (Vercel)
 
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -46,7 +46,7 @@ jobs:
           HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
         run: |
           if [ -z "$HOOK" ]; then
-            echo "::error::Configure GitHub Actions secrets: either VERCEL_TOKEN + VERCEL_ORG_ID + VERCEL_PROJECT_ID, or VERCEL_DEPLOY_HOOK. See workflow header in .github/workflows/trigger-vercel-deploy.yml"
+            echo "::error::Add VERCEL_DEPLOY_HOOK (see workflow comments) or VERCEL_TOKEN + VERCEL_ORG_ID + VERCEL_PROJECT_ID from the woodlandwonderstudioetsy / nordoravital project."
             exit 1
           fi
           curl -fsS -X POST "$HOOK"
