@@ -18,3 +18,10 @@ export const routing = defineRouting({
 });
 
 export type Locale = (typeof routing.locales)[number];
+
+/** Shown in header/footer language switcher. RU/TR are deck-only (see deck footer links + middleware). */
+export const SITE_LOCALES: readonly Locale[] = ["de", "en", "lv"];
+
+export function isDeckOnlyLocale(locale: string): boolean {
+  return locale === "ru" || locale === "tr";
+}

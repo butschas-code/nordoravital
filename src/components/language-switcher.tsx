@@ -7,9 +7,11 @@ import {
   LOCALE_COOKIE_NAME,
 } from "@/lib/locale-cookie-constants";
 import { Link, usePathname } from "@/i18n/navigation";
-import { routing, type Locale } from "@/i18n/routing";
+import { routing, SITE_LOCALES, type Locale } from "@/i18n/routing";
 
-const locales: Locale[] = [...routing.locales];
+function localesForPathname(pathname: string): Locale[] {
+  return pathname === "/deck" ? [...routing.locales] : [...SITE_LOCALES];
+}
 
 function setLocaleCookie(loc: Locale) {
   document.cookie = `${LOCALE_COOKIE_NAME}=${loc};path=/;max-age=${LOCALE_COOKIE_MAX_AGE_SECONDS};SameSite=Lax`;
@@ -32,6 +34,7 @@ export function LanguageSwitcher({
   const t = useTranslations("Language");
   const onDark = appearance === "onDark";
   const pathname = usePathname();
+  const locales = localesForPathname(pathname);
   const locale = useLocale() as Locale;
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);

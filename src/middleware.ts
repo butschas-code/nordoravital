@@ -1,6 +1,6 @@
 import createMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
-import { routing } from "./i18n/routing";
+import { routing, isDeckOnlyLocale } from "./i18n/routing";
 import {
   LOCALE_COOKIE_MAX_AGE_SECONDS,
   LOCALE_COOKIE_NAME,
@@ -15,7 +15,26 @@ function pathnameHasLocale(pathname: string): boolean {
   return new RegExp(`^\\/(${LOCALE_PATH_PREFIX})(\\/|$)`).test(pathname);
 }
 
-/** Avoid redirecting public files (e.g. /favicon.ico) to /en/favicon.ico */
+function pathnameWithoutLocalePrefix(pathname: string): { locale: string; rest: string } | null {
+  const m = pathname.match(/^\/([^/]+)(\/.*)?$/);
+  if (!m) return null;
+  return { locale: m[1], rest: m[2] ?? "" };
+}
+
+/** RU/TR URLs are only valid for `/deck`; otherwise send users to the same path under English. */
+function redirectDeckOnlyLocaleFromNonDeck(pathname: string): string | null {
+  const parsed = pathnameWithoutLocalePrefix(pathname);
+  if (!parsed || !isDeckOnlyLocale(parsed.locale)) return null;
+  if (parsed.rest === "" || parsed.rest === "/") {
+    return "/en";
+  }
+  const segments = parsed.rest.split("/").filter(Boolean);
+  if (segments[0] === "deck") {
+    return null;
+  }
+  return `/en/${segments.join("/")}`;
+}
+
 const PUBLIC_FILE =
   /\.(ico|png|jpg|jpeg|svg|webp|gif|txt|xml|webmanifest|woff2?)$/i;
 
@@ -63,6 +82,13 @@ export default function middleware(request: NextRequest) {
       sameSite: "lax",
     });
     return response;
+  }
+
+  const deckOnlyRedirect = redirectDeckOnlyLocaleFromNonDeck(pathname);
+  if (deckOnlyRedirect) {
+    const url = request.nextUrl.clone();
+    url.pathname = deckOnlyRedirect;
+    return NextResponse.redirect(url);
   }
 
   const requestHeaders = new Headers(request.headers);
