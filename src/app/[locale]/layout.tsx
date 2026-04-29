@@ -8,17 +8,17 @@ import { ContactDrawerProvider } from "@/components/contact/contact-drawer-conte
 import { CookieBanner } from "@/components/cookie-banner";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { routing } from "@/i18n/routing";
+import { routing, type Locale } from "@/i18n/routing";
 
 const inter = Inter({
-  subsets: ["latin", "latin-ext"],
+  subsets: ["latin", "latin-ext", "cyrillic"],
   variable: "--font-inter",
   display: "swap",
   weight: ["400", "500"],
 });
 
 const manrope = Manrope({
-  subsets: ["latin", "latin-ext"],
+  subsets: ["latin", "latin-ext", "cyrillic"],
   variable: "--font-manrope",
   display: "swap",
   weight: ["600", "700", "800"],
@@ -52,12 +52,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 function isDeckPath(pathname: string) {
-  return /^\/(de|en|lv)\/deck\/?$/.test(pathname);
+  const locales = routing.locales.join("|");
+  return new RegExp(`^\\/(${locales})\\/deck/?$`).test(pathname);
 }
 
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
-  if (!routing.locales.includes(locale as "de" | "en" | "lv")) {
+  if (!routing.locales.includes(locale as Locale)) {
     notFound();
   }
 

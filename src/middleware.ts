@@ -9,8 +9,10 @@ import { resolveDefaultLocale } from "./lib/locale-from-request";
 
 const intlMiddleware = createMiddleware(routing);
 
+const LOCALE_PATH_PREFIX = routing.locales.join("|");
+
 function pathnameHasLocale(pathname: string): boolean {
-  return /^\/(de|en|lv)(\/|$)/.test(pathname);
+  return new RegExp(`^\\/(${LOCALE_PATH_PREFIX})(\\/|$)`).test(pathname);
 }
 
 /** Avoid redirecting public files (e.g. /favicon.ico) to /en/favicon.ico */
@@ -71,7 +73,7 @@ export default function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     "/",
-    "/(de|en|lv)/:path*",
+    "/(de|en|lv|ru|tr)/:path*",
     "/((?!_next|_vercel|api|.*\\..*).*)",
   ],
 };

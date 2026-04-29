@@ -9,7 +9,7 @@ export const DECK_MESSAGE_KEYS = [
   "Home.heroSubheadline",
   // Slide 2 — Welcome
   "Home.welcomeP1",
-  "Home.welcomeP2",
+  "Home.deckWelcomeP2",
   "Home.welcomeP3",
   "Home.outcome2ImageAlt",
   // Slide 3 — Two paths
@@ -57,7 +57,6 @@ export const DECK_MESSAGE_KEYS = [
   "Home.outcome1ImageAlt",
   "Home.outcome2Title",
   "Home.outcome2ForClients",
-  "Home.outcome2ImageAlt",
   "Home.outcome3Title",
   "Home.outcome3ForClients",
   "Home.outcome3ImageAlt",
@@ -97,6 +96,7 @@ export const DECK_MESSAGE_KEYS = [
   "Home.rolloutStep4Detail",
   // Slide 11 — Closing
   "Home.deckClosingKicker",
+  "Home.deckYourContactLabel",
   "HowItWorks.ctaTitle",
   "HowItWorks.ctaBody",
   "HowItWorks.closingWebsiteLabel",
@@ -105,7 +105,6 @@ export const DECK_MESSAGE_KEYS = [
   "Contact.companyEmail",
   "Contact.phone",
   "Contact.companyPhone",
-  "Contact.companyName",
 ] as const;
 
 export type DeckMessageKey = (typeof DECK_MESSAGE_KEYS)[number];

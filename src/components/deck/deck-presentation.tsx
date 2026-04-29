@@ -85,7 +85,10 @@ function DeckFooterChrome({ index }: { index: number }) {
         <span className="hidden text-white/35 sm:inline">·</span>
         <span className="hidden text-white/35 sm:inline">← → space · Home · End</span>
       </div>
-      <nav className="flex items-center gap-5" aria-label="Deck language versions">
+      <nav
+        className="flex max-w-[min(100%,42rem)] flex-wrap items-center justify-center gap-x-4 gap-y-1 sm:gap-x-5"
+        aria-label="Deck language versions"
+      >
         <a href={`/en/deck${hash}`} className={langLink}>
           English
         </a>
@@ -94,6 +97,12 @@ function DeckFooterChrome({ index }: { index: number }) {
         </a>
         <a href={`/lv/deck${hash}`} className={langLink}>
           Latviešu
+        </a>
+        <a href={`/ru/deck${hash}`} className={langLink}>
+          Русский
+        </a>
+        <a href={`/tr/deck${hash}`} className={langLink}>
+          Türkçe
         </a>
       </nav>
     </div>
@@ -187,7 +196,7 @@ function SlideWelcome() {
             {t("welcomeP1")}
           </h2>
           <div className="mt-5 space-y-3 text-[clamp(0.8rem,1.35vw,0.98rem)] leading-relaxed text-[var(--muted)] sm:mt-6 sm:space-y-4">
-            <p className="text-[var(--text)]">{t.rich("welcomeP2", richParts.default)}</p>
+            <p className="text-[var(--text)]">{t.rich("deckWelcomeP2", richParts.default)}</p>
             <p>{t.rich("welcomeP3", richParts.default)}</p>
           </div>
         </div>
@@ -773,7 +782,7 @@ function SlideClosing() {
           {t.rich("ctaBody", richParts.onDark)}
         </p>
 
-        <div className="mx-auto mt-8 w-full max-w-5xl rounded-2xl border border-white/18 bg-[#061a16]/55 px-5 py-6 text-left shadow-[0_20px_50px_-20px_rgba(0,0,0,0.5)] backdrop-blur-sm sm:mt-10 sm:px-10 sm:py-7">
+        <div className="mx-auto mt-8 w-full max-w-5xl rounded-2xl border border-white/18 bg-[#061a16]/20 px-5 py-6 text-left shadow-[0_20px_50px_-20px_rgba(0,0,0,0.5)] backdrop-blur-sm sm:mt-10 sm:px-10 sm:py-7">
           <dl className="m-0 grid gap-5 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.55fr)_minmax(0,1fr)] sm:gap-x-8 sm:gap-y-0">
             <div className="min-w-0 sm:text-center">
               <dt className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/55">{t("closingWebsiteLabel")}</dt>
@@ -809,9 +818,20 @@ function SlideClosing() {
               </dd>
             </div>
           </dl>
-          <p className="mt-5 border-t border-white/12 pt-4 text-center text-[0.72rem] leading-snug text-white/65 sm:mt-6 sm:text-[0.76rem]">
-            {tContact("companyName")}
-          </p>
+          <div className="mt-5 border-t border-white/12 pt-4">
+            <p
+              id="deck-local-contact-label"
+              className="m-0 text-center text-[0.58rem] font-semibold uppercase tracking-[0.18em] text-white/45"
+            >
+              {tHome("deckYourContactLabel")}
+            </p>
+            {/* Intentionally blank — space for local distributor name & phone (e.g. overlaid in PowerPoint). */}
+            <div
+              className="relative mx-auto mt-2.5 min-h-[3.85rem] w-full max-w-2xl rounded-lg border border-dashed border-white/20 bg-gradient-to-b from-white/[0.06] via-white/[0.03] to-transparent px-4 py-3 sm:min-h-[4.35rem] sm:px-6 sm:py-4"
+              aria-labelledby="deck-local-contact-label"
+              role="region"
+            />
+          </div>
         </div>
       </div>
     </div>

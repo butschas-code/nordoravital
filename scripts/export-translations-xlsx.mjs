@@ -122,6 +122,7 @@ function buildPageFlowOrder(en) {
 
   push(pp("Page: Home `/`", "Welcome", "Heading (paragraph 1)"), `${H}.welcomeP1`);
   push(pp("Page: Home `/`", "Welcome", "Body"), `${H}.welcomeP2`);
+  push(pp("Page: Deck `/deck`", "Slide 2 Welcome", "Body (distributor)"), `${H}.deckWelcomeP2`);
   push(pp("Page: Home `/`", "Welcome", "Body"), `${H}.welcomeP3`);
   push(pp("Page: Home `/`", "Welcome", "Body"), `${H}.welcomeP4`);
   push(pp("Page: Home `/`", "Welcome", "Image alt"), `${H}.welcomeImageAlt`);

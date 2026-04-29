@@ -5,7 +5,7 @@ import {
 } from "@/lib/locale-cookie-constants";
 
 export const routing = defineRouting({
-  locales: ["de", "en", "lv"],
+  locales: ["de", "en", "lv", "ru", "tr"],
   defaultLocale: "en",
   localePrefix: "always",
   /** Persists manual language choice; aligns with middleware geo redirect cookie. */

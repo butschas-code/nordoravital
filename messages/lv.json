@@ -25,6 +25,7 @@
     "heroImageAlt": "Maigs, abstrakts viļņu fons, kas rada mierīgu, profesionālu labsajūtas vidi klientu seansiem.",
     "welcomeP1": "Jūsu klienti atceras ne tikai to, ko jūs darāt — viņi atceras, kāda bija sajūta, atrodoties jūsu telpās.",
     "welcomeP2": "Nordora Vital ir profesionāls veselības zīmols klīnikām un praksēm, kas nopietni uztver pacientu un klientu pieredzi — ārstiem, zobārstiem, fizioterapeitiem, terapeitiem un veiktspējas komandām, kas zina, ka <strong>rezultāti nav tikai klīniski</strong>, bet tie ir saistīti arī ar to, kā cilvēki ierodas, iekārtojas un aiziet.",
+    "deckWelcomeP2": "Nordora Vital ir profesionālu labsajūtas iekārtu un produktu izplatītājs klīnikām un praksēm, kas nopietni uztver pacientu un klientu pieredzi — ārstiem, zobārstiem, fizioterapeitiem, terapeitiem un veiktspējas komandām, kas zina, ka <strong>rezultāti nav tikai klīniski</strong>, bet tie ir saistīti arī ar to, kā cilvēki ierodas, iekārtojas un aiziet.",
     "welcomeP3": "Daudzi pacienti un klienti ienāk stresa, sasprindzinājuma, pārliekas stimulācijas vai vienkārši „ieslēgtā” stāvoklī. Šis stāvoklis ietekmē sadarbību, komfortu un vizītes kopējo kvalitāti. Nordora piedāvā <strong>sanza</strong>, lai atbalstītu šo praktisko aspektu: <strong>augstākās klases labklājības sistēmu telpā</strong>, kas izmanto <strong>PEMF</strong> un strukturētas frekvenču programmas, lai radītu mierīgāku, stabilāku vidi — konsekventi un nepapildinot jūsu darba plūsmu ar sarežģījumiem.",
     "welcomeP4": "<strong>sanza</strong> ir izstrādāta reālām telpām un reālām komandām: skaidras programmas, precīzi aplikatori un piegādes pieeja, ko personāls var ātri apgūt. Tā nav pozicionēta kā medicīniska ārstēšana un tā <strong>neaizstāj to, ko jūs darāt</strong>. Tā stiprina pieredzi ap jūsu darbu — pirms, vizītes laikā un pēc tās — lai cilvēki justos aprūpēti, un jūsu prakse šķistu augstvērtīgāka un atmiņā paliekošāka.",
     "benefitLabelPractice": "Jūsu prakse",
@@ -100,6 +101,7 @@
     "stepsCtaPilot": "Izmēģinājuma programma",
     "rolloutCtaNote": "Katra prakse ir atšķirīga. Mēs palīdzēsim jums atrast pareizo veidu, kā ieviest <strong>sanza</strong>, lai tas šķistu dabiski jūsu komandai, telpām un klientiem.",
     "deckClosingKicker": "PATEICĪBA",
+    "deckYourContactLabel": "Jūsu kontakts",
     "pillarsSectionTitle": "Ko <strong>sanza</strong> piedāvā jūsu praksei",
     "pillarPemfTitle": "Hronobioloģiskie PEMF signāli",
     "pillarPemfBody": "Rāms, strukturēts signāls visam ķermenim, kas veicina relaksāciju un “nomierināšanos” uz galda vai krēsla. Pacienti jūt, ka telpā laiks palēninās — tas ir noderīgi pirms nogurdinošām vizītēm, starp procedūru posmiem vai vispārējā komforta uzlabošanai.",
@@ -465,7 +467,9 @@
     "label": "Valoda",
     "de": "Deutsch",
     "en": "English",
-    "lv": "Latviešu"
+    "lv": "Latviešu",
+    "ru": "Русский",
+    "tr": "Türkçe"
   },
   "ProfessionalPages": {
     "therapists": {

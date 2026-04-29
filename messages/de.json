@@ -25,6 +25,7 @@
     "heroImageAlt": "Soft abstract wave background suggesting a calm, professional wellness environment for client sessions.",
     "welcomeP1": "Ihre Klienten erinnern sich nicht nur an das, was Sie tun — sondern daran, wie es sich in Ihrer Praxis angefühlt hat.",
     "welcomeP2": "Nordora Vital ist eine professionelle Wellness-Marke für Kliniken und Praxen, die die Erfahrung von Patienten und Klienten ernst nehmen — Ärzte, Zahnärzte, Physiotherapeuten, Therapeuten und Performance-Teams, die wissen, dass <strong>Ergebnisse nicht nur klinisch</strong> sind, sondern auch davon, wie Menschen ankommen, zur Ruhe finden und gehen.",
+    "deckWelcomeP2": "Nordora Vital ist Distributor für professionelle Wellness-Geräte und -produkte für Kliniken und Praxen, die die Erfahrung von Patienten und Klienten ernst nehmen — Ärzte, Zahnärzte, Physiotherapeuten, Therapeuten und Performance-Teams, die wissen, dass <strong>Ergebnisse nicht nur klinisch</strong> sind, sondern auch davon, wie Menschen ankommen, zur Ruhe finden und gehen.",
     "welcomeP3": "Viele Patienten und Klienten kommen gestresst, angespannt, überreizt oder einfach „hochgefahren“. Das beeinflusst Kooperation, Komfort und die Gesamtqualität des Besuchs. Nordora bringt <strong>sanza</strong> für genau diese Ebene: ein <strong>Premium-Wellbeing-System im Raum</strong> mit <strong>PEMF</strong> und strukturierten Frequenzprogrammen für eine ruhigere, geerdeter Umgebung — konsequent und ohne Mehraufwand im Alltag.",
     "welcomeP4": "<strong>sanza</strong> ist für echte Räume und echte Teams gedacht: klare Programme, präzise Applikatoren und eine Umsetzung, die sich schnell erlernen lässt. Es ist nicht als medizinische Behandlung positioniert und <strong>ersetzt nicht Ihre Arbeit</strong>. Es stärkt die Erfahrung rund um Ihre Arbeit — vor, während und nach dem Termin — damit sich Menschen umsorgt fühlen und Ihre Praxis wertiger und einprägsamer wirkt.",
     "benefitLabelPractice": "Ihre Praxis",
@@ -100,6 +101,7 @@
     "stepsCtaPilot": "Pilotprogramm",
     "rolloutCtaNote": "Jede Praxis ist anders. Wir helfen Ihnen, den richtigen Weg zu finden, <strong>sanza</strong> einzuführen, damit es sich für Ihr Team, Ihre Räume und Ihre Klienten natürlich anfühlt.",
     "deckClosingKicker": "DANKE",
+    "deckYourContactLabel": "Ihr Kontakt",
     "pillarsSectionTitle": "Was <strong>sanza</strong> Ihrer Praxis hinzufügt",
     "pillarPemfTitle": "Chronobiologische PEMF-Signale",
     "pillarPemfBody": "Ein ruhiger, strukturierter Ganzkörper-Input zur Unterstützung von Entspannung und „Ankommen“ auf dem Tisch oder Stuhl. Patienten nehmen wahr, dass der Raum langsamer wird—hilfreich vor anspruchsvollen Besuchen, zwischen Schritten oder für mehr Komfort insgesamt.",
@@ -342,7 +344,9 @@
     "label": "Sprache",
     "de": "Deutsch",
     "en": "English",
-    "lv": "Latviešu"
+    "lv": "Latviešu",
+    "ru": "Русский",
+    "tr": "Türkçe"
   },
   "Offers": {
     "title": "Mehr Wert rund um jeden Besuch schaffen",
