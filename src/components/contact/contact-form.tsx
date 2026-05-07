@@ -86,6 +86,11 @@ type ContactFormProps = {
   variant?: "page" | "drawer";
   onSuccess?: () => void;
   className?: string;
+  defaultProfessionalCategory?: ContactFormValues["professionalCategory"];
+  defaultMessage?: string;
+  defaultLanguages?: Partial<
+    Pick<ContactFormValues, "langDe" | "langEn" | "langLv">
+  >;
 };
 
 export function ContactForm({
@@ -93,6 +98,9 @@ export function ContactForm({
   variant = "page",
   onSuccess,
   className,
+  defaultProfessionalCategory = "therapists",
+  defaultMessage = "",
+  defaultLanguages,
 }: ContactFormProps) {
   const t = useTranslations("Contact");
   const fid = (suffix: string) => `${htmlIdPrefix}-${suffix}`;
@@ -110,14 +118,14 @@ export function ContactForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
-      professionalCategory: "therapists",
+      professionalCategory: defaultProfessionalCategory,
       email: "",
       phone: "",
       preferredContactMethod: "email",
-      message: "",
-      langDe: false,
-      langEn: false,
-      langLv: false,
+      message: defaultMessage,
+      langDe: defaultLanguages?.langDe ?? false,
+      langEn: defaultLanguages?.langEn ?? false,
+      langLv: defaultLanguages?.langLv ?? false,
       consentContact: false,
     },
   });
@@ -149,14 +157,14 @@ export function ContactForm({
       setStatus("success");
       reset({
         name: "",
-        professionalCategory: "therapists",
+        professionalCategory: defaultProfessionalCategory,
         email: "",
         phone: "",
         preferredContactMethod: "email",
-        message: "",
-        langDe: false,
-        langEn: false,
-        langLv: false,
+        message: defaultMessage,
+        langDe: defaultLanguages?.langDe ?? false,
+        langEn: defaultLanguages?.langEn ?? false,
+        langLv: defaultLanguages?.langLv ?? false,
         consentContact: false,
       });
       onSuccess?.();

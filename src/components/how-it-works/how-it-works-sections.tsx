@@ -69,14 +69,6 @@ function OutcomeIcon({ index }: { index: number }) {
   return icons[index] ?? icons[0];
 }
 
-/** Left accent on solid white cards (dark green band — readability). */
-const OUTCOME_LEFT_ACCENT = [
-  "border-l-[var(--brand)]",
-  "border-l-[var(--brand-secondary)]",
-  "border-l-[var(--brand-deep)]",
-  "border-l-[var(--brand)]",
-] as const;
-
 const OUTCOME_BORDER_COLORS = [
   "var(--brand)",
   "var(--brand-secondary)",
@@ -415,7 +407,7 @@ export async function HowItWorksSections() {
                 return (
                   <FadeUp key={i} delay={((i % 4) + 1) as 1 | 2 | 3 | 4}>
                     <div
-                      className={`outcome-shimmer card-brand flex h-full flex-col gap-3 border-l-4 !bg-white p-6 text-[var(--text)] shadow-[var(--shadow-card)] ${OUTCOME_LEFT_ACCENT[i]}`}
+                      className="outcome-shimmer card-brand flex h-full flex-col gap-3 !bg-white p-6 text-[var(--text)] shadow-[var(--shadow-card)]"
                     >
                       <div
                         className="flex h-10 w-10 items-center justify-center rounded-xl text-white"

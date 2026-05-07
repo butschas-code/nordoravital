@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
 import { OffersHero } from "@/components/offers/offers-hero";
 import { OffersSections } from "@/components/offers/offers-sections";
 import { stripRichTags } from "@/lib/i18n-rich";

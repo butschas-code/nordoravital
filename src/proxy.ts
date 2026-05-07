@@ -48,7 +48,7 @@ function withPathnameHeader(request: NextRequest): NextResponse {
   return NextResponse.next({ request: { headers: requestHeaders } });
 }
 
-export default function middleware(request: NextRequest) {
+export default function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   /** Legacy /deck → canonical localized URL */

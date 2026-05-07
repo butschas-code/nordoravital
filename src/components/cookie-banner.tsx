@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useTranslations, useLocale } from "next-intl";
+import { useState, useSyncExternalStore } from "react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
 const CONSENT_KEY = "nv_cookie_consent";
@@ -18,20 +18,20 @@ type ConsentState =
  */
 export function CookieBanner() {
   const t = useTranslations("CookieBanner");
-  const locale = useLocale();
+  const storedConsent = useSyncExternalStore(
+    () => () => {},
+    () => {
+      try {
+        return localStorage.getItem(CONSENT_KEY) as ConsentState | null;
+      } catch {
+        return null;
+      }
+    },
+    () => undefined,
+  );
 
   // undefined = "not yet hydrated" (prevents SSR mismatch flash)
-  const [consent, setConsent] = useState<ConsentState | undefined>(undefined);
-
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(CONSENT_KEY) as ConsentState | null;
-      setConsent(stored);
-    } catch {
-      // Storage blocked (private browsing, etc.) — treat as no consent
-      setConsent(null);
-    }
-  }, []);
+  const [consent, setConsent] = useState<ConsentState | undefined>(storedConsent);
 
   const handleConsent = (value: "all" | "essential") => {
     try {
@@ -42,18 +42,17 @@ export function CookieBanner() {
     setConsent(value);
   };
 
-  // Don't render during SSR / before hydration, and hide once a choice is made
-  if (consent === undefined || consent !== null) return null;
+  const currentConsent = consent ?? storedConsent;
 
-  // Build the cookie policy path with locale prefix
-  const policyHref = `/${locale}/cookie-policy`;
+  // Don't render during SSR / before hydration, and hide once a choice is made
+  if (currentConsent === undefined || currentConsent !== null) return null;
 
   return (
     <div
       role="dialog"
       aria-live="polite"
       aria-label={t("title")}
-      className="fixed bottom-0 left-0 right-0 z-[400] px-3 pb-3 sm:px-4 sm:pb-4"
+      className="panel-enter fixed bottom-0 left-0 right-0 z-[400] px-3 pb-3 sm:px-4 sm:pb-4"
     >
       <div className="mx-auto max-w-2xl rounded-2xl border border-[var(--border)] bg-white/97 shadow-[0_-4px_32px_rgba(14,61,52,0.12),0_8px_24px_rgba(14,61,52,0.08)] backdrop-blur-xl">
         {/* Top accent line */}

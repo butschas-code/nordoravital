@@ -8,10 +8,17 @@ import {
   type ReactNode,
 } from "react";
 import { FloatingContactDrawer } from "@/components/contact/floating-contact-drawer";
+import type { ContactFormValues } from "@/components/contact/contact-form";
+
+export type ContactDrawerOptions = {
+  professionalCategory?: ContactFormValues["professionalCategory"];
+  message?: string;
+};
 
 type ContactDrawerContextValue = {
   open: boolean;
-  openDrawer: () => void;
+  options: ContactDrawerOptions;
+  openDrawer: (options?: ContactDrawerOptions) => void;
   closeDrawer: () => void;
 };
 
@@ -21,12 +28,16 @@ const ContactDrawerContext = createContext<ContactDrawerContextValue | null>(
 
 export function ContactDrawerProvider({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
-  const openDrawer = useCallback(() => setOpen(true), []);
+  const [options, setOptions] = useState<ContactDrawerOptions>({});
+  const openDrawer = useCallback((nextOptions: ContactDrawerOptions = {}) => {
+    setOptions(nextOptions);
+    setOpen(true);
+  }, []);
   const closeDrawer = useCallback(() => setOpen(false), []);
 
   return (
     <ContactDrawerContext.Provider
-      value={{ open, openDrawer, closeDrawer }}
+      value={{ open, options, openDrawer, closeDrawer }}
     >
       {children}
       <FloatingContactDrawer />

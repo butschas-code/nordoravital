@@ -88,7 +88,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <ContactDrawerProvider>
               <div className="flex min-h-full flex-col">
                 <SiteHeader />
-                <main className="layout-main flex flex-col gap-0 flex-1 px-4 pb-12 pt-0 sm:px-6 md:px-8 lg:mx-auto lg:max-w-[1200px] lg:px-10">
+                <main className="layout-main flex flex-col gap-0 flex-1 px-4 pb-12 pt-0 sm:px-6 md:px-8 lg:mx-auto lg:max-w-[1200px] lg:px-10 [&:has(.campaign-page-root)]:pb-0">
                   {children}
                 </main>
                 <SiteFooter />

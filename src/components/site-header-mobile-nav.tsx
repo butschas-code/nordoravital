@@ -66,7 +66,8 @@ export function SiteHeaderMobileNav({ links }: { links: MobileNavLink[] }) {
         <>
           <button
             type="button"
-            className="fixed inset-0 z-[90] bg-[#082721]/45 backdrop-blur-[2px]"
+            className="drawer-backdrop-enter fixed inset-0 z-[90] bg-[#082721]/45 backdrop-blur-[2px]"
+            data-no-press
             aria-label={t("closeMenu")}
             onClick={() => setOpen(false)}
           />
@@ -75,7 +76,7 @@ export function SiteHeaderMobileNav({ links }: { links: MobileNavLink[] }) {
             role="dialog"
             aria-modal="true"
             aria-label={t("mobileMenuTitle")}
-            className="fixed inset-y-0 right-0 z-[100] flex w-[min(100vw,20rem)] flex-col border-l border-[var(--border)] bg-[var(--surface)] shadow-[var(--shadow-raised)]"
+            className="drawer-panel-enter fixed inset-y-0 right-0 z-[100] flex w-[min(100vw,20rem)] flex-col border-l border-[var(--border)] bg-[var(--surface)] shadow-[var(--shadow-raised)]"
           >
             <div className="flex items-center justify-between border-b border-[var(--border)] px-4 py-3">
               <span className="text-sm font-semibold uppercase tracking-wider text-[var(--muted)]">

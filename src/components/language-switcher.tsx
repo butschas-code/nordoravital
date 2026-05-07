@@ -151,8 +151,8 @@ export function LanguageSwitcher({
           aria-labelledby={triggerId}
           className={
             onDark
-              ? "absolute right-0 top-[calc(100%+6px)] z-[60] min-w-[11.5rem] overflow-hidden rounded-xl border border-white/15 bg-[#0a2f28] py-1 shadow-[0_12px_40px_rgba(0,0,0,0.45)] backdrop-blur-md"
-              : "absolute right-0 top-[calc(100%+6px)] z-[60] min-w-[11.5rem] overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface)] py-1 shadow-[var(--shadow-raised)]"
+              ? "popover-enter absolute right-0 top-[calc(100%+6px)] z-[60] min-w-[11.5rem] overflow-hidden rounded-xl border border-white/15 bg-[#0a2f28] py-1 shadow-[0_12px_40px_rgba(0,0,0,0.45)] backdrop-blur-md"
+              : "popover-enter absolute right-0 top-[calc(100%+6px)] z-[60] min-w-[11.5rem] overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface)] py-1 shadow-[var(--shadow-raised)]"
           }
         >
           {locales.map((loc) => {

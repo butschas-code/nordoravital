@@ -165,7 +165,7 @@ export async function OffersSections() {
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {formatCards.map((card, i) => (
               <FadeUp key={card.step} delay={((i + 1) % 5) as 1 | 2 | 3 | 4}>
-                <div className="outcome-shimmer card-brand flex h-full flex-col gap-4 border-l-4 !bg-white p-6 text-[var(--text)] shadow-[var(--shadow-card)] " style={{ borderLeftColor: card.accent }}>
+                <div className="outcome-shimmer card-brand flex h-full flex-col gap-4 !bg-white p-6 text-[var(--text)] shadow-[var(--shadow-card)]">
                   <div className="flex items-start gap-3">
                     <div
                       className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-white"

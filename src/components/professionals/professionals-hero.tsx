@@ -11,7 +11,7 @@ export async function ProfessionalsHero() {
       className="relative isolate left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] overflow-hidden bg-[var(--bg)]"
       aria-labelledby="professionals-hero-heading"
     >
-      <div className="relative min-h-[min(72vh,680px)] lg:min-h-[min(68vh,620px)]">
+      <div className="relative min-h-[min(72dvh,680px)] lg:min-h-[min(68dvh,620px)]">
         {/* Background image */}
         <div className="absolute inset-0">
           <Image
@@ -47,7 +47,7 @@ export async function ProfessionalsHero() {
         </div>
 
         {/* Content — right-aligned */}
-        <div className="relative z-10 mx-auto flex min-h-[min(72vh,680px)] max-w-[1200px] flex-col justify-end px-4 pb-20 pt-16 sm:px-6 sm:pb-24 sm:pt-20 md:px-8 lg:min-h-[min(68vh,620px)] lg:pb-16 lg:pt-20 lg:px-10">
+        <div className="relative z-10 mx-auto flex min-h-[min(72dvh,680px)] max-w-[1200px] flex-col justify-end px-4 pb-20 pt-16 sm:px-6 sm:pb-24 sm:pt-20 md:px-8 lg:min-h-[min(68dvh,620px)] lg:pb-16 lg:pt-20 lg:px-10">
           <div className="ml-auto w-full max-w-xl pb-4 text-right sm:max-w-2xl">
             <h1
               id="professionals-hero-heading"

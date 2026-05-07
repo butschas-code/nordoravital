@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
 import { FadeUp } from "@/components/fade-up";
 import { HowItWorksCta } from "@/components/how-it-works/how-it-works-cta";
 import { HowItWorksHero } from "@/components/how-it-works/how-it-works-hero";

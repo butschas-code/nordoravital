@@ -1,13 +1,15 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import { useEffect } from "react";
 import { ContactForm } from "@/components/contact/contact-form";
 import { useContactDrawer } from "@/components/contact/contact-drawer-context";
 
 export function FloatingContactDrawer() {
-  const { open, closeDrawer } = useContactDrawer();
+  const { open, options, closeDrawer } = useContactDrawer();
   const t = useTranslations("Contact");
+  const locale = useLocale();
 
   useEffect(() => {
     if (!open) return;
@@ -34,11 +36,12 @@ export function FloatingContactDrawer() {
     >
       <button
         type="button"
-        className="absolute inset-0 bg-[var(--brand-deep)]/40 backdrop-blur-sm"
+        className="drawer-backdrop-enter absolute inset-0 bg-[var(--brand-deep)]/40 backdrop-blur-sm"
+        data-no-press
         aria-label={t("drawerClose")}
         onClick={closeDrawer}
       />
-      <div className="relative flex h-full w-full max-w-md flex-col bg-[var(--bg)] shadow-[var(--shadow-raised)]">
+      <div className="drawer-panel-enter relative flex h-full w-full max-w-md flex-col bg-[var(--bg)] shadow-[var(--shadow-raised)]">
         <div className="flex shrink-0 items-center justify-between border-b border-[var(--border)] px-4 py-3 sm:px-5">
           <h2
             id="floating-contact-title"
@@ -69,6 +72,13 @@ export function FloatingContactDrawer() {
           <ContactForm
             variant="drawer"
             htmlIdPrefix="drawer-contact"
+            defaultProfessionalCategory={options.professionalCategory}
+            defaultMessage={options.message}
+            defaultLanguages={{
+              langDe: locale === "de",
+              langEn: locale === "en",
+              langLv: locale === "lv",
+            }}
             onSuccess={() => {
               window.setTimeout(() => closeDrawer(), 2200);
             }}

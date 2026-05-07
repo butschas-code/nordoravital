@@ -12,7 +12,7 @@ export async function HowItWorksHero() {
       className="relative isolate left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] overflow-hidden bg-[var(--bg)]"
       aria-labelledby="how-it-works-hero-heading"
     >
-      <div className="relative min-h-[min(92vh,880px)] lg:min-h-[min(88vh,800px)]">
+      <div className="relative min-h-[min(92dvh,880px)] lg:min-h-[min(88dvh,800px)]">
         <div className="absolute inset-0">
           <video
             className="absolute inset-0 h-full w-full object-cover object-center"
@@ -41,7 +41,7 @@ export async function HowItWorksHero() {
           />
         </div>
 
-        <div className="relative z-10 mx-auto flex min-h-[min(92vh,880px)] max-w-[1200px] flex-col justify-end px-4 pb-24 pt-16 sm:px-6 sm:pb-28 sm:pt-20 md:px-8 lg:min-h-[min(88vh,800px)] lg:pb-20 lg:pt-24 lg:px-10">
+        <div className="relative z-10 mx-auto flex min-h-[min(92dvh,880px)] max-w-[1200px] flex-col justify-end px-4 pb-24 pt-16 sm:px-6 sm:pb-28 sm:pt-20 md:px-8 lg:min-h-[min(88dvh,800px)] lg:pb-20 lg:pt-24 lg:px-10">
           <div className="ml-auto w-full max-w-xl pb-4 text-right sm:max-w-2xl">
             <h1
               id="how-it-works-hero-heading"
