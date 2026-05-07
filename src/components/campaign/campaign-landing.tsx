@@ -425,13 +425,13 @@ export async function CampaignLanding({ content }: Props) {
               {
                 title: content.whatChangesPatientsTitle,
                 items: content.whatChangesPatientsItems,
-                image: WHAT_CHANGES_IMAGES.patients,
+                image: content.whatChangesPatientsImage ?? WHAT_CHANGES_IMAGES.patients,
                 accent: "from-[var(--brand-secondary)]/45 to-transparent",
               },
               {
                 title: content.whatChangesPracticeTitle,
                 items: content.whatChangesPracticeItems,
-                image: WHAT_CHANGES_IMAGES.practice,
+                image: content.whatChangesPracticeImage ?? WHAT_CHANGES_IMAGES.practice,
                 accent: "from-[var(--brand)]/55 to-transparent",
               },
             ].map((col, i) => (

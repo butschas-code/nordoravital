@@ -8,15 +8,19 @@ type CampaignInput = {
   segmentName: string;
   metaDescription: string;
   contactCategory?: ContactCategory;
+  heroImage?: string;
+  heroTextAlign?: "left" | "right";
   heroKicker: string;
   heroHeadline: string;
   heroSubhead: string;
   heroCtaPrimary: string;
   heroCtaSecondary?: string;
   heroValueProps?: [string, string, string];
+  quickStats?: CampaignPageContent["quickStats"];
   problemEyebrow: string;
   problemTitle: string;
   problemBody: string;
+  problemImage?: string;
   solutionTitle: string;
   solutionBody: string;
   fitsTitle: string;
@@ -24,8 +28,10 @@ type CampaignInput = {
   fitsItems: { title: string; body: string }[];
   whatChangesPatientsTitle?: string;
   whatChangesPatientsItems: string[];
+  whatChangesPatientsImage?: string;
   whatChangesPracticeTitle?: string;
   whatChangesPracticeItems: string[];
+  whatChangesPracticeImage?: string;
   socialProofQuote: string;
   finalCtaTitle: string;
   finalCtaBody: string;
@@ -189,6 +195,8 @@ function makeCampaignPage(input: CampaignInput, locale: "en" | "de" | "lv" = "en
     segmentName: input.segmentName,
     metaTitle: `${input.segmentName} | sanza × Nordora Vital`,
     metaDescription: input.metaDescription,
+    heroImage: input.heroImage,
+    heroTextAlign: input.heroTextAlign,
     heroKicker: input.heroKicker,
     heroHeadline: input.heroHeadline,
     heroSubhead: input.heroSubhead,
@@ -197,10 +205,11 @@ function makeCampaignPage(input: CampaignInput, locale: "en" | "de" | "lv" = "en
     heroValueProps: input.heroValueProps ?? common.heroValueProps,
     contactCategory: input.contactCategory ?? "other",
     demoRequestMessage: `${common.requestPrefix} ${input.segmentName}.`,
-    quickStats: common.quickStats,
+    quickStats: input.quickStats ?? common.quickStats,
     problemEyebrow: input.problemEyebrow,
     problemTitle: input.problemTitle,
     problemBody: input.problemBody,
+    problemImage: input.problemImage,
     solutionEyebrow: common.solutionEyebrow,
     solutionTitle: input.solutionTitle,
     solutionBody: input.solutionBody,
@@ -215,8 +224,10 @@ function makeCampaignPage(input: CampaignInput, locale: "en" | "de" | "lv" = "en
     whatChangesEyebrow: common.whatChangesEyebrow,
     whatChangesPatientsTitle: input.whatChangesPatientsTitle ?? common.whatChangesPatientsTitle,
     whatChangesPatientsItems: input.whatChangesPatientsItems,
+    whatChangesPatientsImage: input.whatChangesPatientsImage,
     whatChangesPracticeTitle: input.whatChangesPracticeTitle ?? common.whatChangesPracticeTitle,
     whatChangesPracticeItems: input.whatChangesPracticeItems,
+    whatChangesPracticeImage: input.whatChangesPracticeImage,
     socialProofLabel: common.socialProofLabel,
     socialProofQuote: input.socialProofQuote,
     socialProofAttribution: common.socialProofAttribution,
@@ -237,16 +248,25 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
     metaDescription:
       "Structured PEMF wellbeing technology for sports medicine and recovery centres that want athletes to feel a more complete recovery experience.",
     contactCategory: "sports-performance",
+    heroImage: "/images/campaign/sports-medicine-hero.jpg",
+    heroTextAlign: "left",
     heroKicker: "For performance-focused practices that take the full athlete experience seriously",
-    heroHeadline: "Recovery isn't just ice and rest. Elevate the whole experience.",
+    heroHeadline: "Give athletes more than treatment. Give them a recovery experience.",
     heroSubhead:
       "<strong>sanza</strong> brings structured PEMF wellbeing technology to sports medicine settings — helping athletes settle faster, feel more grounded between sessions, and associate your facility with results they can feel.",
     heroCtaPrimary: "Book a sports recovery demo",
     heroValueProps: ["Facility walkthrough", "Recovery-zone setup", "Easy for staff"],
+    quickStats: [
+      { value: "15", label: "ways to support athlete recovery" },
+      { value: "1", label: "simple system for your whole team" },
+      { value: "10 min", label: "to shift the state they arrive in" },
+      { value: "0", label: "disruption to your treatment flow" },
+    ],
     problemEyebrow: "The gap between treatment and true recovery",
     problemTitle: "Athletes often arrive wired before the work begins.",
     problemBody:
       "You already have the clinical expertise. Shockwave, manual therapy, ultrasound, diagnostics — the technical side is covered. But athletes are often still wired when they walk in: cortisol elevated, nervous system running hot from training or competition. The environment around your treatment matters. And right now, most sports medicine facilities feel the same as a GP office.",
+    problemImage: "/images/campaign/sports-medicine-block-1.jpg",
     solutionTitle: "Give athletes something to feel — beyond the treatment itself.",
     solutionBody:
       "<strong>sanza</strong> uses PEMF technology with structured frequency programs to deliver a full-body calming signal. It is a premium wellbeing layer that helps athletes downregulate, settle, and feel more present. In a sports medicine context, that means a facility athletes talk about because it feels different.",
@@ -275,6 +295,7 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
       "Stronger retention: athletes come back for how they feel here",
       "Easy to staff — programs run on a simple controller, no additional training needed",
     ],
+    whatChangesPracticeImage: "/images/campaign/sports-medicine-for-practice.jpg",
     socialProofQuote:
       "Used by performance-focused practices across Europe. We'll show you exactly how <strong>sanza</strong> integrates into your recovery flow — without disrupting a single appointment.",
     finalCtaTitle: "Used by performance-focused practices across Europe.",

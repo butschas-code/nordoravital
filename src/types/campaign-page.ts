@@ -63,8 +63,10 @@ export type CampaignPageContent = {
   whatChangesEyebrow: string;
   whatChangesPatientsTitle: string;
   whatChangesPatientsItems: string[];
+  whatChangesPatientsImage?: string;
   whatChangesPracticeTitle: string;
   whatChangesPracticeItems: string[];
+  whatChangesPracticeImage?: string;
 
   socialProofLabel: string;
   socialProofQuote: string;
