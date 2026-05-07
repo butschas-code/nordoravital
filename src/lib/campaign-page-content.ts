@@ -25,13 +25,16 @@ type CampaignInput = {
   solutionBody: string;
   fitsTitle: string;
   fitsLead?: string;
+  fitsImages?: string[];
   fitsItems: { title: string; body: string }[];
   whatChangesPatientsTitle?: string;
   whatChangesPatientsItems: string[];
   whatChangesPatientsImage?: string;
+  whatChangesPatientsImagePosition?: string;
   whatChangesPracticeTitle?: string;
   whatChangesPracticeItems: string[];
   whatChangesPracticeImage?: string;
+  whatChangesPracticeImagePosition?: string;
   socialProofQuote: string;
   finalCtaTitle: string;
   finalCtaBody: string;
@@ -219,15 +222,18 @@ function makeCampaignPage(input: CampaignInput, locale: "en" | "de" | "lv" = "en
     fitsLead:
       input.fitsLead ??
       common.fitsLead,
+    fitsImages: input.fitsImages,
     fitsItems: input.fitsItems,
     whatChangesTitle: common.whatChangesTitle,
     whatChangesEyebrow: common.whatChangesEyebrow,
     whatChangesPatientsTitle: input.whatChangesPatientsTitle ?? common.whatChangesPatientsTitle,
     whatChangesPatientsItems: input.whatChangesPatientsItems,
     whatChangesPatientsImage: input.whatChangesPatientsImage,
+    whatChangesPatientsImagePosition: input.whatChangesPatientsImagePosition,
     whatChangesPracticeTitle: input.whatChangesPracticeTitle ?? common.whatChangesPracticeTitle,
     whatChangesPracticeItems: input.whatChangesPracticeItems,
     whatChangesPracticeImage: input.whatChangesPracticeImage,
+    whatChangesPracticeImagePosition: input.whatChangesPracticeImagePosition,
     socialProofLabel: common.socialProofLabel,
     socialProofQuote: input.socialProofQuote,
     socialProofAttribution: common.socialProofAttribution,
@@ -309,19 +315,33 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
     metaDescription:
       "A premium wellbeing layer for chiropractic and manual therapy practices where the room can help patients settle before hands-on work begins.",
     contactCategory: "therapists",
+    heroImage: "/images/campaign/chiro-hero.jpg",
+    heroTextAlign: "left",
     heroKicker: "For practices where tissue response begins before you touch the patient",
-    heroHeadline: "Before your hands touch them, the room should already be working.",
+    heroHeadline: "Give your patients more than an adjustment.",
     heroSubhead:
-      "<strong>sanza</strong> prepares patients for manual therapy — helping them feel calmer, less braced, and more ready for the work. No extra steps for your team.",
+      "<strong>sanza</strong> helps you turn the whole chiropractic visit into a calmer, more complete experience — before, during and after your hands-on work. Patients feel more at ease, more cared for, and more connected to your practice. Your treatment flow stays exactly as it is.",
     heroCtaPrimary: "See how it works in a chiro room",
-    problemEyebrow: "Guarding is the enemy of good manual work",
-    problemTitle: "You should not have to fight the table.",
+    quickStats: [
+      { value: "15", label: "programs for calmer visits" },
+      { value: "1", label: "simple system for the whole team" },
+      { value: "10 min", label: "to shift the room’s state" },
+      { value: "0", label: "changes to your hands-on work" },
+    ],
+    problemEyebrow: "Stop losing treatment time to tension you did not create.",
+    problemTitle: "Your hands know what to do.",
     problemBody:
-      "Every experienced chiropractor knows it: the patient who arrives tense, protective of their spine, shoulders raised, breath shallow. You can do everything right technically and still fight the table. Soft-tissue resistance, flinching, incomplete relaxation — these are context problems, not skill problems. The room needs to do more work before you begin.",
+      "But when a patient arrives guarded, braced, distracted or nervous, you are not only working with the spine — you are working against the state they brought into the room.\n\n<strong>sanza</strong> helps you change that context.\n\nIt gives your chiropractic room a calm, structured layer around the work you already do, so patients settle faster, feel safer on the table, and experience the visit as more complete. Less resistance. More trust. A better start for the adjustment — and a better feeling when they leave.",
+    problemImage: "/images/campaign/chiro-block-1.jpg",
     solutionTitle: "sanza settles the nervous system before you start.",
     solutionBody:
       "A 10–15 minute PEMF arrival program on the sanza mat creates a shift in how patients feel — quieter, more grounded, less braced. The chronobiological frequency signal is gentle, non-invasive, and compatible with chiropractic work. Your adjustment follows a body that has already started to let go. The quality of your work stays the same — what changes is what you're working with.",
     fitsTitle: "Where sanza fits in your session flow",
+    fitsImages: [
+      "/images/campaign/chiro-fit-arrival.jpg",
+      "/images/campaign/chiro-fit-applicators.jpg",
+      "/images/campaign/chiro-fit-decompression.jpg",
+    ],
     fitsItems: [
       {
         title: "Arrival mat program",
@@ -345,6 +365,8 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
       "A clear differentiator: your practice has something others don't",
       "Patients describe it — and refer others to experience it",
     ],
+    whatChangesPracticeImage: "/images/campaign/chiro-for-practice.jpg",
+    whatChangesPracticeImagePosition: "50% 32%",
     socialProofQuote:
       "Most chiropractors want to try it once and decide. That's exactly what we offer.",
     finalCtaTitle: "Most chiropractors want to try it once and decide.",

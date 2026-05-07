@@ -610,6 +610,10 @@ h1, h2, h3 {
   opacity: 0.6;
 }
 
+.campaign-no-grid::after {
+  display: none;
+}
+
 .home-band--sectors {
   overflow: hidden;
   background:
@@ -1188,25 +1192,12 @@ h1, h2, h3 {
   pointer-events: none;
 }
 
-/* Stat strip below hero — dark gradient, not beige */
+/* Stat strip below hero — dark gradient, no grid texture */
 .campaign-stat-strip {
   background:
     radial-gradient(ellipse 70% 100% at 0% 50%, rgba(165, 133, 146, 0.30) 0%, transparent 55%),
     radial-gradient(ellipse 70% 100% at 100% 50%, rgba(111, 138, 122, 0.30) 0%, transparent 55%),
     linear-gradient(95deg, #0A2A24 0%, #0E3D34 50%, #082721 100%);
-  position: relative;
-}
-.campaign-stat-strip::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
 }
 
 /* Reduced motion */

@@ -51,7 +51,7 @@ const WHAT_CHANGES_IMAGES = {
 
 const PROBLEM_IMAGE = "/images/sanza, less wired.jpg";
 
-const SOCIAL_PROOF_BG = "/images/references/lifestyle/calm-wellness-session-warm-light.jpg";
+const SOCIAL_PROOF_BG = "/images/campaign/quote-background.jpg";
 
 /* ──────────────────────────────────────────────────────────────────
    Shared layout for the 15 Latvia-outreach landing pages.
@@ -162,27 +162,9 @@ export async function CampaignLanding({ content }: Props) {
 
       {/* ═════════ STAT STRIP ═════════ */}
       <section
-        className="relative isolate left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] overflow-hidden py-12 sm:py-14"
+        className="campaign-stat-strip relative isolate left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] overflow-hidden py-12 sm:py-14"
         aria-label="Quick facts"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 100% at 0% 50%, rgba(165, 133, 146, 0.32) 0%, transparent 55%)," +
-            "radial-gradient(ellipse 70% 100% at 100% 50%, rgba(111, 138, 122, 0.32) 0%, transparent 55%)," +
-            "linear-gradient(95deg, #0A2A24 0%, #0E3D34 50%, #082721 100%)",
-        }}
       >
-        {/* Soft grid pattern */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.07]"
-          aria-hidden
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
-            maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%)",
-            WebkitMaskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%)",
-          }}
-        />
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
           <ul className="grid grid-cols-2 divide-x divide-white/10 md:grid-cols-4">
             {content.quickStats.map((stat, i) => (
@@ -259,17 +241,6 @@ export async function CampaignLanding({ content }: Props) {
         className="home-band-full home-band--quotes relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] py-24 sm:py-28 md:py-32"
         aria-labelledby="campaign-solution-heading"
       >
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.06]"
-          aria-hidden
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-            backgroundSize: "56px 56px",
-            maskImage: "radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 75%)",
-            WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 75%)",
-          }}
-        />
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
           {/* Header — full-width centred */}
           <FadeUp className="mx-auto max-w-3xl text-center">
@@ -289,7 +260,7 @@ export async function CampaignLanding({ content }: Props) {
 
           {/* 3 spec cards — horizontal, full-width, generous padding */}
           <FadeUp delay={2}>
-            <ul className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-[1.18fr_0.96fr_0.86fr]">
+            <ul className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3">
               {content.solutionSpecs.map((spec, i) => (
                 <li
                   key={i}
@@ -404,7 +375,7 @@ export async function CampaignLanding({ content }: Props) {
 
       {/* ═════════ WHAT CHANGES (dark, two equal cards w/ header images) ═════════ */}
       <section
-        className="home-band-full home-band--pillars relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] py-24 sm:py-28"
+        className="campaign-no-grid home-band-full home-band--pillars relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] py-24 sm:py-28"
         aria-labelledby="campaign-changes-heading"
       >
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
@@ -426,12 +397,14 @@ export async function CampaignLanding({ content }: Props) {
                 title: content.whatChangesPatientsTitle,
                 items: content.whatChangesPatientsItems,
                 image: content.whatChangesPatientsImage ?? WHAT_CHANGES_IMAGES.patients,
+                imagePosition: content.whatChangesPatientsImagePosition,
                 accent: "from-[var(--brand-secondary)]/45 to-transparent",
               },
               {
                 title: content.whatChangesPracticeTitle,
                 items: content.whatChangesPracticeItems,
                 image: content.whatChangesPracticeImage ?? WHAT_CHANGES_IMAGES.practice,
+                imagePosition: content.whatChangesPracticeImagePosition,
                 accent: "from-[var(--brand)]/55 to-transparent",
               },
             ].map((col, i) => (
@@ -444,6 +417,7 @@ export async function CampaignLanding({ content }: Props) {
                       fill
                       sizes="(min-width: 768px) 50vw, 100vw"
                       className="object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04]"
+                      style={col.imagePosition ? { objectPosition: col.imagePosition } : undefined}
                     />
                     <div
                       className={`pointer-events-none absolute inset-0 bg-gradient-to-tr ${col.accent}`}
@@ -489,7 +463,7 @@ export async function CampaignLanding({ content }: Props) {
             <article className="relative overflow-hidden rounded-[28px] shadow-[var(--shadow-raised)] ring-1 ring-[var(--border)]">
               <div className="absolute inset-0">
                 <Image
-                  src={content.socialProofImage ?? SOCIAL_PROOF_BG}
+                  src={SOCIAL_PROOF_BG}
                   alt=""
                   fill
                   sizes="100vw"

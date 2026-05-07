@@ -55,7 +55,7 @@ export type CampaignPageContent = {
   fitsTitle: string;
   fitsEyebrow: string;
   fitsLead: string;
-  fitsImages?: [string, string, string, string];
+  fitsImages?: string[];
   /** 3–4 steps; rendered as equal-height cards with header imagery. */
   fitsItems: { title: string; body: string }[];
 
@@ -64,9 +64,11 @@ export type CampaignPageContent = {
   whatChangesPatientsTitle: string;
   whatChangesPatientsItems: string[];
   whatChangesPatientsImage?: string;
+  whatChangesPatientsImagePosition?: string;
   whatChangesPracticeTitle: string;
   whatChangesPracticeItems: string[];
   whatChangesPracticeImage?: string;
+  whatChangesPracticeImagePosition?: string;
 
   socialProofLabel: string;
   socialProofQuote: string;
