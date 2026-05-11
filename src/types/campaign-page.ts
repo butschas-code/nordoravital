@@ -56,6 +56,7 @@ export type CampaignPageContent = {
   fitsEyebrow: string;
   fitsLead: string;
   fitsImages?: string[];
+  fitsImagePositions?: string[];
   /** 3–4 steps; rendered as equal-height cards with header imagery. */
   fitsItems: { title: string; body: string }[];
 

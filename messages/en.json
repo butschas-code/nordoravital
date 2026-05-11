@@ -461,7 +461,10 @@
     "imprintLink": "Imprint",
     "legalNote": "Full privacy policy and imprint pages will be published here soon.",
     "drawerTitle": "Contact us",
-    "drawerClose": "Close"
+    "drawerClose": "Close",
+    "bookingTitle": "Want to talk first?",
+    "bookingLead": "Book a 15-minute discovery call and we will look at where sanza could fit in your practice.",
+    "bookingCta": "Book discovery call"
   },
   "Language": {
     "label": "Language",

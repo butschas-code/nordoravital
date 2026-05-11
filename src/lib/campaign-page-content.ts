@@ -26,6 +26,7 @@ type CampaignInput = {
   fitsTitle: string;
   fitsLead?: string;
   fitsImages?: string[];
+  fitsImagePositions?: string[];
   fitsItems: { title: string; body: string }[];
   whatChangesPatientsTitle?: string;
   whatChangesPatientsItems: string[];
@@ -223,6 +224,7 @@ function makeCampaignPage(input: CampaignInput, locale: "en" | "de" | "lv" = "en
       input.fitsLead ??
       common.fitsLead,
     fitsImages: input.fitsImages,
+    fitsImagePositions: input.fitsImagePositions,
     fitsItems: input.fitsItems,
     whatChangesTitle: common.whatChangesTitle,
     whatChangesEyebrow: common.whatChangesEyebrow,
@@ -379,20 +381,35 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
     metaDescription:
       "Grounding PEMF wellbeing technology for yoga and meditation studios where presence is the product.",
     contactCategory: "therapists",
+    heroImage: "/images/campaign/yoga-hero.jpg",
+    heroTextAlign: "left",
     heroKicker: "For studios where presence is the product",
-    heroHeadline: "Your practice deepens when the room holds the space first.",
+    heroHeadline: "Give your students more than a class. Give them a state they want to return to.",
     heroSubhead:
-      "<strong>sanza</strong> adds an invisible layer of grounding to your studio — helping students arrive more present, settle into practice faster, and leave in a state that reflects your teaching. A technology that works the way good yoga does: quietly and completely.",
+      "<strong>sanza</strong> adds a quiet grounding layer to your studio experience — helping students arrive, soften, practice and leave with a deeper sense of calm. It supports the atmosphere you already work so hard to create, without changing how you teach.",
     heroCtaPrimary: "Experience sanza in your studio",
     heroValueProps: ["Studio experience session", "Quiet technology", "Premium rituals"],
-    problemEyebrow: "The first 10 minutes are often lost",
-    problemTitle: "Students lie on the mat, but they are not here yet.",
+    quickStats: [
+      { value: "15", label: "ways to deepen the class experience" },
+      { value: "1", label: "simple system for your studio" },
+      { value: "10 min", label: "to help students arrive" },
+      { value: "0", label: "changes to your teaching flow" },
+    ],
+    problemEyebrow: "Your students come to class carrying the day with them.",
+    problemTitle: "They may be lying on the mat, but part of them is still in the car, in the inbox, in the meeting, in the noise they just came from.",
     problemBody:
-      "Students arrive from traffic, from screens, from demanding jobs. They lie on the mat, but they're not here yet. You can hear it — shallow breath, restless energy, the body that hasn't let go of the day. You spend part of every class bringing them in. What if the room started that work before you did?",
+      "As a studio owner, you know how much of the first part of class is spent helping people arrive — softening the breath, calming the nervous system, bringing attention back into the body.\n\n<strong>sanza</strong> supports that transition.\n\nIt adds a quiet, structured grounding layer to your studio, helping students settle more quickly, feel more present in the practice, and leave with the kind of calm they want to return to.\n\nNot to replace your teaching.\nTo help the room support it.",
+    problemImage: "/images/campaign/yoga-block-1.jpg",
     solutionTitle: "sanza is grounding technology for spaces that value presence.",
     solutionBody:
       "PEMF signals work below the threshold of awareness — a structured, full-body electromagnetic input that supports the shift from sympathetic to parasympathetic state. Think of it as a tuning fork for the room. Students don't need to understand it. They just feel different — calmer, more arrived, more ready to go inward. Your teaching lands in a body that has already started to soften.",
     fitsTitle: "Where sanza fits in your studio",
+    fitsImages: [
+      "/images/campaign/yoga-fit-pre-class.jpg",
+      "/images/campaign/yoga-fit-savasana.jpg",
+      "/images/campaign/yoga-fit-private.jpg",
+      "/images/campaign/yoga-fit-workshop.jpg",
+    ],
     fitsItems: [
       { title: "Pre-class", body: "Mat programs running 10–15 min before students begin. They lie down, the room does the settling." },
       { title: "Savasana enhancement", body: "Run a decompression program during final rest — makes savasana feel longer, deeper, more complete." },
@@ -411,6 +428,7 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
       "Students stay loyal because the experience is irreplaceable",
       "Teachers find the room easier to work with from the first breath",
     ],
+    whatChangesPracticeImage: "/images/campaign/yoga-for-studio.jpg",
     socialProofQuote:
       "I want this in my studio. — Every studio owner who experiences <strong>sanza</strong> for the first time.",
     finalCtaTitle: "One session. You'll feel what your students will feel.",
@@ -424,20 +442,35 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
     metaDescription:
       "A premium recovery and decompression station for gyms, CrossFit boxes, and fitness facilities that want stronger retention.",
     contactCategory: "sports-performance",
+    heroImage: "/images/campaign/gym-hero.jpg",
+    heroTextAlign: "left",
     heroKicker: "For facilities that know retention is the real game",
-    heroHeadline: "Training is what you do. Recovery is what keeps members coming back.",
+    heroHeadline: "Make your gym the place members come to recover, not just train.",
     heroSubhead:
-      "<strong>sanza</strong> gives your gym a premium recovery and decompression offer that members can feel — setting you apart from every other fitness facility in the city.",
+      "Every gym can offer equipment.\nFewer can offer a recovery experience members remember.\n\n<strong>sanza</strong> gives your facility a premium decompression layer after training — helping members slow down, reset and feel genuinely looked after. That feeling becomes part of your brand.",
     heroCtaPrimary: "Add a recovery station to your gym",
     heroValueProps: ["One recovery station", "Zero extra staff", "Premium member ritual"],
-    problemEyebrow: "Members choose where to sweat. They stay where they feel taken care of.",
-    problemTitle: "Retention comes from loyalty, not convenience alone.",
+    quickStats: [
+      { value: "15", label: "recovery programs members can feel" },
+      { value: "1", label: "simple system your team can run" },
+      { value: "10 min", label: "to create a premium reset moment" },
+      { value: "0", label: "changes to your training offer" },
+    ],
+    problemEyebrow: "Take the member experience beyond the workout.",
+    problemTitle: "Your gym already gives members a place to train, perform and push themselves.",
     problemBody:
-      "The fitness market in Riga is competitive. Memberships are price-sensitive. Retention is the real game — and retention comes from loyalty, not just convenience. Your members train hard. What they rarely get, anywhere, is a structured, intentional recovery experience as part of their gym. That gap is your opportunity.",
+      "<strong>sanza</strong> helps you extend that experience into what happens after the effort: a calm, structured recovery moment that feels premium, intentional and genuinely valuable.\n\nIt gives members another reason to stay longer, feel better when they leave, and associate your facility with more than equipment or classes. Not a replacement for what you already do well — a simple way to make the whole visit feel more complete.",
+    problemImage: "/images/campaign/gym-block-1.jpg",
     solutionTitle: "sanza: a recovery station your members will actually use and talk about.",
     solutionBody:
       "A sanza station — mat, controller, clear program menu — gives members a 15–20 minute structured PEMF decompression experience after training. Full-body settling, nervous system downregulation, a genuine end-of-workout signal for the body. No staff required to run it. Members choose it themselves from the program menu. It becomes a ritual. It becomes part of why they stay.",
     fitsTitle: "Where sanza fits in your facility",
+    fitsImages: [
+      "/images/campaign/gym-fit-recovery-zone.jpg",
+      "/images/campaign/gym-fit-membership-tier.jpg",
+      "/images/campaign/gym-fit-hiit.jpg",
+      "/images/campaign/gym-fit-pt-closeout.jpg",
+    ],
     fitsItems: [
       { title: "Standalone recovery zone", body: "One mat, one controller, one corner. Members book 15-minute slots post-training." },
       { title: "Premium membership tier", body: "Include sanza access in a premium tier — increases per-member revenue with zero additional staff cost." },
@@ -456,6 +489,7 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
       "Stronger retention data from members using recovery zones",
       "Word-of-mouth: 'have you tried the recovery mat at X gym?'",
     ],
+    whatChangesPracticeImage: "/images/campaign/gym-for-facility.jpg",
     socialProofQuote: "One station. Zero extra staff. A reason to renew.",
     finalCtaTitle: "One station. Zero extra staff. A reason to renew.",
     finalCtaBody:
@@ -593,21 +627,35 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
     metaDescription:
       "Premium PEMF wellbeing technology for spa hotels and resorts looking for a guest experience that stands apart.",
     contactCategory: "beauty-cosmetic",
-    heroKicker: "For five-star properties that take the guest experience seriously",
-    heroHeadline: "The treatments your guests remember aren't always the ones on the menu.",
+    heroImage: "/images/campaign/spa-hotel-hero.jpg",
+    heroTextAlign: "left",
+    heroKicker: "For properties that take the guest experience seriously",
+    heroHeadline: "Give your guests a wellness experience they cannot get everywhere.",
     heroSubhead:
-      "<strong>sanza</strong> adds a premium, technology-led wellbeing dimension to your spa — something guests haven't experienced before, can't find everywhere, and will describe to friends. A true differentiator for five-star wellness positioning.",
+      "Your spa already offers comfort, care and atmosphere. <strong>sanza</strong> helps you add a new layer to that experience: a calm, technology-led reset that feels premium, memorable and quietly different.\n\nGuests do not only remember the treatment menu. They remember how deeply they switched off, how cared for they felt, and whether the experience gave them something worth talking about. <strong>sanza</strong> gives your spa a distinctive wellbeing moment that supports five-star positioning without changing your existing treatments.",
     heroCtaPrimary: "Explore sanza for your spa",
-    heroCtaSecondary: "Download the hotel & spa guide",
     heroValueProps: ["Showcase presentation", "Premium positioning", "Low operational complexity"],
-    problemEyebrow: "When every spa has a sauna and a massage, what makes yours worth talking about?",
-    problemTitle: "Luxury guests remember what feels genuinely different.",
+    quickStats: [
+      { value: "15", label: "premium wellbeing programs" },
+      { value: "1", label: "simple system your team can run" },
+      { value: "10 min", label: "to create a memorable reset" },
+      { value: "0", label: "changes to your spa menu" },
+    ],
+    problemEyebrow: "Give guests a reason to talk about your spa after they leave.",
+    problemTitle: "Your guests can find a sauna, massage and relaxation room in almost every premium hotel.",
     problemBody:
-      "The spa market is saturated with the same menu. Thermal suite, massage, facial, relaxation room. Guests rate it, enjoy it, and choose the next one based on price. The hotels that build real loyalty — that guests return to specifically and recommend passionately — do something that feels genuinely different. Not louder. Not more treatments. A different quality of experience that guests feel in their body and remember months later.",
+      "What they cannot find everywhere is a wellness experience that feels genuinely new, deeply calming and worth remembering.\n\nThat is the opportunity.\n\n<strong>sanza</strong> helps you add a distinctive, technology-led reset to your spa — not another standard treatment on the menu, but a premium wellbeing moment guests can feel immediately. It makes your spa experience more complete, more differentiated and more likely to become the part of the stay they mention to someone else.",
+    problemImage: "/images/campaign/spa-hotel-block-1.jpg",
     solutionTitle: "sanza: the experience guests can't get anywhere else in Latvia.",
     solutionBody:
       "sanza is a professional PEMF wellbeing system — a premium wellness technology that uses chronobiological electromagnetic frequency programs to create a full-body grounding and settling experience. It is not massage. It is not heat. It is something distinctly different — a deep, quiet settling that guests feel as a kind of profound relaxation they immediately want again. Position it as a signature programme. Name it as yours.",
     fitsTitle: "Where sanza fits in your spa",
+    fitsImages: [
+      "/images/campaign/spa-fit-signature.jpg",
+      "/images/campaign/spa-fit-pre-treatment.jpg",
+      "/images/campaign/spa-fit-relaxation.jpg",
+      "/images/campaign/spa-fit-retreat.jpg",
+    ],
     fitsItems: [
       { title: "Signature programme", body: "The sanza session — a 45–60 min premium booking combining PEMF mat with targeted applicators." },
       { title: "Pre-treatment preparation", body: "Run a 15-min settling before a massage or facial — the treatment lands in a body that's already open." },
@@ -626,12 +674,12 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
       "Premium pricing justification — technology + experience = perceived value",
       "Higher spa revenue per guest without increasing staff ratios",
     ],
+    whatChangesPracticeImage: "/images/campaign/spa-for-property.png",
     socialProofQuote:
       "A handful of premium European spas and wellness hotels already feature <strong>sanza</strong>.",
     finalCtaTitle: "Premium European spas and wellness hotels already feature sanza.",
     finalCtaBody: "We'd like to show you what it looks like in a luxury spa context.",
     finalCtaPrimary: "Request a spa showcase presentation",
-    finalCtaSecondary: "Download the hotel & spa integration guide",
   }),
 
   "golfa-klubi": makeCampaignPage({
@@ -639,19 +687,35 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
     metaDescription:
       "Premium PEMF wellbeing technology for golf clubs that want a post-round recovery ritual worthy of their members.",
     contactCategory: "sports-performance",
+    heroImage: "/images/campaign/golf-hero.jpg",
+    heroTextAlign: "left",
     heroKicker: "For clubs where the member experience extends beyond the 18th hole",
-    heroHeadline: "The 19th hole has always been about recovery. Elevate what that means.",
+    heroHeadline: "Make the post-round experience feel as refined as the club itself.",
     heroSubhead:
-      "<strong>sanza</strong> brings premium PEMF wellbeing technology to golf clubs — a post-round recovery and relaxation experience that matches the standard your members expect and gives your clubhouse a genuine edge.",
+      "Your members do not come only for the course. They come for the feeling of the whole club — the pace, the service, the atmosphere, and how they feel after a round.\n\n<strong>sanza</strong> helps you extend that experience beyond the 18th hole with a premium recovery and relaxation moment members can actually feel. A calm, technology-led reset for the clubhouse, performance lounge or wellness area — designed to make your club feel more complete, more memorable, and harder to compare.",
     heroCtaPrimary: "See how golf clubs use sanza",
-    problemEyebrow: "Your members expect the best. Does your recovery offer reflect that?",
-    problemTitle: "Most clubs stop at the shower and the bar.",
+    quickStats: [
+      { value: "15", label: "post-round wellbeing programs" },
+      { value: "1", label: "simple system your team can run" },
+      { value: "10 min", label: "to create a refined recovery moment" },
+      { value: "0", label: "changes to your clubhouse flow" },
+    ],
+    problemEyebrow: "Give your members a better way to recover after the round.",
+    problemTitle: "Your club already delivers the course, the service and the atmosphere your members expect.",
     problemBody:
-      "Golf is physical. Eighteen holes demands the back, the hips, the shoulders, the calves. Your members are often 40–70, physically active but managing accumulated tension, past injuries, and stiffness after four hours on a course. Very few golf clubs in Europe offer anything beyond the usual. The ones that do stand out immediately — and members notice.",
+      "<strong>sanza</strong> helps you extend that standard into what happens after play.\n\nGolf asks a lot from the body — back, hips, shoulders, calves, and the nervous system after hours of focus and movement. Many members finish the round feeling good, but carrying tension, stiffness or fatigue into the rest of their day.\n\nThat is where your club can stand apart.\n\n<strong>sanza</strong> adds a calm, premium recovery moment to the clubhouse experience — something members can feel, remember and talk about. Not as a medical service. As a refined wellbeing layer that makes the whole club experience feel more complete.",
+    problemImage: "/images/campaign/golf-block-1.jpg",
     solutionTitle: "sanza: a post-round recovery ritual that becomes part of your club culture.",
     solutionBody:
       "A sanza station in your clubhouse — locker room adjacent, or as a dedicated recovery room — offers members a structured 15–20 minute PEMF decompression session after their round. Full-body settling, targeted applicators for the areas that took the load, and a quiet premium feel. Members who try it once use it every time. It becomes part of why they play here.",
     fitsTitle: "Where sanza fits in your club",
+    fitsImages: [
+      "/images/campaign/golf-fit-event.jpg",
+      "/images/campaign/golf-fit-clubhouse.jpg",
+      "/images/campaign/golf-fit-post-round.jpg",
+      "/images/campaign/golf-fit-recovery-room.jpg",
+    ],
+    fitsImagePositions: ["50% 36%", "50% 36%", "50% 36%", "50% 50%"],
     fitsItems: [
       { title: "Recovery room", body: "A dedicated, quietly branded space — one mat, ambient light, 15-min programs on a clear menu." },
       { title: "Pro shop add-on", body: "Offer sanza sessions at the pro shop desk as a premium post-lesson or post-round add-on." },
@@ -659,11 +723,13 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
       { title: "Membership tier", body: "Include sanza access in a premium membership tier — increases per-member value." },
     ],
     whatChangesPatientsTitle: "For your members",
+    whatChangesPatientsImage: "/images/campaign/golf-for-members.jpg",
     whatChangesPatientsItems: [
       "A post-round recovery option they can feel — not just a hot shower",
       "A club that has invested in their comfort at a level that signals real quality",
     ],
     whatChangesPracticeTitle: "For your club",
+    whatChangesPracticeImage: "/images/campaign/golf-for-club.jpg",
     whatChangesPracticeItems: [
       "A premium differentiator in a competitive market",
       "An additional revenue line with minimal operating cost",
@@ -681,19 +747,35 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
     metaDescription:
       "Structured PEMF wellbeing technology for tennis clubs that want a post-match recovery offer members remember.",
     contactCategory: "sports-performance",
+    heroImage: "/images/campaign/tennis-hero.jpg",
+    heroTextAlign: "left",
     heroKicker: "For facilities that understand member retention is earned between sessions",
     heroHeadline: "Your members train hard. Give them a recovery experience that matches.",
     heroSubhead:
       "<strong>sanza</strong> brings structured PEMF wellbeing technology to tennis clubs — a premium post-match recovery offer that sets your facility apart and keeps members invested in being here.",
     heroCtaPrimary: "See how tennis clubs use sanza",
-    problemEyebrow: "After the match, there's usually nothing. That's a missed opportunity.",
-    problemTitle: "The experience should not end at the baseline.",
+    quickStats: [
+      { value: "15", label: "recovery programs for players" },
+      { value: "1", label: "simple system your team can run" },
+      { value: "10 min", label: "to help players reset after court time" },
+      { value: "0", label: "changes to your club operations" },
+    ],
+    problemEyebrow: "Give your players a recovery standard that matches their training.",
+    problemTitle: "Your players invest serious time, energy and ambition into every match, lesson and training session.",
     problemBody:
-      "Tennis players leave it all on the court. The shoulder. The elbow. The calf. Two hours of lateral movement, repetitive swing mechanics, competitive intensity — and then they towel off and go home. Most tennis clubs offer nothing between the court and the car park. The ones that create a reason to stay, to recover, and to feel cared for build a different kind of loyalty.",
+      "<strong>sanza</strong> helps your club support what happens after that effort: recovery, regeneration and the return to readiness.\n\nTennis loads the shoulder, elbow, hips, calves and nervous system again and again. A structured post-court reset gives players a premium way to downshift, recover and feel prepared for the next session.\n\nFor your club, it becomes more than an amenity. It is a visible upgrade to your training environment — a way to support players better, strengthen your performance offer, and make your club feel more complete.",
+    problemImage: "/images/campaign/tennis-block-1.jpg",
     solutionTitle: "sanza turns your changing room into a recovery destination.",
     solutionBody:
       "A sanza station — simple, premium, easy to use — gives your members a 15–20 minute structured PEMF decompression option after training or a match. Full-body mat for overall settling, targeted applicator for shoulder or elbow if needed. No staff required. Members run the program themselves from a clear menu. It becomes a post-match ritual.",
     fitsTitle: "Where sanza fits in your facility",
+    fitsImages: [
+      "/images/campaign/tennis-fit-recovery-room.jpg",
+      "/images/campaign/tennis-fit-lounge.jpg",
+      "/images/campaign/tennis-fit-performance.jpg",
+      "/images/campaign/tennis-fit-tournament.jpg",
+    ],
+    fitsImagePositions: ["50% 50%", "50% 50%", "50% 50%", "64% 32%"],
     fitsItems: [
       { title: "Post-match recovery station", body: "One mat, one corner, clear program menu. Members use it after a session." },
       { title: "Junior programme add-on", body: "Include sanza access for junior players — parents notice and appreciate the investment." },
@@ -701,23 +783,26 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
       { title: "Tournament day experience", body: "Offer sanza to tournament participants as part of the event experience." },
     ],
     whatChangesPatientsTitle: "For your members",
+    whatChangesPatientsImage: "/images/campaign/tennis-for-members.jpg",
     whatChangesPatientsItems: [
       "A structured recovery ritual they'll build into every club visit",
       "Reduced post-session fatigue — they train more consistently and more frequently",
     ],
     whatChangesPracticeTitle: "For your club",
+    whatChangesPracticeImage: "/images/campaign/tennis-for-club.jpg",
     whatChangesPracticeItems: [
       "A tangible differentiator no competitor on your street currently offers",
       "Higher visit frequency from members who have another reason to be here",
       "A facility invested in the whole player experience, not just court time",
     ],
     socialProofQuote: "No competitor on your street currently offers this.",
-    finalCtaTitle: "No competitor on your street currently offers this.",
-    finalCtaBody: "Book a facility consultation to see exactly how sanza would fit.",
+    finalCtaTitle: "Give your club a recovery offer players will remember.",
+    finalCtaBody:
+      "Book a facility consultation and we’ll show you where sanza fits into your club — from post-match recovery and coaching programmes to tournament days and premium member experiences.",
     finalCtaPrimary: "Book a facility consultation",
   }),
 
-  "gimenes-arti": makeCampaignPage({
+  "gimenes-arsti": makeCampaignPage({
     segmentName: "General Practitioners",
     metaDescription:
       "A premium, non-clinical wellbeing layer for family practices where patient trust is built visit by visit.",
@@ -879,16 +964,25 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     metaDescription:
       "Strukturierte PEMF-Wellbeing-Technologie für Sportmedizin und Recovery-Zentren, die Athleten ein vollständigeres Regenerationserlebnis bieten möchten.",
     contactCategory: "sports-performance",
+    heroImage: "/images/campaign/sports-medicine-hero.jpg",
+    heroTextAlign: "left",
     heroKicker: "Für performance-orientierte Praxen, die das gesamte Athletenerlebnis ernst nehmen",
-    heroHeadline: "Regeneration ist mehr als Eis und Ruhe. Heben Sie das gesamte Erlebnis an.",
+    heroHeadline: "Geben Sie Athleten mehr als Behandlung. Geben Sie ihnen ein Recovery-Erlebnis.",
     heroSubhead:
       "<strong>sanza</strong> bringt strukturierte PEMF-Wellbeing-Technologie in sportmedizinische Settings — damit Athleten schneller zur Ruhe kommen, sich zwischen Terminen geerdeter fühlen und Ihre Einrichtung mit einer spürbaren Qualität verbinden.",
     heroCtaPrimary: "Sport-Recovery-Demo buchen",
     heroValueProps: ["Facility-Walkthrough", "Recovery-Zone Setup", "Einfach fürs Team"],
+    quickStats: [
+      { value: "15", label: "Möglichkeiten, Athlete Recovery zu unterstützen" },
+      { value: "1", label: "einfaches System für Ihr ganzes Team" },
+      { value: "10 Min", label: "um den Ankommenszustand zu verändern" },
+      { value: "0", label: "Störung Ihres Behandlungsablaufs" },
+    ],
     problemEyebrow: "Die Lücke zwischen Behandlung und echter Regeneration",
     problemTitle: "Athleten kommen oft noch hochgefahren an.",
     problemBody:
       "Ihre klinische Expertise ist da. Diagnostik, manuelle Therapie, Ultraschall, Recovery-Protokolle — die technische Seite ist abgedeckt. Doch Athleten kommen häufig mit einem noch aktiven Nervensystem an: Training, Wettkampf, Druck. Das Umfeld rund um die Behandlung zählt. Viele sportmedizinische Einrichtungen fühlen sich trotzdem wie normale Praxen an.",
+    problemImage: "/images/campaign/sports-medicine-block-1.jpg",
     solutionTitle: "Geben Sie Athleten etwas, das sie über die Behandlung hinaus spüren.",
     solutionBody:
       "<strong>sanza</strong> nutzt PEMF-Technologie mit strukturierten Frequenzprogrammen als premium Wellbeing-Ebene. Sie unterstützt Athleten dabei, herunterzufahren, anzukommen und präsenter zu werden. Im sportmedizinischen Kontext entsteht dadurch ein Umfeld, über das Athleten sprechen, weil es sich anders anfühlt.",
@@ -908,6 +1002,7 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
       "Stärkere Bindung durch ein Gefühl, zu dem Athleten zurückkehren",
       "Einfach zu betreuen — klare Programme, einfache Steuerung",
     ],
+    whatChangesPracticeImage: "/images/campaign/sports-medicine-for-practice.jpg",
     socialProofQuote:
       "Genutzt von performance-orientierten Praxen in Europa. Wir zeigen genau, wie <strong>sanza</strong> in Ihren Recovery-Flow passt — ohne einen Termin zu stören.",
     finalCtaTitle: "Genutzt von performance-orientierten Praxen in Europa.",
@@ -921,19 +1016,33 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     metaDescription:
       "Eine premium Wellbeing-Ebene für Chiropraktik und manuelle Therapie, damit Patienten vor der Arbeit auf der Liege besser ankommen.",
     contactCategory: "therapists",
+    heroImage: "/images/campaign/chiro-hero.jpg",
+    heroTextAlign: "left",
     heroKicker: "Für Praxen, in denen Gewebeantwort beginnt, bevor Sie berühren",
-    heroHeadline: "Bevor Ihre Hände arbeiten, sollte der Raum bereits mitarbeiten.",
+    heroHeadline: "Geben Sie Ihren Patienten mehr als eine Justierung.",
     heroSubhead:
-      "<strong>sanza</strong> bereitet Patienten auf manuelle Therapie vor — sie fühlen sich ruhiger, weniger angespannt und bereiter für Ihre Arbeit. Ohne zusätzliche Schritte für Ihr Team.",
+      "<strong>sanza</strong> hilft Ihnen, den gesamten chiropraktischen Besuch in eine ruhigere, vollständigere Erfahrung zu verwandeln — vor, während und nach Ihrer Arbeit mit den Händen. Patienten fühlen sich entspannter, besser umsorgt und stärker mit Ihrer Praxis verbunden. Ihr Behandlungsablauf bleibt genau so, wie er ist.",
     heroCtaPrimary: "Demo im Chiro-Raum anfragen",
-    problemEyebrow: "Schutzspannung ist der Gegner guter manueller Arbeit",
-    problemTitle: "Sie sollten nicht gegen die Liege arbeiten müssen.",
+    quickStats: [
+      { value: "15", label: "Programme für ruhigere Besuche" },
+      { value: "1", label: "einfaches System für das ganze Team" },
+      { value: "10 Min", label: "um den Zustand des Raums zu verändern" },
+      { value: "0", label: "Änderungen an Ihrer Handarbeit" },
+    ],
+    problemEyebrow: "Verlieren Sie keine Behandlungszeit mehr an Spannung, die Sie nicht verursacht haben.",
+    problemTitle: "Ihre Hände wissen, was zu tun ist.",
     problemBody:
-      "Erfahrene Chiropraktiker kennen es: Patienten kommen angespannt, schützen Rücken oder Nacken, atmen flach, lassen schwer los. Technisch können Sie alles richtig machen und trotzdem gegen Widerstand arbeiten. Das ist kein Kompetenzproblem. Es ist ein Kontextproblem.",
-    solutionTitle: "sanza hilft Patienten, vor Beginn zur Ruhe zu kommen.",
+      "Wenn ein Patient angespannt, geschützt, abgelenkt oder nervös ankommt, arbeiten Sie nicht nur mit der Wirbelsäule — Sie arbeiten gegen den Zustand, den er mit in den Raum bringt.\n\n<strong>sanza</strong> hilft Ihnen, diesen Kontext zu verändern.\n\nEs gibt Ihrem chiropraktischen Raum eine ruhige, strukturierte Ebene um die Arbeit, die Sie bereits tun. Patienten kommen schneller zur Ruhe, fühlen sich sicherer auf der Liege und erleben den Besuch als vollständiger. Weniger Widerstand. Mehr Vertrauen. Ein besserer Start für die Justierung — und ein besseres Gefühl beim Gehen.",
+    problemImage: "/images/campaign/chiro-block-1.jpg",
+    solutionTitle: "sanza beruhigt das Nervensystem, bevor Sie beginnen.",
     solutionBody:
       "Ein 10–15-minütiges Ankommprogramm auf der sanza-Matte schafft ein ruhigeres, geerdeteres Körpergefühl. Das Signal ist sanft, nicht-invasiv und kompatibel mit manueller Arbeit. Ihre Behandlung bleibt dieselbe — aber das, womit Sie arbeiten, verändert sich.",
     fitsTitle: "Wo sanza in Ihren Ablauf passt",
+    fitsImages: [
+      "/images/campaign/chiro-fit-arrival.jpg",
+      "/images/campaign/chiro-fit-applicators.jpg",
+      "/images/campaign/chiro-fit-decompression.jpg",
+    ],
     fitsItems: [
       { title: "Ankommprogramm", body: "Der Patient liegt auf der Matte, während Sie Notizen prüfen. Wenn Sie bereit sind, ist er es eher auch." },
       { title: "Gezielte Applikatoren", body: "Kurze lokale Komfortmomente für Nacken oder Schulter vor gezielter Arbeit." },
@@ -948,6 +1057,8 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
       "Ein klarer Unterschied zu anderen Praxen",
       "Patienten beschreiben es weiter und empfehlen die Erfahrung",
     ],
+    whatChangesPracticeImage: "/images/campaign/chiro-for-practice.jpg",
+    whatChangesPracticeImagePosition: "50% 32%",
     socialProofQuote:
       "Die meisten Chiropraktiker möchten es einmal ausprobieren und dann entscheiden. Genau das bieten wir an.",
     finalCtaTitle: "Einmal ausprobieren und dann entscheiden.",
@@ -960,20 +1071,35 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     metaDescription:
       "Grounding PEMF-Wellbeing-Technologie für Yoga- und Meditationsstudios, in denen Präsenz das eigentliche Produkt ist.",
     contactCategory: "therapists",
+    heroImage: "/images/campaign/yoga-hero.jpg",
+    heroTextAlign: "left",
     heroKicker: "Für Studios, in denen Präsenz das Produkt ist",
-    heroHeadline: "Ihre Praxis wird tiefer, wenn der Raum zuerst hält.",
+    heroHeadline: "Geben Sie Ihren Schülern mehr als eine Klasse. Geben Sie ihnen einen Zustand, zu dem sie zurückkehren möchten.",
     heroSubhead:
-      "<strong>sanza</strong> ergänzt Ihr Studio um eine stille Ebene von Erdung — Schüler kommen präsenter an, finden schneller in die Praxis und gehen in einem Zustand, der Ihre Arbeit widerspiegelt.",
+      "<strong>sanza</strong> ergänzt Ihr Studioerlebnis um eine ruhige Grounding-Ebene — sie hilft Schülern anzukommen, weicher zu werden, zu praktizieren und mit einem tieferen Gefühl von Ruhe zu gehen. Sie unterstützt die Atmosphäre, an der Sie bereits so bewusst arbeiten, ohne zu verändern, wie Sie unterrichten.",
     heroCtaPrimary: "sanza im Studio erleben",
     heroValueProps: ["Studio-Erfahrung", "Stille Technologie", "Premium-Rituale"],
-    problemEyebrow: "Die ersten 10 Minuten gehen oft verloren",
-    problemTitle: "Sie liegen auf der Matte, sind aber noch nicht angekommen.",
+    quickStats: [
+      { value: "15", label: "Wege, das Klassenerlebnis zu vertiefen" },
+      { value: "1", label: "einfaches System für Ihr Studio" },
+      { value: "10 Min", label: "damit Schüler wirklich ankommen" },
+      { value: "0", label: "Änderungen an Ihrem Unterrichtsablauf" },
+    ],
+    problemEyebrow: "Ihre Schüler bringen den Tag mit in die Klasse.",
+    problemTitle: "Sie liegen vielleicht auf der Matte, aber ein Teil von ihnen ist noch im Auto, im Posteingang, im Meeting, im Lärm, aus dem sie gerade kommen.",
     problemBody:
-      "Schüler kommen aus Verkehr, Bildschirmen und Arbeitsdruck. Der Körper ist da, aber das Nervensystem noch nicht. Flache Atmung, Unruhe, ein Tag, der nicht losgelassen hat. Sie verbringen einen Teil jeder Stunde damit, Menschen erst hereinzuholen.",
+      "Als Studioinhaber wissen Sie, wie viel des ersten Teils einer Klasse damit verbracht wird, Menschen beim Ankommen zu helfen — den Atem weicher werden zu lassen, das Nervensystem zu beruhigen, die Aufmerksamkeit zurück in den Körper zu bringen.\n\n<strong>sanza</strong> unterstützt diesen Übergang.\n\nEs ergänzt Ihr Studio um eine ruhige, strukturierte Grounding-Ebene, damit Schüler schneller zur Ruhe kommen, präsenter in der Praxis sind und mit der Art von Ruhe gehen, zu der sie zurückkehren möchten.\n\nNicht, um Ihren Unterricht zu ersetzen.\nSondern damit der Raum ihn unterstützt.",
+    problemImage: "/images/campaign/yoga-block-1.jpg",
     solutionTitle: "sanza ist Grounding-Technologie für Räume, die Präsenz schätzen.",
     solutionBody:
       "PEMF-Signale wirken unterhalb der bewussten Wahrnehmung als strukturierter Ganzkörper-Impuls. Schüler müssen es nicht verstehen. Sie fühlen sich anders — ruhiger, angekommener, bereit nach innen zu gehen. Ihre Lehre landet in einem Körper, der bereits weicher geworden ist.",
     fitsTitle: "Wo sanza in Ihr Studio passt",
+    fitsImages: [
+      "/images/campaign/yoga-fit-pre-class.jpg",
+      "/images/campaign/yoga-fit-savasana.jpg",
+      "/images/campaign/yoga-fit-private.jpg",
+      "/images/campaign/yoga-fit-workshop.jpg",
+    ],
     fitsItems: [
       { title: "Vor der Klasse", body: "Mattenprogramme laufen 10–15 Minuten vor Beginn. Die Schüler legen sich hin, der Raum übernimmt das Ankommen." },
       { title: "Savasana vertiefen", body: "Ein Dekompressionsprogramm während der Endruhe lässt Savasana länger und vollständiger wirken." },
@@ -992,6 +1118,7 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
       "Loyalität, weil die Erfahrung schwer ersetzbar ist",
       "Lehrer erleben den Raum vom ersten Atemzug an leichter",
     ],
+    whatChangesPracticeImage: "/images/campaign/yoga-for-studio.jpg",
     socialProofQuote:
       "Das will ich in meinem Studio. — Viele Studioinhaber nach der ersten <strong>sanza</strong>-Erfahrung.",
     finalCtaTitle: "Eine Session. Sie fühlen, was Ihre Schüler fühlen werden.",
@@ -1005,20 +1132,35 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     metaDescription:
       "Eine premium Recovery- und Dekompressionsstation für Fitnessflächen, die Mitgliederbindung ernst nehmen.",
     contactCategory: "sports-performance",
+    heroImage: "/images/campaign/gym-hero.jpg",
+    heroTextAlign: "left",
     heroKicker: "Für Einrichtungen, die wissen: Retention ist das eigentliche Spiel",
-    heroHeadline: "Training ist Ihr Angebot. Recovery bringt Mitglieder zurück.",
+    heroHeadline: "Machen Sie Ihr Gym zu dem Ort, an den Mitglieder nicht nur zum Trainieren, sondern auch zum Erholen kommen.",
     heroSubhead:
-      "<strong>sanza</strong> gibt Ihrem Studio ein premium Recovery-Angebot, das Mitglieder spüren — und das Sie von anderen Fitnessflächen in der Stadt unterscheidet.",
+      "Jedes Gym kann Geräte anbieten.\nWeniger können ein Recovery-Erlebnis bieten, an das Mitglieder sich erinnern.\n\n<strong>sanza</strong> gibt Ihrer Einrichtung eine premium Dekompressions-Ebene nach dem Training — damit Mitglieder langsamer werden, resetten und sich wirklich gut aufgehoben fühlen. Dieses Gefühl wird Teil Ihrer Marke.",
     heroCtaPrimary: "Recovery-Station fürs Studio anfragen",
     heroValueProps: ["Eine Recovery-Station", "Kein Extra-Personal", "Premium-Ritual"],
-    problemEyebrow: "Mitglieder wählen, wo sie trainieren. Sie bleiben, wo sie sich umsorgt fühlen.",
-    problemTitle: "Bindung entsteht durch Loyalität, nicht nur durch Nähe.",
+    quickStats: [
+      { value: "15", label: "Recovery-Programme, die Mitglieder spüren" },
+      { value: "1", label: "einfaches System für Ihr Team" },
+      { value: "10 Min", label: "für einen premium Reset-Moment" },
+      { value: "0", label: "Änderungen an Ihrem Trainingsangebot" },
+    ],
+    problemEyebrow: "Führen Sie das Mitgliedererlebnis über das Workout hinaus.",
+    problemTitle: "Ihr Gym gibt Mitgliedern bereits einen Ort zum Trainieren, Leisten und Fordern.",
     problemBody:
-      "Der Fitnessmarkt ist kompetitiv und preissensibel. Ihre Mitglieder trainieren hart. Was sie selten bekommen, ist ein bewusstes, strukturiertes Recovery-Erlebnis als Teil des Studios. Genau diese Lücke ist Ihre Chance.",
+      "<strong>sanza</strong> hilft Ihnen, dieses Erlebnis auf das zu erweitern, was nach der Anstrengung passiert: einen ruhigen, strukturierten Recovery-Moment, der premium, bewusst und wirklich wertvoll wirkt.\n\nEs gibt Mitgliedern einen weiteren Grund, länger zu bleiben, sich beim Gehen besser zu fühlen und Ihre Einrichtung mit mehr als Geräten oder Kursen zu verbinden. Kein Ersatz für das, was Sie bereits gut machen — sondern eine einfache Möglichkeit, den gesamten Besuch vollständiger wirken zu lassen.",
+    problemImage: "/images/campaign/gym-block-1.jpg",
     solutionTitle: "sanza: eine Recovery-Station, die Mitglieder wirklich nutzen und weitererzählen.",
     solutionBody:
       "Eine sanza-Station — Matte, Steuerung, klares Programmmenü — bietet 15–20 Minuten strukturierte PEMF-Dekompression nach dem Training. Kein Personal muss sie bedienen. Mitglieder wählen selbst ein Programm. Es wird Ritual und Grund, länger zu bleiben.",
     fitsTitle: "Wo sanza in Ihre Fläche passt",
+    fitsImages: [
+      "/images/campaign/gym-fit-recovery-zone.jpg",
+      "/images/campaign/gym-fit-membership-tier.jpg",
+      "/images/campaign/gym-fit-hiit.jpg",
+      "/images/campaign/gym-fit-pt-closeout.jpg",
+    ],
     fitsItems: [
       { title: "Standalone Recovery-Zone", body: "Eine Matte, eine Steuerung, eine Ecke. Mitglieder buchen 15-Minuten-Slots nach dem Training." },
       { title: "Premium-Mitgliedschaft", body: "sanza-Zugang als Teil eines Premium-Tiers — mehr Umsatz pro Mitglied ohne Personalkosten." },
@@ -1037,6 +1179,7 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
       "Stärkere Bindung durch nutzbare Recovery-Zonen",
       "Mundpropaganda: Hast du die Recovery-Matte dort schon probiert?",
     ],
+    whatChangesPracticeImage: "/images/campaign/gym-for-facility.jpg",
     socialProofQuote: "Eine Station. Kein Extra-Personal. Ein Grund zu verlängern.",
     finalCtaTitle: "Eine Station. Kein Extra-Personal. Ein Grund zu verlängern.",
     finalCtaBody:
@@ -1174,20 +1317,34 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     metaDescription:
       "Premium PEMF-Wellbeing-Technologie für Spa-Hotels und Resorts, die ein erinnerungswürdiges Gästeerlebnis suchen.",
     contactCategory: "beauty-cosmetic",
-    heroKicker: "Für Fünf-Sterne-Häuser, die das Gästeerlebnis ernst nehmen",
-    heroHeadline: "Die Behandlungen, an die Gäste sich erinnern, stehen nicht immer auf der Karte.",
+    heroImage: "/images/campaign/spa-hotel-hero.jpg",
+    heroTextAlign: "left",
+    heroKicker: "Für Häuser, die das Gästeerlebnis ernst nehmen",
+    heroHeadline: "Geben Sie Ihren Gästen ein Wellness-Erlebnis, das sie nicht überall bekommen.",
     heroSubhead:
-      "<strong>sanza</strong> ergänzt Ihr Spa um eine premium, technologiegestützte Wellbeing-Dimension — etwas, das Gäste nicht überall finden und Freunden beschreiben.",
+      "Ihr Spa bietet bereits Komfort, Fürsorge und Atmosphäre. <strong>sanza</strong> hilft Ihnen, diesem Erlebnis eine neue Ebene hinzuzufügen: einen ruhigen, technologiegestützten Reset, der premium, erinnerungswürdig und leise anders wirkt.\n\nGäste erinnern sich nicht nur an die Behandlungskarte. Sie erinnern sich daran, wie tief sie abgeschaltet haben, wie umsorgt sie sich fühlten und ob das Erlebnis ihnen etwas gab, worüber sie sprechen möchten. <strong>sanza</strong> gibt Ihrem Spa einen unverwechselbaren Wellbeing-Moment, der eine hochwertige Positionierung unterstützt, ohne Ihre bestehenden Behandlungen zu verändern.",
     heroCtaPrimary: "sanza fürs Spa entdecken",
-    heroCtaSecondary: "Hotel- & Spa-Guide herunterladen",
-    problemEyebrow: "Wenn jedes Spa Sauna und Massage hat, was macht Ihres erzählenswert?",
-    problemTitle: "Luxusgäste erinnern sich an das, was wirklich anders fühlt.",
+    quickStats: [
+      { value: "15", label: "premium Wellbeing-Programme" },
+      { value: "1", label: "einfaches System für Ihr Team" },
+      { value: "10 Min", label: "für einen erinnerungswürdigen Reset" },
+      { value: "0", label: "Änderungen an Ihrer Spa-Karte" },
+    ],
+    problemEyebrow: "Geben Sie Gästen einen Grund, nach der Abreise über Ihr Spa zu sprechen.",
+    problemTitle: "Sauna, Massage und Ruheraum finden Ihre Gäste in fast jedem Premium-Hotel.",
     problemBody:
-      "Spa-Menüs ähneln sich: Sauna, Massage, Facial, Ruheraum. Gäste genießen es und wählen das nächste nach Preis oder Lage. Häuser, die echte Loyalität schaffen, bieten eine andere Erlebnisqualität — nicht lauter, nicht mehr Behandlungen, sondern etwas, das Gäste körperlich spüren und Monate später erinnern.",
+      "Was sie nicht überall finden, ist ein Wellness-Erlebnis, das sich wirklich neu, tief beruhigend und erinnerungswürdig anfühlt.\n\nGenau darin liegt die Chance.\n\n<strong>sanza</strong> hilft Ihnen, Ihrem Spa einen unverwechselbaren, technologiegestützten Reset hinzuzufügen — nicht noch eine Standardbehandlung auf der Karte, sondern einen premium Wellbeing-Moment, den Gäste sofort spüren. Dadurch wirkt Ihr Spa-Erlebnis vollständiger, differenzierter und wird eher zu dem Teil des Aufenthalts, den Gäste jemand anderem erzählen.",
+    problemImage: "/images/campaign/spa-hotel-block-1.jpg",
     solutionTitle: "sanza: das Erlebnis, das Gäste in Lettland kaum anderswo bekommen.",
     solutionBody:
       "sanza ist ein professionelles PEMF-Wellbeing-System, das chronobiologische Frequenzprogramme für eine tiefe, stille Erdung nutzt. Es ist keine Massage und keine Wärme. Es ist ein eigenständiges Erlebnis, das Gäste sofort wiederholen möchten. Positionieren Sie es als Signature-Programm unter Ihrer Marke.",
     fitsTitle: "Wo sanza in Ihr Spa passt",
+    fitsImages: [
+      "/images/campaign/spa-fit-signature.jpg",
+      "/images/campaign/spa-fit-pre-treatment.jpg",
+      "/images/campaign/spa-fit-relaxation.jpg",
+      "/images/campaign/spa-fit-retreat.jpg",
+    ],
     fitsItems: [
       { title: "Signature-Programm", body: "Die sanza-Session als 45–60 Minuten Premium-Buchung mit Matte und Applikatoren." },
       { title: "Vorbereitung", body: "15 Minuten sanza vor Massage oder Facial — die Behandlung trifft auf einen bereits geöffneten Körper." },
@@ -1206,12 +1363,12 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
       "Premium-Preise mit Technologie + Erlebnis begründbar",
       "Mehr Spa-Umsatz pro Gast ohne höhere Personalquote",
     ],
+    whatChangesPracticeImage: "/images/campaign/spa-for-property.png",
     socialProofQuote:
       "Einige premium europäische Spas und Wellness-Hotels führen <strong>sanza</strong> bereits.",
     finalCtaTitle: "Premium-Spas in Europa führen sanza bereits.",
     finalCtaBody: "Wir zeigen Ihnen, wie es in einem Luxus-Spa-Kontext aussieht.",
     finalCtaPrimary: "Spa-Showcase anfragen",
-    finalCtaSecondary: "Hotel- & Spa-Integrationsguide herunterladen",
   }, "de"),
 
   "golfa-klubi": makeCampaignPage({
@@ -1297,7 +1454,7 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     finalCtaPrimary: "Facility-Beratung buchen",
   }, "de"),
 
-  "gimenes-arti": makeCampaignPage({
+  "gimenes-arsti": makeCampaignPage({
     segmentName: "Hausarztpraxen",
     metaDescription:
       "Eine premium, nicht-klinische Wellbeing-Ebene für Hausarztpraxen, in denen Vertrauen Besuch für Besuch entsteht.",
@@ -1459,16 +1616,25 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
     metaDescription:
       "Strukturēta PEMF labsajūtas tehnoloģija sporta medicīnas un atjaunošanās centriem, kas vēlas pilnīgāku sportista pieredzi.",
     contactCategory: "sports-performance",
+    heroImage: "/images/campaign/sports-medicine-hero.jpg",
+    heroTextAlign: "left",
     heroKicker: "Praksēm, kas nopietni uztver visu sportista pieredzi",
-    heroHeadline: "Atjaunošanās nav tikai ledus un atpūta. Paceliet visu pieredzi augstāk.",
+    heroHeadline: "Dodiet sportistiem vairāk nekā ārstēšanu. Dodiet viņiem atjaunošanās pieredzi.",
     heroSubhead:
       "<strong>sanza</strong> ienes strukturētu PEMF labsajūtas tehnoloģiju sporta medicīnas vidē — palīdzot sportistiem ātrāk nomierināties, justies stabilāk starp sesijām un saistīt jūsu centru ar sajūtu, ko viņi pamana.",
     heroCtaPrimary: "Pieteikt sporta atjaunošanās demo",
     heroValueProps: ["Telpas apskate", "Recovery zonas uzstādījums", "Vienkārši komandai"],
+    quickStats: [
+      { value: "15", label: "veidi, kā atbalstīt sportistu atjaunošanos" },
+      { value: "1", label: "vienkārša sistēma visai komandai" },
+      { value: "10 min", label: "lai mainītu stāvokli, ar kādu viņi ierodas" },
+      { value: "0", label: "traucējumu jūsu ārstēšanas plūsmai" },
+    ],
     problemEyebrow: "Plaisa starp ārstēšanu un patiesu atjaunošanos",
     problemTitle: "Sportisti bieži ierodas pārāk uzvilkti.",
     problemBody:
       "Jūsu klīniskā kompetence ir skaidra. Diagnostika, manuālā terapija, procedūras — tehniskā puse ir segta. Taču sportisti bieži ienāk ar aktīvu nervu sistēmu pēc treniņa vai sacensībām. Vide ap ārstēšanu ir svarīga, bet daudzi sporta medicīnas centri joprojām jūtas kā parasta prakse.",
+    problemImage: "/images/campaign/sports-medicine-block-1.jpg",
     solutionTitle: "Dodiet sportistiem kaut ko sajūtamu arī ārpus pašas procedūras.",
     solutionBody:
       "<strong>sanza</strong> izmanto PEMF tehnoloģiju ar strukturētām frekvenču programmām kā premium labsajūtas slāni. Tas palīdz sportistiem piebremzēt, iejusties un justies klātesošākiem. Rezultātā jūsu vide jūtas citādi — un par to runā.",
@@ -1488,6 +1654,7 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
       "Spēcīgāka noturēšana caur sajūtu, pie kuras sportisti atgriežas",
       "Vienkārši komandai — skaidras programmas un vadība",
     ],
+    whatChangesPracticeImage: "/images/campaign/sports-medicine-for-practice.jpg",
     socialProofQuote:
       "Performance orientētas prakses Eiropā jau izmanto šo pieeju. Mēs parādīsim, kā <strong>sanza</strong> iederas jūsu recovery plūsmā.",
     finalCtaTitle: "Performance orientētas prakses Eiropā jau izmanto sanza.",
@@ -1500,19 +1667,33 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
     metaDescription:
       "Premium labsajūtas slānis hiropraktikas un manuālās terapijas praksēm, kur pacients var iejusties pirms darba sākuma.",
     contactCategory: "therapists",
+    heroImage: "/images/campaign/chiro-hero.jpg",
+    heroTextAlign: "left",
     heroKicker: "Praksēm, kur audu atbilde sākas pirms pieskāriena",
-    heroHeadline: "Pirms strādā jūsu rokas, telpai jau vajadzētu palīdzēt.",
+    heroHeadline: "Dodiet saviem pacientiem vairāk nekā korekciju.",
     heroSubhead:
-      "<strong>sanza</strong> palīdz pacientiem sagatavoties manuālajai terapijai — justies mierīgākiem, mazāk saspringtiem un gatavākiem jūsu darbam. Bez papildu soļiem komandai.",
+      "<strong>sanza</strong> palīdz pārvērst visu hiropraktikas vizīti mierīgākā, pilnīgākā pieredzē — pirms, laikā un pēc jūsu darba ar rokām. Pacienti jūtas brīvāk, vairāk aprūpēti un vairāk saistīti ar jūsu praksi. Jūsu ārstēšanas plūsma paliek tieši tāda pati.",
     heroCtaPrimary: "Apskatīt sanza hiropraktikas telpā",
-    problemEyebrow: "Aizsargsaspringums traucē labam manuālam darbam",
-    problemTitle: "Jums nevajadzētu cīnīties ar procedūru galdu.",
+    quickStats: [
+      { value: "15", label: "programmas mierīgākām vizītēm" },
+      { value: "1", label: "vienkārša sistēma visai komandai" },
+      { value: "10 min", label: "lai mainītu telpas stāvokli" },
+      { value: "0", label: "izmaiņu jūsu darbā ar rokām" },
+    ],
+    problemEyebrow: "Beidziet zaudēt ārstēšanas laiku spriedzei, ko neesat radījuši.",
+    problemTitle: "Jūsu rokas zina, ko darīt.",
     problemBody:
-      "Pieredzējuši speciālisti to pazīst: pacients ienāk saspringts, sargā muguru vai kaklu, elpo sekli. Tehniski jūs varat darīt visu pareizi, bet ķermenis pretojas. Tā nav prasmju problēma. Tā ir konteksta problēma.",
-    solutionTitle: "sanza palīdz pacientam nomierināties pirms sākuma.",
+      "Kad pacients ierodas saspringts, aizsargājošs, izklaidīgs vai nervozs, jūs nestrādājat tikai ar mugurkaulu — jūs strādājat pret stāvokli, ko viņš ienes telpā.\n\n<strong>sanza</strong> palīdz mainīt šo kontekstu.\n\nTas pievieno hiropraktikas telpai mierīgu, strukturētu slāni ap darbu, ko jau veicat. Pacienti ātrāk nomierinās, jūtas drošāk uz galda un piedzīvo vizīti kā pilnīgāku. Mazāk pretestības. Vairāk uzticības. Labāks sākums korekcijai — un labāka sajūta, dodoties prom.",
+    problemImage: "/images/campaign/chiro-block-1.jpg",
+    solutionTitle: "sanza palīdz nervu sistēmai nomierināties pirms sākuma.",
     solutionBody:
       "10–15 minūšu ierašanās programma uz sanza paklāja rada mierīgāku, stabilāku sajūtu. Signāls ir maigs, neinvazīvs un savietojams ar manuālo darbu. Jūsu terapija paliek tā pati — mainās tas, ar ko jūs strādājat.",
     fitsTitle: "Kur sanza iederas jūsu plūsmā",
+    fitsImages: [
+      "/images/campaign/chiro-fit-arrival.jpg",
+      "/images/campaign/chiro-fit-applicators.jpg",
+      "/images/campaign/chiro-fit-decompression.jpg",
+    ],
     fitsItems: [
       { title: "Ierašanās programma", body: "Pacients guļ uz paklāja, kamēr jūs pārskatāt piezīmes. Kad jūs esat gatavs, viņš ir gatavāks." },
       { title: "Mērķēti aplikatori", body: "Īsi lokāli komforta brīži kakla vai plecu zonai pirms konkrēta darba." },
@@ -1527,6 +1708,8 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
       "Skaidra atšķirība no citām praksēm",
       "Pacienti par to stāsta un iesaka pieredzi",
     ],
+    whatChangesPracticeImage: "/images/campaign/chiro-for-practice.jpg",
+    whatChangesPracticeImagePosition: "50% 32%",
     socialProofQuote: "Daudzi hiropraktiķi vēlas to vienreiz izmēģināt un tad izlemt. Tieši to mēs piedāvājam.",
     finalCtaTitle: "Izmēģināt vienreiz un tad izlemt.",
     finalCtaBody: "Piedāvājam demo jūsu praksē bez spiediena.",
@@ -1538,20 +1721,35 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
     metaDescription:
       "Zemējoša PEMF labsajūtas tehnoloģija jogas un meditācijas studijām, kur klātbūtne ir galvenā pieredze.",
     contactCategory: "therapists",
+    heroImage: "/images/campaign/yoga-hero.jpg",
+    heroTextAlign: "left",
     heroKicker: "Studijām, kur klātbūtne ir produkts",
-    heroHeadline: "Prakse kļūst dziļāka, kad telpa vispirms notur mieru.",
+    heroHeadline: "Dodiet saviem audzēkņiem vairāk nekā nodarbību. Dodiet viņiem stāvokli, pie kura gribas atgriezties.",
     heroSubhead:
-      "<strong>sanza</strong> pievieno studijai klusu zemējuma slāni — palīdzot audzēkņiem ierasties klātesošākiem, ātrāk ieiet praksē un aiziet stāvoklī, kas atspoguļo jūsu darbu.",
+      "<strong>sanza</strong> pievieno jūsu studijas pieredzei klusu zemējuma slāni — palīdzot audzēkņiem ierasties, kļūt mierīgākiem, praktizēt un aiziet ar dziļāku miera sajūtu. Tas atbalsta atmosfēru, kuru jūs jau tik rūpīgi veidojat, nemainot to, kā jūs mācāt.",
     heroCtaPrimary: "Izmēģināt sanza studijā",
     heroValueProps: ["Studijas pieredze", "Klusa tehnoloģija", "Premium rituāli"],
-    problemEyebrow: "Pirmās 10 minūtes bieži pazūd",
-    problemTitle: "Viņi guļ uz paklāja, bet vēl nav šeit.",
+    quickStats: [
+      { value: "15", label: "veidi, kā padziļināt nodarbības pieredzi" },
+      { value: "1", label: "vienkārša sistēma jūsu studijai" },
+      { value: "10 min", label: "lai palīdzētu audzēkņiem ierasties" },
+      { value: "0", label: "izmaiņu jūsu mācīšanas plūsmā" },
+    ],
+    problemEyebrow: "Jūsu audzēkņi nāk uz nodarbību ar visu dienu sev līdzi.",
+    problemTitle: "Viņi varbūt guļ uz paklāja, bet daļa no viņiem vēl ir mašīnā, e-pastā, sapulcē, troksnī, no kura tikko atnākuši.",
     problemBody:
-      "Audzēkņi ierodas no satiksmes, ekrāniem un darba spriedzes. Ķermenis ir telpā, nervu sistēma vēl nav. Sekla elpa, nemiers, diena, kas nav atlaista. Daļu nodarbības jūs pavadāt, palīdzot viņiem vispār ierasties.",
+      "Kā studijas īpašnieks jūs zināt, cik liela nodarbības pirmā daļa bieži paiet, palīdzot cilvēkiem ierasties — mīkstināt elpu, nomierināt nervu sistēmu, atgriezt uzmanību ķermenī.\n\n<strong>sanza</strong> atbalsta šo pāreju.\n\nTas pievieno jūsu studijai klusu, strukturētu zemējuma slāni, palīdzot audzēkņiem ātrāk nosēsties, būt klātesošākiem praksē un aiziet ar tādu mieru, pie kura viņi grib atgriezties.\n\nNevis lai aizstātu jūsu mācīšanu.\nBet lai telpa to atbalstītu.",
+    problemImage: "/images/campaign/yoga-block-1.jpg",
     solutionTitle: "sanza ir zemējuma tehnoloģija telpām, kur vērtē klātbūtni.",
     solutionBody:
       "PEMF signāli darbojas zem apzinātas uztveres kā strukturēts visa ķermeņa impulss. Audzēkņiem tas nav jāsaprot. Viņi vienkārši jūtas citādi — mierīgāki, vairāk ieradušies un gatavāki doties iekšup.",
     fitsTitle: "Kur sanza iederas jūsu studijā",
+    fitsImages: [
+      "/images/campaign/yoga-fit-pre-class.jpg",
+      "/images/campaign/yoga-fit-savasana.jpg",
+      "/images/campaign/yoga-fit-private.jpg",
+      "/images/campaign/yoga-fit-workshop.jpg",
+    ],
     fitsItems: [
       { title: "Pirms nodarbības", body: "Programmas darbojas 10–15 minūtes pirms sākuma. Audzēkņi apguļas, telpa palīdz nomierināties." },
       { title: "Savasana padziļināšana", body: "Dekomresijas programma noslēgumā ļauj atpūtai justies dziļākai un pilnīgākai." },
@@ -1570,6 +1768,7 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
       "Lojalitāte, jo pieredze ir grūti aizstājama",
       "Skolotājiem telpa ir vieglāk vadāma jau no pirmās elpas",
     ],
+    whatChangesPracticeImage: "/images/campaign/yoga-for-studio.jpg",
     socialProofQuote: "Es to gribu savā studijā. — bieža reakcija pēc pirmās <strong>sanza</strong> pieredzes.",
     finalCtaTitle: "Viena sesija. Jūs sajutīsiet to, ko sajutīs audzēkņi.",
     finalCtaBody: "Piedāvājam personīgu pieredzes sesiju studiju īpašniekiem pirms jebkādām saistībām.",
@@ -1581,20 +1780,35 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
     metaDescription:
       "Premium atjaunošanās un dekompresijas stacija fitnesa telpām, kas nopietni uztver biedru noturēšanu.",
     contactCategory: "sports-performance",
+    heroImage: "/images/campaign/gym-hero.jpg",
+    heroTextAlign: "left",
     heroKicker: "Telpām, kas zina: noturēšana ir īstā spēle",
-    heroHeadline: "Treniņš ir tas, ko jūs piedāvājat. Atjaunošanās ir tas, kas atved biedrus atpakaļ.",
+    heroHeadline: "Padariet savu sporta zāli par vietu, kur biedri nāk ne tikai trenēties, bet arī atjaunoties.",
     heroSubhead:
-      "<strong>sanza</strong> dod jūsu sporta zālei premium atjaunošanās piedāvājumu, ko biedri sajūt — un kas jūs atšķir no citām fitnesa telpām pilsētā.",
+      "Jebkura sporta zāle var piedāvāt aprīkojumu.\nMazāk ir tādu, kas var piedāvāt atjaunošanās pieredzi, ko biedri atceras.\n\n<strong>sanza</strong> pievieno jūsu telpai premium dekompresijas slāni pēc treniņa — palīdzot biedriem palēnināties, restartēties un justies patiesi aprūpētiem. Šī sajūta kļūst par daļu no jūsu zīmola.",
     heroCtaPrimary: "Pievienot recovery staciju",
     heroValueProps: ["Viena recovery stacija", "Bez papildu personāla", "Premium rituāls"],
-    problemEyebrow: "Biedri izvēlas, kur svīst. Viņi paliek tur, kur par viņiem rūpējas.",
-    problemTitle: "Lojalitāte nerodas tikai no ērtas atrašanās vietas.",
+    quickStats: [
+      { value: "15", label: "recovery programmas, ko biedri sajūt" },
+      { value: "1", label: "vienkārša sistēma jūsu komandai" },
+      { value: "10 min", label: "premium reset brīdim" },
+      { value: "0", label: "izmaiņu jūsu treniņu piedāvājumā" },
+    ],
+    problemEyebrow: "Paplašiniet biedra pieredzi ārpus treniņa.",
+    problemTitle: "Jūsu sporta zāle jau dod biedriem vietu, kur trenēties, sasniegt un izaicināt sevi.",
     problemBody:
-      "Fitnesa tirgus ir konkurētspējīgs un cenu jutīgs. Jūsu biedri trenējas smagi. Ko viņi reti saņem, ir strukturēta, apzināta atjaunošanās pieredze kā daļa no zāles. Tā ir jūsu iespēja.",
+      "<strong>sanza</strong> palīdz šo pieredzi pagarināt uz to, kas notiek pēc piepūles: mierīgu, strukturētu atjaunošanās brīdi, kas jūtas premium, apzināts un patiesi vērtīgs.\n\nTas dod biedriem vēl vienu iemeslu palikt ilgāk, justies labāk, kad viņi dodas prom, un saistīt jūsu telpu ar vairāk nekā aprīkojumu vai nodarbībām. Tas neaizstāj to, ko jūs jau darāt labi — tas ir vienkāršs veids, kā padarīt visu apmeklējumu pilnīgāku.",
+    problemImage: "/images/campaign/gym-block-1.jpg",
     solutionTitle: "sanza: recovery stacija, ko biedri tiešām lietos un pieminēs.",
     solutionBody:
       "sanza stacija — paklājs, vadība, skaidra programmu izvēlne — dod 15–20 minūšu strukturētu PEMF dekompresiju pēc treniņa. Personāls nav vajadzīgs. Biedri paši izvēlas programmu. Tā kļūst par rituālu un iemeslu palikt.",
     fitsTitle: "Kur sanza iederas jūsu telpā",
+    fitsImages: [
+      "/images/campaign/gym-fit-recovery-zone.jpg",
+      "/images/campaign/gym-fit-membership-tier.jpg",
+      "/images/campaign/gym-fit-hiit.jpg",
+      "/images/campaign/gym-fit-pt-closeout.jpg",
+    ],
     fitsItems: [
       { title: "Atsevišķa recovery zona", body: "Viens paklājs, viena vadība, viens stūris. Biedri rezervē 15 minūtes pēc treniņa." },
       { title: "Premium abonements", body: "sanza piekļuve premium līmenī — lielāka vērtība bez papildu personāla." },
@@ -1613,6 +1827,7 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
       "Spēcīgāka noturēšana caur reāli lietojamu recovery zonu",
       "Sarunas: vai tu jau izmēģināji recovery paklāju?",
     ],
+    whatChangesPracticeImage: "/images/campaign/gym-for-facility.jpg",
     socialProofQuote: "Viena stacija. Bez papildu personāla. Iemesls pagarināt abonementu.",
     finalCtaTitle: "Viena stacija. Bez papildu personāla. Iemesls pagarināt abonementu.",
     finalCtaBody: "Parunāsim par pilotu jūsu telpā — atbilstoši plānojumam un abonementu modelim.",
@@ -1749,20 +1964,34 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
     metaDescription:
       "Premium PEMF labsajūtas tehnoloģija spa viesnīcām un kūrortiem, kas vēlas atšķirīgu viesu pieredzi.",
     contactCategory: "beauty-cosmetic",
-    heroKicker: "Pieczvaigžņu īpašumiem, kas nopietni uztver viesu pieredzi",
-    heroHeadline: "Procedūras, ko viesi atceras, ne vienmēr ir tās, kas ir ēdienkartē.",
+    heroImage: "/images/campaign/spa-hotel-hero.jpg",
+    heroTextAlign: "left",
+    heroKicker: "Īpašumiem, kas nopietni uztver viesu pieredzi",
+    heroHeadline: "Dodiet viesiem labsajūtas pieredzi, ko nevar saņemt visur.",
     heroSubhead:
-      "<strong>sanza</strong> pievieno jūsu spa premium, tehnoloģijā balstītu labsajūtas dimensiju — kaut ko, ko viesi nevar atrast visur un par ko stāsta draugiem.",
+      "Jūsu spa jau piedāvā komfortu, rūpes un atmosfēru. <strong>sanza</strong> palīdz pievienot šai pieredzei jaunu slāni: mierīgu, tehnoloģijā balstītu reset brīdi, kas jūtas premium, atmiņā paliekošs un klusi atšķirīgs.\n\nViesi neatceras tikai procedūru sarakstu. Viņi atceras, cik dziļi viņi atslēdzās, cik aprūpēti jutās un vai pieredze deva viņiem kaut ko, par ko ir vērts pastāstīt. <strong>sanza</strong> dod jūsu spa atšķirīgu labsajūtas brīdi, kas atbalsta augstvērtīgu pozicionējumu, nemainot esošās procedūras.",
     heroCtaPrimary: "Izpētīt sanza jūsu spa",
-    heroCtaSecondary: "Lejupielādēt hotel & spa ceļvedi",
-    problemEyebrow: "Ja katrā spa ir sauna un masāža, kas padara jūs pieminēšanas vērtus?",
-    problemTitle: "Luksusa viesi atceras to, kas jūtas patiesi citādi.",
+    quickStats: [
+      { value: "15", label: "premium labsajūtas programmas" },
+      { value: "1", label: "vienkārša sistēma jūsu komandai" },
+      { value: "10 min", label: "atmiņā paliekošam reset brīdim" },
+      { value: "0", label: "izmaiņu jūsu spa ēdienkartē" },
+    ],
+    problemEyebrow: "Dodiet viesiem iemeslu runāt par jūsu spa arī pēc aizbraukšanas.",
+    problemTitle: "Saunu, masāžu un relaksācijas telpu viesi var atrast gandrīz katrā premium viesnīcā.",
     problemBody:
-      "Spa piedāvājumi bieži ir līdzīgi. Viesi izbauda pieredzi, bet nākamo izvēlas pēc cenas vai atrašanās vietas. Vietas, kas veido lojalitāti, piedāvā citu kvalitāti — ne skaļāku, ne vairāk procedūru, bet sajūtu, ko ķermenis atceras.",
+      "Ko viņi nevar atrast visur, ir labsajūtas pieredze, kas jūtas patiesi jauna, dziļi nomierinoša un atmiņā paliekoša.\n\nTā ir iespēja.\n\n<strong>sanza</strong> palīdz pievienot jūsu spa atšķirīgu, tehnoloģijā balstītu reset pieredzi — nevis vēl vienu standarta procedūru sarakstā, bet premium labsajūtas brīdi, ko viesi sajūt uzreiz. Tas padara jūsu spa pieredzi pilnīgāku, atšķirīgāku un daudz ticamāk par to uzturēšanās daļu, ko viņi piemin kādam citam.",
+    problemImage: "/images/campaign/spa-hotel-block-1.jpg",
     solutionTitle: "sanza: pieredze, ko viesi Latvijā reti var saņemt citur.",
     solutionBody:
       "sanza ir profesionāla PEMF labsajūtas sistēma, kas izmanto hronobioloģiskas frekvenču programmas dziļai, klusai stabilizējošai pieredzei. Tā nav masāža un nav siltums. Tā ir atsevišķa premium pieredze, ko viesi vēlas atkārtot.",
     fitsTitle: "Kur sanza iederas jūsu spa",
+    fitsImages: [
+      "/images/campaign/spa-fit-signature.jpg",
+      "/images/campaign/spa-fit-pre-treatment.jpg",
+      "/images/campaign/spa-fit-relaxation.jpg",
+      "/images/campaign/spa-fit-retreat.jpg",
+    ],
     fitsItems: [
       { title: "Signature programma", body: "45–60 minūšu premium rezervācija ar paklāju un aplikatoriem." },
       { title: "Pirms procedūras", body: "15 minūtes sanza pirms masāžas vai sejas procedūras." },
@@ -1781,12 +2010,12 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
       "Premium cenu pamatojums: tehnoloģija + pieredze",
       "Lielāki spa ieņēmumi uz viesi bez personāla slodzes palielinājuma",
     ],
+    whatChangesPracticeImage: "/images/campaign/spa-for-property.png",
     socialProofQuote:
       "Dažas premium Eiropas spa un wellness viesnīcas jau piedāvā <strong>sanza</strong>.",
     finalCtaTitle: "Premium spa Eiropā jau piedāvā sanza.",
     finalCtaBody: "Parādīsim, kā tas izskatās luksusa spa kontekstā.",
     finalCtaPrimary: "Pieteikt spa prezentāciju",
-    finalCtaSecondary: "Lejupielādēt hotel & spa integrācijas ceļvedi",
   }, "lv"),
 
   "golfa-klubi": makeCampaignPage({
@@ -1872,7 +2101,7 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
     finalCtaPrimary: "Pieteikt telpas konsultāciju",
   }, "lv"),
 
-  "gimenes-arti": makeCampaignPage({
+  "gimenes-arsti": makeCampaignPage({
     segmentName: "Ģimenes ārstu prakses",
     metaDescription:
       "Premium, neklīnisks labsajūtas slānis ģimenes ārstu praksēm, kur uzticība veidojas katrā vizītē.",

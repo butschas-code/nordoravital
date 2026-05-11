@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { FadeUp } from "@/components/fade-up";
+import { ContactDrawerTrigger } from "@/components/contact/contact-drawer-trigger";
 import { IMAGE_PATHS } from "@/lib/public-images";
 import { richParts } from "@/lib/i18n-rich";
 import { RoiCalculator } from "@/components/offers/roi-calculator";
@@ -247,9 +248,9 @@ export async function OffersSections() {
                 {t("finalCtaBody")}
               </p>
               <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-                <Link href="/pilot" className="btn-primary">
+                <ContactDrawerTrigger className="btn-primary">
                   {t("ctaBookDemo")}
-                </Link>
+                </ContactDrawerTrigger>
                 <Link href="/contact" className="btn-outline">
                   {t("finalCtaTalkToUs")}
                 </Link>

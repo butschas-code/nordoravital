@@ -6,6 +6,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { DiscoveryCallCta } from "@/components/contact/discovery-call-cta";
+
 const SECTOR_VALUES = [
   "therapists",
   "beauty-cosmetic",
@@ -105,6 +107,8 @@ export function PilotBookingForm() {
         </h2>
         <p className="mt-1 text-sm text-[var(--brand-muted)]">{t("formLead")}</p>
       </div>
+
+      <DiscoveryCallCta />
 
       <div>
         <label htmlFor="pilot-name" className="block text-sm font-medium text-[var(--brand-heading)]">

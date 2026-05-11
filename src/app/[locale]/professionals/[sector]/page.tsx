@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { RichLine } from "@/components/rich-line";
+import { ContactDrawerTrigger } from "@/components/contact/contact-drawer-trigger";
 import { RecommendedProducts } from "@/components/professionals/recommended-products";
 import { SectorBookingForm } from "@/components/professionals/sector-booking-form";
 import { SectorHero } from "@/components/professionals/sector-hero";
 import { SECTOR_SLUGS, type SectorSlug } from "@/lib/sector-slugs";
-import { Link } from "@/i18n/navigation";
 import type {
   ProfessionalProductsCopy,
   ProfessionalSectorContent,
@@ -126,18 +126,16 @@ export default async function ProfessionalSectorPage({ params }: Props) {
           <RichLine text={content.ctaLead} />
         </p>
         <div className="mt-8 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:justify-center">
-          <Link
-            href="/booking"
+          <ContactDrawerTrigger
             className="inline-flex items-center justify-center rounded-lg bg-[var(--brand-primary)] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:opacity-90"
           >
             {content.ctaBookDemo}
-          </Link>
-          <Link
-            href="/pilot"
+          </ContactDrawerTrigger>
+          <ContactDrawerTrigger
             className="inline-flex items-center justify-center rounded-lg border-2 border-[var(--brand-primary)] bg-transparent px-6 py-3 text-sm font-semibold text-[var(--brand-primary)] transition hover:bg-[var(--brand-primary)]/10"
           >
             {content.ctaPilot}
-          </Link>
+          </ContactDrawerTrigger>
         </div>
       </section>
 

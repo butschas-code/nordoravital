@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
+import { ContactDrawerTrigger } from "@/components/contact/contact-drawer-trigger";
 import { richParts } from "@/lib/i18n-rich";
 
 export async function HowItWorksCta() {
@@ -47,9 +47,9 @@ export async function HowItWorksCta() {
 
       {/* CTA */}
       <div className="mt-10">
-        <Link href="/pilot" className="btn-primary">
+        <ContactDrawerTrigger className="btn-primary">
           {t("ctaBookDemo")}
-        </Link>
+        </ContactDrawerTrigger>
       </div>
     </div>
   );

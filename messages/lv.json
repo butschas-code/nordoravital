@@ -461,7 +461,10 @@
     "imprintLink": "Impressum",
     "legalNote": "Pilnā privātuma politika un Impressum lapas drīz tiks publicētas šeit.",
     "drawerTitle": "Sazināties",
-    "drawerClose": "Aizvērt"
+    "drawerClose": "Aizvērt",
+    "bookingTitle": "Vēlaties vispirms aprunāties?",
+    "bookingLead": "Piesakiet 15 minūšu iepazīšanās zvanu, un mēs kopā apskatīsim, kur sanza varētu iederēties jūsu praksē.",
+    "bookingCta": "Pieteikt iepazīšanās zvanu"
   },
   "Language": {
     "label": "Valoda",

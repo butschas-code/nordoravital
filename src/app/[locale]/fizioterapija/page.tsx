@@ -135,9 +135,9 @@ const CONTENT: Partial<Record<Locale, CampaignPageContent>> = {
     heroKicker: "Für Physiotherapeuten, die jede Sitzung besser beginnen lassen möchten",
     heroHeadline: "Sie leisten die therapeutische Arbeit. <strong>sanza</strong> hilft Ihren Patienten, darin anzukommen.",
     heroSubhead:
-      "Manche Patienten kommen angespannt, vorsichtig oder schwer zur Ruhe. <strong>sanza</strong> ergänzt Ihre bestehende Arbeit um eine einfache Wohlfühlebene — der Raum wirkt ruhiger, die Sitzung vollständiger, und Patienten fühlen sich spürbar umsorgter. Ihre klinische Behandlung bleibt Ihre.",
+      "Manche Patienten kommen angespannt, geschützt oder schwer zur Ruhe. <strong>sanza</strong> ergänzt Ihre bestehende Arbeit um eine einfache Wohlfühlebene — der Raum fühlt sich ruhiger an, die Sitzung vollständiger, und Patienten fühlen sich spürbar besser umsorgt. Ihre klinische Behandlung bleibt bei Ihnen.",
     heroCtaPrimary: "Demo in Ihrer Praxis",
-    heroValueProps: ["Demo in Ihrer Praxis", "Klares Preisgespräch", "Keine Ablaufänderung"],
+    heroValueProps: ["Demo in Ihrer Praxis", "Klares Preisgespräch", "Keine klinischen Änderungen"],
     contactCategory: "physiotherapists",
     demoRequestMessage:
       "Ich möchte eine sanza-Demo vereinbaren und weitere Informationen für eine Physiotherapie- oder Rehabilitationspraxis erhalten.",
@@ -145,8 +145,8 @@ const CONTENT: Partial<Record<Locale, CampaignPageContent>> = {
     quickStats: [
       { value: "15", label: "Nummerierte Programme" },
       { value: "1", label: "Steuerung, läuft selbst" },
-      { value: "10 Min", label: "Einarbeitung Team" },
-      { value: "0", label: "Ablaufänderungen" },
+      { value: "10 Min", label: "Einarbeitung für das Team" },
+      { value: "0", label: "Änderungen am Ablauf" },
     ],
 
     problemEyebrow: "Was Sie längst kennen",
@@ -206,7 +206,7 @@ const CONTENT: Partial<Record<Locale, CampaignPageContent>> = {
     whatChangesPracticeItems: [
       "Reibungslosere Terminstarts — weniger verschenkte Minuten",
       "Eine spürbare Premium-Qualität, die Patienten erwähnen und in Erinnerung behalten",
-      "Ein Alleinstellungsmerkmal, das keine andere Physiopraxis in Ihrer Straße hat",
+      "Ein Differenzierungsmerkmal, das nicht jede Physiopraxis in Ihrer Umgebung hat",
     ],
 
     socialProofLabel: "Stimmen aus dem Partnerprogramm",
@@ -236,7 +236,7 @@ const CONTENT: Partial<Record<Locale, CampaignPageContent>> = {
 
     finalCtaTitle: "Sehen Sie, wie sanza in einem Physio-Raum wirkt.",
     finalCtaBody:
-      "Öffnen Sie das kurze Kontaktformular. Wir melden uns mit Demo-Verfügbarkeit, praktischen Antworten und den Informationen, die Sie für eine ruhige Entscheidung brauchen.",
+      "Öffnen Sie das kurze Kontaktformular. Wir melden uns mit Demo-Verfügbarkeit, praktischen Antworten und den Informationen, die Sie brauchen, um ruhig zu entscheiden, ob sanza in Ihre Praxis passt.",
     finalCtaPrimary: "Demo in der Praxis anfragen",
     finalCtaSecondary: "So funktioniert sanza",
   },
@@ -251,18 +251,18 @@ const CONTENT: Partial<Record<Locale, CampaignPageContent>> = {
     heroKicker: "Fizioterapeitiem, kuri vēlas, lai katra vizīte sāktos labāk",
     heroHeadline: "Jūs veicat terapeitisko darbu. <strong>sanza</strong> palīdz pacientiem tajā iejusties.",
     heroSubhead:
-      "Daži pacienti ierodas saspringti, piesardzīgi vai grūti nomierināmi. <strong>sanza</strong> pievieno jūsu esošajam darbam vienkāršu labsajūtas slāni — telpa jūtas mierīgāka, vizīte pilnīgāka, un pacienti jūtas vairāk aprūpēti. Jūsu klīniskā terapija paliek jūsu.",
+      "Daži pacienti ierodas saspringti, aizsargājoši vai grūti nomierināmi. <strong>sanza</strong> pievieno jūsu esošajam darbam vienkāršu labsajūtas slāni — telpa jūtas mierīgāka, vizīte pilnīgāka, un pacienti jūtas vairāk aprūpēti. Jūsu klīniskā terapija paliek jūsu rokās.",
     heroCtaPrimary: "Pieteikt demo klīnikā",
-    heroValueProps: ["Demo jūsu klīnikā", "Skaidra cenu saruna", "Nemaina darba plūsmu"],
+    heroValueProps: ["Demo jūsu klīnikā", "Skaidra cenu saruna", "Bez klīniskām izmaiņām"],
     contactCategory: "physiotherapists",
     demoRequestMessage:
       "Vēlos pieteikt sanza demo un saņemt vairāk informācijas fizioterapijas / rehabilitācijas klīnikai.",
 
     quickStats: [
       { value: "15", label: "Numurētas programmas" },
-      { value: "1", label: "Vadības iekārta" },
-      { value: "10 min", label: "Personāla apmācība" },
-      { value: "0", label: "Plūsmas izmaiņu" },
+      { value: "1", label: "Vadība, darbojas pati" },
+      { value: "10 min", label: "Komandas ievadapmācība" },
+      { value: "0", label: "Darba plūsmas izmaiņu" },
     ],
 
     problemEyebrow: "Tas, ko jau zināt",
@@ -322,7 +322,7 @@ const CONTENT: Partial<Record<Locale, CampaignPageContent>> = {
     whatChangesPracticeItems: [
       "Vienmērīgāks vizītes sākums — mazāk zaudēto minūšu",
       "Taustāma 'premium' kvalitāte, ko pacienti piemin un atceras",
-      "Atšķirīga iezīme, kādas nav nevienai citai fizio klīnikai jūsu ielā",
+      "Atšķirīga iezīme, kādas nav katrai fizioterapijas klīnikai jūsu apkārtnē",
     ],
 
     socialProofLabel: "No partneru programmas",
@@ -352,7 +352,7 @@ const CONTENT: Partial<Record<Locale, CampaignPageContent>> = {
 
     finalCtaTitle: "Apskatiet, kā sanza izskatās fizio kabinetā.",
     finalCtaBody:
-      "Atveriet īso kontaktformu, un mēs atbildēsim ar demo iespējām, praktiskām atbildēm un informāciju, kas vajadzīga mierīgam lēmumam.",
+      "Atveriet īso kontaktformu, un mēs atbildēsim ar demo iespējām, praktiskām atbildēm un informāciju, kas vajadzīga, lai mierīgi izvērtētu, vai sanza iederas jūsu klīnikā.",
     finalCtaPrimary: "Pieteikt demo klīnikā",
     finalCtaSecondary: "Kā darbojas sanza",
   },

@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { IMAGE_PATHS } from "@/lib/public-images";
 import { SECTOR_SLUGS, type SectorSlug } from "@/lib/sector-slugs";
+import { ContactDrawerTrigger } from "@/components/contact/contact-drawer-trigger";
 import { FadeUp } from "@/components/fade-up";
 import { ProfessionalsHero } from "@/components/professionals/professionals-hero";
 import { ProfessionalsGrid, type SectorItem } from "@/components/professionals/professionals-grid";
@@ -191,9 +192,9 @@ export default async function ProfessionalsIndexPage() {
                 {t("ctaSubhead")}
               </p>
               <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4">
-                <Link href="/pilot" className="btn-primary inline-flex justify-center">
+                <ContactDrawerTrigger className="btn-primary inline-flex justify-center">
                   {t("ctaCta")}
-                </Link>
+                </ContactDrawerTrigger>
                 <Link href="/how-it-works" className="btn-outline inline-flex justify-center">
                   {t("ctaSecondaryCta")}
                 </Link>

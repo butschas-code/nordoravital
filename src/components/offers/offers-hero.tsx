@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { IMAGE_PATHS } from "@/lib/public-images";
 import { BrandArc } from "@/components/brand-arc";
+import { ContactDrawerTrigger } from "@/components/contact/contact-drawer-trigger";
 import { richParts } from "@/lib/i18n-rich";
 
 export async function OffersHero() {
@@ -61,9 +62,9 @@ export async function OffersHero() {
               {t.rich("heroSubhead", richParts.onDark)}
             </p>
             <div className="fade-up fade-up-delay-2 mt-10 flex flex-col items-end gap-3 sm:flex-row sm:justify-end">
-              <Link href="/pilot" className="btn-primary inline-flex justify-center">
+              <ContactDrawerTrigger className="btn-primary inline-flex justify-center">
                 {t("ctaBookDemo")}
-              </Link>
+              </ContactDrawerTrigger>
               <Link href="#offers-overview" className="btn-ghost-white inline-flex justify-center">
                 {t("overviewKicker")} ↓
               </Link>

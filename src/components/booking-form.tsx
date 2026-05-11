@@ -6,6 +6,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { DiscoveryCallCta } from "@/components/contact/discovery-call-cta";
+
 const bookingSchema = z.object({
   name: z.string().min(2),
   email: z.string().email(),
@@ -58,6 +60,8 @@ export function BookingForm() {
       className="mx-auto max-w-lg space-y-4 rounded-2xl border border-[var(--brand-border)] bg-[var(--brand-surface)] p-6 sm:p-8"
       noValidate
     >
+      <DiscoveryCallCta />
+
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-[var(--brand-heading)]">
           {t("name")}

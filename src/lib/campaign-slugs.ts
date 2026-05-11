@@ -15,7 +15,7 @@ export const CAMPAIGN_SLUGS = [
   "spa-viesnicas",
   "golfa-klubi",
   "tenisa-klubi",
-  "gimenes-arti",
+  "gimenes-arsti",
   "fizioterapeiti",
   "poliklinika",
   "spa-wellness",

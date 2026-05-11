@@ -338,7 +338,10 @@
     "imprintLink": "Impressum",
     "legalNote": "Vollständige Datenschutzerklärung und Impressum sind hier verfügbar.",
     "drawerTitle": "Kontakt",
-    "drawerClose": "Schließen"
+    "drawerClose": "Schließen",
+    "bookingTitle": "Möchten Sie zuerst sprechen?",
+    "bookingLead": "Buchen Sie ein 15-minütiges Kennenlerngespräch. Wir schauen gemeinsam, wo sanza in Ihre Praxis passen könnte.",
+    "bookingCta": "Kennenlerngespräch buchen"
   },
   "Language": {
     "label": "Sprache",

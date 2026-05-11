@@ -53,6 +53,21 @@ const PROBLEM_IMAGE = "/images/sanza, less wired.jpg";
 
 const SOCIAL_PROOF_BG = "/images/campaign/quote-background.jpg";
 
+const DEMO_STEPS_FALLBACK: CampaignPageContent["demoSteps"] = [
+  {
+    title: "Short fit call",
+    body: "We clarify your setting, room flow, audience, and the questions you want answered.",
+  },
+  {
+    title: "Practical demo",
+    body: "You experience the programs, applicators, and setup in a context close to your daily work.",
+  },
+  {
+    title: "Clear next steps",
+    body: "If it fits, we outline the recommended setup, onboarding path, and pricing. If not, you still leave informed.",
+  },
+];
+
 /* ──────────────────────────────────────────────────────────────────
    Shared layout for the 15 Latvia-outreach landing pages.
    Alternates dark and light bands for visual rhythm; every section
@@ -78,6 +93,7 @@ export async function CampaignLanding({ content }: Props) {
       ? "home-hero-overlay home-hero-overlay--left pointer-events-none absolute inset-0"
       : "home-hero-overlay pointer-events-none absolute inset-0";
   const fitsImages = content.fitsImages ?? FITS_IMAGES;
+  const demoSteps = content.demoSteps ?? DEMO_STEPS_FALLBACK;
 
   return (
     <div className="campaign-page-root flex flex-col gap-0">
@@ -344,6 +360,11 @@ export async function CampaignLanding({ content }: Props) {
                         fill
                         sizes="(min-width: 640px) 50vw, 100vw"
                         className="object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.05]"
+                        style={
+                          content.fitsImagePositions?.[idx]
+                            ? { objectPosition: content.fitsImagePositions[idx] }
+                            : undefined
+                        }
                       />
                       <div
                         className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-black/15 to-transparent"
@@ -542,7 +563,7 @@ export async function CampaignLanding({ content }: Props) {
             </FadeUp>
 
             <ol className="grid gap-4 sm:grid-cols-3 lg:gap-5">
-              {content.demoSteps.map((step, i) => (
+              {demoSteps.map((step, i) => (
                 <li key={i} className="h-full">
                   <FadeUp delay={Math.min(i + 1, 3) as 1 | 2 | 3} className="h-full">
                     <article className="campaign-card flex h-full flex-col p-6 sm:p-7">

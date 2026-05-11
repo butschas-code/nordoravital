@@ -6,6 +6,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { DiscoveryCallCta } from "@/components/contact/discovery-call-cta";
+
 const schema = z.object({
   name: z.string().min(2),
   email: z.string().email(),
@@ -71,6 +73,8 @@ export function SectorBookingForm({ categoryLabel, sectorSlug }: Props) {
         </h2>
         <p className="mt-1 text-sm text-[var(--brand-muted)]">{t("formLead")}</p>
       </div>
+
+      <DiscoveryCallCta />
 
       <div>
         <label

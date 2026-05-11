@@ -1,9 +1,12 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
-import { Link } from "@/i18n/navigation";
+import { useContactDrawer } from "@/components/contact/contact-drawer-context";
 
 export function FloatingDemoCta() {
+  const t = useTranslations("Home");
+  const { openDrawer } = useContactDrawer();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -23,15 +26,16 @@ export function FloatingDemoCta() {
       }}
       aria-hidden={!visible}
     >
-      <Link
-        href="/pilot"
+      <button
+        type="button"
+        onClick={() => openDrawer()}
         className="group relative flex items-center gap-2.5 rounded-full bg-[var(--brand-deep)] px-5 py-3 text-sm font-semibold text-white shadow-2xl ring-1 ring-white/10 transition-[background-color,box-shadow,transform] duration-200 ease-[var(--ease-out)] hover:bg-[var(--brand)] hover:shadow-[0_8px_32px_rgba(14,61,52,0.45)]"
         tabIndex={visible ? 0 : -1}
         data-pressable
       >
-        Book a demo
+        {t("ctaBookDemo")}
         <span className="transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden>→</span>
-      </Link>
+      </button>
     </div>
   );
 }

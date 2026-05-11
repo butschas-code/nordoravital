@@ -6,6 +6,8 @@ import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { DiscoveryCallCta } from "@/components/contact/discovery-call-cta";
+
 const CATEGORY_VALUES = [
   "therapists",
   "beauty-cosmetic",
@@ -177,7 +179,6 @@ export function ContactForm({
     variant === "drawer"
       ? "space-y-4"
       : "space-y-4 rounded-2xl border border-[var(--brand-border)] bg-[var(--brand-surface)] p-6 sm:p-8";
-
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -192,6 +193,8 @@ export function ContactForm({
           <p className="mt-1 text-sm text-[var(--brand-muted)]">{t("formLead")}</p>
         </div>
       ) : null}
+
+      <DiscoveryCallCta />
 
       <div>
         <label htmlFor={fid("name")} className="block text-sm font-medium text-[var(--brand-heading)]">
