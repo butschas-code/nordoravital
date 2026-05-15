@@ -2944,12 +2944,12 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     heroSubhead: "Ihre Poliklinik vereint bereits zahlreiche Fachärzte, Diagnosemöglichkeiten und Behandlungsmethoden unter einem Dach. <strong>sanza</strong> hilft Ihnen dabei, das zu stärken, was all dies verbindet: das Patientenerlebnis.\r\n\r\nEs ergänzt Termine um eine einheitliche, nicht-klinische Ebene des Wohlbefindens – und bietet Patienten so eine strukturierte Möglichkeit, sich vor oder nach Besuchen in verschiedenen Abteilungen zu erholen. Für Ihre Klinik bedeutet dies eine sichtbare Qualitätssteigerung: durchdachter, einprägsamer und leichter von anderen medizinischen Zentren zu unterscheiden.",
     heroCtaPrimary: "Erfahren Sie, wie Polikliniken sanza nutzen",
     heroValueProps: [
-      "Demo vor Ort",
+      "Vorführung vor Ort",
       "Klare Einrichtungsanleitung",
       "Keine Umgestaltung der Abläufe"
     ],
     contactCategory: "clinics",
-    demoRequestMessage: "Ich möchte eine sanza-Demo vereinbaren und weitere Informationen für Polikliniken und Facharztzentren erhalten.",
+    demoRequestMessage: "Ich möchte eine sanza-Vorführung vereinbaren und weitere Informationen für Polikliniken und Facharztzentren erhalten.",
     quickStats: [
       {
         value: "15",
@@ -2974,7 +2974,7 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     problemImage: "/images/campaign/poliklinika-block-1.jpg",
     solutionEyebrow: "Die sanza-Ebene",
     solutionTitle: "Ein System, mehrere Abteilungen, gleichbleibend hohe Qualität.",
-    solutionBody: "sanza lässt sich auf Einrichtungsebene integrieren – eine Matte im Hauptwartebereich, spezielle Einheiten in Abteilungen mit hohem Angstpotenzial und optionale Behandlungsräume für spezielle Wohlfühlprogramme. Das System ist standardisiert und für das Personal einfach zu handhaben. Die Patienten erleben in allen Abteilungen dieselbe beruhigende Wirkung. Ihre Klinik wird für etwas Bestimmtes bekannt: als der Ort, an dem man sich wirklich darum kümmert, wie Sie sich fühlen.",
+    solutionBody: "sanza lässt sich auf Einrichtungsebene integrieren – eine Matte im Hauptwartebereich, spezielle Einheiten in Abteilungen mit hohem Angstpotenzial und optionale Behandlungsräume für besondere Wohlfühlprogramme. Das System ist standardisiert und für das Personal einfach zu handhaben. Die Patienten erleben in allen Abteilungen dieselbe beruhigende Wirkung. Ihre Klinik wird für etwas Bestimmtes bekannt: als der Ort, an dem man sich wirklich darum kümmert, wie Sie sich fühlen.",
     solutionSpecs: [
       {
         title: "PEMF",
@@ -2986,7 +2986,7 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
       },
       {
         title: "Modular",
-        body: "Matte, Pad und gezielte Applikatoren für verschiedene Räume."
+        body: "Matte, Auflage und gezielte Applikatoren für verschiedene Räume."
       }
     ],
     fitsTitle: "Wo sanza in Ihre Einrichtung passt",
@@ -3005,7 +3005,7 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
       },
       {
         title: "Integration auf Abteilungsebene",
-        body: "Priorisieren Sie Abteilungen, in denen die Angst der Patienten am größten ist – der ROI durch reibungslosere Konsultationen ist sofort spürbar."
+        body: "Priorisieren Sie Abteilungen, in denen die Angst der Patienten am größten ist – der Nutzen reibungsloserer Konsultationen wird sofort spürbar."
       },
       {
         title: "Wohlbefinden des Personals",
@@ -3013,7 +3013,7 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
       },
       {
         title: "Markenprogramm",
-        body: "Bieten Sie ein Wohlfühlprotokoll unter Ihrer Klinikmarke an – einen von sanza unterstützten Signature-Service."
+        body: "Bieten Sie ein Wohlfühlprotokoll unter Ihrer Klinikmarke an – einen von sanza unterstützten, besonders wiedererkennbaren Service."
       }
     ],
     whatChangesTitle: "Was sich ändert, wenn sanza in Ihre Einrichtung kommt",
@@ -3032,7 +3032,7 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     socialProofQuote: "Der Ort, der sich wirklich darum kümmert, wie Sie sich fühlen – das ist die Positionierung, die <strong>sanza</strong> schafft.",
     socialProofAttribution: "Nordora Vital · Professionelles Partnerprogramm",
     demoStepsEyebrow: "Was passiert, nachdem Sie uns kontaktiert haben",
-    demoStepsTitle: "Ein einfacher Demo-Pfad, der auf Ihre Umgebung zugeschnitten ist.",
+    demoStepsTitle: "Ein einfacher Vorführungsablauf, der auf Ihre Umgebung zugeschnitten ist.",
     demoStepsLead: "Kein Druck, kein generisches Verkaufsgespräch. Erzählen Sie uns, wie Ihr Raum funktioniert, und wir zeigen Ihnen, wo sanza passen könnte, bevor Sie eine Entscheidung treffen.",
     demoSteps: [
       {
@@ -3040,12 +3040,12 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
         body: "Wir klären Ihre Umgebung, den Raumablauf, Ihre Zielgruppe und die Fragen, die Sie beantwortet haben möchten."
       },
       {
-        title: "Praktische Demo",
+        title: "Praktische Vorführung",
         body: "Sie erleben die Programme, Applikatoren und die Einrichtung in einem Umfeld, das Ihrer täglichen Arbeit nahekommt."
       },
       {
         title: "Klare nächste Schritte",
-        body: "Wenn es passt, skizzieren wir die empfohlene Einrichtung, den Onboarding-Prozess und die Preise. Wenn nicht, gehen Sie dennoch gut informiert."
+        body: "Wenn es passt, skizzieren wir die empfohlene Einrichtung, den Einführungsprozess und die Preise. Wenn nicht, gehen Sie dennoch gut informiert."
       }
     ],
     finalCtaTitle: "Vereinbaren Sie eine Beratung auf Einrichtungsebene.",
