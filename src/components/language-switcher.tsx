@@ -6,6 +6,7 @@ import {
   LOCALE_COOKIE_MAX_AGE_SECONDS,
   LOCALE_COOKIE_NAME,
 } from "@/lib/locale-cookie-constants";
+import { getCampaignPathnameForLocale } from "@/lib/campaign-slugs";
 import { Link, usePathname } from "@/i18n/navigation";
 import { routing, SITE_LOCALES, type Locale } from "@/i18n/routing";
 
@@ -65,10 +66,12 @@ export function LanguageSwitcher({
       <ul className="flex flex-col gap-0.5" role="list">
         {locales.map((loc) => {
           const active = loc === locale;
+          const localizedPathname =
+            getCampaignPathnameForLocale(pathname, locale, loc) ?? pathname;
           return (
             <li key={loc}>
               <Link
-                href={pathname}
+                href={localizedPathname}
                 locale={loc}
                 prefetch={false}
                 className={`flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm transition ${
@@ -157,10 +160,12 @@ export function LanguageSwitcher({
         >
           {locales.map((loc) => {
             const active = loc === locale;
+            const localizedPathname =
+              getCampaignPathnameForLocale(pathname, locale, loc) ?? pathname;
             return (
               <li key={loc} role="none">
                 <Link
-                  href={pathname}
+                  href={localizedPathname}
                   locale={loc}
                   role="menuitem"
                   title={t(loc)}
