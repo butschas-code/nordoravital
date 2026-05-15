@@ -5,8 +5,8 @@ import { CampaignLanding } from "@/components/campaign/campaign-landing";
 import { SITE_LOCALES, routing, type Locale } from "@/i18n/routing";
 import { getCampaignPageContent } from "@/lib/campaign-page-content";
 import {
-  CAMPAIGN_SLUGS,
-  isCampaignSlug,
+  getCampaignStaticPathsForLocale,
+  resolveCampaignSlugForLocale,
   type CampaignSlug,
 } from "@/lib/campaign-slugs";
 
@@ -15,15 +15,18 @@ type Props = { params: Promise<{ locale: string; campaign: string }> };
 const HANDCRAFTED_STATIC_CAMPAIGNS: CampaignSlug[] = ["fizioterapija"];
 
 function getContent(slug: string, locale: Locale) {
-  if (!isCampaignSlug(slug)) return null;
-  return getCampaignPageContent(slug, locale);
+  const campaignSlug = resolveCampaignSlugForLocale(slug, locale);
+  if (!campaignSlug) return null;
+  return getCampaignPageContent(campaignSlug, locale);
 }
 
 export function generateStaticParams() {
   return SITE_LOCALES.flatMap((locale) =>
-    CAMPAIGN_SLUGS.filter(
-      (slug) => !HANDCRAFTED_STATIC_CAMPAIGNS.includes(slug),
-    ).map((campaign) => ({ locale, campaign })),
+    getCampaignStaticPathsForLocale(locale)
+      .filter(
+        (slug) => !HANDCRAFTED_STATIC_CAMPAIGNS.includes(slug as CampaignSlug),
+      )
+      .map((campaign) => ({ locale, campaign })),
   );
 }
 
