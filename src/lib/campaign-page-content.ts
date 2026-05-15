@@ -1832,13 +1832,13 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
         body: "Sie erleben die Programme, Applikatoren und die Einrichtung in einem Kontext, der Ihrer täglichen Arbeit nahekommt."
       },
       {
-        title: "Clear next steps",
-        body: "If it fits, we outline the recommended setup, onboarding path, and pricing. If not, you still leave informed."
+        title: "Klare nächste Schritte",
+        body: "Wenn es passt, skizzieren wir die empfohlene Einrichtung, den Onboarding-Prozess und die Preise. Wenn nicht, gehen Sie trotzdem gut informiert."
       }
     ],
-    finalCtaTitle: "Used by performance-focused practices across Europe.",
-    finalCtaBody: "We'll show you exactly how sanza integrates into your recovery flow — without disrupting a single appointment.",
-    finalCtaPrimary: "Schedule a facility walkthrough"
+    finalCtaTitle: "Wird von leistungsorientierten Praxen in ganz Europa genutzt.",
+    finalCtaBody: "Wir zeigen Ihnen genau, wie sanza sich in Ihren Regenerationsablauf integriert – ohne einen einzigen Termin zu stören.",
+    finalCtaPrimary: "Rundgang durch Ihre Einrichtung vereinbaren"
   },
   hiropraktika: {
     segmentName: "Chiropraktik- und Manualtherapie-Praxen",
@@ -2942,34 +2942,34 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     heroKicker: "Für Klinikbetreiber, die wissen, dass das Patientenerlebnis ein geschäftlicher Vorteil ist",
     heroHeadline: "Sorgen Sie dafür, dass sich Ihre Klinik genauso umfassend anfühlt wie die von Ihnen angebotene Versorgung.",
     heroSubhead: "Ihre Poliklinik vereint bereits zahlreiche Fachärzte, Diagnosemöglichkeiten und Behandlungsmethoden unter einem Dach. <strong>sanza</strong> hilft Ihnen dabei, das zu stärken, was all dies verbindet: das Patientenerlebnis.\r\n\r\nEs ergänzt Termine um eine einheitliche, nicht-klinische Ebene des Wohlbefindens – und bietet Patienten so eine strukturierte Möglichkeit, sich vor oder nach Besuchen in verschiedenen Abteilungen zu erholen. Für Ihre Klinik bedeutet dies eine sichtbare Qualitätssteigerung: durchdachter, einprägsamer und leichter von anderen medizinischen Zentren zu unterscheiden.",
-    heroCtaPrimary: "Learn how polyclinics use sanza",
+    heroCtaPrimary: "Erfahren Sie, wie Polikliniken sanza nutzen",
     heroValueProps: [
-      "On-site demo",
-      "Clear setup guidance",
-      "No workflow redesign"
+      "Demo vor Ort",
+      "Klare Einrichtungsanleitung",
+      "Keine Umgestaltung der Abläufe"
     ],
     contactCategory: "clinics",
-    demoRequestMessage: "I'd like to arrange a sanza demo and receive more information for Polyclinics & Multi-Speciality Clinics.",
+    demoRequestMessage: "Ich möchte eine sanza-Demo vereinbaren und weitere Informationen für Polikliniken und Facharztzentren erhalten.",
     quickStats: [
       {
         value: "15",
-        label: "Structured patient-experience programs"
+        label: "strukturierte Programme für das Patientenerlebnis"
       },
       {
         value: "1",
-        label: "System your team can manage"
+        label: "System, das Ihr Team bedienen kann"
       },
       {
         value: "10 min",
-        label: "Before or after appointments"
+        label: "vor oder nach Terminen"
       },
       {
         value: "0",
-        label: "Disruption to clinical operations"
+        label: "Störung des klinischen Betriebs"
       }
     ],
-    problemEyebrow: "Give every department a stronger patient experience.",
-    problemTitle: "Your clinic already works across complexity.",
+    problemEyebrow: "Geben Sie jeder Abteilung ein stärkeres Patientenerlebnis.",
+    problemTitle: "Ihre Klinik arbeitet bereits mit hoher Komplexität.",
     problemBody: "Beratungen, Diagnostik, Behandlungen, Nachsorge, verschiedene Fachärzte, unterschiedliche Patientenbedürfnisse. Genau deshalb ist das Erlebnis rund um den Termin so wichtig.\r\n\r\nPatienten kommen zwar wegen der medizinischen Kompetenz, aber sie nehmen auch wahr, wie sich der Besuch anfühlt: ob die Umgebung gut organisiert ist, ob sie sich gut betreut fühlen, ob die Klinik modern und durchdacht wirkt und ob sie gerne wiederkommen würden.\r\n\r\n<strong>sanza</strong> hilft Ihnen dabei, eine einheitliche Ebene des Wohlbefindens in den gesamten Patientenverlauf zu integrieren – vor oder nach Terminen, in ausgewählten Abteilungen oder als Teil von Premium-Versorgungspfaden. Es verleiht Ihrer Klinik eine spürbare Qualitätssteigerung, während Ihre medizinischen Arbeitsabläufe genau so bleiben, wie sie sind.",
     problemImage: "/images/campaign/poliklinika-block-1.jpg",
     solutionEyebrow: "Die sanza-Ebene",
