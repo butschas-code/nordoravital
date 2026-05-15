@@ -2,8 +2,8 @@
 # Dashboard: project **nordoravital** → www.nordoravital.com
 #
 # If the site stays on an old commit while `main` moves, Git→Vercel auto-build is often
-# paused, wrong repo/branch, or the wrong Vercel team. This workflow is a backup that
-# always runs on pushes to `main`.
+# paused, wrong repo/branch, or the wrong Vercel team. This workflow is disabled for
+# push events because Vercel's native Git deployment is active; use manual dispatch only.
 #
 # RECOMMENDED: set VERCEL_DEPLOY_HOOK (Vercel → Project → Settings → Git → Deploy Hooks
 # → branch `main`). Hooks trigger a production build from the latest Git revision — most
@@ -15,8 +15,6 @@
 name: Deploy production (Vercel)
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 jobs:
