@@ -18,14 +18,14 @@ export async function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 overflow-visible border-b border-[var(--border)] bg-white shadow-[0_1px_0_rgba(30,42,34,0.06)]">
-      <div className="mx-auto flex min-h-[88px] max-w-[1200px] items-center justify-between gap-4 px-4 py-2 sm:min-h-[92px] sm:gap-6 sm:px-6 md:px-8 lg:px-10">
+      <div className="mx-auto flex min-h-[88px] max-w-[1200px] items-center justify-between gap-4 px-4 py-2 sm:min-h-[92px] sm:gap-6 sm:px-6 md:px-8 lg:gap-3 lg:px-6 xl:gap-6 xl:px-10">
         <Link
           href="/"
           className="group flex min-w-0 shrink-0 items-center overflow-visible"
           aria-label={t("brandLabel")}
         >
           {/* Responsive logo: smaller on narrow phones to leave room for header buttons */}
-          <span className="relative block h-[60px] w-[220px] shrink-0 min-[400px]:w-[280px] sm:h-[80px] sm:w-[420px] md:w-[460px]">
+          <span className="relative block h-[60px] w-[220px] shrink-0 min-[400px]:w-[280px] sm:h-[80px] sm:w-[420px] md:w-[460px] lg:w-[300px] xl:w-[360px]">
             <Image
               src={IMAGE_PATHS.brand.logo}
               alt=""
@@ -41,7 +41,7 @@ export async function SiteHeader() {
           className="hidden flex-1 justify-center lg:block"
           aria-label="Main"
         >
-          <ul className="flex flex-nowrap items-center justify-center gap-1 md:gap-2">
+          <ul className="flex flex-nowrap items-center justify-center gap-1 xl:gap-2">
             {navLinks.map((link) => (
               <li key={link.href} className="shrink-0">
                 {link.external ? (
@@ -49,14 +49,14 @@ export async function SiteHeader() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block whitespace-nowrap rounded-lg px-3 py-2.5 text-base font-normal tracking-tight text-[var(--muted)] transition-colors hover:bg-[var(--panel)] hover:text-[var(--text)]"
+                    className="block whitespace-nowrap rounded-lg px-2.5 py-2.5 text-[0.95rem] font-normal tracking-tight text-[var(--muted)] transition-colors hover:bg-[var(--panel)] hover:text-[var(--text)] xl:px-3 xl:text-base"
                   >
                     {link.label}
                   </a>
                 ) : (
                   <Link
                     href={link.href}
-                    className="block whitespace-nowrap rounded-lg px-3 py-2.5 text-base font-normal tracking-tight text-[var(--muted)] transition-colors hover:bg-[var(--panel)] hover:text-[var(--text)]"
+                    className="block whitespace-nowrap rounded-lg px-2.5 py-2.5 text-[0.95rem] font-normal tracking-tight text-[var(--muted)] transition-colors hover:bg-[var(--panel)] hover:text-[var(--text)] xl:px-3 xl:text-base"
                   >
                     {link.label}
                   </Link>
@@ -66,11 +66,11 @@ export async function SiteHeader() {
           </ul>
         </nav>
 
-        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3 lg:gap-2 xl:gap-3">
           <SiteHeaderMobileNav links={navLinks} />
           <div className="hidden items-center gap-2 sm:gap-3 lg:flex">
             <LanguageSwitcher />
-            <ContactDrawerTrigger />
+            <ContactDrawerTrigger className="btn-primary inline-flex whitespace-nowrap px-4 py-2 text-[0.95rem] xl:px-[1.125rem] xl:text-base" />
           </div>
         </div>
       </div>
