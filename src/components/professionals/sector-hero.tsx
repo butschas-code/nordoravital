@@ -32,7 +32,7 @@ export async function SectorHero({ content }: Props) {
           aria-hidden
         />
         <div className="relative z-10 mx-auto flex min-h-[min(52dvh,520px)] max-w-6xl flex-col justify-end px-4 pb-12 pt-24 sm:px-6 md:px-8 md:pb-16 md:pt-28 lg:px-10">
-          <p className="mb-2 max-w-2xl text-xs font-medium uppercase tracking-[0.2em] text-white/90 sm:text-sm">
+          <p className="mb-3 max-w-[65ch] text-sm font-medium uppercase tracking-[0.16em] text-white/90 sm:text-[0.9375rem]">
             <RichLine text={content.heroKicker} variant="onDark" />
           </p>
           <h1

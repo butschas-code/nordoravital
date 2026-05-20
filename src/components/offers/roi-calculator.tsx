@@ -59,7 +59,7 @@ export function RoiCalculator() {
   return (
     <div className="rounded-2xl border border-[var(--brand-border)] bg-[var(--brand-surface)] p-6 sm:p-8">
       <div className="grid gap-6 sm:grid-cols-2">
-        <label className="block text-sm">
+        <label className="block text-base">
           <span className="font-medium text-[var(--brand-heading)]">
             {t("roiLabelClientsPerDay")}
           </span>
@@ -72,7 +72,7 @@ export function RoiCalculator() {
             className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2 text-[var(--brand-heading)] dark:bg-zinc-900"
           />
         </label>
-        <label className="block text-sm">
+        <label className="block text-base">
           <span className="font-medium text-[var(--brand-heading)]">
             {t("roiLabelWorkingDays")}
           </span>
@@ -86,7 +86,7 @@ export function RoiCalculator() {
             className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2 text-[var(--brand-heading)] dark:bg-zinc-900"
           />
         </label>
-        <label className="block text-sm">
+        <label className="block text-base">
           <span className="font-medium text-[var(--brand-heading)]">
             {t("roiLabelAttachRate")}
           </span>
@@ -100,7 +100,7 @@ export function RoiCalculator() {
             className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2 text-[var(--brand-heading)] dark:bg-zinc-900"
           />
         </label>
-        <label className="block text-sm">
+        <label className="block text-base">
           <span className="font-medium text-[var(--brand-heading)]">
             {t("roiLabelAddOnPrice", { currency: currencyLabel })}
           </span>
@@ -113,7 +113,7 @@ export function RoiCalculator() {
             className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2 text-[var(--brand-heading)] dark:bg-zinc-900"
           />
         </label>
-        <label className="block text-sm">
+        <label className="block text-base">
           <span className="font-medium text-[var(--brand-heading)]">
             {t("roiLabelMembershipSubscribers")}
           </span>
@@ -130,7 +130,7 @@ export function RoiCalculator() {
             className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2 text-[var(--brand-heading)] dark:bg-zinc-900"
           />
         </label>
-        <label className="block text-sm">
+        <label className="block text-base">
           <span className="font-medium text-[var(--brand-heading)]">
             {t("roiLabelMembershipPrice", { currency: currencyLabel })}
           </span>
@@ -145,7 +145,7 @@ export function RoiCalculator() {
             className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2 text-[var(--brand-heading)] dark:bg-zinc-900"
           />
         </label>
-        <label className="block text-sm sm:col-span-2">
+        <label className="block text-base sm:col-span-2">
           <span className="font-medium text-[var(--brand-heading)]">
             {t("roiLabelEquipmentInvestment", { currency: currencyLabel })}
           </span>
@@ -164,7 +164,7 @@ export function RoiCalculator() {
         </label>
       </div>
 
-      <div className="mt-8 space-y-3 rounded-xl border border-[var(--brand-border)] bg-[var(--color-background)] p-4 text-sm">
+      <div className="mt-8 space-y-3 rounded-xl border border-[var(--brand-border)] bg-[var(--color-background)] p-5 text-base">
         <p className="font-medium text-[var(--brand-heading)]">
           {t("roiResultMonthly", { amount: fmtMoney(monthlyRevenue) })}
         </p>
@@ -184,7 +184,7 @@ export function RoiCalculator() {
           )}
       </div>
 
-      <p className="mt-4 text-xs leading-relaxed text-[var(--brand-muted)]">
+      <p className="mt-4 text-sm leading-relaxed text-[var(--brand-muted)] md:text-base">
         {t("roiDisclaimer")}
       </p>
     </div>

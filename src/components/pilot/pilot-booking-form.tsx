@@ -105,34 +105,34 @@ export function PilotBookingForm() {
         <h2 className="text-xl font-semibold text-[var(--brand-heading)]">
           {t("formTitle")}
         </h2>
-        <p className="mt-1 text-sm text-[var(--brand-muted)]">{t("formLead")}</p>
+        <p className="mt-1 text-base leading-relaxed text-[var(--brand-muted)]">{t("formLead")}</p>
       </div>
 
       <DiscoveryCallCta />
 
       <div>
-        <label htmlFor="pilot-name" className="block text-sm font-medium text-[var(--brand-heading)]">
+        <label htmlFor="pilot-name" className="block text-base font-medium text-[var(--brand-heading)]">
           {t("name")}
         </label>
         <input
           id="pilot-name"
           type="text"
           autoComplete="name"
-          className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2 text-sm text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
+          className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2.5 text-base text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
           {...register("name")}
         />
         {errors.name && (
-          <p className="mt-1 text-xs text-red-600">{t("error")}</p>
+          <p className="mt-1 text-sm text-red-600">{t("error")}</p>
         )}
       </div>
 
       <div>
-        <label htmlFor="pilot-sector" className="block text-sm font-medium text-[var(--brand-heading)]">
+        <label htmlFor="pilot-sector" className="block text-base font-medium text-[var(--brand-heading)]">
           {t("sector")}
         </label>
         <select
           id="pilot-sector"
-          className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2 text-sm text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
+          className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2.5 text-base text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
           {...register("sector")}
         >
           {SECTOR_VALUES.map((v) => (
@@ -142,70 +142,70 @@ export function PilotBookingForm() {
           ))}
         </select>
         {errors.sector && (
-          <p className="mt-1 text-xs text-red-600">{t("error")}</p>
+          <p className="mt-1 text-sm text-red-600">{t("error")}</p>
         )}
       </div>
 
       <div>
-        <label htmlFor="pilot-email" className="block text-sm font-medium text-[var(--brand-heading)]">
+        <label htmlFor="pilot-email" className="block text-base font-medium text-[var(--brand-heading)]">
           {t("email")}
         </label>
         <input
           id="pilot-email"
           type="email"
           autoComplete="email"
-          className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2 text-sm text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
+          className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2.5 text-base text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
           {...register("email")}
         />
         {errors.email && (
-          <p className="mt-1 text-xs text-red-600">{t("error")}</p>
+          <p className="mt-1 text-sm text-red-600">{t("error")}</p>
         )}
       </div>
 
       <div>
-        <label htmlFor="pilot-phone" className="block text-sm font-medium text-[var(--brand-heading)]">
+        <label htmlFor="pilot-phone" className="block text-base font-medium text-[var(--brand-heading)]">
           {t("phone")}
         </label>
         <input
           id="pilot-phone"
           type="tel"
           autoComplete="tel"
-          className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2 text-sm text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
+          className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2.5 text-base text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
           {...register("phone")}
         />
       </div>
 
       <div>
-        <label htmlFor="pilot-start" className="block text-sm font-medium text-[var(--brand-heading)]">
+        <label htmlFor="pilot-start" className="block text-base font-medium text-[var(--brand-heading)]">
           {t("preferredStart")}
         </label>
         <input
           id="pilot-start"
           type="date"
-          className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2 text-sm text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
+          className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2.5 text-base text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
           {...register("preferredStart")}
         />
       </div>
 
       <div>
-        <label htmlFor="pilot-questions" className="block text-sm font-medium text-[var(--brand-heading)]">
+        <label htmlFor="pilot-questions" className="block text-base font-medium text-[var(--brand-heading)]">
           {t("questions")}
         </label>
         <textarea
           id="pilot-questions"
           rows={4}
-          className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2 text-sm text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
+          className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2.5 text-base text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
           {...register("questions")}
         />
       </div>
 
       {status === "success" && (
-        <p className="text-sm text-green-700 dark:text-green-400" role="status">
+        <p className="text-base text-green-700 dark:text-green-400" role="status">
           {t("success")}
         </p>
       )}
       {status === "error" && (
-        <p className="text-sm text-red-600" role="alert">
+        <p className="text-base text-red-600" role="alert">
           {t("error")}
         </p>
       )}
@@ -213,7 +213,7 @@ export function PilotBookingForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full rounded-lg bg-[var(--brand-primary)] px-4 py-2.5 text-sm font-medium text-white transition hover:opacity-90 disabled:opacity-60"
+        className="w-full rounded-lg bg-[var(--brand-primary)] px-4 py-3 text-base font-medium text-white transition hover:opacity-90 disabled:opacity-60"
       >
         {isSubmitting ? "…" : t("submit")}
       </button>

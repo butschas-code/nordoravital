@@ -48,7 +48,7 @@ export async function HomeHero() {
         {/* Copy + CTAs — right-aligned */}
         <div className="relative z-10 mx-auto flex min-h-[min(92dvh,880px)] max-w-[1200px] flex-col justify-end px-4 pb-24 pt-16 sm:px-6 sm:pb-28 sm:pt-20 md:px-8 lg:min-h-[min(88dvh,800px)] lg:pb-20 lg:pt-24 lg:px-10">
           <div className="ml-auto w-full max-w-xl pb-4 text-right sm:max-w-2xl">
-            <p className="fade-up mb-4 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-white [&_strong]:normal-case [&_strong]:font-semibold">
+            <p className="campaign-eyebrow fade-up mb-5 text-sm font-semibold uppercase tracking-[0.14em] text-white/90 sm:text-[0.875rem] sm:tracking-[0.16em] [&_strong]:normal-case [&_strong]:font-semibold">
               {t.rich("heroKicker", richParts.onDark)}
             </p>
             <h1
@@ -57,7 +57,7 @@ export async function HomeHero() {
             >
               {t("heroHeadline")}
             </h1>
-            <p className="fade-up fade-up-delay-2 mt-6 text-lg leading-relaxed text-white/90">
+            <p className="fade-up fade-up-delay-2 mt-6 max-w-[52ch] text-xl leading-[1.65] text-white/92 md:ml-auto md:text-2xl md:leading-[1.55]">
               {t.rich("heroSubheadline", richParts.onDark)}
             </p>
             <div className="fade-up fade-up-delay-3 mt-10 flex flex-col items-end gap-3 sm:flex-row sm:justify-end sm:gap-4">

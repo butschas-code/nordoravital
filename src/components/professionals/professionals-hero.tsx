@@ -49,6 +49,9 @@ export async function ProfessionalsHero() {
         {/* Content — right-aligned */}
         <div className="relative z-10 mx-auto flex min-h-[min(72dvh,680px)] max-w-[1200px] flex-col justify-end px-4 pb-20 pt-16 sm:px-6 sm:pb-24 sm:pt-20 md:px-8 lg:min-h-[min(68dvh,620px)] lg:pb-16 lg:pt-20 lg:px-10">
           <div className="ml-auto w-full max-w-xl pb-4 text-right sm:max-w-2xl">
+            <p className="campaign-eyebrow fade-up mb-5 text-sm font-semibold uppercase tracking-[0.18em] text-white/85 sm:text-[0.875rem]">
+              {t("heroKicker")}
+            </p>
             <h1
               id="professionals-hero-heading"
               className="fade-up fade-up-delay-1 font-heading text-h1 text-white"

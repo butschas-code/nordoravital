@@ -8,7 +8,7 @@ export async function HomeWelcome() {
 
   return (
     <section
-      className="home-band-full home-band--welcome py-20 sm:py-24 md:py-28"
+      className="home-band-full campaign-band-soft py-24 sm:py-28 md:py-32"
       aria-labelledby="home-welcome-heading"
     >
       <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
@@ -23,8 +23,8 @@ export async function HomeWelcome() {
               </h2>
             </FadeUp>
 
-            <FadeUp delay={1} className="mt-10 space-y-4 text-[1rem] leading-relaxed text-[var(--muted)]">
-              <p className="text-[var(--text)]">
+            <FadeUp delay={1} className="mt-10 space-y-4 text-lg leading-[1.65] text-[var(--muted)] sm:text-[1.0625rem]">
+              <p className="text-[var(--text)] opacity-95">
                 {t.rich("welcomeP2", richParts.default)}
               </p>
               <p>{t.rich("welcomeP3", richParts.default)}</p>

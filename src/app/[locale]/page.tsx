@@ -10,7 +10,7 @@ import { FloatingDemoCta } from "@/components/home/floating-demo-cta";
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col gap-0">
+    <div className="site-marketing-root flex flex-col gap-0">
       <HomeHero />
       <HomeWelcome />
       <div className="flex flex-col gap-0">

@@ -23,6 +23,8 @@ type LanguageSwitcherProps = {
   appearance?: "default" | "onDark";
   /** Vertical link list for mobile drawer (no dropdown) */
   variant?: "dropdown" | "stacked";
+  /** Optional route override for rewritten pages such as the root selector. */
+  pathnameOverride?: string;
   /** Called after choosing a locale (e.g. close mobile menu) */
   onLocaleChange?: () => void;
 };
@@ -30,11 +32,13 @@ type LanguageSwitcherProps = {
 export function LanguageSwitcher({
   appearance = "default",
   variant = "dropdown",
+  pathnameOverride,
   onLocaleChange,
 }: LanguageSwitcherProps) {
   const t = useTranslations("Language");
   const onDark = appearance === "onDark";
-  const pathname = usePathname();
+  const currentPathname = usePathname();
+  const pathname = pathnameOverride ?? currentPathname;
   const locales = localesForPathname(pathname);
   const locale = useLocale() as Locale;
   const [open, setOpen] = useState(false);

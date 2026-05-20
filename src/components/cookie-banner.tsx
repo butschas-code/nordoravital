@@ -52,7 +52,7 @@ export function CookieBanner() {
       role="dialog"
       aria-live="polite"
       aria-label={t("title")}
-      className="panel-enter fixed bottom-0 left-0 right-0 z-[400] px-3 pb-3 sm:px-4 sm:pb-4"
+      className="panel-enter fixed bottom-0 left-0 right-0 z-[80] px-3 pb-3 sm:px-4 sm:pb-4"
     >
       <div className="mx-auto max-w-2xl rounded-2xl border border-[var(--border)] bg-white/97 shadow-[0_-4px_32px_rgba(14,61,52,0.12),0_8px_24px_rgba(14,61,52,0.08)] backdrop-blur-xl">
         {/* Top accent line */}

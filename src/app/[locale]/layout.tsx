@@ -6,9 +6,11 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { Inter, Manrope } from "next/font/google";
 import { ContactDrawerProvider } from "@/components/contact/contact-drawer-context";
 import { CookieBanner } from "@/components/cookie-banner";
+import { SanzaBoldener } from "@/components/sanza-boldener";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { routing, type Locale } from "@/i18n/routing";
+import { getOriginForSurface, type SiteSurface } from "@/lib/domains";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext", "cyrillic"],
@@ -41,19 +43,36 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  const heads = await headers();
+  const surface = heads.get("x-nordora-surface") as SiteSurface | null;
+  const metadataBase =
+    surface === "pro" || surface === "home" || surface === "root"
+      ? getOriginForSurface(surface)
+      : "https://nordoravital.com";
   const messages = (await import(`../../../messages/${locale}.json`)).default as {
     Meta: { title: string; description: string };
   };
   return {
     title: messages.Meta.title,
     description: messages.Meta.description,
-    metadataBase: new URL("https://nordoravital.com"),
+    metadataBase: new URL(metadataBase),
   };
 }
 
 function isDeckPath(pathname: string) {
   const locales = routing.locales.join("|");
   return new RegExp(`^\\/(${locales})\\/deck/?$`).test(pathname);
+}
+
+function isGatewayPath(pathname: string) {
+  if (pathname === "/") return true;
+  const locales = routing.locales.join("|");
+  return new RegExp(`^\\/(${locales})\\/gateway/?$`).test(pathname);
+}
+
+function isHomePath(pathname: string) {
+  const locales = routing.locales.join("|");
+  return new RegExp(`^\\/(${locales})\\/home(\\/|$)`).test(pathname);
 }
 
 export default async function LocaleLayout({ children, params }: Props) {
@@ -67,7 +86,10 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   const heads = await headers();
   const pathname = heads.get("x-nordora-pathname") ?? "";
+  const surface = heads.get("x-nordora-surface");
   const deckFullscreen = isDeckPath(pathname);
+  const gatewayOnly = surface === "root" || isGatewayPath(pathname);
+  const homeOnly = surface === "home" || (surface !== "pro" && isHomePath(pathname));
 
   return (
     <html
@@ -82,13 +104,14 @@ export default async function LocaleLayout({ children, params }: Props) {
         }
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
-          {deckFullscreen ? (
+          <SanzaBoldener />
+          {deckFullscreen || gatewayOnly || homeOnly ? (
             children
           ) : (
             <ContactDrawerProvider>
               <div className="flex min-h-full flex-col">
                 <SiteHeader />
-                <main className="layout-main flex flex-col gap-0 flex-1 px-4 pb-12 pt-0 sm:px-6 md:px-8 lg:mx-auto lg:max-w-[1200px] lg:px-10 [&:has(.campaign-page-root)]:pb-0">
+                <main className="layout-main flex flex-col gap-0 flex-1 px-4 pb-12 pt-0 sm:px-6 md:px-8 lg:mx-auto lg:max-w-[1200px] lg:px-10 [&:has(.campaign-page-root)]:pb-0 [&:has(.site-marketing-root)]:px-0 [&:has(.site-marketing-root)]:pb-0 [&:has(.site-marketing-root)]:sm:px-0 [&:has(.site-marketing-root)]:md:px-0 [&:has(.site-marketing-root)]:lg:max-w-none [&:has(.site-marketing-root)]:lg:px-0">
                   {children}
                 </main>
                 <SiteFooter />

@@ -11,6 +11,7 @@ import { FloatingContactDrawer } from "@/components/contact/floating-contact-dra
 import type { ContactFormValues } from "@/components/contact/contact-form";
 
 export type ContactDrawerOptions = {
+  drawerType?: "professional" | "homePersonal";
   professionalCategory?: ContactFormValues["professionalCategory"];
   message?: string;
 };

@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
 import { FadeUp } from "@/components/fade-up";
 import { BrandAtmosphere } from "@/components/brand-atmosphere";
+import { DarkMarketingCard } from "@/components/home/dark-marketing-card";
 import { richParts } from "@/lib/i18n-rich";
 
 type PillarIconId = "pemf" | "bio" | "light";
@@ -94,7 +94,7 @@ export async function HomePillars() {
 
   return (
     <section
-      className="home-band-full home-band--pillars py-20 md:py-28 lg:py-32"
+      className="home-band-full home-band--pillars py-24 sm:py-28 lg:py-32"
       aria-labelledby="pillars-heading"
     >
       <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
@@ -106,7 +106,7 @@ export async function HomePillars() {
           >
             {t.rich("pillarsSectionTitle", richParts.onDark)}
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white md:text-lg [&_strong]:font-semibold">
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-[1.65] text-white/92 sm:text-xl [&_strong]:font-semibold">
             {t.rich("clientExperienceBody", richParts.onDark)}
           </p>
         </FadeUp>
@@ -115,50 +115,31 @@ export async function HomePillars() {
           {PILLARS.map((pillar) => (
             <li key={pillar.titleKey}>
               <FadeUp delay={pillar.delay} className="h-full">
-                <article className="glass-card-dark group relative flex h-full flex-col overflow-hidden">
-                  {/* Decorative atmosphere panel */}
-                  <div className="relative aspect-[4/3] w-full overflow-hidden">
-                    <BrandAtmosphere variant={pillar.variant} />
-
-                    {/* Subtle dark scrim at bottom for title legibility */}
-                    <div
-                      className="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-[#061a16]/92 via-[#082721]/45 to-transparent"
-                      aria-hidden
-                    />
-
-                    {/* Big number top-left */}
-                    <span
-                      className="pointer-events-none absolute left-5 top-4 select-none font-heading text-[3.5rem] font-bold leading-none text-[#0E3D34]/40"
-                      aria-hidden
-                    >
-                      {pillar.index}
-                    </span>
-
-                    {/* Icon badge bottom-right */}
-                    <div className="absolute bottom-4 right-4 flex h-12 w-12 items-center justify-center rounded-xl bg-white/15 text-white ring-1 ring-white/25 backdrop-blur-md">
-                      <PillarIcon id={pillar.iconId} />
-                    </div>
-
-                    {/* Title overlaid on atmosphere */}
-                    <h3 className="absolute bottom-5 left-5 right-20 font-heading text-xl font-bold leading-tight text-white [text-shadow:0_1px_14px_rgba(0,0,0,0.65)] sm:text-[1.35rem]">
-                      {t(pillar.titleKey)}
-                    </h3>
-                  </div>
-
-                  {/* Body */}
-                  <div className="flex flex-1 flex-col border-t border-white/10 bg-black/25 p-6">
-                    <p className="flex-1 text-sm leading-relaxed text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.35)]">
-                      {t(pillar.bodyKey)}
-                    </p>
-                    <Link
-                      href="/how-it-works"
-                      className="mt-5 inline-flex items-center gap-1.5 text-[0.8125rem] font-bold leading-snug text-white transition hover:gap-2.5 hover:text-white/90"
-                    >
-                      {t(pillar.teaserKey)}
-                      <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-0.5">→</span>
-                    </Link>
-                  </div>
-                </article>
+                <DarkMarketingCard
+                  title={t(pillar.titleKey)}
+                  body={t(pillar.bodyKey)}
+                  cta={t(pillar.teaserKey)}
+                  href="/how-it-works"
+                  titleInsetClassName="right-20"
+                  media={
+                    <>
+                      <BrandAtmosphere variant={pillar.variant} />
+                      <div
+                        className="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-[#061a16]/92 via-[#082721]/45 to-transparent"
+                        aria-hidden
+                      />
+                      <span
+                        className="pointer-events-none absolute left-5 top-4 select-none font-heading text-[3.5rem] font-bold leading-none text-[#0E3D34]/40"
+                        aria-hidden
+                      >
+                        {pillar.index}
+                      </span>
+                      <div className="absolute bottom-4 right-4 flex h-12 w-12 items-center justify-center rounded-xl bg-white/15 text-white ring-1 ring-white/25 backdrop-blur-md">
+                        <PillarIcon id={pillar.iconId} />
+                      </div>
+                    </>
+                  }
+                />
               </FadeUp>
             </li>
           ))}

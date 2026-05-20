@@ -26,7 +26,7 @@ export function OfferCard({
   ctaHref = "/pilot",
 }: Props) {
   return (
-    <article className="card-brand flex h-full flex-col overflow-hidden">
+    <article className="campaign-card flex h-full flex-col overflow-hidden">
       {/* Image */}
       <div className="relative aspect-[16/9] w-full overflow-hidden bg-[var(--panel)]">
         <Image
@@ -41,7 +41,7 @@ export function OfferCard({
       <div className="flex flex-1 flex-col p-6 sm:p-7">
         <h2 className="font-heading text-h3 text-[var(--text)]">{title}</h2>
 
-        <div className="mt-4 space-y-3 text-small leading-relaxed text-[var(--muted)]">
+        <div className="mt-4 space-y-3 text-base leading-[1.65] text-[var(--muted)] md:text-[1.0625rem]">
           {paragraphs.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
@@ -49,12 +49,12 @@ export function OfferCard({
 
         {/* Pricing panel */}
         <div className="mt-6 rounded-xl border border-[var(--border)] bg-[var(--panel)] p-4">
-          <p className="text-sm font-semibold text-[var(--text)]">
+          <p className="text-base font-semibold text-[var(--text)]">
             {pricingSectionTitle}
           </p>
-          <ul className="mt-2 space-y-1.5 pl-1">
+          <ul className="mt-2 space-y-2 pl-1">
             {pricingLines.map((line, i) => (
-              <li key={i} className="flex items-start gap-2 text-small text-[var(--muted)]">
+              <li key={i} className="flex items-start gap-2 text-base leading-relaxed text-[var(--muted)]">
                 <span aria-hidden className="mt-0.5 text-[var(--brand)]">✦</span>
                 {line}
               </li>
@@ -62,7 +62,7 @@ export function OfferCard({
           </ul>
         </div>
 
-        <p className="mt-3 text-xs leading-relaxed text-[var(--muted)]">{pricingHint}</p>
+        <p className="mt-3 text-sm leading-relaxed text-[var(--muted)] sm:text-base">{pricingHint}</p>
 
         <div className="mt-6">
           <Link href={ctaHref} className="btn-primary w-full sm:w-auto">

@@ -29,7 +29,7 @@ export function FloatingDemoCta() {
       <button
         type="button"
         onClick={() => openDrawer()}
-        className="group relative flex items-center gap-2.5 rounded-full bg-[var(--brand-deep)] px-5 py-3 text-sm font-semibold text-white shadow-2xl ring-1 ring-white/10 transition-[background-color,box-shadow,transform] duration-200 ease-[var(--ease-out)] hover:bg-[var(--brand)] hover:shadow-[0_8px_32px_rgba(14,61,52,0.45)]"
+        className="group relative flex items-center gap-2.5 rounded-full bg-[var(--brand-deep)] px-5 py-3 text-base font-semibold text-white shadow-2xl ring-1 ring-white/10 transition-[background-color,box-shadow,transform] duration-200 ease-[var(--ease-out)] hover:bg-[var(--brand)] hover:shadow-[0_8px_32px_rgba(14,61,52,0.45)]"
         tabIndex={visible ? 0 : -1}
         data-pressable
       >

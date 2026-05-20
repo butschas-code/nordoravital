@@ -86,8 +86,8 @@ export async function CampaignLanding({ content }: Props) {
       : "flex flex-col items-stretch justify-end gap-3 sm:flex-row sm:items-center sm:gap-4";
   const heroEyebrowClass =
     heroTextAlign === "left"
-      ? "campaign-eyebrow campaign-eyebrow--left inline-block text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-white/85"
-      : "campaign-eyebrow inline-block text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-white/85";
+      ? "campaign-eyebrow campaign-eyebrow--left inline-block text-[0.875rem] font-semibold uppercase tracking-[0.18em] text-white/85 sm:text-[0.9375rem]"
+      : "campaign-eyebrow inline-block text-[0.875rem] font-semibold uppercase tracking-[0.18em] text-white/85 sm:text-[0.9375rem]";
   const heroOverlayClass =
     heroTextAlign === "left"
       ? "home-hero-overlay home-hero-overlay--left pointer-events-none absolute inset-0"
@@ -190,7 +190,7 @@ export async function CampaignLanding({ content }: Props) {
                     <span className="font-heading text-[clamp(2.2rem,4.8vw,3.2rem)] font-bold leading-none tracking-tight text-white [text-shadow:0_2px_18px_rgba(0,0,0,0.45)]">
                       {stat.value}
                     </span>
-                    <span className="mt-3 text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-[var(--brand-secondary)]/95">
+                    <span className="mt-3 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--brand-secondary)]/95 sm:text-sm">
                       {stat.label}
                     </span>
                   </div>
@@ -210,7 +210,7 @@ export async function CampaignLanding({ content }: Props) {
           <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-20">
             <div>
               <FadeUp>
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--brand-strong)]">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--brand-strong)] sm:text-[0.9375rem]">
                   {content.problemEyebrow}
                 </p>
               </FadeUp>
@@ -260,7 +260,7 @@ export async function CampaignLanding({ content }: Props) {
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
           {/* Header — full-width centred */}
           <FadeUp className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/60">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/60 sm:text-[0.9375rem]">
               {content.solutionEyebrow}
             </p>
             <h2
@@ -314,7 +314,7 @@ export async function CampaignLanding({ content }: Props) {
                   </span>
                   {/* Text */}
                   <div>
-                    <p className="text-[0.7rem] font-bold uppercase tracking-[0.2em] text-white/50">
+                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-white/55 sm:text-sm">
                       {spec.title}
                     </p>
                     <p className="mt-3 text-[1rem] leading-relaxed text-white/90">{spec.body}</p>
@@ -333,7 +333,7 @@ export async function CampaignLanding({ content }: Props) {
       >
         <div className="mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
           <FadeUp className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--brand-strong)]">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--brand-strong)] sm:text-[0.9375rem]">
               {content.fitsEyebrow}
             </p>
             <h2
@@ -382,7 +382,7 @@ export async function CampaignLanding({ content }: Props) {
                     </div>
                     {/* Body */}
                     <div className="flex flex-1 flex-col p-6 sm:p-7">
-                      <p className="leading-relaxed text-[var(--muted)]">
+                      <p className="text-base leading-relaxed text-[var(--muted)] sm:text-[1.0625rem]">
                         <RichLine text={item.body} />
                       </p>
                     </div>
@@ -401,7 +401,7 @@ export async function CampaignLanding({ content }: Props) {
       >
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
           <FadeUp className="max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/70">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/72 sm:text-[0.9375rem]">
               {content.whatChangesEyebrow}
             </p>
             <h2
@@ -448,7 +448,7 @@ export async function CampaignLanding({ content }: Props) {
                       className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#082721]/85 via-[#082721]/30 to-transparent"
                       aria-hidden
                     />
-                    <p className="absolute bottom-5 left-6 text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-white/95">
+                    <p className="absolute bottom-5 left-6 text-xs font-semibold uppercase tracking-[0.15em] text-white/95 sm:text-sm">
                       {col.title}
                     </p>
                   </div>
@@ -501,13 +501,13 @@ export async function CampaignLanding({ content }: Props) {
               </div>
               <div className="relative grid gap-8 px-6 py-14 sm:px-12 sm:py-16 md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:gap-12 md:px-16">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/75">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/76 sm:text-[0.9375rem]">
                     {content.socialProofLabel}
                   </p>
                   <blockquote className="mt-5 font-heading text-[clamp(1.5rem,2.6vw,2.1rem)] font-semibold leading-snug text-white [text-shadow:0_1px_14px_rgba(0,0,0,0.4)]">
                     “<RichLine text={content.socialProofQuote} variant="onDark" />”
                   </blockquote>
-                  <figcaption className="mt-6 text-sm text-white/75">
+                  <figcaption className="mt-6 text-base leading-relaxed text-white/78">
                     — {content.socialProofAttribution}
                   </figcaption>
                 </div>
@@ -519,7 +519,7 @@ export async function CampaignLanding({ content }: Props) {
                       className="rounded-2xl border border-white/20 bg-white/8 px-5 py-4 text-center backdrop-blur-md"
                     >
                       <div className="font-heading text-2xl font-bold text-white">{s.value}</div>
-                      <div className="mt-1 text-[0.7rem] uppercase tracking-[0.14em] text-white/75">
+                      <div className="mt-1 text-xs uppercase tracking-[0.12em] text-white/75 sm:text-[0.8125rem]">
                         {s.label}
                       </div>
                     </div>
@@ -540,7 +540,7 @@ export async function CampaignLanding({ content }: Props) {
           <div className="grid gap-10 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-center lg:gap-14">
             <FadeUp>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--brand-strong)]">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--brand-strong)] sm:text-[0.9375rem]">
                   {content.demoStepsEyebrow}
                 </p>
                 <h2
@@ -573,7 +573,7 @@ export async function CampaignLanding({ content }: Props) {
                       <h3 className="mt-5 font-heading text-lg font-semibold leading-snug text-[var(--text)]">
                         {step.title}
                       </h3>
-                      <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
+                      <p className="mt-3 text-base leading-relaxed text-[var(--muted)] sm:text-[1.0625rem]">
                         <RichLine text={step.body} />
                       </p>
                     </article>

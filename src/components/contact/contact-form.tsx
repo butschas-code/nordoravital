@@ -80,7 +80,7 @@ function toLanguages(data: ContactFormValues): ("de" | "en" | "lv")[] {
 }
 
 const inputClass =
-  "mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2 text-sm text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900";
+  "mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2.5 text-base text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900";
 
 type ContactFormProps = {
   /** Default `contact` → ids like `contact-name`. Use `drawer-contact` in the floating drawer to avoid duplicate ids. */
@@ -190,14 +190,14 @@ export function ContactForm({
           <h2 className="text-xl font-semibold text-[var(--brand-heading)]">
             {t("formTitle")}
           </h2>
-          <p className="mt-1 text-sm text-[var(--brand-muted)]">{t("formLead")}</p>
+          <p className="mt-1 text-base text-[var(--brand-muted)]">{t("formLead")}</p>
         </div>
       ) : null}
 
       <DiscoveryCallCta />
 
       <div>
-        <label htmlFor={fid("name")} className="block text-sm font-medium text-[var(--brand-heading)]">
+        <label htmlFor={fid("name")} className="block text-base font-medium text-[var(--brand-heading)]">
           {t("name")}
         </label>
         <input
@@ -209,7 +209,7 @@ export function ContactForm({
           {...register("name")}
         />
         {errors.name?.message && (
-          <p className="mt-1 text-xs text-red-600" role="alert">
+          <p className="mt-1 text-sm text-red-600" role="alert">
             {t(errors.name.message as "validationName")}
           </p>
         )}
@@ -218,7 +218,7 @@ export function ContactForm({
       <div>
         <label
           htmlFor={fid("category")}
-          className="block text-sm font-medium text-[var(--brand-heading)]"
+          className="block text-base font-medium text-[var(--brand-heading)]"
         >
           {t("professionalCategory")}
         </label>
@@ -236,7 +236,7 @@ export function ContactForm({
       </div>
 
       <div>
-        <label htmlFor={fid("email")} className="block text-sm font-medium text-[var(--brand-heading)]">
+        <label htmlFor={fid("email")} className="block text-base font-medium text-[var(--brand-heading)]">
           {t("email")}
         </label>
         <input
@@ -248,14 +248,14 @@ export function ContactForm({
           {...register("email")}
         />
         {errors.email?.message && (
-          <p className="mt-1 text-xs text-red-600" role="alert">
+          <p className="mt-1 text-sm text-red-600" role="alert">
             {t(errors.email.message as "validationEmail")}
           </p>
         )}
       </div>
 
       <div>
-        <label htmlFor={fid("phone")} className="block text-sm font-medium text-[var(--brand-heading)]">
+        <label htmlFor={fid("phone")} className="block text-base font-medium text-[var(--brand-heading)]">
           {t("phone")}
         </label>
         <input
@@ -270,7 +270,7 @@ export function ContactForm({
       <div>
         <label
           htmlFor={fid("method")}
-          className="block text-sm font-medium text-[var(--brand-heading)]"
+          className="block text-base font-medium text-[var(--brand-heading)]"
         >
           {t("preferredContactMethod")}
         </label>
@@ -286,7 +286,7 @@ export function ContactForm({
       </div>
 
       <div>
-        <label htmlFor={fid("message")} className="block text-sm font-medium text-[var(--brand-heading)]">
+        <label htmlFor={fid("message")} className="block text-base font-medium text-[var(--brand-heading)]">
           {t("message")}
         </label>
         <textarea
@@ -297,18 +297,18 @@ export function ContactForm({
           {...register("message")}
         />
         {errors.message?.message && (
-          <p className="mt-1 text-xs text-red-600" role="alert">
+          <p className="mt-1 text-sm text-red-600" role="alert">
             {t(errors.message.message as "validationMessage")}
           </p>
         )}
       </div>
 
       <fieldset className="space-y-2">
-        <legend className="text-sm font-medium text-[var(--brand-heading)]">
+        <legend className="text-base font-medium text-[var(--brand-heading)]">
           {t("langPreferenceTitle")}
         </legend>
         <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-x-6">
-          <label className="flex cursor-pointer items-center gap-2 text-sm text-[var(--brand-heading)]">
+          <label className="flex cursor-pointer items-center gap-2 text-base text-[var(--brand-heading)]">
             <Controller
               name="langDe"
               control={control}
@@ -325,7 +325,7 @@ export function ContactForm({
             />
             {t("langDe")}
           </label>
-          <label className="flex cursor-pointer items-center gap-2 text-sm text-[var(--brand-heading)]">
+          <label className="flex cursor-pointer items-center gap-2 text-base text-[var(--brand-heading)]">
             <Controller
               name="langEn"
               control={control}
@@ -342,7 +342,7 @@ export function ContactForm({
             />
             {t("langEn")}
           </label>
-          <label className="flex cursor-pointer items-center gap-2 text-sm text-[var(--brand-heading)]">
+          <label className="flex cursor-pointer items-center gap-2 text-base text-[var(--brand-heading)]">
             <Controller
               name="langLv"
               control={control}
@@ -361,14 +361,14 @@ export function ContactForm({
           </label>
         </div>
         {errors.langDe?.message && (
-          <p className="text-xs text-red-600" role="alert">
+          <p className="text-sm text-red-600" role="alert">
             {t(errors.langDe.message as "validationLang")}
           </p>
         )}
       </fieldset>
 
       <div>
-        <label className="flex cursor-pointer items-start gap-2 text-sm text-[var(--brand-heading)]">
+        <label className="flex cursor-pointer items-start gap-2 text-base text-[var(--brand-heading)]">
           <Controller
             name="consentContact"
             control={control}
@@ -386,24 +386,24 @@ export function ContactForm({
           <span>{t("consentLabel")}</span>
         </label>
         {errors.consentContact?.message && (
-          <p className="mt-1 text-xs text-red-600" role="alert">
+          <p className="mt-1 text-sm text-red-600" role="alert">
             {t(errors.consentContact.message as "validationConsent")}
           </p>
         )}
       </div>
 
       {status === "success" && (
-        <p className="text-sm text-green-700 dark:text-green-400" role="status">
+        <p className="text-base text-green-700 dark:text-green-400" role="status">
           {t("success")}
         </p>
       )}
       {status === "error" && (
-        <p className="text-sm text-red-600" role="alert">
+        <p className="text-base text-red-600" role="alert">
           {t("error")}
         </p>
       )}
       {status === "network" && (
-        <p className="text-sm text-red-600" role="alert">
+        <p className="text-base text-red-600" role="alert">
           {t("errorNetwork")}
         </p>
       )}
@@ -411,7 +411,7 @@ export function ContactForm({
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full rounded-lg bg-[var(--brand-primary)] px-4 py-2.5 text-sm font-medium text-white transition hover:opacity-90 disabled:opacity-60"
+        className="w-full rounded-lg bg-[var(--brand-primary)] px-4 py-3 text-base font-medium text-white transition hover:opacity-90 disabled:opacity-60"
       >
         {isSubmitting ? t("submitting") : t("submit")}
       </button>

@@ -154,7 +154,7 @@ export async function HomeProfessionals() {
   return (
     <section
       id="professionals"
-      className="home-band-full home-band--pillars scroll-mt-24 py-20 md:py-28 lg:py-32"
+      className="home-band-full home-band--pillars scroll-mt-24 py-24 sm:py-28 lg:py-32"
       aria-labelledby="professionals-heading"
     >
       <div className="relative z-10 mx-auto max-w-[1200px] overflow-hidden px-4 sm:px-6 md:px-8 lg:px-10">
@@ -180,7 +180,7 @@ export async function HomeProfessionals() {
           </div>
           <Link
             href="/professionals"
-            className="inline-flex self-start rounded-xl border border-white/25 bg-white/10 px-4 py-2.5 text-sm font-semibold text-white shadow-sm backdrop-blur-sm transition hover:border-white/40 hover:bg-white/[0.14] md:self-auto"
+            className="inline-flex self-start rounded-xl border border-white/25 bg-white/10 px-5 py-3 text-base font-semibold text-white shadow-sm backdrop-blur-sm transition hover:border-white/40 hover:bg-white/[0.14] md:self-auto"
           >
             {t("professionalsExploreApplications")}
           </Link>
@@ -194,15 +194,15 @@ export async function HomeProfessionals() {
                 delay={(Math.min(i + 1, 6)) as 1 | 2 | 3 | 4 | 5 | 6}
                 className="flex h-full min-h-0 flex-col"
               >
-                <div className="card-brand flex min-h-0 flex-1 flex-col gap-4 p-6">
-                  <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[var(--brand)]/20 bg-[var(--brand)]/10 text-[var(--brand-strong)]">
+                <div className="campaign-card outcome-shimmer flex min-h-0 flex-1 flex-col gap-5 p-7 sm:gap-6 sm:p-8">
+                  <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[var(--brand)]/20 bg-[var(--brand)]/10 text-[var(--brand-strong)] sm:h-[3.25rem] sm:w-[3.25rem]">
                     <SectorIcon id={sector.icon} />
                   </div>
 
-                  <h3 className="font-heading text-h3 text-[var(--text)]">
+                  <h3 className="font-heading text-lg font-bold leading-snug text-[var(--text)] sm:text-xl">
                     {t(sector.titleKey)}
                   </h3>
-                  <p className="min-h-0 flex-1 text-small leading-relaxed text-[var(--muted)]">
+                  <p className="min-h-0 flex-1 text-base leading-[1.65] text-[var(--text)] opacity-[0.82] sm:text-[1.0625rem]">
                     {t(sector.teaserKey)}
                   </p>
                 </div>

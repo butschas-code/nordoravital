@@ -26,7 +26,7 @@ export const DECK_MESSAGE_KEYS = [
   "Home.twoPathsMicroPatientsLabel",
   // Slide 4 — Three technologies
   "HowItWorks.block2Title",
-  "HowItWorks.block2Lead",
+  "HowItWorks.block2Paragraph1",
   "HowItWorks.block3Item1Title",
   "HowItWorks.block3Item1Body",
   "HowItWorks.block3Item2Title",

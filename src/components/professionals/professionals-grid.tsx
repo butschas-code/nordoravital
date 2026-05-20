@@ -75,7 +75,7 @@ export function ProfessionalsGrid({ sectors, labels }: ProfessionalsGridProps) {
           <li key={sector.slug}>
             <button
               onClick={() => setOpenSlug(sector.slug)}
-              className="glass-card-dark group flex h-full w-full flex-col p-6 text-left focus-visible:outline-2 focus-visible:outline-white/50 focus-visible:outline-offset-2"
+              className="glass-card-dark group flex h-full w-full flex-col p-7 text-left focus-visible:outline-2 focus-visible:outline-white/50 focus-visible:outline-offset-2 sm:p-8"
               aria-haspopup="dialog"
             >
               {/* Icon chip */}
@@ -92,18 +92,18 @@ export function ProfessionalsGrid({ sectors, labels }: ProfessionalsGridProps) {
               </div>
 
               {/* Text */}
-              <h2 className="text-[0.95rem] font-semibold leading-snug text-white">
+              <h2 className="text-base font-semibold leading-snug text-white sm:text-lg">
                 {sector.title}
               </h2>
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-white/60">
+              <p className="mt-2 flex-1 text-base leading-[1.65] text-white/75 sm:text-[1.0625rem]">
                 {sector.teaser}
               </p>
 
               {/* CTA row */}
-              <div className="mt-5 flex items-center gap-1.5 text-sm font-semibold text-white/50 transition-colors group-hover:text-white/80">
+              <div className="mt-6 flex items-center gap-2 text-base font-semibold text-white/60 transition-colors group-hover:text-white/85">
                 <span>{labels.learnMore}</span>
                 <svg
-                  className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5"
+                  className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
                   viewBox="0 0 16 16"
                   fill="none"
                   aria-hidden
@@ -180,7 +180,7 @@ export function ProfessionalsGrid({ sectors, labels }: ProfessionalsGridProps) {
                   </div>
                 </div>
                 <div>
-                  <p className="text-[0.7rem] font-bold tracking-[0.08em] text-[var(--brand)]">
+                  <p className="text-xs font-bold tracking-[0.08em] text-[var(--brand)] sm:text-sm">
                     sanza for
                   </p>
                   <h3 className="font-heading text-xl font-bold text-[var(--text)]">
@@ -190,7 +190,7 @@ export function ProfessionalsGrid({ sectors, labels }: ProfessionalsGridProps) {
               </div>
 
               {/* Teaser */}
-              <p className="mt-4 text-sm font-medium leading-relaxed text-[var(--brand-strong)]">
+              <p className="mt-4 text-base font-medium leading-[1.65] text-[var(--brand-strong)]">
                 {openSector.teaser}
               </p>
 
@@ -200,7 +200,7 @@ export function ProfessionalsGrid({ sectors, labels }: ProfessionalsGridProps) {
               {/* Body — split on double newlines, bold every "sanza" */}
               <div className="space-y-4">
                 {openSector.popupBody.split("\n\n").map((para, i) => (
-                  <p key={i} className="text-[0.95rem] leading-[1.78] text-[var(--text)]">
+                  <p key={i} className="text-base leading-[1.75] text-[var(--text)] sm:text-[1.0625rem]">
                     <WithBoldSanza text={para} />
                   </p>
                 ))}

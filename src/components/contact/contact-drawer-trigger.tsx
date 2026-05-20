@@ -17,7 +17,7 @@ type Props = {
 export function ContactDrawerTrigger({ className, label, options, children }: Props) {
   const t = useTranslations("Nav");
   const { openDrawer } = useContactDrawer();
-  const defaultClassName = "btn-primary inline-flex text-sm";
+  const defaultClassName = "btn-primary inline-flex text-base";
 
   return (
     <button

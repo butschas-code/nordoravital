@@ -25,7 +25,7 @@ export async function HomeTwoPaths() {
 
   return (
     <section
-      className="home-band-full home-band--two-paths py-20 md:py-28 lg:py-32"
+      className="home-band-full home-band--two-paths py-24 sm:py-28 lg:py-32"
       aria-labelledby="home-two-paths-heading"
     >
       <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
@@ -36,7 +36,7 @@ export async function HomeTwoPaths() {
           >
             {t("twoPathsTitle")}
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[var(--muted)] md:text-lg">
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-[1.65] text-[var(--text)] opacity-90 sm:text-xl">
             {t.rich("twoPathsLead", richParts.default)}
           </p>
         </FadeUp>
@@ -49,10 +49,10 @@ export async function HomeTwoPaths() {
 
                 {/* Taller scrim on mobile so titles never sit on the light art alone */}
                 <div
-                  className="absolute inset-x-0 bottom-0 h-[78%] md:h-[64%]"
+                  className="absolute inset-x-0 bottom-0 h-[85%] md:h-[72%]"
                   style={{
                     background:
-                      "linear-gradient(180deg, rgba(8,39,33,0) 0%, rgba(8,39,33,0.22) 28%, rgba(8,39,33,0.55) 55%, rgba(8,39,33,0.82) 100%)",
+                      "linear-gradient(180deg, rgba(8,39,33,0) 0%, rgba(8,39,33,0.35) 22%, rgba(8,39,33,0.62) 48%, rgba(8,39,33,0.9) 100%)",
                   }}
                   aria-hidden
                 />
@@ -64,29 +64,29 @@ export async function HomeTwoPaths() {
 
                 {/* Content: eyebrow → headline → columns (correct reading order) */}
                 <div className="relative z-10 flex flex-col p-6 sm:p-9">
-                  <p className="mb-2 inline-flex w-max max-w-full items-center rounded-full border border-white/25 bg-[#082721]/60 px-3.5 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white/95 shadow-sm backdrop-blur-md md:mb-3 md:border-[var(--brand)]/22 md:bg-[var(--surface)]/88 md:text-[var(--brand-strong)]">
+                  <p className="mb-2 inline-flex w-max max-w-full items-center rounded-full border border-white/25 bg-[#082721]/60 px-4 py-2 text-sm font-semibold uppercase tracking-[0.13em] text-white/95 shadow-sm backdrop-blur-md md:mb-3 md:border-[var(--brand)]/25 md:bg-[var(--surface)]/92 md:text-[var(--brand-strong)]">
                     {t(c.tag)}
                   </p>
-                  <h3 className="font-heading text-2xl font-bold leading-tight text-white sm:text-3xl [text-shadow:0_1px_14px_rgba(0,0,0,0.45)]">
+                  <h3 className="font-heading text-3xl font-bold leading-[1.12] text-white [text-shadow:0_2px_28px_rgba(0,0,0,0.55)] sm:text-4xl">
                     {t(c.title)}
                   </h3>
-                  <div className="two-paths-micro-row mt-5">
+                  <div className="two-paths-micro-row mt-6 sm:mt-7">
                     <div className="two-paths-micro-cell">
-                      <div className="two-paths-micro-surface flex min-h-0 flex-1 flex-col rounded-2xl border border-[var(--border)] bg-[var(--surface)]/96 px-4 py-3 shadow-sm backdrop-blur-sm md:border-white/25 md:bg-white/[0.14] md:shadow-[0_8px_40px_-12px_rgba(8,39,33,0.35)] md:backdrop-blur-xl">
-                        <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[var(--brand-strong)] md:text-white/80">
+                      <div className="two-paths-micro-surface flex min-h-0 flex-1 flex-col rounded-2xl border border-white/70 bg-[color-mix(in_srgb,var(--surface)_96%,transparent)] px-5 py-4 shadow-[0_8px_32px_rgba(14,61,52,0.12)] backdrop-blur-xl sm:px-6 sm:py-5 md:border-white/80 md:bg-[color-mix(in_srgb,var(--surface)_94%,var(--panel))] md:shadow-[0_12px_40px_-8px_rgba(14,61,52,0.14)]">
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--brand-strong)] sm:text-sm">
                           {t("twoPathsMicroPracticeLabel")}
                         </p>
-                        <p className="mt-2 flex-1 text-[0.8125rem] leading-relaxed text-[var(--text)] md:text-white md:[text-shadow:0_1px_2px_rgba(0,0,0,0.22)]">
+                        <p className="mt-2.5 flex-1 text-base leading-relaxed text-[var(--text)] sm:text-[1.0625rem] sm:leading-[1.65]">
                           {t(c.forPractice)}
                         </p>
                       </div>
                     </div>
                     <div className="two-paths-micro-cell">
-                      <div className="two-paths-micro-surface flex min-h-0 flex-1 flex-col rounded-2xl border border-[var(--border)] bg-[var(--surface)]/96 px-4 py-3 shadow-sm backdrop-blur-sm md:border-white/25 md:bg-white/[0.14] md:shadow-[0_8px_40px_-12px_rgba(8,39,33,0.35)] md:backdrop-blur-xl">
-                        <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[var(--brand-strong)] md:text-white/80">
+                      <div className="two-paths-micro-surface flex min-h-0 flex-1 flex-col rounded-2xl border border-white/70 bg-[color-mix(in_srgb,var(--surface)_96%,transparent)] px-5 py-4 shadow-[0_8px_32px_rgba(14,61,52,0.12)] backdrop-blur-xl sm:px-6 sm:py-5 md:border-white/80 md:bg-[color-mix(in_srgb,var(--surface)_94%,var(--panel))] md:shadow-[0_12px_40px_-8px_rgba(14,61,52,0.14)]">
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--brand-strong)] sm:text-sm">
                           {t("twoPathsMicroPatientsLabel")}
                         </p>
-                        <p className="mt-2 flex-1 text-[0.8125rem] leading-relaxed text-[var(--text)] md:text-white md:[text-shadow:0_1px_2px_rgba(0,0,0,0.22)]">
+                        <p className="mt-2.5 flex-1 text-base leading-relaxed text-[var(--text)] sm:text-[1.0625rem] sm:leading-[1.65]">
                           {t(c.forClients)}
                         </p>
                       </div>

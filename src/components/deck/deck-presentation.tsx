@@ -366,18 +366,18 @@ function SlideThreeTech() {
   const items = [
     {
       src: IMAGE_PATHS.deck.slide4ThreeTechLeft,
-      label: t("block3Item1Title"),
-      body: t("block3Item1Body"),
+      titleKey: "block3Item1Title" as const,
+      bodyKey: "block3Item1Body" as const,
     },
     {
       src: IMAGE_PATHS.home.productHandElectrode,
-      label: t("block3Item2Title"),
-      body: t("block3Item2Body"),
+      titleKey: "block3Item2Title" as const,
+      bodyKey: "block3Item2Body" as const,
     },
     {
       src: IMAGE_PATHS.home.productPen,
-      label: t("block3Item3Title"),
-      body: t("block3Item3Body"),
+      titleKey: "block3Item3Title" as const,
+      bodyKey: "block3Item3Body" as const,
     },
   ];
 
@@ -391,13 +391,13 @@ function SlideThreeTech() {
             {t.rich("block2Title", richParts.default)}
           </h2>
           <div className="mx-auto mt-5 max-w-3xl space-y-3 text-[clamp(0.8rem,1.35vw,0.98rem)] leading-relaxed text-[var(--muted)] sm:mt-6 sm:space-y-4">
-            <p>{t.rich("block2Lead", richParts.default)}</p>
+            <p>{t.rich("block2Paragraph1", richParts.default)}</p>
           </div>
         </div>
         <div className="mt-auto grid min-h-0 w-full grid-cols-3 gap-2 pt-6 sm:gap-4 sm:pt-8">
           {items.map((item, idx) => (
             <article
-              key={item.label}
+              key={item.titleKey}
               className="flex min-w-0 flex-col rounded-xl border border-[var(--border)] bg-[var(--surface)]/95 p-2 shadow-[var(--shadow-card)] sm:rounded-3xl sm:p-4"
             >
               {/* Same 4:3 box. Left + middle use object-cover when source isn’t 4:3; right (pen) stays contain for native 4:3. */}
@@ -415,10 +415,10 @@ function SlideThreeTech() {
                 />
               </div>
               <h3 className="text-center font-heading text-[0.65rem] font-bold leading-snug text-[var(--text)] sm:text-[0.85rem] md:text-[0.9rem]">
-                {item.label}
+                {t(item.titleKey)}
               </h3>
               <p className="mt-2 text-center text-[0.58rem] leading-snug text-[var(--muted)] sm:text-[0.72rem] sm:leading-relaxed md:text-[0.76rem]">
-                {item.body}
+                {t.rich(item.bodyKey, richParts.default)}
               </p>
             </article>
           ))}

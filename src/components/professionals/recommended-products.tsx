@@ -50,7 +50,7 @@ export async function RecommendedProducts({ copy }: Props) {
         >
           <RichLine text={copy.title} />
         </h2>
-        <p className="text-[var(--brand-muted)]">
+        <p className="text-base leading-relaxed text-[var(--brand-muted)] sm:text-[1.0625rem]">
           <RichLine text={copy.lead} />
         </p>
       </div>
@@ -71,12 +71,12 @@ export async function RecommendedProducts({ copy }: Props) {
                 <h3 className="text-lg font-semibold text-[var(--brand-heading)]">
                   <RichLine text={String(item.title)} />
                 </h3>
-                <p className="mt-2 flex-1 text-sm text-[var(--brand-muted)]">
+                <p className="mt-3 flex-1 text-base leading-relaxed text-[var(--brand-muted)] sm:text-[1.0625rem]">
                   <RichLine text={item.desc} />
                 </p>
                 <Link
                   href="/how-it-works"
-                  className="mt-4 inline-flex text-sm font-medium text-[var(--brand-primary)] underline-offset-4 hover:underline"
+                  className="mt-4 inline-flex text-base font-medium text-[var(--brand-primary)] underline-offset-4 hover:underline"
                 >
                   {copy.detailsLink}
                 </Link>

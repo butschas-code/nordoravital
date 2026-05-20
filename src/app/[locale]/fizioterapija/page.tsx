@@ -12,351 +12,374 @@ const CONTENT: Partial<Record<Locale, CampaignPageContent>> = {
   en: {
     segmentName: "Physiotherapy & Rehabilitation Clinics",
     metaTitle: "Physiotherapy & Rehabilitation Clinics | sanza × Nordora Vital",
-    metaDescription:
-      "A calm, structured wellbeing layer for physiotherapy clinics — patients arrive more settled, relax faster on the table, and leave feeling genuinely looked after.",
-
-    heroImage: "/images/campaign/between_modalities-02.jpg",
+    metaDescription: "A calm, structured wellbeing layer for physiotherapy clinics — patients arrive more settled, relax faster on the table, and leave feeling genuinely looked after.",
+    heroImage: "/images/campaign/physio-hero-premium.jpg",
+    heroTextAlign: "left",
     heroKicker: "For physiotherapists who want every session to begin better",
     heroHeadline: "You do the therapeutic work. <strong>sanza</strong> helps your patients settle into it.",
-    heroSubhead:
-      "Some patients arrive tense, guarded, or hard to calm. <strong>sanza</strong> gives you a simple wellbeing layer around your existing work — helping the room feel calmer, the session feel more complete, and your patients feel more looked after. Your clinical treatment stays yours.",
+    heroSubhead: "Some patients arrive tense, guarded, or hard to calm. <strong>sanza</strong> gives you a simple wellbeing layer around your existing work — helping the room feel calmer, the session feel more complete, and your patients feel more looked after. Your clinical treatment stays yours.",
     heroCtaPrimary: "Book a clinic demo",
-    heroValueProps: ["On-site clinic demo", "Clear pricing conversation", "No clinical changes"],
-    contactCategory: "physiotherapists",
-    demoRequestMessage:
-      "I'd like to arrange a sanza demo and receive more information for a physiotherapy / rehabilitation clinic.",
-
-    quickStats: [
-      { value: "15", label: "Numbered programs" },
-      { value: "1", label: "Controller, runs itself" },
-      { value: "10 min", label: "Onboarding for staff" },
-      { value: "0", label: "Workflow changes" },
+    heroValueProps: [
+      "On-site clinic demo",
+      "Clear pricing conversation",
+      "No clinical changes"
     ],
-
-    problemEyebrow: "What you already know",
-    problemTitle: "The first five minutes decide the next fifty.",
-    problemBody:
-      "Your patients often arrive tense. Chronic pain, post-surgical anxiety, first-time nerves — the first five minutes of every session can go either way. When a patient is guarded, muscles resist, cooperation is lower, and you spend part of your clinical time managing the room instead of doing the work. That's not a clinical failure. It's a context problem.",
+    contactCategory: "physiotherapists",
+    demoRequestMessage: "I'd like to arrange a sanza demo and receive more information for a physiotherapy / rehabilitation clinic.",
+    quickStats: [
+      {
+        value: "15",
+        label: "Structured wellbeing programs"
+      },
+      {
+        value: "1",
+        label: "Simple system for your treatment room"
+      },
+      {
+        value: "10 min",
+        label: "To shift the patient's state"
+      },
+      {
+        value: "0",
+        label: "Disruption to your hands-on work"
+      }
+    ],
+    problemEyebrow: "What you deal with every day",
+    problemTitle: "Your treatment starts before your hands do.",
+    problemBody: "You know the patient who walks in already braced. Shoulders high. Breath shallow. Guarding before you even begin.\r\n\r\nYou can have the right technique, the right plan and the right clinical reasoning — and still lose the first part of the session to tension, hesitation and resistance that came into the room with them.\r\n\r\n<strong>sanza</strong> helps you change that starting point.\r\n\r\nIt gives your treatment room a calm, structured layer around the work you already do, so patients settle faster, feel safer on the table, and arrive in a better state for therapy.\r\n\r\nNot because your treatment needs replacing.\r\nBecause your work deserves a patient who is ready to receive it.",
     problemImage: "/images/campaign/physio-landing.jpg",
-
     solutionEyebrow: "The sanza layer",
     solutionTitle: "A calmer patient is a more treatable patient.",
-    solutionBody:
-      "<strong>sanza</strong> is a professional PEMF wellbeing system built for clinics and treatment rooms. Chronobiological electromagnetic frequency signals create a structured, full-body settling effect — delivered through a mat, pad, or targeted applicators before or during your session. No pills, no protocols to redesign. Your physiotherapy stays exactly as it is. <strong>sanza</strong> just makes the room feel different — quieter, more grounded — from the moment your patient lies down.",
+    solutionBody: "<strong>sanza</strong> is a professional PEMF wellbeing system built for clinics and treatment rooms. Chronobiological electromagnetic frequency signals create a structured, full-body settling effect — delivered through a mat, pad, or targeted applicators before or during your session. No pills, no protocols to redesign. Your physiotherapy stays exactly as it is. <strong>sanza</strong> just makes the room feel different — quieter, more grounded — from the moment your patient lies down.",
     solutionSpecs: [
-      { title: "PEMF", body: "Pulsed electromagnetic field — gentle, non-invasive." },
-      { title: "Chronobiological", body: "Frequency programs aligned to body rhythms." },
-      { title: "Modular", body: "Mat, pad and targeted applicators for any room." },
+      {
+        title: "PEMF",
+        body: "Pulsed electromagnetic field — gentle, non-invasive."
+      },
+      {
+        title: "Chronobiological",
+        body: "Frequency programs aligned to body rhythms."
+      },
+      {
+        title: "Modular",
+        body: "Mat, pad and targeted applicators for any room."
+      }
     ],
-
     fitsTitle: "Where sanza fits in your session flow",
     fitsEyebrow: "Integration",
-    fitsLead:
-      "Three short rituals — before, between, and after the work you already do. Patients feel the difference. Your clinical time stays yours.",
+    fitsLead: "Three short rituals — before, between, and after the work you already do. Patients feel the difference. Your clinical time stays yours.",
     fitsImages: [
       "/images/campaign/physio-before-treatment.jpg",
       "/images/campaign/physio-built-for-staff.jpg",
       "/images/campaign/physio-close-out-decompression.jpg",
-      "/images/campaign/physio-fit-hero.jpg",
+      "/images/campaign/physio-fit-hero.jpg"
     ],
     fitsItems: [
       {
         title: "Before treatment begins",
-        body: "Run a 10–15 min arrival program while the patient settles on the table. They're calmer when your hands-on work starts.",
+        body: "Run a 10–15 min arrival program while the patient settles on the table. They're calmer when your hands-on work starts."
       },
       {
         title: "Between modalities",
-        body: "A short frequency pause while you prepare the next step — keeps the patient grounded and reduces 'reset time'.",
+        body: "A short frequency pause while you prepare the next step — keeps the patient grounded and reduces 'reset time'."
       },
       {
         title: "Close-out decompression",
-        body: "A short program before the patient leaves — they transition back into their day more smoothly. Fewer post-visit complaints, stronger word-of-mouth.",
+        body: "A short program before the patient leaves — they transition back into their day more smoothly. Fewer post-visit complaints, stronger word-of-mouth."
       },
       {
         title: "Built for staff, not specialists",
-        body: "15 numbered programs. Your team learns it in one session. After that, it runs itself.",
-      },
+        body: "15 numbered programs. Your team learns it in one session. After that, it runs itself."
+      }
     ],
-
     whatChangesTitle: "What changes when sanza joins your room",
     whatChangesEyebrow: "Outcomes",
     whatChangesPatientsTitle: "For your patients",
     whatChangesPatientsItems: [
       "Less guardedness on the table → better tissue response",
       "A sense of being genuinely cared for — not just treated",
-      "More consistent experience across visits",
+      "More consistent experience across visits"
     ],
     whatChangesPracticeTitle: "For your practice",
     whatChangesPracticeItems: [
       "Smoother appointment starts — fewer wasted minutes",
       "A tangible 'premium' quality patients mention and remember",
-      "A differentiator no other physio clinic on your street has",
+      "A differentiator no other physio clinic on your street has"
     ],
-
     socialProofLabel: "Heard from our partners",
-    socialProofQuote:
-      "Clinics that introduce <strong>sanza</strong> consistently report that patients describe visits as more complete — not just effective, but comfortable from start to finish.",
+    socialProofQuote: "Clinics that introduce <strong>sanza</strong> consistently report that patients describe visits as more complete — not just effective, but comfortable from start to finish.",
     socialProofAttribution: "Nordora Vital · Professional partner programme",
     socialProofImage: "/images/campaign/physio-quote-background.jpg",
-
     demoStepsEyebrow: "What happens after you contact us",
     demoStepsTitle: "A simple demo path, built around your clinic.",
-    demoStepsLead:
-      "No pressure, no sales theatre. Tell us about your rooms and patient flow, and we'll show you where sanza could fit before you make any decision.",
+    demoStepsLead: "No pressure, no sales theatre. Tell us about your rooms and patient flow, and we'll show you where sanza could fit before you make any decision.",
     demoSteps: [
       {
         title: "Short qualification call",
-        body: "We confirm your clinic type, treatment rooms, patient volume and the questions you want answered.",
+        body: "We confirm your clinic type, treatment rooms, patient volume and the questions you want answered."
       },
       {
         title: "Hands-on clinic demo",
-        body: "You and your team experience the programs, applicators and practical setup in a real treatment context.",
+        body: "You and your team experience the programs, applicators and practical setup in a real treatment context."
       },
       {
         title: "Fit and next steps",
-        body: "If it makes sense, we outline the recommended package, onboarding plan and pricing. If not, you still leave informed.",
-      },
+        body: "If it makes sense, we outline the recommended package, onboarding plan and pricing. If not, you still leave informed."
+      }
     ],
-
     finalCtaTitle: "See what sanza looks like in a physio room.",
-    finalCtaBody:
-      "Open the short contact form and we'll come back with demo availability, practical answers, and the information you need to judge whether sanza belongs in your clinic.",
+    finalCtaBody: "Open the short contact form and we'll come back with demo availability, practical answers, and the information you need to judge whether sanza belongs in your clinic.",
     finalCtaPrimary: "Request a clinic demo",
-    finalCtaSecondary: "See how sanza works",
+    finalCtaSecondary: "See how sanza works"
   },
-
   de: {
-    segmentName: "Physiotherapie- & Rehabilitationskliniken",
-    metaTitle: "Physiotherapie- & Rehabilitationskliniken | sanza × Nordora Vital",
-    metaDescription:
-      "Eine ruhige, strukturierte Wohlfühlebene für Physiotherapie-Praxen — Patienten kommen entspannter an, lösen sich schneller auf der Liege und gehen mit dem Gefühl, wirklich umsorgt worden zu sein.",
-
-    heroImage: "/images/campaign/between_modalities-02.jpg",
-    heroKicker: "Für Physiotherapeuten, die jede Sitzung besser beginnen lassen möchten",
-    heroHeadline: "Sie leisten die therapeutische Arbeit. <strong>sanza</strong> hilft Ihren Patienten, darin anzukommen.",
-    heroSubhead:
-      "Manche Patienten kommen angespannt, geschützt oder schwer zur Ruhe. <strong>sanza</strong> ergänzt Ihre bestehende Arbeit um eine einfache Wohlfühlebene — der Raum fühlt sich ruhiger an, die Sitzung vollständiger, und Patienten fühlen sich spürbar besser umsorgt. Ihre klinische Behandlung bleibt bei Ihnen.",
-    heroCtaPrimary: "Demo in Ihrer Praxis",
-    heroValueProps: ["Demo in Ihrer Praxis", "Klares Preisgespräch", "Keine klinischen Änderungen"],
+    segmentName: "Physiotherapie- und Rehabilitationspraxen",
+    metaTitle: "Physiotherapie- und Rehabilitationspraxen | sanza × Nordora Vital",
+    metaDescription: "Eine ruhige, strukturierte Wohlfühlatmosphäre für Physiotherapiepraxen – Patienten kommen gelassener an, entspannen sich schneller auf der Liege und verlassen die Praxis mit dem Gefühl, wirklich gut betreut worden zu sein.",
+    heroImage: "/images/campaign/physio-hero-premium.jpg",
+    heroTextAlign: "left",
+    heroKicker: "Für Physiotherapeuten, die sich einen besseren Start in jede Sitzung wünschen",
+    heroHeadline: "Sie übernehmen die therapeutische Arbeit. <strong>sanza</strong> hilft Ihren Patienten dabei, sich darauf einzulassen.",
+    heroSubhead: "Manche Patienten kommen angespannt, zurückhaltend oder schwer zu beruhigen an. <strong>sanza</strong> bietet Ihnen eine einfache Wohlfühl-Erfahrung rund um Ihre bestehende Arbeit – damit der Raum ruhiger wirkt, die Sitzung vollständiger erscheint und Ihre Patienten sich besser betreut fühlen. Ihre klinische Behandlung bleibt Ihre Sache.",
+    heroCtaPrimary: "Buchen Sie eine Klinik-Demo",
+    heroValueProps: [
+      "Vor-Ort-Demo in Ihrer Klinik",
+      "Klares Preisgespräch",
+      "Keine klinischen Änderungen"
+    ],
     contactCategory: "physiotherapists",
-    demoRequestMessage:
-      "Ich möchte eine sanza-Demo vereinbaren und weitere Informationen für eine Physiotherapie- oder Rehabilitationspraxis erhalten.",
-
+    demoRequestMessage: "Ich möchte eine sanza-Demo vereinbaren und weitere Informationen für eine Physiotherapie-/Rehabilitationsklinik erhalten.",
     quickStats: [
-      { value: "15", label: "Nummerierte Programme" },
-      { value: "1", label: "Steuerung, läuft selbst" },
-      { value: "10 Min", label: "Einarbeitung für das Team" },
-      { value: "0", label: "Änderungen am Ablauf" },
+      {
+        value: "15",
+        label: "Strukturierte Wohlfühlprogramme"
+      },
+      {
+        value: "1",
+        label: "Einfaches System für Ihren Behandlungsraum"
+      },
+      {
+        value: "10 Min.",
+        label: "Um den Zustand des Patienten zu verändern"
+      },
+      {
+        value: "0",
+        label: "Beeinträchtigung Ihrer praktischen Arbeit"
+      }
     ],
-
-    problemEyebrow: "Was Sie längst kennen",
-    problemTitle: "Die ersten fünf Minuten entscheiden über die nächsten fünfzig.",
-    problemBody:
-      "Ihre Patienten kommen oft angespannt. Chronische Schmerzen, postoperative Ängste, erstmalige Unsicherheit — die ersten fünf Minuten jeder Sitzung können in jede Richtung kippen. Ein verspannter Patient hält Muskulatur zurück, kooperiert weniger, und Sie verbringen einen Teil Ihrer klinischen Zeit damit, den Raum zu managen statt zu arbeiten. Das ist kein klinisches Versagen. Es ist ein Kontextproblem.",
+    problemEyebrow: "Womit Sie täglich zu tun haben",
+    problemTitle: "Ihre Behandlung beginnt, noch bevor Sie Ihre Hände ansetzen.",
+    problemBody: "„Sie kennen den Patienten, der schon mit angespannter Haltung hereinkommt. Die Schultern hochgezogen. Flacher Atem. Abwehrhaltung, noch bevor Sie überhaupt angefangen haben.",
     problemImage: "/images/campaign/physio-landing.jpg",
-
     solutionEyebrow: "Die sanza-Ebene",
-    solutionTitle: "Ein ruhigerer Patient ist ein besser behandelbarer Patient.",
-    solutionBody:
-      "<strong>sanza</strong> ist ein professionelles PEMF-Wohlfühlsystem für Praxen und Behandlungsräume. Chronobiologische elektromagnetische Frequenzsignale erzeugen einen strukturierten, ganzkörperlichen Beruhigungseffekt — über Matte, Pad oder gezielte Applikatoren, vor oder während Ihrer Sitzung. Keine Tabletten, keine neuen Protokolle. Ihre Physiotherapie bleibt genau so, wie sie ist. <strong>sanza</strong> verändert nur, wie sich der Raum anfühlt — ruhiger, geerdeter — vom Moment, in dem sich der Patient hinlegt.",
+    solutionTitle: "Sie können die richtige Technik, den richtigen Plan und die richtige klinische Argumentation haben – und dennoch den ersten Teil der Sitzung an Anspannung, Zögern und Widerstand verlieren, die der Patient mit in den Raum gebracht hat.",
+    solutionBody: "<strong>sanza</strong> kombiniert PEMF, strukturierte Biofrequenz und Kaltilaser/Licht in choreografierten Abläufen — ein beruhigendes Ganzkörper-Erlebnis über das hinaus, was alleinige PEMF-Matten erreichen. Matte, Pad, Handelektroden und gezielte Applikatoren flechten diese Schichten in Ankunft, Reset und Abschluss rund um die Physiotherapieeinheit ein. Die klinische Arbeit bleibt unverändert — der Raum wirkt jedoch von der ersten Minute an ruhiger und stimmiger.",
     solutionSpecs: [
-      { title: "PEMF", body: "Pulsierendes elektromagnetisches Feld — sanft, nicht-invasiv." },
-      { title: "Chronobiologisch", body: "Frequenzprogramme im Einklang mit Körperrhythmen." },
-      { title: "Modular", body: "Matte, Pad und gezielte Applikatoren für jeden Raum." },
+      {
+        title: "<strong>sanza</strong> hilft Ihnen, diesen Ausgangspunkt zu verändern.",
+        body: "PEMF plus Biofrequenz plus Laser im selben geführten Ablauf — der Kernunterscheid gegenüber Einzeltechnik-Angeboten."
+      },
+      {
+        title: "Es verleiht Ihrem Behandlungsraum eine ruhige, strukturierte Atmosphäre rund um die Arbeit, die Sie bereits leisten, sodass sich Patienten schneller entspannen, sich auf der Liege sicherer fühlen und in einem besseren Zustand zur Therapie erscheinen.",
+        body: "Fünfzehn nummerierte Programme, auf die Teams jede Schicht zurückgreifen können."
+      },
+      {
+        title: "Nicht, weil Ihre Behandlung ersetzt werden muss.",
+        body: "Sondern weil Ihre Arbeit einen Patienten verdient, der bereit ist, sie anzunehmen.“"
+      }
     ],
-
-    fitsTitle: "Wo sanza in Ihren Ablauf passt",
-    fitsEyebrow: "Integration",
-    fitsLead:
-      "Drei kurze Rituale — vor, zwischen und nach Ihrer Arbeit. Patienten spüren den Unterschied. Ihre klinische Zeit bleibt Ihre.",
+    fitsTitle: "Ein ruhigerer Patient ist ein besser behandelbarer Patient.",
+    fitsEyebrow: "Die sanza-Schicht",
+    fitsLead: "<strong>sanza</strong> ist ein professionelles PEMF-Wellness-System, das für Kliniken und Behandlungsräume entwickelt wurde. Chronobiologische elektromagnetische Frequenzsignale erzeugen einen strukturierten, den ganzen Körper umfassenden Beruhigungseffekt – vermittelt durch eine Matte, ein Polster oder gezielte Applikatoren vor oder während Ihrer Sitzung. Keine Tabletten, keine Protokolle, die neu gestaltet werden müssen. Ihre Physiotherapie bleibt genau so, wie sie ist. <strong>sanza</strong> sorgt einfach dafür, dass sich der Raum anders anfühlt – ruhiger, geerdeter – von dem Moment an, in dem sich Ihr Patient hinlegt.",
     fitsImages: [
       "/images/campaign/physio-before-treatment.jpg",
       "/images/campaign/physio-built-for-staff.jpg",
       "/images/campaign/physio-close-out-decompression.jpg",
-      "/images/campaign/physio-fit-hero.jpg",
+      "/images/campaign/physio-fit-hero.jpg"
     ],
     fitsItems: [
       {
-        title: "Vor der Behandlung",
-        body: "Ein 10–15-minütiges Ankommprogramm, während sich der Patient auf der Liege einrichtet. Wenn Sie loslegen, ist er ruhiger.",
+        title: "PEMF",
+        body: "Pulsierendes elektromagnetisches Feld – sanft, nicht-invasiv."
       },
       {
-        title: "Zwischen Modalitäten",
-        body: "Eine kurze Frequenzpause, während Sie den nächsten Schritt vorbereiten — der Patient bleibt geerdet, weniger 'Reset-Zeit'.",
+        title: "Chronobiologisch",
+        body: "Eine kurze Frequenzpause, während Sie den nächsten Schritt vorbereiten – sorgt dafür, dass der Patient geerdet bleibt, und verkürzt die „Reset-Zeit“."
       },
       {
-        title: "Abschluss-Dekompression",
-        body: "Ein kurzes Programm vor dem Verlassen — der Patient gleitet sanfter zurück in seinen Tag. Weniger Beschwerden, stärkere Mundpropaganda.",
+        title: "Abschließende Dekompression",
+        body: "Ein kurzes Programm, bevor der Patient geht – so kehrt er reibungsloser in seinen Alltag zurück. Weniger Beschwerden nach dem Besuch, stärkere Mundpropaganda."
       },
       {
-        title: "Für Teams, nicht für Spezialisten",
-        body: "15 nummerierte Programme. Ihr Team lernt es in einer Schicht. Danach läuft es von selbst.",
-      },
+        title: "Entwickelt für das Personal, nicht für Spezialisten",
+        body: "15 nummerierte Programme. Ihr Team lernt sie in einer Sitzung. Danach läuft alles von selbst."
+      }
     ],
-
-    whatChangesTitle: "Was sich verändert, wenn sanza in Ihren Raum einzieht",
+    whatChangesTitle: "Was sich ändert, wenn sanza in Ihren Behandlungsraum kommt",
     whatChangesEyebrow: "Ergebnisse",
     whatChangesPatientsTitle: "Für Ihre Patienten",
     whatChangesPatientsItems: [
-      "Weniger Anspannung auf der Liege → bessere Gewebeantwort",
-      "Das Gefühl, wirklich umsorgt zu sein — nicht nur behandelt",
-      "Konsistentere Erfahrung über alle Besuche hinweg",
+      "Weniger Zurückhaltung auf der Liege → bessere Gewebereaktion",
+      "Das Gefühl, wirklich umsorgt zu werden – nicht nur behandelt",
+      "Einheitlichere Erfahrung über alle Besuche hinweg"
     ],
     whatChangesPracticeTitle: "Für Ihre Praxis",
     whatChangesPracticeItems: [
-      "Reibungslosere Terminstarts — weniger verschenkte Minuten",
-      "Eine spürbare Premium-Qualität, die Patienten erwähnen und in Erinnerung behalten",
-      "Ein Differenzierungsmerkmal, das nicht jede Physiopraxis in Ihrer Umgebung hat",
+      "Reibungsloserer Beginn der Termine – weniger Zeitverlust",
+      "Eine spürbare „Premium“-Qualität, die Patienten erwähnen und in Erinnerung behalten",
+      "Ein Alleinstellungsmerkmal, das keine andere Physiotherapiepraxis in Ihrer Straße hat"
     ],
-
-    socialProofLabel: "Stimmen aus dem Partnerprogramm",
-    socialProofQuote:
-      "Praxen, die <strong>sanza</strong> einführen, berichten durchweg, dass Patienten den Besuch als vollständiger beschreiben — nicht nur wirksam, sondern angenehm von Anfang bis Ende.",
-    socialProofAttribution: "Nordora Vital · Partnerprogramm",
+    socialProofLabel: "Das sagen unsere Partner",
+    socialProofQuote: "Praxen, die <strong>sanza</strong> einführen, berichten durchweg, dass Patienten die Besuche als umfassender beschreiben – nicht nur effektiv, sondern von Anfang bis Ende angenehm.",
+    socialProofAttribution: "Nordora Vital · Professionelles Partnerprogramm",
     socialProofImage: "/images/campaign/physio-quote-background.jpg",
-
-    demoStepsEyebrow: "Was passiert nach Ihrer Anfrage",
-    demoStepsTitle: "Ein einfacher Demo-Weg, passend zu Ihrer Praxis.",
-    demoStepsLead:
-      "Kein Druck, keine Verkaufsinszenierung. Sie erzählen uns kurz von Ihren Räumen und Abläufen, und wir zeigen, wo sanza sinnvoll passen könnte.",
+    demoStepsEyebrow: "Was passiert, nachdem Sie uns kontaktiert haben",
+    demoStepsTitle: "Ein einfacher Demo-Ablauf, zugeschnitten auf Ihre Praxis.",
+    demoStepsLead: "Kein Druck, kein Verkaufsgeschwätz. Erzählen Sie uns von Ihren Räumen und dem Patientenfluss, und wir zeigen Ihnen, wo sanza passen könnte, bevor Sie eine Entscheidung treffen.",
     demoSteps: [
       {
-        title: "Kurzes Vorgespräch",
-        body: "Wir klären Praxistyp, Behandlungsräume, Patientenfluss und die Fragen, die Sie beantwortet haben möchten.",
+        title: "Kurzes Qualifikationsgespräch",
+        body: "Wir klären Ihren Kliniktyp, die Behandlungsräume, das Patientenaufkommen und die Fragen, die Sie beantwortet haben möchten."
       },
       {
-        title: "Demo vor Ort",
-        body: "Sie und Ihr Team erleben Programme, Applikatoren und praktischen Aufbau im Behandlungskontext.",
+        title: "Praktische Klinik-Demo",
+        body: "Sie und Ihr Team erleben die Programme, Applikatoren und die praktische Einrichtung in einem echten Behandlungskontext."
       },
       {
-        title: "Passung und nächste Schritte",
-        body: "Wenn es passt, erhalten Sie Paketempfehlung, Onboarding-Plan und Preise. Wenn nicht, gehen Sie trotzdem informiert heraus.",
-      },
+        title: "Eignung und nächste Schritte",
+        body: "Wenn es Sinn macht, stellen wir Ihnen das empfohlene Paket, den Einführungsplan und die Preise vor. Wenn nicht, gehen Sie dennoch gut informiert nach Hause."
+      }
     ],
-
-    finalCtaTitle: "Sehen Sie, wie sanza in einem Physio-Raum wirkt.",
-    finalCtaBody:
-      "Öffnen Sie das kurze Kontaktformular. Wir melden uns mit Demo-Verfügbarkeit, praktischen Antworten und den Informationen, die Sie brauchen, um ruhig zu entscheiden, ob sanza in Ihre Praxis passt.",
-    finalCtaPrimary: "Demo in der Praxis anfragen",
-    finalCtaSecondary: "So funktioniert sanza",
+    finalCtaTitle: "Sehen Sie, wie sanza in einem Physiotherapieraum aussieht.",
+    finalCtaBody: "Öffnen Sie das kurze Kontaktformular und wir melden uns mit Terminvorschlägen für eine Demo, praktischen Antworten und den Informationen, die Sie benötigen, um zu beurteilen, ob sanza in Ihre Klinik passt.",
+    finalCtaPrimary: "Klinik-Demo anfordern",
+    finalCtaSecondary: "Sehen Sie, wie sanza funktioniert"
   },
-
   lv: {
     segmentName: "Fizioterapijas un rehabilitācijas klīnikas",
     metaTitle: "Fizioterapijas un rehabilitācijas klīnikas | sanza × Nordora Vital",
-    metaDescription:
-      "Mierīgs, strukturēts labsajūtas slānis fizioterapijas klīnikām — pacienti ierodas mierīgāki, ātrāk atslābst uz galda un aiziet ar sajūtu, ka par viņiem patiesi parūpējušies.",
-
-    heroImage: "/images/campaign/between_modalities-02.jpg",
-    heroKicker: "Fizioterapeitiem, kuri vēlas, lai katra vizīte sāktos labāk",
-    heroHeadline: "Jūs veicat terapeitisko darbu. <strong>sanza</strong> palīdz pacientiem tajā iejusties.",
-    heroSubhead:
-      "Daži pacienti ierodas saspringti, aizsargājoši vai grūti nomierināmi. <strong>sanza</strong> pievieno jūsu esošajam darbam vienkāršu labsajūtas slāni — telpa jūtas mierīgāka, vizīte pilnīgāka, un pacienti jūtas vairāk aprūpēti. Jūsu klīniskā terapija paliek jūsu rokās.",
-    heroCtaPrimary: "Pieteikt demo klīnikā",
-    heroValueProps: ["Demo jūsu klīnikā", "Skaidra cenu saruna", "Bez klīniskām izmaiņām"],
+    metaDescription: "Rāms, strukturēts labklājības slānis fizioterapijas klīnikām — pacienti ierodas mierīgāki, ātrāk atslābst uz galda un aiziet ar sajūtu, ka par viņiem patiesi rūpējas.",
+    heroImage: "/images/campaign/physio-hero-premium.jpg",
+    heroTextAlign: "left",
+    heroKicker: "Fizioterapeitiem, kuri vēlas, lai katra seansa sākums būtu labāks",
+    heroHeadline: "Jūs veicat terapeitisko darbu. <strong>sanza</strong> palīdz jūsu pacientiem iekļauties tajā.",
+    heroSubhead: "Daži pacienti ierodas saspringti, atturīgi vai grūti nomierināmi. <strong>sanza</strong> sniedz jums vienkāršu labklājības slāni ap jūsu esošo darbu — palīdzot telpai justies mierīgākai, seansam justies pilnīgākam un jūsu pacientiem justies labāk aprūpētiem. Jūsu klīniskā ārstēšana paliek jūsu ziņā.",
+    heroCtaPrimary: "Piesakieties uz klīnikas demonstrāciju",
+    heroValueProps: [
+      "Demonstrācija klīnikā",
+      "Skaidra saruna par cenām",
+      "Nekādas izmaiņas klīniskajā darbā"
+    ],
     contactCategory: "physiotherapists",
-    demoRequestMessage:
-      "Vēlos pieteikt sanza demo un saņemt vairāk informācijas fizioterapijas / rehabilitācijas klīnikai.",
-
+    demoRequestMessage: "Es vēlos pieteikties uz sanza demonstrāciju un saņemt vairāk informācijas par fizioterapijas/rehabilitācijas klīniku.",
     quickStats: [
-      { value: "15", label: "Numurētas programmas" },
-      { value: "1", label: "Vadība, darbojas pati" },
-      { value: "10 min", label: "Komandas ievadapmācība" },
-      { value: "0", label: "Darba plūsmas izmaiņu" },
+      {
+        value: "15",
+        label: "Strukturētas labklājības programmas"
+      },
+      {
+        value: "1",
+        label: "Vienkārša sistēma jūsu ārstniecības telpai"
+      },
+      {
+        value: "10 min",
+        label: "Lai mainītu pacienta stāvokli"
+      },
+      {
+        value: "0",
+        label: "Traucējumi jūsu praktiskajam darbam"
+      }
     ],
-
-    problemEyebrow: "Tas, ko jau zināt",
-    problemTitle: "Pirmās piecas minūtes izšķir nākamās piecdesmit.",
-    problemBody:
-      "Jūsu pacienti nereti ierodas saspringti. Hroniskas sāpes, satraukums pēc operācijas, pirmā apmeklējuma nervozitāte — katras sesijas pirmās piecas minūtes var pavērsties uz jebkuru pusi. Kad pacients ir saspringts, muskuļi pretojas, sadarbība ir vājāka, un daļu klīniskā laika jūs pavadāt, vadot situāciju telpā, nevis veicot darbu. Tā nav klīniska neveiksme. Tā ir konteksta problēma.",
+    problemEyebrow: "Ar ko jūs saskaraties katru dienu",
+    problemTitle: "Jūsu ārstēšana sākas, pirms jūs sākat strādāt ar rokām.",
+    problemBody: "Jūs pazīstat pacientu, kurš ienāk jau saspringts. Pleci pacelti. Elpa sekla. Aizsargājas, pirms jūs pat esat sācis.\r\n\r\nJums var būt pareizā tehnika, pareizais plāns un pareizais klīniskais pamatojums — un jūs joprojām zaudējat sesijas pirmo daļu spriedzei, vilcināšanās un pretestībai, kas ienāca telpā kopā ar viņiem.\r\n\r\n<strong>sanza</strong> palīdz jums mainīt šo sākuma punktu.\r\n\r\nTā piešķir jūsu ārstniecības telpai mierīgu, strukturētu slāni ap darbu, ko jūs jau darāt, lai pacienti ātrāk nomierinātos, justos drošāk uz galda un ierastos labākā stāvoklī terapijai.\r\n\r\nNe tādēļ, ka jūsu ārstēšanai ir nepieciešama aizstāšana.\r\nTādēļ, ka jūsu darbs ir pelnījis pacientu, kurš ir gatavs to saņemt.",
     problemImage: "/images/campaign/physio-landing.jpg",
-
-    solutionEyebrow: "sanza slānis",
+    solutionEyebrow: "Sanza slānis",
     solutionTitle: "Mierīgāks pacients ir vieglāk ārstējams pacients.",
-    solutionBody:
-      "<strong>sanza</strong> ir profesionāla PEMF labsajūtas sistēma, veidota klīnikām un procedūru telpām. Hronobioloģiski elektromagnētiski frekvenču signāli rada strukturētu, visa ķermeņa nomierinošu efektu — caur paklāju, spilvenu vai mērķtiecīgiem aplikatoriem pirms vai sesijas laikā. Nekādu tablešu, nekādu protokolu pārveidošanas. Jūsu fizioterapija paliek tieši tāda, kāda tā ir. <strong>sanza</strong> tikai maina to, kā telpa jūtas — klusāka, stabilāka — no brīža, kad pacients apgulstas.",
+    solutionBody: "<strong>sanza</strong> ir profesionāla PEMF labklājības sistēma, kas izstrādāta klīnikām un ārstniecības telpām. Hronobioloģiskie elektromagnētiskie frekvences signāli rada strukturētu, visam ķermenim paredzētu nomierinošu efektu — to nodrošina paklājs, spilventiņš vai mērķtiecīgi aplikatori pirms vai sesijas laikā. Bez tabletēm, bez nepieciešamības pārveidot protokolus. Jūsu fizioterapija paliek tieši tāda, kāda tā ir. <strong>sanza</strong> vienkārši padara telpu citādu — klusāku, mierīgāku — no brīža, kad jūsu pacients apgūstas.",
     solutionSpecs: [
-      { title: "PEMF", body: "Pulsējošs elektromagnētiskais lauks — maigs, neinvazīvs." },
-      { title: "Hronobioloģisks", body: "Frekvenču programmas saskaņā ar ķermeņa ritmiem." },
-      { title: "Modulārs", body: "Paklājs, spilvens un mērķtiecīgi aplikatori jebkurai telpai." },
+      {
+        title: "PEMF",
+        body: "Impulsu elektromagnētiskais lauks — maigs, neinvazīvs."
+      },
+      {
+        title: "Hronobioloģisks",
+        body: "Frekvenču programmas, kas pielāgotas ķermeņa ritmiem."
+      },
+      {
+        title: "Modulārs",
+        body: "Paklājs, spilventiņš un mērķtiecīgi aplikatori jebkurai telpai."
+      }
     ],
-
-    fitsTitle: "Kur sanza iederas jūsu sesijas plūsmā",
+    fitsTitle: "Kur sanza iederas jūsu seansu plūsmā",
     fitsEyebrow: "Integrācija",
-    fitsLead:
-      "Trīs īsi rituāli — pirms, starp un pēc tā darba, ko jau veicat. Pacienti jūt atšķirību. Jūsu klīniskais laiks paliek jūsu.",
+    fitsLead: "Trīs īsi rituāli — pirms, starp un pēc darba, ko jūs jau veicat. Pacienti jūt atšķirību. Jūsu klīniskais laiks paliek jūsu rīcībā.",
     fitsImages: [
       "/images/campaign/physio-before-treatment.jpg",
       "/images/campaign/physio-built-for-staff.jpg",
       "/images/campaign/physio-close-out-decompression.jpg",
-      "/images/campaign/physio-fit-hero.jpg",
+      "/images/campaign/physio-fit-hero.jpg"
     ],
     fitsItems: [
       {
-        title: "Pirms procedūras",
-        body: "10–15 min ierašanās programma, kamēr pacients iekārtojas uz galda. Kad sākat darbu ar rokām, viņš ir mierīgāks.",
+        title: "Pirms ārstēšanas sākuma",
+        body: "Palaidiet 10–15 minūšu ierašanās programmu, kamēr pacients iekārtojas uz galda. Viņi ir mierīgāki, kad sākas jūsu praktiskais darbs."
       },
       {
         title: "Starp procedūrām",
-        body: "Īsa frekvenču pauze, kamēr sagatavojat nākamo soli — pacients paliek nostabilizēts, mazāk 'restartēšanās laika'.",
+        body: "Īsa frekvences pauze, kamēr jūs gatavojaties nākamajam solim — palīdz pacientam saglabāt līdzsvaru un samazina „atjaunošanās laiku”."
       },
       {
         title: "Noslēguma dekompresija",
-        body: "Īsa programma pirms došanās prom — pacients atgriežas savā dienā vienmērīgāk. Mazāk sūdzību, spēcīgāks ieteikums.",
+        body: "Īsa programma pirms pacients dodas prom — viņi vieglāk atgriežas savā ikdienas ritmā. Mazāk sūdzību pēc apmeklējuma, labāka mutiskā reklāma."
       },
       {
-        title: "Veidots komandai, ne speciālistiem",
-        body: "15 numurētas programmas. Jūsu komanda apgūst tās vienā sesijā. Tālāk tās darbojas pašas.",
-      },
+        title: "Izstrādāts personālam, nevis speciālistiem",
+        body: "15 numurētas programmas. Jūsu komanda to apgūst vienā sesijā. Pēc tam sistēma darbojas pati."
+      }
     ],
-
-    whatChangesTitle: "Kas mainās, kad sanza ienāk jūsu telpā",
+    whatChangesTitle: "Kas mainās, kad „sanza“ ienāk jūsu kabinetā",
     whatChangesEyebrow: "Rezultāti",
     whatChangesPatientsTitle: "Jūsu pacientiem",
     whatChangesPatientsItems: [
-      "Mazāks saspringums uz galda → labāka audu atbildes reakcija",
-      "Sajūta, ka par viņiem patiesi rūpējas — ne tikai ārstē",
-      "Konsekventāka pieredze visos apmeklējumos",
+      "Mazāka aizsargātība uz galda → labāka audu reakcija",
+      "Sajūta, ka par viņiem patiesi rūpējas — nevis tikai ārstē",
+      "Vienotāka pieredze visās vizītēs"
     ],
     whatChangesPracticeTitle: "Jūsu praksei",
     whatChangesPracticeItems: [
-      "Vienmērīgāks vizītes sākums — mazāk zaudēto minūšu",
-      "Taustāma 'premium' kvalitāte, ko pacienti piemin un atceras",
-      "Atšķirīga iezīme, kādas nav katrai fizioterapijas klīnikai jūsu apkārtnē",
+      "Raitāka vizītes sākšana — mazāk iztērētu minūšu",
+      "Taustāma „premium” kvalitāte, ko pacienti piemin un atceras",
+      "Atšķirības faktors, kāds nav nevienai citai fizioterapijas klīnikai jūsu ielā"
     ],
-
-    socialProofLabel: "No partneru programmas",
-    socialProofQuote:
-      "Klīnikas, kas ievieš <strong>sanza</strong>, konsekventi ziņo, ka pacienti apraksta vizītes kā pilnīgākas — ne tikai efektīvas, bet patīkamas no sākuma līdz beigām.",
-    socialProofAttribution: "Nordora Vital · Profesionālo partneru programma",
+    socialProofLabel: "Ko saka mūsu partneri",
+    socialProofQuote: "Klīnikas, kas ievieš <strong>sanza</strong>, vienbalsīgi ziņo, ka pacienti apraksta vizītes kā pilnīgākas — ne tikai efektīvas, bet arī ērtas no sākuma līdz beigām.",
+    socialProofAttribution: "Nordora Vital · Profesionālā partneru programma",
     socialProofImage: "/images/campaign/physio-quote-background.jpg",
-
-    demoStepsEyebrow: "Kas notiek pēc pieteikuma",
-    demoStepsTitle: "Vienkāršs demo process, pielāgots jūsu klīnikai.",
-    demoStepsLead:
-      "Bez spiediena un bez pārspīlētas pārdošanas. Pastāstiet par savām telpām un pacientu plūsmu, un mēs parādīsim, kur sanza varētu iederēties.",
+    demoStepsEyebrow: "Kas notiek pēc tam, kad sazināties ar mums",
+    demoStepsTitle: "Vienkārša demonstrācijas programma, kas veidota, ņemot vērā jūsu klīnikas vajadzības.",
+    demoStepsLead: "Bez spiediena, bez pārdošanas trikiem. Pastāstiet mums par savām telpām un pacientu plūsmu, un mēs parādīsim, kur sanza varētu iederēties, pirms jūs pieņemat lēmumu.",
     demoSteps: [
       {
-        title: "Īsa noskaidrošanas saruna",
-        body: "Precizējam klīnikas tipu, procedūru telpas, pacientu plūsmu un jautājumus, uz kuriem vēlaties atbildes.",
+        title: "Īss kvalifikācijas zvans",
+        body: "Mēs apstiprinām jūsu klīnikas veidu, ārstniecības telpas, pacientu skaitu un jautājumus, uz kuriem vēlaties saņemt atbildes."
       },
       {
-        title: "Demo klīnikā",
-        body: "Jūs un komanda izmēģināt programmas, aplikatorus un praktisko uzstādījumu reālā procedūras kontekstā.",
+        title: "Praktiska klīnikas demonstrācija",
+        body: "Jūs un jūsu komanda izmēģināt programmas, aplikatorus un praktisko uzstādīšanu reālā ārstniecības kontekstā."
       },
       {
-        title: "Atbilstība un nākamie soļi",
-        body: "Ja tas der, ieskicējam ieteicamo komplektu, ieviešanas plānu un cenu. Ja nē, jūs tāpat iegūstat skaidrību.",
-      },
+        title: "Piemērotība un nākamie soļi",
+        body: "Ja tas ir lietderīgi, mēs izklāstīsim ieteicamo paketi, ieviešanas plānu un cenas. Ja nē, jūs joprojām saņemsiet visu nepieciešamo informāciju."
+      }
     ],
-
-    finalCtaTitle: "Apskatiet, kā sanza izskatās fizio kabinetā.",
-    finalCtaBody:
-      "Atveriet īso kontaktformu, un mēs atbildēsim ar demo iespējām, praktiskām atbildēm un informāciju, kas vajadzīga, lai mierīgi izvērtētu, vai sanza iederas jūsu klīnikā.",
-    finalCtaPrimary: "Pieteikt demo klīnikā",
-    finalCtaSecondary: "Kā darbojas sanza",
-  },
+    finalCtaTitle: "Redziet, kā sanza izskatās fizioterapijas telpā.",
+    finalCtaBody: "Atveriet īso kontaktformu, un mēs sazināsimies ar jums, lai informētu par demonstrācijas pieejamību, sniegtu praktiskas atbildes un informāciju, kas jums nepieciešama, lai izlemtu, vai sanza ir piemērota jūsu klīnikai.",
+    finalCtaPrimary: "Pieprasiet klīnikas demonstrāciju",
+    finalCtaSecondary: "Redziet, kā darbojas sanza"
+  }
 };
+
 
 function getContent(locale: string): CampaignPageContent | null {
   return CONTENT[locale as Locale] ?? null;

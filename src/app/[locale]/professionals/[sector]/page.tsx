@@ -49,20 +49,21 @@ export default async function ProfessionalSectorPage({ params }: Props) {
   }
 
   return (
-    <div className="space-y-16 md:space-y-20">
+    <div className="site-marketing-root flex flex-col gap-0">
       <SectorHero content={content} />
 
-      <section className="space-y-4" aria-labelledby="workflow-heading">
+      <div className="mx-auto w-full max-w-[1200px] space-y-16 px-4 pb-12 pt-0 md:space-y-20 md:pb-16 sm:px-6 md:px-8 lg:px-10">
+        <section className="space-y-4" aria-labelledby="workflow-heading">
         <h2
           id="workflow-heading"
           className="text-2xl font-semibold tracking-tight text-[var(--brand-heading)] sm:text-3xl"
         >
           <RichLine text={content.workflowTitle} />
         </h2>
-        <p className="max-w-3xl text-[var(--brand-muted)]">
+        <p className="max-w-[65ch] text-lg leading-relaxed text-[var(--brand-muted)]">
           <RichLine text={content.workflowIntro} />
         </p>
-        <ul className="max-w-3xl list-disc space-y-3 pl-5 text-[var(--brand-muted)]">
+        <ul className="max-w-[65ch] list-disc space-y-3 pl-5 text-base leading-relaxed text-[var(--brand-muted)] md:text-[1.0625rem]">
           <li>{content.workflow1}</li>
           <li>{content.workflow2}</li>
           <li>{content.workflow3}</li>
@@ -78,32 +79,32 @@ export default async function ProfessionalSectorPage({ params }: Props) {
         </h2>
         <div className="grid gap-6 md:grid-cols-3">
           <figure className="rounded-2xl border border-[var(--brand-border)] bg-[var(--brand-surface)] p-5">
-            <blockquote className="text-sm leading-relaxed text-[var(--brand-heading)]">
+            <blockquote className="text-base leading-relaxed text-[var(--brand-heading)]">
               &ldquo;
               <RichLine text={content.quote1} />
               &rdquo;
             </blockquote>
-            <figcaption className="mt-3 text-xs text-[var(--brand-muted)]">
+            <figcaption className="mt-3 text-sm text-[var(--brand-muted)]">
               — {content.quote1Author}
             </figcaption>
           </figure>
           <figure className="rounded-2xl border border-[var(--brand-border)] bg-[var(--brand-surface)] p-5">
-            <blockquote className="text-sm leading-relaxed text-[var(--brand-heading)]">
+            <blockquote className="text-base leading-relaxed text-[var(--brand-heading)]">
               &ldquo;
               <RichLine text={content.quote2} />
               &rdquo;
             </blockquote>
-            <figcaption className="mt-3 text-xs text-[var(--brand-muted)]">
+            <figcaption className="mt-3 text-sm text-[var(--brand-muted)]">
               — {content.quote2Author}
             </figcaption>
           </figure>
           <figure className="rounded-2xl border border-[var(--brand-border)] bg-[var(--brand-surface)] p-5">
-            <blockquote className="text-sm leading-relaxed text-[var(--brand-heading)]">
+            <blockquote className="text-base leading-relaxed text-[var(--brand-heading)]">
               &ldquo;
               <RichLine text={content.quote3} />
               &rdquo;
             </blockquote>
-            <figcaption className="mt-3 text-xs text-[var(--brand-muted)]">
+            <figcaption className="mt-3 text-sm text-[var(--brand-muted)]">
               — {content.quote3Author}
             </figcaption>
           </figure>
@@ -122,17 +123,17 @@ export default async function ProfessionalSectorPage({ params }: Props) {
         >
           <RichLine text={content.ctaTitle} />
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-[var(--brand-muted)]">
+        <p className="mx-auto mt-5 max-w-[65ch] text-lg leading-relaxed text-[var(--brand-muted)]">
           <RichLine text={content.ctaLead} />
         </p>
         <div className="mt-8 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:justify-center">
           <ContactDrawerTrigger
-            className="inline-flex items-center justify-center rounded-lg bg-[var(--brand-primary)] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:opacity-90"
+            className="inline-flex items-center justify-center rounded-lg bg-[var(--brand-primary)] px-6 py-3 text-base font-semibold text-white shadow-sm transition hover:opacity-90"
           >
             {content.ctaBookDemo}
           </ContactDrawerTrigger>
           <ContactDrawerTrigger
-            className="inline-flex items-center justify-center rounded-lg border-2 border-[var(--brand-primary)] bg-transparent px-6 py-3 text-sm font-semibold text-[var(--brand-primary)] transition hover:bg-[var(--brand-primary)]/10"
+            className="inline-flex items-center justify-center rounded-lg border-2 border-[var(--brand-primary)] bg-transparent px-6 py-3 text-base font-semibold text-[var(--brand-primary)] transition hover:bg-[var(--brand-primary)]/10"
           >
             {content.ctaPilot}
           </ContactDrawerTrigger>
@@ -151,6 +152,7 @@ export default async function ProfessionalSectorPage({ params }: Props) {
           sectorSlug={sector}
         />
       </section>
+      </div>
     </div>
   );
 }

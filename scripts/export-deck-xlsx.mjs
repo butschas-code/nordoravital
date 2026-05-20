@@ -38,7 +38,7 @@ const SLIDE_LABELS = {
   "Home.twoPathsMicroPatientsLabel": "Slide 3 — Two paths",
   // Slide 4
   "HowItWorks.block2Title":      "Slide 4 — Three technologies",
-  "HowItWorks.block2Lead":       "Slide 4 — Three technologies",
+  "HowItWorks.block2Paragraph1": "Slide 4 — Three technologies",
   "HowItWorks.block3Item1Title": "Slide 4 — Three technologies",
   "HowItWorks.block3Item1Body":  "Slide 4 — Three technologies",
   "HowItWorks.block3Item2Title": "Slide 4 — Three technologies",

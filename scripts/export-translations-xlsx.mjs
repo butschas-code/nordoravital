@@ -225,7 +225,9 @@ function buildPageFlowOrder(en) {
 
   push(pp("Page: How it works", "Three technologies band", "Kicker"), `${W}.block2Kicker`);
   push(pp("Page: How it works", "Three technologies band", "Title"), `${W}.block2Title`);
-  push(pp("Page: How it works", "Three technologies band", "Lead"), `${W}.block2Lead`);
+  for (let i = 1; i <= 6; i++) {
+    push(pp("Page: How it works", "Three technologies band", `Paragraph ${i}`), `${W}.block2Paragraph${i}`);
+  }
 
   push(pp("Page: How it works", "Quick overview", "Title"), `${W}.block3Title`);
   push(pp("Page: How it works", "Quick overview", "Lead"), `${W}.block3Lead`);
@@ -235,6 +237,7 @@ function buildPageFlowOrder(en) {
   push(pp("Page: How it works", "Quick overview", "Item 2", "Body"), `${W}.block3Item2Body`);
   push(pp("Page: How it works", "Quick overview", "Item 3", "Title"), `${W}.block3Item3Title`);
   push(pp("Page: How it works", "Quick overview", "Item 3", "Body"), `${W}.block3Item3Body`);
+  push(pp("Page: How it works", "Quick overview", "Closing"), `${W}.block3Closing`);
 
   const techBlock = (i) => [
     [`${W}.tech${i}Kicker`, "Kicker"],
@@ -268,9 +271,6 @@ function buildPageFlowOrder(en) {
       push(pp("Page: How it works", "Setup band", "List item", String(i + 1)), `${W}.block6SetupItems[${i}]`);
     });
   }
-  push(pp("Page: How it works", "Setup band", "Means title"), `${W}.block6MeansTitle`);
-  push(pp("Page: How it works", "Setup band", "Means value"), `${W}.block6MeansValue`);
-  push(pp("Page: How it works", "Setup band", "Disclaimer"), `${W}.block6Disclaimer`);
 
   push(pp("Page: How it works", "Bottom CTA", "Kicker"), `${W}.ctaKicker`);
   push(pp("Page: How it works", "Bottom CTA", "Title"), `${W}.ctaTitle`);

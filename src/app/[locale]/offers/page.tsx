@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function OffersPage() {
   return (
-    <div className="flex flex-col gap-0">
+    <div className="site-marketing-root flex flex-col gap-0">
       <OffersHero />
       <OffersSections />
     </div>

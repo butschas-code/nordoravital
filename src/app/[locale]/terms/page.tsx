@@ -26,7 +26,7 @@ function ContentEN() {
 
       <h2>2. About This Website</h2>
       <p>
-        This Website is operated by Nordora Vital SIA (&ldquo;Nordora Vital&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;). It provides information about the sanza wellness system — a pulsed electromagnetic field (PEMF), biofrequency and light therapy device — and related professional services.
+        This Website is operated by Nordora Vital SIA (&ldquo;Nordora Vital&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;). It provides information about the sanza wellness system — a professional in-room platform combining pulsed electromagnetic fields (PEMF), structured biofrequency programs and cold laser/light in coordinated sequences — and related professional services.
       </p>
 
       <h2>3. Not Medical or Health Advice</h2>
@@ -116,7 +116,7 @@ function ContentDE() {
 
       <h2>2. Über diese Website</h2>
       <p>
-        Diese Website wird von Nordora Vital SIA betrieben. Sie enthält Informationen über das sanza Wellness-System — ein Gerät für gepulste elektromagnetische Felder (PEMF), Biofrequenz- und Lichttherapie — sowie damit zusammenhängende professionelle Dienste.
+        Diese Website wird von Nordora Vital SIA betrieben. Sie enthält Informationen über das sanza Wellness-System — eine professionelle In-Room-Plattform, die gepulste elektromagnetische Felder (PEMF), strukturierte Biofrequenz-Programme und Kaltlaser/Licht in koordinierten Abläufen kombiniert — sowie damit zusammenhängende professionelle Dienste.
       </p>
 
       <h2>3. Kein medizinischer Rat</h2>
@@ -199,7 +199,7 @@ function ContentLV() {
 
       <h2>2. Par šo vietni</h2>
       <p>
-        Šo vietni uztur Nordora Vital SIA. Tā sniedz informāciju par sanza labklājības sistēmu — pulsētā elektromagnētiskā lauka (PEMF), biofrekvences un gaismas terapijas ierīci — un saistītiem profesionāliem pakalpojumiem.
+        Šo vietni uztur Nordora Vital SIA. Tā sniedz informāciju par sanza labklājības sistēmu — profesionālu telpā izvietotu platformu, kas saskaņotās vizīšu secībās apvieno pulsojošo elektromagnētisko lauku (PEMF), strukturētas biofrekvenču programmas un vēsā lāzera vai gaismas signālus — un saistītiem profesionāliem pakalpojumiem.
       </p>
 
       <h2>3. Tas nav medicīnisks ieteikums</h2>

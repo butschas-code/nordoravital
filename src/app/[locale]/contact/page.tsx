@@ -21,11 +21,11 @@ export default async function ContactPage() {
 
   return (
     <div className="space-y-12 pt-8 md:space-y-16 md:pt-10">
-      <header className="max-w-3xl space-y-3">
+      <header className="max-w-[65ch] space-y-3">
         <h1 className="text-3xl font-semibold tracking-tight text-[var(--brand-heading)] sm:text-4xl">
           {t("title")}
         </h1>
-        <p className="text-lg leading-relaxed text-[var(--brand-muted)]">{t("lead")}</p>
+        <p className="text-xl leading-relaxed text-[var(--brand-muted)] md:text-[1.25rem] md:leading-[1.6]">{t("lead")}</p>
       </header>
 
       <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,22rem)] lg:items-start lg:gap-12">
@@ -35,7 +35,7 @@ export default async function ContactPage() {
           <h2 className="text-lg font-semibold text-[var(--brand-heading)]">
             {t("legalTitle")}
           </h2>
-          <div className="space-y-4 text-sm text-[var(--brand-muted)]">
+          <div className="space-y-4 text-base leading-relaxed text-[var(--brand-muted)]">
             <p className="font-medium text-[var(--brand-heading)]">{t("companyName")}</p>
             <p className="whitespace-pre-line">{t("address")}</p>
             <p>
@@ -50,7 +50,7 @@ export default async function ContactPage() {
               </span>
               <a
                 href={`mailto:${t("companyEmail")}`}
-                className="text-[var(--brand-primary)] underline-offset-2 hover:underline"
+                className="link-inline"
               >
                 {t("companyEmail")}
               </a>
@@ -61,18 +61,18 @@ export default async function ContactPage() {
               </span>
               <a
                 href={`tel:${t("companyPhoneTel")}`}
-                className="text-[var(--brand-primary)] underline-offset-2 hover:underline"
+                className="link-inline"
               >
                 {t("companyPhone")}
               </a>
             </p>
           </div>
-          <nav className="border-t border-[var(--brand-border)] pt-6 text-sm" aria-label="Legal">
+          <nav className="border-t border-[var(--brand-border)] pt-6 text-base" aria-label="Legal">
             <ul className="flex flex-col gap-2">
               <li>
                 <Link
                   href="/privacy"
-                  className="text-[var(--brand-primary)] underline-offset-2 hover:underline"
+                  className="link-inline"
                 >
                   {t("privacyLink")}
                 </Link>
@@ -80,13 +80,13 @@ export default async function ContactPage() {
               <li>
                 <Link
                   href="/imprint"
-                  className="text-[var(--brand-primary)] underline-offset-2 hover:underline"
+                  className="link-inline"
                 >
                   {t("imprintLink")}
                 </Link>
               </li>
             </ul>
-            <p className="mt-4 text-xs text-[var(--brand-muted)]">{t("legalNote")}</p>
+            <p className="mt-4 text-sm leading-relaxed text-[var(--brand-muted)]">{t("legalNote")}</p>
           </nav>
         </aside>
       </div>

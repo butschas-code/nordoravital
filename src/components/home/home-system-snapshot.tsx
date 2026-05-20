@@ -23,7 +23,7 @@ export async function HomeSystemSnapshot() {
 
   return (
     <section
-      className="home-band-full home-band--system-visual py-20 md:py-28 lg:py-32"
+      className="home-band-full home-band--system-visual py-24 sm:py-28 lg:py-32"
       aria-labelledby="home-system-heading"
     >
       <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
@@ -35,14 +35,14 @@ export async function HomeSystemSnapshot() {
             >
               {t.rich("systemTitle", richParts.default)}
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-[var(--muted)] md:text-lg">
+            <p className="mt-5 text-lg leading-[1.65] text-[var(--text)] opacity-90 sm:text-xl">
               {t.rich("systemLead", richParts.default)}
             </p>
             <ul className="mt-8 space-y-3">
               {BULLETS.map((b, i) => (
                 <li
                   key={b.titleKey}
-                  className="flex gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)]/90 px-4 py-3.5 text-sm shadow-sm transition duration-300 hover:border-[var(--brand)]/40 hover:shadow-[var(--shadow-raised)]"
+                  className="flex gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)]/90 px-4 py-4 text-base shadow-sm transition duration-300 hover:border-[var(--brand)]/40 hover:shadow-[var(--shadow-raised)]"
                 >
                   <span
                     className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--brand)] text-xs font-bold text-white"

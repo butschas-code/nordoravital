@@ -5,11 +5,22 @@ import { useLocale } from "next-intl";
 import { useEffect } from "react";
 import { ContactForm } from "@/components/contact/contact-form";
 import { useContactDrawer } from "@/components/contact/contact-drawer-context";
+import { HomePersonalContactForm } from "@/components/home-site/home-personal-contact-form";
+
+const homePersonalDrawerTitles = {
+  en: "Personal sanza question",
+  de: "Persönliche sanza Frage",
+  lv: "Personīgs sanza jautājums",
+} as const;
 
 export function FloatingContactDrawer() {
   const { open, options, closeDrawer } = useContactDrawer();
   const t = useTranslations("Contact");
   const locale = useLocale();
+  const homePersonalTitle =
+    homePersonalDrawerTitles[locale as keyof typeof homePersonalDrawerTitles] ??
+    homePersonalDrawerTitles.en;
+  const isHomePersonal = options.drawerType === "homePersonal";
 
   useEffect(() => {
     if (!open) return;
@@ -47,7 +58,7 @@ export function FloatingContactDrawer() {
             id="floating-contact-title"
             className="font-heading text-lg text-[var(--text)]"
           >
-            {t("drawerTitle")}
+            {isHomePersonal ? homePersonalTitle : t("drawerTitle")}
           </h2>
           <button
             type="button"
@@ -69,21 +80,32 @@ export function FloatingContactDrawer() {
           </button>
         </div>
         <div className="min-h-0 flex-1 overflow-y-auto px-4 pb-6 pt-4 sm:px-5">
-          <ContactForm
-            variant="drawer"
-            htmlIdPrefix="drawer-contact"
-            defaultProfessionalCategory={options.professionalCategory}
-            defaultMessage={options.message}
-            defaultLanguages={{
-              langDe: locale === "de",
-              langEn: locale === "en",
-              langLv: locale === "lv",
-            }}
-            onSuccess={() => {
-              window.setTimeout(() => closeDrawer(), 2200);
-            }}
-            className="border-0 bg-transparent p-0 shadow-none"
-          />
+          {isHomePersonal ? (
+            <HomePersonalContactForm
+              variant="drawer"
+              htmlIdPrefix="drawer-home-personal"
+              onSuccess={() => {
+                window.setTimeout(() => closeDrawer(), 2200);
+              }}
+              className="border-0 bg-transparent p-0 shadow-none"
+            />
+          ) : (
+            <ContactForm
+              variant="drawer"
+              htmlIdPrefix="drawer-contact"
+              defaultProfessionalCategory={options.professionalCategory}
+              defaultMessage={options.message}
+              defaultLanguages={{
+                langDe: locale === "de",
+                langEn: locale === "en",
+                langLv: locale === "lv",
+              }}
+              onSuccess={() => {
+                window.setTimeout(() => closeDrawer(), 2200);
+              }}
+              className="border-0 bg-transparent p-0 shadow-none"
+            />
+          )}
         </div>
       </div>
     </div>

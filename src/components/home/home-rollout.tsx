@@ -15,7 +15,7 @@ export async function HomeRollout() {
 
   return (
     <section
-      className="home-band-full home-band--sectors py-20 md:py-28 lg:py-32"
+      className="home-band-full campaign-band-soft py-24 sm:py-28 lg:py-32"
       aria-labelledby="home-rollout-heading"
     >
       <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
@@ -26,20 +26,20 @@ export async function HomeRollout() {
           >
             {t.rich("rolloutTitle", richParts.default)}
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-[var(--muted)] md:text-lg">
+          <p className="mt-5 text-lg leading-[1.65] text-[var(--text)] opacity-90 sm:text-xl">
             {t("rolloutLead")}
           </p>
         </FadeUp>
 
         <FadeUp delay={1} className="mx-auto mt-10 w-full max-w-md sm:max-w-lg">
-          <p className="mb-2.5 text-left text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[var(--brand-strong)]">
+          <p className="mb-2.5 text-left text-sm font-semibold uppercase tracking-[0.13em] text-[var(--brand-strong)]">
             {t("rolloutWeeksIntro")}
           </p>
           <ol className="m-0 list-none space-y-2.5 p-0">
             {ROLLOUT_STEPS.map((step) => (
               <li
                 key={step.n}
-                className="flex gap-2.5 rounded-xl border border-[var(--border)] bg-[var(--surface)]/90 px-3 py-2.5 text-sm shadow-sm transition duration-300 hover:border-[var(--brand)]/40 hover:shadow-[var(--shadow-raised)]"
+                className="flex gap-2.5 rounded-xl border border-[var(--border)] bg-[var(--surface)]/90 px-4 py-3.5 text-base shadow-sm transition duration-300 hover:border-[var(--brand)]/40 hover:shadow-[var(--shadow-raised)]"
               >
                 <span
                   className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--brand)] text-xs font-bold text-white shadow-sm"
@@ -49,7 +49,7 @@ export async function HomeRollout() {
                 </span>
                 <span className="flex min-w-0 flex-col gap-1">
                   <span className="font-semibold leading-snug text-[var(--text)]">{t(step.titleKey)}</span>
-                  <span className="leading-snug text-[var(--muted)]">
+                  <span className="leading-relaxed text-[var(--muted)]">
                     {t.rich(step.detailKey, richParts.default)}
                   </span>
                 </span>
@@ -67,7 +67,7 @@ export async function HomeRollout() {
               {t("stepsCtaPilot")}
             </Link>
           </div>
-          <p className="mx-auto max-w-2xl text-center text-base leading-relaxed text-[var(--muted)]">
+          <p className="mx-auto max-w-2xl text-center text-lg leading-[1.65] text-[var(--text)] opacity-90 sm:text-xl">
             {t.rich("rolloutCtaNote", richParts.default)}
           </p>
         </FadeUp>

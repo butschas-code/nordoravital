@@ -80,7 +80,7 @@ export async function HomeClientOutcomes() {
 
   return (
     <section
-      className="home-band-full home-band--outcomes-grid py-20 md:py-28 lg:py-32"
+      className="home-band-full home-band--outcomes-grid py-24 sm:py-28 lg:py-32"
       aria-labelledby="home-outcomes-heading"
     >
       <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
@@ -91,7 +91,7 @@ export async function HomeClientOutcomes() {
           >
             {t("outcomesTitle")}
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[var(--muted)] md:text-lg">
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-[1.65] text-[var(--text)] opacity-90 sm:text-xl">
             {t("outcomesLead")}
           </p>
         </FadeUp>
@@ -127,26 +127,26 @@ export async function HomeClientOutcomes() {
                   />
 
                   <div className="relative z-10 p-7 sm:p-9">
-                    <span className="inline-flex items-center rounded-full border border-[var(--brand)]/25 bg-[var(--surface)]/90 px-3 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-[var(--brand-strong)] shadow-sm backdrop-blur-md">
+                    <span className="inline-flex items-center rounded-full border border-[var(--brand)]/25 bg-[var(--surface)]/90 px-3.5 py-1.5 text-sm font-semibold uppercase tracking-[0.1em] text-[var(--brand-strong)] shadow-sm backdrop-blur-md">
                       {t("outcomeFeaturedEyebrow")}
                     </span>
                     <h3 className="mt-4 font-heading text-2xl font-bold leading-tight text-white drop-shadow-md sm:text-3xl md:text-[2rem]">
                       {t(o.title)}
                     </h3>
                     <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                      <div className="rounded-xl border border-white/15 bg-white/10 px-3.5 py-2.5 backdrop-blur-md">
-                        <p className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-[var(--brand-secondary)]">
+                      <div className="rounded-xl border border-white/75 bg-[color-mix(in_srgb,var(--surface)_96%,transparent)] px-4 py-3 shadow-[0_8px_28px_rgba(14,61,52,0.14)] backdrop-blur-xl sm:px-4 sm:py-3.5">
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--brand-secondary)] sm:text-sm">
                           {t("benefitLabelClients")}
                         </p>
-                        <p className="mt-1 text-xs leading-snug text-white">
+                        <p className="mt-2 text-base leading-snug text-[var(--text)] sm:text-[1.0625rem] sm:leading-relaxed">
                           {t(o.forClients)}
                         </p>
                       </div>
-                      <div className="rounded-xl border border-white/15 bg-white/10 px-3.5 py-2.5 backdrop-blur-md">
-                        <p className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-white/70">
+                      <div className="rounded-xl border border-white/75 bg-[color-mix(in_srgb,var(--surface)_96%,transparent)] px-4 py-3 shadow-[0_8px_28px_rgba(14,61,52,0.14)] backdrop-blur-xl sm:px-4 sm:py-3.5">
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--brand-strong)] sm:text-sm">
                           {t("benefitLabelPractice")}
                         </p>
-                        <p className="mt-1 text-xs leading-snug text-white">
+                        <p className="mt-2 text-base leading-snug text-[var(--text)] sm:text-[1.0625rem] sm:leading-relaxed">
                           {t(o.forPractice)}
                         </p>
                       </div>
@@ -177,16 +177,16 @@ export async function HomeClientOutcomes() {
                       />
                     </div>
                   </div>
-                  <div className="flex flex-1 flex-col p-5">
-                    <h3 className="font-heading text-[0.95rem] font-semibold leading-snug text-[var(--text)]">
+                  <div className="flex flex-1 flex-col p-5 sm:p-6">
+                    <h3 className="font-heading text-lg font-semibold leading-snug text-[var(--text)] sm:text-xl">
                       {t(o.title)}
                     </h3>
-                    <p className="mt-2 flex-1 text-[0.78rem] leading-relaxed text-[var(--muted)]">
+                    <p className="mt-2 flex-1 text-base leading-relaxed text-[var(--muted)] sm:text-[1.0625rem]">
                       {t(o.forClients)}
                     </p>
                     {t(o.forPractice).trim() !== "" ? (
                       <p
-                        className="mt-3 border-t border-[var(--border)] pt-2.5 text-[0.68rem] font-medium leading-snug"
+                        className="mt-3 border-t border-[var(--border)] pt-3 text-sm font-medium leading-snug sm:text-base"
                         style={{ color: o.accent }}
                       >
                         <span className="font-semibold uppercase tracking-wider opacity-80">{t("outcomeForPracticePrefix")} </span>

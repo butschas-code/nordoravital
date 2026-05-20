@@ -105,7 +105,7 @@ export async function OffersSections() {
       {/* ══ BLOCK 1: Intro — welcome band ═════════════════════════════ */}
       <section
         id="offers-intro"
-        className="home-band-full home-band--welcome py-16 sm:py-20 md:py-24"
+        className="home-band-full campaign-band-soft py-24 sm:py-28 md:py-32"
         aria-labelledby="offers-intro-heading"
       >
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
@@ -120,8 +120,8 @@ export async function OffersSections() {
                 >
                   {t("overviewTitle")}
                 </h2>
-                <div className="mt-5 space-y-5 text-base leading-relaxed text-[var(--muted)] md:text-[1.05rem]">
-                  <p className="text-[var(--text)] font-medium leading-relaxed text-[1.05rem] md:text-lg">
+                <div className="mt-6 space-y-5 text-lg leading-[1.65] text-[var(--muted)] md:text-[1.125rem] md:leading-[1.7]">
+                  <p className="text-[var(--text)] font-medium text-xl leading-snug md:text-[1.35rem] md:leading-snug">
                     {t.rich("overviewLead", richParts.default)}
                   </p>
                   <p>{t.rich("lead", richParts.default)}</p>
@@ -147,7 +147,7 @@ export async function OffersSections() {
       {/* ══ BLOCK 2: Service Formats Overview — dark pillars band ══════ */}
       <section
         id="offers-overview"
-        className="home-band-full home-band--pillars py-16 md:py-20 lg:py-24"
+        className="home-band-full home-band--pillars py-24 md:py-28 lg:py-32"
         aria-labelledby="offers-overview-heading"
       >
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
@@ -158,7 +158,7 @@ export async function OffersSections() {
             >
               {t("formatsTitle")}
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/80 md:text-lg">
+            <p className="mx-auto mt-8 max-w-[65ch] text-lg leading-[1.65] text-white/85 md:text-xl md:leading-[1.65]">
               {t.rich("formatsLead", richParts.onDark)}
             </p>
           </FadeUp>
@@ -166,30 +166,30 @@ export async function OffersSections() {
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {formatCards.map((card, i) => (
               <FadeUp key={card.step} delay={((i + 1) % 5) as 1 | 2 | 3 | 4}>
-                <div className="outcome-shimmer card-brand flex h-full flex-col gap-4 !bg-white p-6 text-[var(--text)] shadow-[var(--shadow-card)]">
+                <div className="outcome-shimmer campaign-card flex h-full flex-col gap-4 !bg-white p-7 text-[var(--text)]">
                   <div className="flex items-start gap-3">
                     <div
-                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-white"
+                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-white"
                       style={{ background: card.accent }}
                     >
                       {card.icon}
                     </div>
-                    <h3 className="min-w-0 flex-1 font-heading text-base font-bold leading-snug text-[var(--text)]">
+                    <h3 className="min-w-0 flex-1 font-heading text-lg font-bold leading-snug text-[var(--text)] md:text-xl">
                       {card.title}
                     </h3>
                   </div>
                   <div className="flex flex-col gap-4">
                     <div>
-                      <p className="text-[0.7rem] font-bold uppercase tracking-[0.12em] text-[var(--muted)]">
+                      <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--muted)] sm:text-[0.8125rem]">
                         {whatIsLabel}
                       </p>
-                      <div className="mt-2 text-sm leading-relaxed text-[var(--text)]">{card.whatIs}</div>
+                      <div className="mt-3 text-base leading-[1.65] text-[var(--text)] md:text-[1.0625rem]">{card.whatIs}</div>
                     </div>
                     <div>
-                      <p className="text-[0.7rem] font-bold uppercase tracking-[0.12em] text-[var(--muted)]">
+                      <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--muted)] sm:text-[0.8125rem]">
                         {positionLabel}
                       </p>
-                      <p className="mt-2 text-sm leading-relaxed text-[var(--text)]">{card.position}</p>
+                      <p className="mt-3 text-base leading-[1.65] text-[var(--text)] md:text-[1.0625rem]">{card.position}</p>
                     </div>
                   </div>
                 </div>
@@ -202,7 +202,7 @@ export async function OffersSections() {
       {/* ROI calculator */}
       <section
         id="offers-roi"
-        className="home-band-full home-band--partner-visual py-16 md:py-20 lg:py-24"
+        className="home-band-full home-band--partner-visual py-24 md:py-28 lg:py-32"
         aria-labelledby="offers-roi-heading"
       >
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
@@ -213,7 +213,7 @@ export async function OffersSections() {
             >
               {t.rich("roiTitle", richParts.default)}
             </h2>
-            <p className="mt-3 max-w-2xl text-base leading-relaxed text-[var(--muted)] md:text-lg">
+            <p className="mt-4 max-w-[65ch] text-lg leading-[1.65] text-[var(--muted)] md:text-xl">
               {t.rich("roiLead", richParts.default)}
             </p>
           </FadeUp>
@@ -226,7 +226,7 @@ export async function OffersSections() {
 
       <section
         id="offers-cta"
-        className="home-band-full home-band--welcome py-16 md:py-20 lg:py-24"
+        className="home-band-full campaign-band-soft py-24 md:py-28 lg:py-32"
         aria-labelledby="offers-final-cta-heading"
       >
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
@@ -244,7 +244,7 @@ export async function OffersSections() {
               >
                 {t.rich("finalCtaTitle", richParts.default)}
               </h2>
-              <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[var(--muted)] md:text-lg">
+              <p className="mx-auto mt-6 max-w-[65ch] text-lg leading-[1.65] text-[var(--muted)] md:text-xl">
                 {t("finalCtaBody")}
               </p>
               <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
