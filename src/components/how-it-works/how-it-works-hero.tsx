@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { IMAGE_PATHS } from "@/lib/public-images";
 import { BrandArc } from "@/components/brand-arc";
 import { ContactDrawerTrigger } from "@/components/contact/contact-drawer-trigger";
+import { OptimizedBackgroundVideo } from "@/components/optimized-background-video";
 import { richParts } from "@/lib/i18n-rich";
 
 export async function HowItWorksHero() {
@@ -14,18 +15,11 @@ export async function HowItWorksHero() {
     >
       <div className="relative min-h-[min(92dvh,880px)] lg:min-h-[min(88dvh,800px)]">
         <div className="absolute inset-0">
-          <video
-            className="absolute inset-0 h-full w-full object-cover object-center"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
+          <OptimizedBackgroundVideo
+            src={IMAGE_PATHS.hero.howItWorksHeroVideo}
             poster={IMAGE_PATHS.hero.backgroundPhoto}
-            aria-hidden
-          >
-            <source src={encodeURI(IMAGE_PATHS.hero.howItWorksHeroVideo)} type="video/mp4" />
-          </video>
+            priority
+          />
         </div>
 
         <div

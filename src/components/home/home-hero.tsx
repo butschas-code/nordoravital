@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { IMAGE_PATHS } from "@/lib/public-images";
 import { BrandArc } from "@/components/brand-arc";
 import { ContactDrawerTrigger } from "@/components/contact/contact-drawer-trigger";
+import { OptimizedBackgroundVideo } from "@/components/optimized-background-video";
 import { richParts } from "@/lib/i18n-rich";
 
 export async function HomeHero() {
@@ -16,18 +17,11 @@ export async function HomeHero() {
       <div className="relative min-h-[min(92dvh,880px)] lg:min-h-[min(88dvh,800px)]">
         {/* Layer 1: full-bleed background video (muted + playsInline required for autoplay) */}
         <div className="absolute inset-0">
-          <video
-            className="absolute inset-0 h-full w-full object-cover object-center"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
+          <OptimizedBackgroundVideo
+            src={IMAGE_PATHS.hero.backgroundVideo}
             poster={IMAGE_PATHS.hero.backgroundPhoto}
-            aria-hidden
-          >
-            <source src={IMAGE_PATHS.hero.backgroundVideo} type="video/mp4" />
-          </video>
+            priority
+          />
         </div>
 
         {/* Layer 2: smooth layered overlay — see `.home-hero-overlay` in globals.css */}

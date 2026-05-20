@@ -5,6 +5,7 @@ import { ContactDrawerTrigger } from "@/components/contact/contact-drawer-trigge
 import { FadeUp } from "@/components/fade-up";
 import { RichLine } from "@/components/rich-line";
 import { CampaignFloatingCta } from "@/components/campaign/campaign-floating-cta";
+import { OptimizedBackgroundVideo } from "@/components/optimized-background-video";
 import { IMAGE_PATHS } from "@/lib/public-images";
 import type { CampaignPageContent } from "@/types/campaign-page";
 
@@ -114,14 +115,11 @@ export async function CampaignLanding({ content }: Props) {
                 className="object-cover object-center"
               />
             ) : (
-              <video
-                className="absolute inset-0 h-full w-full object-cover object-center"
-                autoPlay muted loop playsInline preload="auto"
+              <OptimizedBackgroundVideo
+                src={IMAGE_PATHS.hero.backgroundVideo}
                 poster={IMAGE_PATHS.hero.backgroundPhoto}
-                aria-hidden
-              >
-                <source src={IMAGE_PATHS.hero.backgroundVideo} type="video/mp4" />
-              </video>
+                priority
+              />
             )}
           </div>
 
