@@ -36,8 +36,8 @@ const pageCopy = {
         button: "Enter Professional Site",
         smallCta: "For business use, demos and professional applications.",
         href: `https://${PRO_DOMAIN}/en`,
-        image: IMAGE_PATHS.hero.lifestyleSide,
-        imageAlt: "Warm professional wellness room prepared for a calm client visit",
+        image: IMAGE_PATHS.gateway.proCard,
+        imageAlt: "Professional care team preparing a calm sanza client experience",
       },
       {
         title: "For your own wellbeing.",
@@ -50,8 +50,8 @@ const pageCopy = {
         button: "Enter Home Site",
         smallCta: "For private use, home programs and personal setups.",
         href: `https://${HOME_DOMAIN}/en/home`,
-        image: IMAGE_PATHS.lifestyle.pillarPemf,
-        imageAlt: "Quiet home wellness ritual in warm daylight",
+        image: IMAGE_PATHS.gateway.homeCard,
+        imageAlt: "Premium sanza home wellness product scene in warm daylight",
       },
     ],
   },
@@ -81,8 +81,8 @@ const pageCopy = {
         button: "Professional Site öffnen",
         smallCta: "Für geschäftliche Nutzung, Demos und professionelle Anwendungen.",
         href: `https://${PRO_DOMAIN}/de`,
-        image: IMAGE_PATHS.hero.lifestyleSide,
-        imageAlt: "Warmer professioneller Wellnessraum für einen ruhigen Kundenbesuch",
+        image: IMAGE_PATHS.gateway.proCard,
+        imageAlt: "Professionelles Betreuungsteam bereitet ein ruhiges sanza Kundenerlebnis vor",
       },
       {
         title: "Für Ihr eigenes Wohlbefinden.",
@@ -95,8 +95,8 @@ const pageCopy = {
         button: "Home Site öffnen",
         smallCta: "Für private Nutzung, Home-Programme und persönliche Setups.",
         href: `https://${HOME_DOMAIN}/de/home`,
-        image: IMAGE_PATHS.lifestyle.pillarPemf,
-        imageAlt: "Ruhiges Wellnessritual zu Hause in warmem Tageslicht",
+        image: IMAGE_PATHS.gateway.homeCard,
+        imageAlt: "Premium sanza Home-Wellness-Produktszene in warmem Tageslicht",
       },
     ],
   },
@@ -126,8 +126,8 @@ const pageCopy = {
         button: "Atvērt Professional Site",
         smallCta: "Biznesa lietošanai, demonstrācijām un profesionāliem pielietojumiem.",
         href: `https://${PRO_DOMAIN}/lv`,
-        image: IMAGE_PATHS.hero.lifestyleSide,
-        imageAlt: "Silta profesionāla labsajūtas telpa mierīgam klienta apmeklējumam",
+        image: IMAGE_PATHS.gateway.proCard,
+        imageAlt: "Profesionāla aprūpes komanda sagatavo mierīgu sanza klienta pieredzi",
       },
       {
         title: "Jūsu pašu labsajūtai.",
@@ -140,8 +140,8 @@ const pageCopy = {
         button: "Atvērt Home Site",
         smallCta: "Privātai lietošanai, mājas programmām un personīgiem komplektiem.",
         href: `https://${HOME_DOMAIN}/lv/home`,
-        image: IMAGE_PATHS.lifestyle.pillarPemf,
-        imageAlt: "Kluss mājas labsajūtas rituāls siltā dienasgaismā",
+        image: IMAGE_PATHS.gateway.homeCard,
+        imageAlt: "Premium sanza mājas labsajūtas produkta aina siltā dienasgaismā",
       },
     ],
   },
@@ -189,18 +189,15 @@ export default async function GatewayPage({ params }: Props) {
           className="relative isolate min-h-[min(92dvh,860px)] overflow-hidden"
           aria-labelledby="gateway-heading"
         >
-          <video
-            className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            poster={IMAGE_PATHS.hero.backgroundPhoto}
+          <Image
+            src={IMAGE_PATHS.gateway.homeCard}
+            alt=""
+            fill
+            priority
             aria-hidden
-          >
-            <source src={IMAGE_PATHS.hero.backgroundVideo} type="video/mp4" />
-          </video>
+            sizes="100vw"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+          />
           <div className="home-hero-overlay pointer-events-none absolute inset-0 -z-10" aria-hidden />
 
           <div className="mx-auto flex min-h-[min(92dvh,860px)] max-w-[1200px] flex-col px-5 py-7 sm:px-8 sm:py-9 lg:px-10">

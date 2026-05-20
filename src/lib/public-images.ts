@@ -23,6 +23,10 @@ export const IMAGE_PATHS = {
     lifestyleSide:
       "/images/references/lifestyle/calm-wellness-session-warm-light.jpg",
   },
+  gateway: {
+    proCard: "/images/selector-pro-card.jpg",
+    homeCard: "/images/selector-home-card.jpg",
+  },
   /** Editorial photos (References/sanzanet/images/happy-aging-main) */
   lifestyle: {
     pillarPemf: "/images/references/lifestyle/relaxation-ritual-soft-daylight.jpg",
