@@ -106,37 +106,41 @@ export async function HowItWorksSections() {
 
   const block5Items = t.raw("block5Items") as string[];
   const block6SetupItems = t.raw("block6SetupItems") as string[];
+  const trustCards = t.raw("trustCards") as { title: string; body: string }[];
 
   const techItems = [
     {
+      stepLabel: t("tech1StepLabel"),
       kicker: t("tech1Kicker"),
       title: t("tech1Title"),
       whatIsLabel: t("tech1WhatIsLabel"),
       whatIs: t.rich("tech1WhatIs", richParts.default),
       scienceLabel: t("tech1ScienceLabel"),
-      science: t("tech1Science"),
+      science: t.rich("tech1Science", richParts.default),
       atmosphere: "pulse" as const,
       imageRight: false,
       accent: "var(--brand)",
     },
     {
+      stepLabel: t("tech2StepLabel"),
       kicker: t("tech2Kicker"),
       title: t("tech2Title"),
       whatIsLabel: t("tech2WhatIsLabel"),
       whatIs: t.rich("tech2WhatIs", richParts.default),
       scienceLabel: t("tech2ScienceLabel"),
-      science: t("tech2Science"),
+      science: t.rich("tech2Science", richParts.default),
       atmosphere: "waves" as const,
       imageRight: true,
       accent: "var(--brand-secondary)",
     },
     {
+      stepLabel: t("tech3StepLabel"),
       kicker: t("tech3Kicker"),
       title: t("tech3Title"),
       whatIsLabel: t("tech3WhatIsLabel"),
       whatIs: t.rich("tech3WhatIs", richParts.default),
       scienceLabel: t("tech3ScienceLabel"),
-      science: t("tech3Science"),
+      science: t.rich("tech3Science", richParts.default),
       atmosphere: "lattice" as const,
       imageRight: false,
       accent: "var(--brand-deep)",
@@ -159,15 +163,33 @@ export async function HowItWorksSections() {
               <FadeUp>
                 <h2
                   id="hiw-intro-heading"
-                  className="font-heading text-[clamp(1.85rem,4.2vw,2.8rem)] font-bold leading-[1.1] tracking-tight text-[var(--text)] [&_strong]:font-bold"
+                  className="font-heading text-[clamp(2rem,4.4vw,2.95rem)] font-bold leading-[1.08] tracking-tight text-[var(--text)] [&_strong]:font-bold"
                 >
                   {t.rich("introP1Head", richParts.default)}
                 </h2>
-                <div className="mt-5 space-y-5 text-base leading-relaxed text-[var(--muted)] md:text-[1.05rem]">
-                  <p className="text-[var(--text)] font-medium leading-relaxed text-[1.05rem] md:text-lg">
-                    {t.rich("introP1Rest", richParts.default)}
-                  </p>
-                  <p>{t.rich("introP2", richParts.default)}</p>
+                <div className="mt-6 space-y-6 text-lg leading-[1.65] text-[var(--muted)] md:text-[1.125rem] md:leading-[1.7] max-w-[68ch]">
+                  {(
+                    [
+                      ["introP1Rest", true] as const,
+                      ["introP2", false] as const,
+                      ["introP3", false] as const,
+                      ["introP4", false] as const,
+                      ["introP5a", false] as const,
+                      ["introP5b", false] as const,
+                      ["introP6", false] as const,
+                    ] as const
+                  ).map(([key, lead]) => (
+                    <p
+                      key={key}
+                      className={
+                        lead
+                          ? "text-[var(--text)] font-medium text-xl leading-snug md:text-[1.35rem] md:leading-snug"
+                          : undefined
+                      }
+                    >
+                      {t.rich(key, richParts.default)}
+                    </p>
+                  ))}
                 </div>
               </FadeUp>
             </div>
@@ -208,16 +230,16 @@ export async function HowItWorksSections() {
       >
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
           <FadeUp className="mx-auto max-w-3xl text-center">
-            <p className="mb-4 text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-white/60">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-white/65 sm:text-sm">
               {t("block2Kicker")}
             </p>
             <h2
               id="hiw-three-tech-heading"
-              className="font-heading text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.05] tracking-tight text-white [text-shadow:0_1px_18px_rgba(0,0,0,0.3)]"
+              className="font-heading text-[clamp(2.1rem,5.2vw,3.65rem)] font-bold leading-[1.05] tracking-tight text-white [text-shadow:0_1px_18px_rgba(0,0,0,0.3)]"
             >
               {t("block2Title")}
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/80 md:text-lg">
+            <p className="mx-auto mt-8 max-w-[65ch] text-lg leading-[1.65] text-white/85 md:text-xl md:leading-[1.65]">
               {t.rich("block2Lead", richParts.onDark)}
             </p>
           </FadeUp>
@@ -231,23 +253,23 @@ export async function HowItWorksSections() {
         aria-labelledby="hiw-overview-heading"
       >
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
-          <FadeUp className="max-w-2xl">
+          <FadeUp className="w-full max-w-none">
             <h2
               id="hiw-overview-heading"
-              className="font-heading text-[clamp(1.65rem,3.8vw,2.4rem)] font-bold leading-[1.1] tracking-tight text-[var(--text)]"
+              className="font-heading text-[clamp(1.75rem,3.9vw,2.55rem)] font-bold leading-[1.12] tracking-tight text-[var(--text)] [text-wrap:balance]"
             >
-              {t("block3Title")}
+              {t.rich("block3Title", richParts.default)}
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-[var(--muted)] md:text-lg">
+            <p className="mt-5 max-w-[65ch] text-lg leading-[1.65] text-[var(--muted)] md:text-xl md:leading-[1.65]">
               {t.rich("block3Lead", richParts.default)}
             </p>
           </FadeUp>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:grid-cols-3 lg:gap-6">
             {[
               {
                 title: t("block3Item1Title"),
-                body: t("block3Item1Body"),
+                body: t.rich("block3Item1Body", richParts.default),
                 icon: <PemfIcon />,
                 delay: 1 as const,
                 step: "01",
@@ -255,7 +277,7 @@ export async function HowItWorksSections() {
               },
               {
                 title: t("block3Item2Title"),
-                body: t("block3Item2Body"),
+                body: t.rich("block3Item2Body", richParts.default),
                 icon: <BioIcon />,
                 delay: 2 as const,
                 step: "02",
@@ -263,7 +285,7 @@ export async function HowItWorksSections() {
               },
               {
                 title: t("block3Item3Title"),
-                body: t("block3Item3Body"),
+                body: t.rich("block3Item3Body", richParts.default),
                 icon: <LaserIcon />,
                 delay: 3 as const,
                 step: "03",
@@ -271,29 +293,37 @@ export async function HowItWorksSections() {
               },
             ].map((item) => (
               <FadeUp key={item.step} delay={item.delay}>
-                <div className="card-brand outcome-shimmer flex flex-col gap-3 p-6 h-full">
+                <div className="card-brand outcome-shimmer flex h-full flex-col gap-4 p-7">
                   <div className="flex items-center gap-3">
                     <div
-                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-white"
+                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-white"
                       style={{ background: item.color }}
                     >
                       {item.icon}
                     </div>
                     <span
-                      className="font-heading text-[0.7rem] font-bold uppercase tracking-[0.18em]"
+                      className="font-heading text-xs font-bold uppercase tracking-[0.16em] sm:text-sm"
                       style={{ color: item.color }}
                     >
                       {item.step}
                     </span>
                   </div>
-                  <h3 className="font-heading text-base font-bold text-[var(--text)]">
+                  <h3 className="font-heading text-lg font-bold text-[var(--text)] md:text-xl">
                     {item.title}
                   </h3>
-                  <p className="text-sm leading-relaxed text-[var(--muted)]">{item.body}</p>
+                  <p className="text-base leading-[1.65] text-[var(--muted)] md:text-[1.0625rem]">
+                    {item.body}
+                  </p>
                 </div>
               </FadeUp>
             ))}
           </div>
+
+          <FadeUp delay={4} className="mt-14 w-full max-w-none">
+            <p className="border-t border-[var(--border)] pt-10 text-lg font-medium leading-[1.65] text-[var(--text)] md:max-w-[65ch] md:text-xl">
+              {t("block3Closing")}
+            </p>
+          </FadeUp>
         </div>
       </section>
 
@@ -301,12 +331,24 @@ export async function HowItWorksSections() {
       <section
         id="hiw-tech-details"
         className="home-band-full home-band--system-visual py-16 md:py-20 lg:py-24"
-        aria-label="Technology details"
+        aria-labelledby="hiw-tech-details-heading"
       >
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
+          <FadeUp className="w-full max-w-none pb-14 md:pb-16">
+            <h2
+              id="hiw-tech-details-heading"
+              className="font-heading text-[clamp(1.75rem,3.9vw,2.5rem)] font-bold leading-[1.12] tracking-tight text-[var(--text)] [text-wrap:balance]"
+            >
+              {t.rich("block4Title", richParts.default)}
+            </h2>
+            <p className="mt-5 max-w-[65ch] text-lg leading-[1.65] text-[var(--muted)] md:text-xl md:leading-[1.65] [&_strong]:font-semibold [&_strong]:text-[var(--text)]">
+              {t.rich("block4Lead", richParts.default)}
+            </p>
+          </FadeUp>
+
           <div className="space-y-0">
             {techItems.map((tech, i) => (
-              <FadeUp key={tech.title} delay={(i % 3) as 0 | 1 | 2}>
+              <FadeUp key={tech.stepLabel} delay={(i % 3) as 0 | 1 | 2}>
                 <article
                   className={`grid items-center gap-10 border-t border-[var(--border)] py-16 md:py-20 md:gap-16 lg:grid-cols-2 ${
                     tech.imageRight ? "" : "lg:[&>*:first-child]:order-last"
@@ -315,51 +357,45 @@ export async function HowItWorksSections() {
                   {/* Atmosphere graphic panel */}
                   <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-[var(--shadow-raised)] ring-1 ring-[var(--border)]">
                     <BrandAtmosphere variant={tech.atmosphere} />
-                    {/* Number overlay */}
-                    <div className="pointer-events-none absolute inset-0 flex items-end p-8" aria-hidden>
-                      <span
-                        className="font-heading text-[5rem] font-bold leading-none opacity-20"
-                        style={{ color: tech.accent }}
-                      >
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                    </div>
                   </div>
 
                   {/* Text content */}
                   <div className="flex flex-col gap-6">
                     <div>
+                      <p className="mb-2 font-heading text-base font-semibold tracking-tight text-[var(--text)] md:text-lg">
+                        {tech.stepLabel}
+                      </p>
                       <p
-                        className="mb-2 text-[0.7rem] font-semibold uppercase tracking-[0.2em]"
+                        className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] sm:text-[0.8125rem]"
                         style={{ color: tech.accent }}
                       >
                         {tech.kicker}
                       </p>
-                      <h2 className="font-heading text-[clamp(1.4rem,3vw,2rem)] font-bold leading-snug tracking-tight text-[var(--text)]">
+                      <h3 className="font-heading text-[clamp(1.45rem,3.1vw,2.15rem)] font-bold leading-snug tracking-tight text-[var(--text)]">
                         {tech.title}
-                      </h2>
+                      </h3>
                     </div>
 
                     <div className="space-y-5">
                       {/* What it is */}
-                      <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 shadow-[var(--shadow-card)]">
+                      <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-card)] md:p-7">
                         <p
-                          className="mb-2 text-[0.65rem] font-semibold uppercase tracking-[0.2em]"
+                          className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] sm:text-[0.8125rem]"
                           style={{ color: tech.accent }}
                         >
                           {tech.whatIsLabel}
                         </p>
-                        <p className="text-[0.95rem] leading-relaxed text-[var(--text)]">
+                        <p className="text-base leading-[1.65] text-[var(--text)] md:text-[1.0625rem] [&_strong]:font-semibold">
                           {tech.whatIs}
                         </p>
                       </div>
 
                       {/* Science behind it */}
-                      <div className="rounded-2xl border border-[var(--border)] bg-[var(--panel)] p-5">
-                        <p className="mb-2 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
+                      <div className="rounded-2xl border border-[var(--border)] bg-[var(--panel)] p-6 md:p-7">
+                        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)] sm:text-[0.8125rem]">
                           {tech.scienceLabel}
                         </p>
-                        <p className="text-[0.9rem] leading-relaxed text-[var(--muted)]">
+                        <p className="text-base leading-[1.65] text-[var(--muted)] md:text-[1.0625rem] [&_strong]:font-semibold [&_strong]:text-[var(--text)]">
                           {tech.science}
                         </p>
                       </div>
@@ -369,6 +405,12 @@ export async function HowItWorksSections() {
               </FadeUp>
             ))}
           </div>
+
+          <FadeUp delay={2} className="mt-14 w-full max-w-none border-t border-[var(--border)] pt-11 md:mt-16 md:pt-12">
+            <p className="max-w-[65ch] text-lg font-medium leading-[1.65] text-[var(--text)] md:text-xl [&_strong]:font-semibold">
+              {t.rich("block4Closing", richParts.default)}
+            </p>
+          </FadeUp>
         </div>
       </section>
 
@@ -379,14 +421,14 @@ export async function HowItWorksSections() {
         aria-labelledby="hiw-outcomes-heading"
       >
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
-          <FadeUp className="mx-auto max-w-3xl text-center">
+          <FadeUp className="mx-auto max-w-[65ch] text-center">
             <p
               id="hiw-outcomes-heading"
-              className="font-heading text-[clamp(1.4rem,3vw,1.9rem)] font-bold leading-snug tracking-tight text-white [text-shadow:0_1px_18px_rgba(0,0,0,0.3)]"
+              className="font-heading text-[clamp(1.55rem,3.2vw,2.15rem)] font-bold leading-snug tracking-tight text-white [text-shadow:0_1px_18px_rgba(0,0,0,0.3)]"
             >
               {t.rich("block5Lead", richParts.onDark)}
             </p>
-            <p className="mt-5 text-base leading-relaxed text-white/80 md:text-lg">
+            <p className="mt-6 text-lg leading-[1.65] text-white/85 md:text-xl md:leading-[1.65]">
               {t.rich("block5SubLead", richParts.onDark)}
             </p>
           </FadeUp>
@@ -394,7 +436,7 @@ export async function HowItWorksSections() {
           <FadeUp delay={1} className="mt-12">
             <p
               id="hiw-outcomes-notice-heading"
-              className="mb-6 text-center text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-white/60"
+              className="mb-7 text-center text-xs font-semibold uppercase tracking-[0.18em] text-white/65 sm:text-sm"
             >
               {t("block5WhatNoticeTitle")}
             </p>
@@ -407,19 +449,19 @@ export async function HowItWorksSections() {
                 return (
                   <FadeUp key={i} delay={((i % 4) + 1) as 1 | 2 | 3 | 4}>
                     <div
-                      className="outcome-shimmer card-brand flex h-full flex-col gap-3 !bg-white p-6 text-[var(--text)] shadow-[var(--shadow-card)]"
+                      className="outcome-shimmer card-brand flex h-full flex-col gap-4 !bg-white p-7 text-[var(--text)] shadow-[var(--shadow-card)]"
                     >
                       <div
-                        className="flex h-10 w-10 items-center justify-center rounded-xl text-white"
+                        className="flex h-11 w-11 items-center justify-center rounded-xl text-white"
                         style={{ background: OUTCOME_BORDER_COLORS[i] }}
                       >
                         <OutcomeIcon index={i} />
                       </div>
-                      <h3 className="font-heading text-base font-bold text-[var(--text)]">
+                      <h3 className="font-heading text-lg font-bold text-[var(--text)] md:text-xl">
                         {headline}
                       </h3>
                       {detail && (
-                        <p className="text-sm leading-relaxed text-[var(--muted)]">{detail}</p>
+                        <p className="text-base leading-[1.6] text-[var(--muted)]">{detail}</p>
                       )}
                     </div>
                   </FadeUp>
@@ -441,7 +483,7 @@ export async function HowItWorksSections() {
           <FadeUp>
             <h2
               id="hiw-system-heading"
-              className="font-heading text-[clamp(1.65rem,3.8vw,2.4rem)] font-bold leading-[1.1] tracking-tight text-[var(--text)]"
+              className="font-heading text-[clamp(1.75rem,3.85vw,2.5rem)] font-bold leading-[1.08] tracking-tight text-[var(--text)]"
             >
               {t("block6Title")}
             </h2>
@@ -451,10 +493,10 @@ export async function HowItWorksSections() {
             {/* Left: Equipment list + setup items */}
             <div className="space-y-8">
               <FadeUp delay={1}>
-                <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--muted)] mb-4">
+                <p className="mb-5 text-base font-semibold uppercase tracking-[0.12em] text-[var(--muted)]">
                   {t.rich("block6SetupLabel", richParts.preserveBrandCase)}
                 </p>
-                <ul className="space-y-3">
+                <ul className="space-y-4">
                   {block6SetupItems.map((item, i) => {
                     const parts = item.split(" — ");
                     const name = parts[0] ?? item;
@@ -462,49 +504,25 @@ export async function HowItWorksSections() {
                     return (
                       <li
                         key={i}
-                        className="flex items-start gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 py-4 shadow-[var(--shadow-card)]"
+                        className="flex items-start gap-4 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-5 py-5 shadow-[var(--shadow-card)]"
                       >
                         <div
-                          className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-white text-[0.65rem] font-bold"
+                          className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-white text-xs font-bold"
                           style={{ background: "var(--brand)" }}
                           aria-hidden
                         >
                           {i + 1}
                         </div>
                         <div>
-                          <span className="text-sm font-semibold text-[var(--text)]">{name}</span>
+                          <span className="text-base font-semibold text-[var(--text)] md:text-[1.0625rem]">{name}</span>
                           {desc && (
-                            <span className="text-sm text-[var(--muted)]"> — {desc}</span>
+                            <span className="text-base text-[var(--muted)] md:text-[1.0625rem]"> — {desc}</span>
                           )}
                         </div>
                       </li>
                     );
                   })}
                 </ul>
-              </FadeUp>
-
-              {/* "This means for you" callout */}
-              <FadeUp delay={2}>
-                <div
-                  className="relative overflow-hidden rounded-2xl p-6 text-white"
-                  style={{
-                    background:
-                      "radial-gradient(ellipse 80% 80% at 20% 30%, rgba(111,138,122,0.35) 0%, transparent 60%), linear-gradient(145deg, #082721 0%, #0E3D34 100%)",
-                  }}
-                >
-                  {/* Pulse rings decoration */}
-                  <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 opacity-20" aria-hidden>
-                    <div className="cta-pulse-ring" />
-                    <div className="cta-pulse-ring cta-pulse-ring--2" />
-                    <div className="cta-pulse-ring cta-pulse-ring--3" />
-                  </div>
-                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-white/60 mb-3">
-                    {t("block6MeansTitle")}
-                  </p>
-                  <p className="font-heading text-[1.25rem] font-bold leading-snug text-white">
-                    {t("block6MeansValue")}
-                  </p>
-                </div>
               </FadeUp>
             </div>
 
@@ -530,21 +548,63 @@ export async function HowItWorksSections() {
                           "linear-gradient(to top, rgba(14,61,52,0.75) 0%, transparent 100%)",
                       }}
                     >
-                      <p className="text-[0.65rem] font-bold uppercase tracking-widest text-white">
+                      <p className="text-xs font-bold uppercase tracking-widest text-white sm:text-sm">
                         {eq.label}
                       </p>
                     </div>
                   </div>
                 ))}
               </div>
-
-              {/* Disclaimer */}
-              <div className="mt-6 rounded-2xl border border-[var(--border)] bg-[var(--panel)] p-5">
-                <p className="text-[0.8rem] leading-relaxed text-[var(--muted)]">
-                  {t.rich("block6Disclaimer", richParts.default)}
-                </p>
-              </div>
             </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      {/* ══ BLOCK 7: Manufacturer trust — factual, brief ═════════════ */}
+      <section
+        id="hiw-manufacturer"
+        className="home-band-full home-band--welcome py-16 md:py-20 lg:py-24"
+        aria-labelledby="hiw-manufacturer-heading"
+      >
+        <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,0.76fr)_minmax(0,1fr)] lg:items-start">
+            <FadeUp>
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand)] sm:text-sm">
+                {t("trustKicker")}
+              </p>
+              <h2
+                id="hiw-manufacturer-heading"
+                className="font-heading text-[clamp(1.75rem,3.85vw,2.6rem)] font-bold leading-[1.08] tracking-tight text-[var(--text)]"
+              >
+                {t.rich("trustTitle", richParts.default)}
+              </h2>
+              <p className="mt-5 max-w-[58ch] text-lg leading-[1.65] text-[var(--muted)] md:text-xl md:leading-[1.65]">
+                {t.rich("trustLead", richParts.default)}
+              </p>
+              <a
+                href="https://www.sanza.eu/home-main-de"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-7 inline-flex min-h-11 items-center justify-center rounded-[var(--radius-btn)] border border-[var(--border)] bg-white/70 px-5 text-sm font-semibold text-[var(--brand-deep)] transition hover:border-[var(--brand)] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand)]"
+              >
+                {t("trustSourceLabel")}
+              </a>
+            </FadeUp>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {trustCards.map((card, index) => (
+                <FadeUp key={card.title} delay={((index % 4) + 1) as 1 | 2 | 3 | 4}>
+                  <article className="card-brand h-full bg-white/80 p-6">
+                    <p className="mb-3 font-heading text-lg font-bold leading-snug text-[var(--text)]">
+                      {card.title}
+                    </p>
+                    <p className="text-base leading-[1.65] text-[var(--muted)]">
+                      {card.body}
+                    </p>
+                  </article>
+                </FadeUp>
+              ))}
+            </div>
           </div>
         </div>
       </section>

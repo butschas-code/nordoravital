@@ -45,16 +45,16 @@ export async function HowItWorksHero() {
           <div className="ml-auto w-full max-w-xl pb-4 text-right sm:max-w-2xl">
             <h1
               id="how-it-works-hero-heading"
-              className="fade-up font-heading text-h1 text-white"
+              className="fade-up font-heading text-[clamp(2.1rem,4.9vw,3.35rem)] font-bold leading-[1.12] tracking-tight text-white [&_strong]:font-semibold"
             >
-              {t.rich("title", richParts.onDark)}
+              {t.rich("heroTitle", richParts.onDark)}
             </h1>
-            <p className="fade-up fade-up-delay-1 mt-6 text-lg leading-relaxed text-white/90">
+            <p className="fade-up fade-up-delay-1 mt-6 max-w-[52ch] text-xl leading-[1.65] text-white/90 md:ml-auto md:text-2xl md:leading-[1.55] [&_strong]:font-semibold">
               {t.rich("heroSubhead", richParts.onDark)}
             </p>
-            <div className="fade-up fade-up-delay-2 mt-10 flex flex-col items-end sm:flex-row sm:justify-end">
+            <div className="fade-up fade-up-delay-2 mt-10 flex justify-end">
               <ContactDrawerTrigger className="btn-primary inline-flex justify-center">
-                {t("ctaBookDemo")}
+                {t("heroPrimaryCta")}
               </ContactDrawerTrigger>
             </div>
           </div>

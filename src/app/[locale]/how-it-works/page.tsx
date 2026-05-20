@@ -10,9 +10,9 @@ type Props = { params: Promise<{ locale: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const messages = (await import(`../../../../messages/${locale}.json`)).default;
-  const hw = messages.HowItWorks as { title: string; metaDescription: string };
+  const hw = messages.HowItWorks as { metaTitle: string; metaDescription: string };
   return {
-    title: `${stripRichTags(hw.title)} | Nordora Vital`,
+    title: `${stripRichTags(hw.metaTitle)} | Nordora Vital`,
     description: hw.metaDescription,
   };
 }

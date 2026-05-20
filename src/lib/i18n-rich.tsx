@@ -6,11 +6,13 @@ export const richParts = {
     strong: (chunks: ReactNode) => (
       <strong className="font-semibold text-[var(--text)]">{chunks}</strong>
     ),
+    br: () => <br />,
   },
   onDark: {
     strong: (chunks: ReactNode) => (
       <strong className="font-semibold text-white">{chunks}</strong>
     ),
+    br: () => <br />,
   },
   onDarkMuted: {
     strong: (chunks: ReactNode) => (

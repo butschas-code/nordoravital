@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { ContactDrawerTrigger } from "@/components/contact/contact-drawer-trigger";
+import { Link } from "@/i18n/navigation";
 import { richParts } from "@/lib/i18n-rich";
 
 export async function HowItWorksCta() {
@@ -31,25 +32,30 @@ export async function HowItWorksCta() {
       </div>
 
       {/* Kicker */}
-      <p className="text-kicker mb-4">{t("ctaKicker")}</p>
+      <p className="mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--brand)] sm:text-sm sm:tracking-[0.14em]">
+        {t("ctaKicker")}
+      </p>
 
       {/* Heading */}
       <h2
-        className="font-heading text-[clamp(1.5rem,3.5vw,2.2rem)] font-bold leading-snug tracking-tight text-[var(--text)]"
+        className="font-heading text-[clamp(1.65rem,3.8vw,2.45rem)] font-bold leading-snug tracking-tight text-[var(--text)]"
       >
         {t.rich("ctaTitle", richParts.default)}
       </h2>
 
       {/* Body */}
-      <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[var(--muted)] md:text-lg">
+      <p className="mx-auto mt-5 max-w-[65ch] text-lg leading-[1.65] text-[var(--muted)] md:text-xl">
         {t.rich("ctaBody", richParts.default)}
       </p>
 
-      {/* CTA */}
-      <div className="mt-10">
+      {/* CTAs */}
+      <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
         <ContactDrawerTrigger className="btn-primary">
           {t("ctaBookDemo")}
         </ContactDrawerTrigger>
+        <Link href="/offers" className="btn-outline inline-flex px-10 py-3">
+          {t("ctaSecondaryOffers")}
+        </Link>
       </div>
     </div>
   );
