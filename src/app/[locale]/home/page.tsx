@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { headers } from "next/headers";
-import { getLocale } from "next-intl/server";
 import { BrandArc } from "@/components/brand-arc";
 import { ContactDrawerTrigger } from "@/components/contact/contact-drawer-trigger";
 import { DarkMarketingCard } from "@/components/home/dark-marketing-card";
@@ -220,8 +219,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function HomeUserPage() {
-  const locale = homeLocale(await getLocale());
+export default async function HomeUserPage({ params }: Props) {
+  const { locale: routeLocale } = await params;
+  const locale = homeLocale(routeLocale);
   const copy = pageCopy[locale];
   const heads = await headers();
   const surface = getSiteSurface(heads.get("x-forwarded-host") ?? heads.get("host"));
@@ -232,7 +232,7 @@ export default async function HomeUserPage() {
     process.env.NEXT_PUBLIC_CAL_DISCOVERY_URL?.trim() || DEFAULT_CAL_DISCOVERY_URL;
 
   return (
-    <HomeSiteLayout>
+    <HomeSiteLayout locale={locale}>
       <main className="site-marketing-root">
         <section
           className="relative isolate left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] overflow-hidden bg-[var(--brand-deep)]"

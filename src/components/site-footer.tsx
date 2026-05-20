@@ -10,11 +10,11 @@ import { getSiteSurface, HOME_DOMAIN, PRO_DOMAIN } from "@/lib/domains";
 import { getHomeDisplayPath, getHomeSharedCopy, homeLocale } from "@/lib/home-copy";
 import { IMAGE_PATHS } from "@/lib/public-images";
 
-export async function SiteFooter() {
-  const locale = homeLocale(await getLocale());
+export async function SiteFooter({ localeOverride }: { localeOverride?: string } = {}) {
+  const locale = homeLocale(localeOverride ?? (await getLocale()));
   const homeCopy = getHomeSharedCopy(locale);
-  const t = await getTranslations("Footer");
-  const tNav = await getTranslations("Nav");
+  const t = await getTranslations({ locale, namespace: "Footer" });
+  const tNav = await getTranslations({ locale, namespace: "Nav" });
   const year = new Date().getFullYear();
   const heads = await headers();
   const surface = getSiteSurface(heads.get("x-forwarded-host") ?? heads.get("host"));

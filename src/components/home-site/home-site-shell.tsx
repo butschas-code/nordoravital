@@ -12,8 +12,8 @@ import { getSiteSurface } from "@/lib/domains";
 import { getHomeDisplayPath, getHomeSharedCopy } from "@/lib/home-copy";
 import { IMAGE_PATHS } from "@/lib/public-images";
 
-export async function HomeSiteNav() {
-  const copy = getHomeSharedCopy(await getLocale());
+export async function HomeSiteNav({ locale }: { locale: string }) {
+  const copy = getHomeSharedCopy(locale);
   const heads = await headers();
   const surface = getSiteSurface(heads.get("x-forwarded-host") ?? heads.get("host"));
   const homePath = (path = "") => getHomeDisplayPath(surface, path);
@@ -130,13 +130,19 @@ export async function HomeSiteFooter() {
   );
 }
 
-export async function HomeSiteLayout({ children }: { children: React.ReactNode }) {
+export async function HomeSiteLayout({
+  children,
+  locale,
+}: {
+  children: React.ReactNode;
+  locale: string;
+}) {
   return (
     <ContactDrawerProvider>
       <div className="home-site-root min-h-dvh overflow-x-clip bg-[#f6f1ea] text-[#1e2a22]">
-        <HomeSiteNav />
+        <HomeSiteNav locale={locale} />
         {children}
-        <SiteFooter />
+        <SiteFooter localeOverride={locale} />
         <CookieBanner />
       </div>
     </ContactDrawerProvider>

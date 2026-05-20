@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Image from "next/image";
-import { getLocale } from "next-intl/server";
 import { BrandArc } from "@/components/brand-arc";
 import { ContactDrawerTrigger } from "@/components/contact/contact-drawer-trigger";
 import { HomeSiteLayout } from "@/components/home-site/home-site-shell";
@@ -500,12 +499,13 @@ function Eyebrow({ children, light = false }: { children: ReactNode; light?: boo
   );
 }
 
-export default async function ProgramsPage() {
-  const locale = homeLocale(await getLocale());
+export default async function ProgramsPage({ params }: Props) {
+  const { locale: routeLocale } = await params;
+  const locale = homeLocale(routeLocale);
   const copy = pageCopy[locale];
 
   return (
-    <HomeSiteLayout>
+    <HomeSiteLayout locale={locale}>
       <main className="site-marketing-root">
         <section
           className="relative isolate left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] overflow-hidden bg-[var(--brand-deep)]"

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { getLocale } from "next-intl/server";
 import {
   HomeLegalContactBlock,
   HomeLegalLinks,
@@ -180,12 +179,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function HomeTermsPage() {
-  const locale = homeLocale(await getLocale());
+export default async function HomeTermsPage({ params }: Props) {
+  const { locale: routeLocale } = await params;
+  const locale = homeLocale(routeLocale);
   const copy = pageCopy[locale];
 
   return (
-    <HomeSiteLayout>
+    <HomeSiteLayout locale={locale}>
       <HomeLegalPage
         eyebrow={copy.eyebrow}
         title={copy.title}

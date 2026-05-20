@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Image from "next/image";
 import { headers } from "next/headers";
-import { getLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { HomeSiteLayout } from "@/components/home-site/home-site-shell";
 import { getOriginForSurface, getSiteSurface } from "@/lib/domains";
@@ -444,8 +443,9 @@ function FaqItem({
   );
 }
 
-export default async function HomeFaqPage() {
-  const locale = homeLocale(await getLocale());
+export default async function HomeFaqPage({ params }: Props) {
+  const { locale: routeLocale } = await params;
+  const locale = homeLocale(routeLocale);
   const copy = pageCopy[locale];
   const shared = getHomeSharedCopy(locale);
   const heads = await headers();
@@ -467,7 +467,7 @@ export default async function HomeFaqPage() {
   };
 
   return (
-    <HomeSiteLayout>
+    <HomeSiteLayout locale={locale}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

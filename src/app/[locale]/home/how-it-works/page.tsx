@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Image from "next/image";
 import { headers } from "next/headers";
-import { getLocale } from "next-intl/server";
 import { BrandArc } from "@/components/brand-arc";
 import { ContactDrawerTrigger } from "@/components/contact/contact-drawer-trigger";
 import { DarkMarketingCard } from "@/components/home/dark-marketing-card";
@@ -416,8 +415,9 @@ function Eyebrow({ children, light = false }: { children: ReactNode; light?: boo
   );
 }
 
-export default async function TheSanzaExperiencePage() {
-  const locale = homeLocale(await getLocale());
+export default async function TheSanzaExperiencePage({ params }: Props) {
+  const { locale: routeLocale } = await params;
+  const locale = homeLocale(routeLocale);
   const copy = pageCopy[locale];
   const shared = getHomeSharedCopy(locale);
   const heads = await headers();
@@ -428,7 +428,7 @@ export default async function TheSanzaExperiencePage() {
   const accessorySections = copy.sections.slice(1);
 
   return (
-    <HomeSiteLayout>
+    <HomeSiteLayout locale={locale}>
       <main className="site-marketing-root">
         <section
           className="relative isolate left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] overflow-hidden bg-[var(--brand-deep)]"

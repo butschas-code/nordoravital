@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Image from "next/image";
 import { headers } from "next/headers";
-import { getLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { HomeSiteLayout } from "@/components/home-site/home-site-shell";
 import { getOriginForSurface, getSiteSurface } from "@/lib/domains";
@@ -827,8 +826,9 @@ function HabitSection({
   );
 }
 
-export default async function SanzaExperiencesPage() {
-  const locale = homeLocale(await getLocale());
+export default async function SanzaExperiencesPage({ params }: Props) {
+  const { locale: routeLocale } = await params;
+  const locale = homeLocale(routeLocale);
   const copy = pageCopy[locale];
   const shared = getHomeSharedCopy(locale);
   const heads = await headers();
@@ -841,7 +841,7 @@ export default async function SanzaExperiencesPage() {
   const heroBody = copy.heroBody;
 
   return (
-    <HomeSiteLayout>
+    <HomeSiteLayout locale={locale}>
       <main className="site-marketing-root sanza-experiences-page">
         <section
           className="relative isolate left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] overflow-hidden bg-[var(--brand-deep)]"

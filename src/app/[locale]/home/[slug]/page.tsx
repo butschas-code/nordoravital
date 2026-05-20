@@ -43,7 +43,7 @@ export default async function HomeSiteDetailPage({ params }: Props) {
   const page = HOME_SITE_PAGES[slug][homeLocale(locale)];
 
   return (
-    <HomeSiteLayout>
+    <HomeSiteLayout locale={locale}>
       <main>
         <section className="relative isolate overflow-hidden px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
           <div

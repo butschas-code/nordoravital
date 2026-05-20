@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { getLocale } from "next-intl/server";
 import { HomeLegalLinks, HomeLegalPage } from "@/components/home-site/home-legal-page";
 import { HomeSiteLayout } from "@/components/home-site/home-site-shell";
 import { getOriginForSurface } from "@/lib/domains";
@@ -203,12 +202,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function HomeCookiePolicyPage() {
-  const locale = homeLocale(await getLocale());
+export default async function HomeCookiePolicyPage({ params }: Props) {
+  const { locale: routeLocale } = await params;
+  const locale = homeLocale(routeLocale);
   const copy = pageCopy[locale];
 
   return (
-    <HomeSiteLayout>
+    <HomeSiteLayout locale={locale}>
       <HomeLegalPage
         eyebrow={copy.eyebrow}
         title={copy.title}
