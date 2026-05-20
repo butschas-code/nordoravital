@@ -431,7 +431,7 @@ export default async function TheSanzaExperiencePage({ params }: Props) {
     <HomeSiteLayout locale={locale}>
       <main className="site-marketing-root">
         <section
-          className="relative isolate left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] overflow-hidden bg-[var(--brand-deep)]"
+          className="home-hero--how relative isolate left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] overflow-hidden bg-[var(--brand-deep)]"
           aria-labelledby="homeuse-how-heading"
         >
           <div className="relative min-h-[min(92dvh,880px)] lg:min-h-[min(88dvh,800px)]">

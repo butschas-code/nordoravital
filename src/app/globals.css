@@ -1407,6 +1407,41 @@ h1, h2, h3 {
     padding-bottom: 4.25rem;
   }
 
+  .home-site-root .site-marketing-root > section:first-child {
+    padding: 0 !important;
+  }
+
+  .home-site-root .site-marketing-root > section:first-child > .relative {
+    min-height: calc(100svh - 89px) !important;
+  }
+
+  .home-site-root .site-marketing-root > section:first-child > .relative > .relative.z-10 {
+    min-height: calc(100svh - 89px) !important;
+    padding-bottom: 3.5rem !important;
+    padding-top: 3.5rem !important;
+  }
+
+  .home-site-root .site-marketing-root > section:first-child img {
+    object-position: center center;
+  }
+
+  .home-site-root .site-marketing-root > section.home-hero--home img,
+  .home-site-root .site-marketing-root > section.home-hero--how img {
+    object-position: 38% center;
+  }
+
+  .home-site-root .site-marketing-root > section.home-hero--programs img {
+    object-position: 42% center;
+  }
+
+  .home-site-root .site-marketing-root > section.home-hero--experiences img {
+    object-position: 34% center;
+  }
+
+  .home-site-root .site-marketing-root > section.home-hero--faq img {
+    object-position: 36% center;
+  }
+
   .home-site-root main p {
     text-wrap: pretty;
   }
