@@ -253,7 +253,7 @@ export default async function GatewayPage({ params }: Props) {
                 <a
                   key={pathway.href}
                   href={pathway.href}
-                  className="group flex min-h-[640px] overflow-hidden rounded-[24px] border border-white/12 bg-[#082721] shadow-2xl transition duration-300 ease-out hover:-translate-y-1 hover:border-[#a58592]/60 hover:shadow-[0_30px_96px_rgba(8,39,33,0.30)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6f8a7a]"
+                  className="group flex min-h-0 overflow-hidden rounded-[24px] border border-white/12 bg-[#082721] shadow-2xl transition duration-300 ease-out hover:-translate-y-1 hover:border-[#a58592]/60 hover:shadow-[0_30px_96px_rgba(8,39,33,0.30)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6f8a7a] sm:min-h-[640px]"
                 >
                   <article className="flex w-full flex-col">
                     <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#0e3d34]">

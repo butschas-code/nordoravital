@@ -102,7 +102,7 @@ export function SiteHeaderMobileNav({
               </span>
               <button
                 type="button"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-[var(--muted)] transition hover:bg-[var(--panel)] hover:text-[var(--text)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand)]"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-lg text-[var(--muted)] transition hover:bg-[var(--panel)] hover:text-[var(--text)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand)]"
                 aria-label={t("closeMenu")}
                 onClick={() => setOpen(false)}
               >
@@ -176,7 +176,11 @@ export function SiteHeaderMobileNav({
               <button
                 type="button"
                 className="btn-primary inline-flex w-full justify-center text-base"
-                style={{ padding: "0.5rem 1.125rem", borderRadius: "var(--radius-btn)" }}
+                style={{
+                  minHeight: "2.75rem",
+                  padding: "0.5rem 1.125rem",
+                  borderRadius: "var(--radius-btn)",
+                }}
                 onClick={() => {
                   setOpen(false);
                   openDrawer();

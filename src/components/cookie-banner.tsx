@@ -95,13 +95,13 @@ export function CookieBanner() {
           <div className="mt-4 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
             <button
               onClick={() => handleConsent("essential")}
-              className="inline-flex items-center justify-center rounded-xl border border-[var(--border)] bg-transparent px-4 py-2.5 text-[0.8125rem] font-semibold text-[var(--muted)] transition hover:border-[var(--brand)]/40 hover:bg-[var(--panel)] hover:text-[var(--text)] focus-visible:outline-2 focus-visible:outline-[var(--brand)] focus-visible:outline-offset-2"
+              className="inline-flex min-h-11 items-center justify-center rounded-xl border border-[var(--border)] bg-transparent px-4 py-2.5 text-[0.8125rem] font-semibold text-[var(--muted)] transition hover:border-[var(--brand)]/40 hover:bg-[var(--panel)] hover:text-[var(--text)] focus-visible:outline-2 focus-visible:outline-[var(--brand)] focus-visible:outline-offset-2"
             >
               {t("reject")}
             </button>
             <button
               onClick={() => handleConsent("all")}
-              className="inline-flex items-center justify-center rounded-xl bg-[var(--brand)] px-5 py-2.5 text-[0.8125rem] font-semibold text-white shadow-sm transition hover:bg-[var(--brand-strong)] focus-visible:outline-2 focus-visible:outline-[var(--brand)] focus-visible:outline-offset-2"
+              className="inline-flex min-h-11 items-center justify-center rounded-xl bg-[var(--brand)] px-5 py-2.5 text-[0.8125rem] font-semibold text-white shadow-sm transition hover:bg-[var(--brand-strong)] focus-visible:outline-2 focus-visible:outline-[var(--brand)] focus-visible:outline-offset-2"
             >
               {t("accept")}
             </button>

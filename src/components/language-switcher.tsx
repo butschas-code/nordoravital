@@ -78,7 +78,7 @@ export function LanguageSwitcher({
                 href={localizedPathname}
                 locale={loc}
                 prefetch={false}
-                className={`flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm transition ${
+                className={`flex min-h-11 w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm transition ${
                   onDark
                     ? active
                       ? "bg-white/12 font-semibold text-[var(--brand-secondary)]"
@@ -118,8 +118,8 @@ export function LanguageSwitcher({
         type="button"
         className={
           onDark
-            ? "inline-flex items-center gap-1.5 rounded-xl border border-white/20 bg-white/10 px-2.5 py-1.5 text-xs font-semibold text-white shadow-sm backdrop-blur-sm transition hover:border-white/35 hover:bg-white/[0.14] sm:px-3 sm:py-2 sm:text-sm"
-            : "inline-flex items-center gap-1.5 rounded-xl border border-[var(--border)] bg-[var(--panel)] px-2.5 py-1.5 text-xs font-semibold text-[var(--text)] shadow-sm transition hover:border-[var(--brand)] hover:bg-[var(--panel-deep)] sm:px-3 sm:py-2 sm:text-sm"
+            ? "inline-flex min-h-11 min-w-14 items-center justify-center gap-1.5 rounded-xl border border-white/20 bg-white/10 px-3 py-2 text-xs font-semibold text-white shadow-sm backdrop-blur-sm transition hover:border-white/35 hover:bg-white/[0.14] sm:px-3 sm:text-sm"
+            : "inline-flex min-h-11 min-w-14 items-center justify-center gap-1.5 rounded-xl border border-[var(--border)] bg-[var(--panel)] px-3 py-2 text-xs font-semibold text-[var(--text)] shadow-sm transition hover:border-[var(--brand)] hover:bg-[var(--panel-deep)] sm:px-3 sm:text-sm"
         }
         aria-expanded={open}
         aria-haspopup="menu"
@@ -174,7 +174,7 @@ export function LanguageSwitcher({
                   role="menuitem"
                   title={t(loc)}
                   prefetch={false}
-                  className={`flex w-full items-center justify-between gap-3 px-3 py-2.5 text-sm transition ${
+                  className={`flex min-h-11 w-full items-center justify-between gap-3 px-3 py-2.5 text-sm transition ${
                     onDark
                       ? active
                         ? "bg-white/12 font-semibold text-[var(--brand-secondary)]"
