@@ -72,10 +72,13 @@ export const IMAGE_PATHS = {
   /** Homepage photography — equipment & room context */
   home: {
     hero: "/images/homeuse-home-hero.jpg",
+    heroMobile: "/images/homeuse-home-hero-mobile.jpg",
     howItWorksHero: "/images/homeuse-how-it-works-hero.jpg",
+    howItWorksHeroMobile: "/images/homeuse-how-it-works-hero-mobile.jpg",
     howItWorksIntro: "/images/homeuse-how-block-what-sanza-is.jpg",
     howItWorksTechnologies: "/images/homeuse-how-three-technologies.jpg",
     programsHero: "/images/homeuse-programs-hero.jpg",
+    programsHeroMobile: "/images/homeuse-programs-hero-mobile.jpg",
     programsWhyMatter: "/images/homeuse-programs-why-programs-matter.jpg",
     introBlock: "/images/homeuse-block-1.jpg",
     ritualPostActivityRecovery: "/images/homeuse-card-post-activity-recovery.jpg",

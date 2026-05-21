@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import { headers } from "next/headers";
 import { Link } from "@/i18n/navigation";
+import { HomeHeroPicture } from "@/components/home-site/home-hero-picture";
 import { HomeSiteLayout } from "@/components/home-site/home-site-shell";
 import { getOriginForSurface, getSiteSurface } from "@/lib/domains";
 import { getHomeDisplayPath, getHomeSharedCopy, homeLocale } from "@/lib/home-copy";
@@ -11,6 +12,7 @@ type Props = { params: Promise<{ locale: string }> };
 
 const shopUrl = "https://nordoravital.sanzanet.com/shop-en";
 const heroImage = "/images/homeuse-faq-hero.jpg";
+const heroMobileImage = "/images/homeuse-faq-hero-mobile.jpg";
 const introImage = "/images/homeuse-experiences-intro.jpg";
 const ctaImage = "/images/homeuse-experiences-cta.jpg";
 
@@ -479,13 +481,10 @@ export default async function HomeFaqPage({ params }: Props) {
         >
           <div className="relative min-h-[min(92dvh,880px)] lg:min-h-[min(88dvh,800px)]">
             <div className="absolute inset-0">
-              <Image
-                src={heroImage}
+              <HomeHeroPicture
+                desktopSrc={heroImage}
+                mobileSrc={heroMobileImage}
                 alt={copy.heroAlt}
-                fill
-                priority
-                className="object-cover object-center"
-                sizes="100vw"
               />
             </div>
             <div className="home-hero-overlay pointer-events-none absolute inset-0" aria-hidden />

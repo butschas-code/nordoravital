@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import { BrandArc } from "@/components/brand-arc";
 import { ContactDrawerTrigger } from "@/components/contact/contact-drawer-trigger";
+import { HomeHeroPicture } from "@/components/home-site/home-hero-picture";
 import { HomeSiteLayout } from "@/components/home-site/home-site-shell";
 import { ProgramLibraryExperience } from "@/components/home-site/program-library-experience";
 import { getOriginForSurface } from "@/lib/domains";
@@ -513,14 +514,10 @@ export default async function ProgramsPage({ params }: Props) {
         >
           <div className="relative min-h-[min(92dvh,880px)] lg:min-h-[min(88dvh,800px)]">
             <div className="absolute inset-0">
-              <Image
-                src={IMAGE_PATHS.home.programsHero}
+              <HomeHeroPicture
+                desktopSrc={IMAGE_PATHS.home.programsHero}
+                mobileSrc={IMAGE_PATHS.home.programsHeroMobile}
                 alt=""
-                fill
-                priority
-                className="absolute inset-0 h-full w-full object-cover object-center"
-                aria-hidden
-                sizes="100vw"
               />
             </div>
             <div className="home-hero-overlay pointer-events-none absolute inset-0" aria-hidden />

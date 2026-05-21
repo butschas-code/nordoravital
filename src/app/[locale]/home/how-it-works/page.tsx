@@ -5,6 +5,7 @@ import { headers } from "next/headers";
 import { BrandArc } from "@/components/brand-arc";
 import { ContactDrawerTrigger } from "@/components/contact/contact-drawer-trigger";
 import { DarkMarketingCard } from "@/components/home/dark-marketing-card";
+import { HomeHeroPicture } from "@/components/home-site/home-hero-picture";
 import { Link } from "@/i18n/navigation";
 import { HomeSiteLayout } from "@/components/home-site/home-site-shell";
 import { getOriginForSurface, getSiteSurface } from "@/lib/domains";
@@ -436,14 +437,10 @@ export default async function TheSanzaExperiencePage({ params }: Props) {
         >
           <div className="relative min-h-[min(92dvh,880px)] lg:min-h-[min(88dvh,800px)]">
             <div className="absolute inset-0">
-              <Image
-                src={IMAGE_PATHS.home.howItWorksHero}
+              <HomeHeroPicture
+                desktopSrc={IMAGE_PATHS.home.howItWorksHero}
+                mobileSrc={IMAGE_PATHS.home.howItWorksHeroMobile}
                 alt=""
-                fill
-                priority
-                className="absolute inset-0 h-full w-full object-cover object-center"
-                aria-hidden
-                sizes="100vw"
               />
             </div>
             <div className="home-hero-overlay pointer-events-none absolute inset-0" aria-hidden />

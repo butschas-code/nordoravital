@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import { headers } from "next/headers";
 import { Link } from "@/i18n/navigation";
+import { HomeHeroPicture } from "@/components/home-site/home-hero-picture";
 import { HomeSiteLayout } from "@/components/home-site/home-site-shell";
 import { getOriginForSurface, getSiteSurface } from "@/lib/domains";
 import { getHomeDisplayPath, getHomeSharedCopy, homeLocale } from "@/lib/home-copy";
@@ -22,6 +23,7 @@ const experienceImages = [
 ] as const;
 
 const heroImage = "/images/homeuse-experiences-hero.jpg";
+const heroMobileImage = "/images/homeuse-experiences-hero-mobile.jpg";
 const introImage = "/images/homeuse-experiences-intro.jpg";
 const momentImage = "/images/homeuse-experiences-moment.jpg";
 const sessionImage = "/images/homeuse-experiences-session.jpg";
@@ -849,13 +851,10 @@ export default async function SanzaExperiencesPage({ params }: Props) {
         >
           <div className="relative min-h-[min(92dvh,880px)] lg:min-h-[min(88dvh,800px)]">
             <div className="absolute inset-0">
-              <Image
-                src={heroImage}
+              <HomeHeroPicture
+                desktopSrc={heroImage}
+                mobileSrc={heroMobileImage}
                 alt={copy.heroAlt}
-                fill
-                priority
-                className="object-cover object-center"
-                sizes="100vw"
               />
             </div>
             <div className="home-hero-overlay pointer-events-none absolute inset-0" aria-hidden />
