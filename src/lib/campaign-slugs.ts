@@ -17,6 +17,7 @@ export const CAMPAIGN_SLUGS = [
   "zobarstnieciba",
   "poliklinika",
   "spa-wellness",
+  "masaza",
 ] as const;
 
 export type CampaignSlug = (typeof CAMPAIGN_SLUGS)[number];
@@ -41,6 +42,7 @@ export const CAMPAIGN_SHARE_ALIASES: Record<
     zobarstnieciba: "zahnarztpraxen",
     poliklinika: "polikliniken",
     "spa-wellness": "spa-wellness",
+    masaza: "massage",
   },
   en: {
     fizioterapija: "physiotherapy",
@@ -56,6 +58,7 @@ export const CAMPAIGN_SHARE_ALIASES: Record<
     zobarstnieciba: "dental-clinics",
     poliklinika: "polyclinics",
     "spa-wellness": "spa-wellness",
+    masaza: "massage",
   },
 };
 
