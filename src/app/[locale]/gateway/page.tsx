@@ -7,6 +7,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { getSiteSurface, HOME_DOMAIN, PRO_DOMAIN } from "@/lib/domains";
 import { homeLocale } from "@/lib/home-copy";
 import { IMAGE_PATHS } from "@/lib/public-images";
+import { mergeRussianContent } from "@/lib/russian-content";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -150,7 +151,7 @@ const pageCopy = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const copy = pageCopy[homeLocale(locale)];
+  const copy = mergeRussianContent(locale, "selector/gateway", pageCopy[homeLocale(locale)]);
   return {
     title: copy.metaTitle,
     description: copy.metaDescription,
@@ -169,8 +170,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function GatewayPage({ params }: Props) {
   const { locale } = await params;
-  const activeLocale = homeLocale(locale);
-  const copy = pageCopy[activeLocale];
+  const activeLocale = locale === "ru" ? "ru" : homeLocale(locale);
+  const copy = mergeRussianContent(locale, "selector/gateway", pageCopy[homeLocale(locale)]);
   const heads = await headers();
   const surface = getSiteSurface(heads.get("x-forwarded-host") ?? heads.get("host"));
   const paths = copy.paths.map((pathway, index) => ({
@@ -180,7 +181,9 @@ export default async function GatewayPage({ params }: Props) {
         ? index === 0
           ? `/${activeLocale}`
           : `/${activeLocale}/home`
-        : pathway.href,
+        : index === 0
+          ? `https://${PRO_DOMAIN}/${activeLocale}`
+          : `https://${HOME_DOMAIN}/${activeLocale}/home`,
   }));
 
   return (

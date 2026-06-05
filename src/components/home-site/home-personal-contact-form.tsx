@@ -5,6 +5,7 @@ import { useLocale } from "next-intl";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
+import { mergeRussianContent } from "@/lib/russian-content";
 
 const DEFAULT_CAL_DISCOVERY_URL = "https://cal.eu/nordoravital/discovery-call";
 
@@ -229,8 +230,9 @@ export function HomePersonalContactForm({
   onSuccess,
   className,
 }: HomePersonalContactFormProps) {
-  const locale = getFormLocale(useLocale());
-  const copy = formCopy[locale];
+  const routeLocale = useLocale();
+  const locale = getFormLocale(routeLocale);
+  const copy = mergeRussianContent(routeLocale, "homeuse/contact form", formCopy[locale]);
   const formSchema = createFormSchema(copy);
   const [status, setStatus] = useState<"idle" | "success" | "error" | "network">("idle");
   const calDiscoveryUrl =

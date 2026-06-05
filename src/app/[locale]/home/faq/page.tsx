@@ -7,6 +7,7 @@ import { HomeHeroPicture } from "@/components/home-site/home-hero-picture";
 import { HomeSiteLayout } from "@/components/home-site/home-site-shell";
 import { getOriginForSurface, getSiteSurface } from "@/lib/domains";
 import { getHomeDisplayPath, getHomeSharedCopy, homeLocale } from "@/lib/home-copy";
+import { mergeRussianContent } from "@/lib/russian-content";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -354,7 +355,7 @@ const pageCopy = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const copy = pageCopy[homeLocale(locale)];
+  const copy = mergeRussianContent(locale, "homeuse/faq", pageCopy[homeLocale(locale)]);
   return {
     title: copy.metaTitle,
     description: copy.metaDescription,
@@ -447,9 +448,9 @@ function FaqItem({
 
 export default async function HomeFaqPage({ params }: Props) {
   const { locale: routeLocale } = await params;
-  const locale = homeLocale(routeLocale);
-  const copy = pageCopy[locale];
-  const shared = getHomeSharedCopy(locale);
+  const activeLocale = homeLocale(routeLocale);
+  const copy = mergeRussianContent(routeLocale, "homeuse/faq", pageCopy[activeLocale]);
+  const shared = getHomeSharedCopy(routeLocale);
   const heads = await headers();
   const surface = getSiteSurface(heads.get("x-forwarded-host") ?? heads.get("host"));
   const programsHref = getHomeDisplayPath(surface, "/programs");
@@ -469,7 +470,7 @@ export default async function HomeFaqPage({ params }: Props) {
   };
 
   return (
-    <HomeSiteLayout locale={locale}>
+    <HomeSiteLayout locale={routeLocale}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

@@ -8,6 +8,7 @@ import {
   isHomeSiteSlug,
 } from "@/lib/home-site-content";
 import { homeLocale } from "@/lib/home-copy";
+import { mergeRussianContent } from "@/lib/russian-content";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -18,7 +19,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   if (!isHomeSiteSlug(slug)) return {};
-  const page = HOME_SITE_PAGES[slug][homeLocale(locale)];
+  const page = mergeRussianContent(locale, `homeuse/${slug}`, HOME_SITE_PAGES[slug][homeLocale(locale)]);
   return {
     title: `${page.eyebrow} | Nordora Vital Home`,
     description: page.description,
@@ -40,7 +41,7 @@ export default async function HomeSiteDetailPage({ params }: Props) {
   const { locale, slug } = await params;
   if (!isHomeSiteSlug(slug)) notFound();
 
-  const page = HOME_SITE_PAGES[slug][homeLocale(locale)];
+  const page = mergeRussianContent(locale, `homeuse/${slug}`, HOME_SITE_PAGES[slug][homeLocale(locale)]);
 
   return (
     <HomeSiteLayout locale={locale}>

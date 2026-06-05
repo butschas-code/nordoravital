@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { CampaignLanding } from "@/components/campaign/campaign-landing";
 import { routing, type Locale } from "@/i18n/routing";
+import { getRussianCampaignContent, isRussianLocale } from "@/lib/russian-content";
 import type { CampaignPageContent } from "@/types/campaign-page";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -382,11 +383,14 @@ const CONTENT: Partial<Record<Locale, CampaignPageContent>> = {
 
 
 function getContent(locale: string): CampaignPageContent | null {
+  if (isRussianLocale(locale)) return getRussianCampaignContent("fizioterapija", CONTENT.en ?? null);
   return CONTENT[locale as Locale] ?? null;
 }
 
 export function generateStaticParams() {
-  return routing.locales.filter((l) => CONTENT[l]).map((locale) => ({ locale }));
+  return routing.locales
+    .filter((locale) => locale === "ru" || CONTENT[locale])
+    .map((locale) => ({ locale }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

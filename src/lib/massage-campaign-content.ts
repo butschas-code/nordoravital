@@ -3,13 +3,13 @@ import type { CampaignPageContent } from "@/types/campaign-page";
 type MassageLocale = "en" | "de" | "lv";
 
 const images = {
-  hero: "/images/campaign/day-spa-hero.jpg",
-  problem: "/images/campaign/chiro-block-1.jpg",
+  hero: "/images/campaign/massage-hero.jpg",
+  problem: "/images/campaign/massage-block-1.jpg",
   fits: [
-    "/images/campaign/spa-fit-pre-treatment.jpg",
-    "/images/campaign/chiro-fit-applicators.jpg",
-    "/images/campaign/spa-fit-relaxation.jpg",
-    "/images/campaign/day-spa-fit-signature.jpg",
+    "/images/campaign/massage-fit-01-calm-arrival.jpg",
+    "/images/campaign/massage-fit-02-targeted-support.jpg",
+    "/images/campaign/massage-fit-01-calm-arrival.jpg",
+    "/images/campaign/massage-fit-04-combined-session.jpg",
   ],
   practice: "/images/campaign/chiro-for-practice.jpg",
 } as const;
@@ -33,19 +33,19 @@ const common = {
     demoRequestMessage:
       "I'd like to arrange a sanza demo and receive more information for a massage practice.",
     quickStats: [
-      { value: "15", label: "structured wellbeing programs" },
-      { value: "1", label: "simple system for the whole team" },
-      { value: "10–15 min", label: "for arrival or closing rituals" },
-      { value: "0", label: "changes to your massage technique" },
+      { value: "15", label: "WELLBEING EXPERIENCES FOR DIFFERENT CLIENT NEEDS" },
+      { value: "1", label: "SIMPLE SYSTEM YOUR WHOLE TEAM CAN USE" },
+      { value: "10–15 min", label: "BEFORE OR AFTER THE MASSAGE SESSION" },
+      { value: "0", label: "CHANGES TO YOUR MASSAGE TECHNIQUE" },
     ],
-    problemEyebrow: "The session begins before the first touch.",
-    problemTitle: "Your hands can do their best work when the client has truly arrived.",
+    problemEyebrow: "",
+    problemTitle: "The massage begins before the first touch.",
     problemBody:
-      "Some clients come in hurried, guarded, overstimulated or unable to switch off. Others need time to move from conversation into stillness. That transition can take up the first part of a session, regardless of whether the massage is clinical, sports-focused, Thai, Ayurvedic or purely restorative.\r\n\r\n<strong>sanza</strong> gives you a simple way to shape that transition. A quiet program before the massage helps turn arrival into a deliberate part of the experience — so the room feels calmer, the session feels more considered, and clients feel looked after from the beginning.",
-    solutionEyebrow: "The sanza layer",
-    solutionTitle: "A structured wellbeing ritual around the hands-on work only you can provide.",
+      "Most clients book a massage because they want something to change. They want tension to release, their body to feel lighter, their breathing to soften, their mind to slow down, or their nervous system to finally come out of the pressure of the day. But very often, they arrive in exactly the state they are hoping the massage will solve: hurried, overstimulated, guarded, mentally busy, or physically unable to let go.\r\n\r\nSanza helps you meet the client at that point. A quiet 10–15 minute Sanza experience before the massage gives them time to arrive properly, settle into the room, and begin shifting from the stress they came in with toward the calm they are looking for. Instead of using the first part of the session to help the client switch off, you can begin your work with someone who is already more present, more receptive, and more ready to receive touch.\r\n\r\nSanza does not change your massage technique. It supports the space around it, helping the whole session feel more complete, more considered, and closer to what your client came for in the first place.",
+    solutionEyebrow: "THE SANZA LAYER",
+    solutionTitle: "An added wellbeing experience around the hands-on work only you can provide.",
     solutionBody:
-      "<strong>sanza</strong> combines gentle PEMF, structured biofrequency programs and targeted light applicators in guided sessions. Use the mat while you prepare the room, add a pad or targeted applicator during suitable parts of the massage, or offer a short closing program before the client returns to their day.\r\n\r\nIt does not replace massage, diagnose conditions or dictate your method. It simply gives your practice another way to create calm, continuity and a more distinctive client experience.",
+      "Sanza combines gentle PEMF, selected frequency applications, and targeted light applicators in simple sessions that fit naturally into your practice. You can use the mat while you prepare the room, add a pad or applicator during suitable parts of the massage, or offer a short closing session before the client returns to their day.\r\n\r\nIt does not replace massage, diagnose conditions, or tell you how to work. It gives your practice another way to help clients settle, stay connected to the experience, and leave with a stronger sense of care and attention.",
     solutionSpecs: [
       {
         title: "Integrated",
@@ -118,9 +118,9 @@ const common = {
         body: "If it fits, we recommend a setup and onboarding path. If not, you still leave informed.",
       },
     ],
-    finalCtaTitle: "Let your massage remain the craft. Make the whole session feel more complete.",
+    finalCtaTitle: "Keep your hands at the centre of the experience. Add Sanza around them to help clients arrive more calmly, receive more fully, and leave with a deeper sense of care.",
     finalCtaBody:
-      "Arrange a no-pressure demonstration tailored to your practice and massage style.",
+      "Book a relaxed demonstration for your practice and see how Sanza can fit naturally into the way you already work.",
     finalCtaPrimary: "Arrange a massage-practice demo",
   },
   de: {

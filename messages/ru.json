@@ -514,12 +514,12 @@
     "drawerClose": "Close"
   },
   "Language": {
-    "label": "Language",
-    "de": "Deutsch",
-    "en": "English",
-    "lv": "Latviešu",
+    "label": "Язык",
+    "de": "Немецкий",
+    "en": "Английский",
+    "lv": "Латышский",
     "ru": "Русский",
-    "tr": "Türkçe"
+    "tr": "Турецкий"
   },
   "ProfessionalPages": {
     "therapists": {

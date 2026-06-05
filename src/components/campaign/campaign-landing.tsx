@@ -207,15 +207,17 @@ export async function CampaignLanding({ content }: Props) {
         <div className="mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
           <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-20">
             <div>
-              <FadeUp>
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--brand-strong)] sm:text-[0.9375rem]">
-                  {content.problemEyebrow}
-                </p>
-              </FadeUp>
+              {content.problemEyebrow ? (
+                <FadeUp>
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--brand-strong)] sm:text-[0.9375rem]">
+                    {content.problemEyebrow}
+                  </p>
+                </FadeUp>
+              ) : null}
               <FadeUp delay={1}>
                 <h2
                   id="campaign-problem-heading"
-                  className="mt-3 font-heading text-[clamp(1.9rem,4vw,2.7rem)] font-bold leading-[1.08] tracking-tight text-[var(--text)]"
+                  className={`${content.problemEyebrow ? "mt-3 " : ""}font-heading text-[clamp(1.9rem,4vw,2.7rem)] font-bold leading-[1.08] tracking-tight text-[var(--text)]`}
                 >
                   {content.problemTitle}
                 </h2>

@@ -1,5 +1,6 @@
 import type { Locale } from "@/i18n/routing";
 import type { SiteSurface } from "@/lib/domains";
+import { mergeRussianContent } from "@/lib/russian-content";
 
 export type HomeLocale = "de" | "en" | "lv";
 
@@ -104,7 +105,7 @@ export const HOME_COPY = {
 export function getHomeSharedCopy(locale: string | Locale) {
   return {
     ...shared,
-    ...HOME_COPY[homeLocale(locale)],
+    ...mergeRussianContent(locale, "homeuse/shared", HOME_COPY[homeLocale(locale)]),
   };
 }
 

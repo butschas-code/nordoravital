@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useLocale } from "next-intl";
 import { useMemo, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 
@@ -31,10 +32,23 @@ const groupIntents = [
   "For routines you adjust, repeat and save.",
 ] as const;
 
+const groupIntentsRu = [
+  "Для утра, концентрации и готовности к движению.",
+  "Для вечера, перегрузки и восстановления после усилий.",
+  "Для сосредоточенного внимания на одной зоне или моменте.",
+  "Для процедур, которые вы настраиваете, повторяете и сохраняете.",
+] as const;
+
 const technologyNotes = [
   "The full-body field forms the base of the session.",
   "Signal patterns set the session direction.",
   "Focused light support keeps targeted routines precise.",
+] as const;
+
+const technologyNotesRu = [
+  "Поле для всего тела создает основу сеанса.",
+  "Сигнальные паттерны задают направление сеанса.",
+  "Фокусированная световая поддержка делает целевые процедуры точными.",
 ] as const;
 
 const groupImageOrder = [
@@ -69,10 +83,14 @@ export function ProgramLibraryExperience({
   groups,
   images,
 }: Props) {
+  const locale = useLocale();
+  const isRussian = locale === "ru";
   const [activeIndex, setActiveIndex] = useState(0);
   const prefersReducedMotion = useReducedMotion();
   const activeGroup = groups[activeIndex] ?? groups[0];
   const activeImage = images[groupImageOrder[activeIndex] ?? "lifestyle"];
+  const localizedGroupIntents = isRussian ? groupIntentsRu : groupIntents;
+  const localizedTechnologyNotes = isRussian ? technologyNotesRu : technologyNotes;
 
   const motionProps = useMemo(
     () =>
@@ -117,7 +135,7 @@ export function ProgramLibraryExperience({
                     {technology}
                   </h3>
                   <p className="mt-2 max-w-[28rem] text-[0.88rem] leading-[1.5] text-white/82">
-                    {technologyNotes[index]}
+                    {localizedTechnologyNotes[index]}
                   </p>
                 </div>
               </div>
@@ -158,13 +176,13 @@ export function ProgramLibraryExperience({
             />
             <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-7">
               <p className="w-fit rounded-full border border-[#f6f1ea]/24 px-3 py-1 text-[0.68rem] font-extrabold uppercase tracking-[0.17em] text-white/88">
-                Active state
+                {isRussian ? "Активное состояние" : "Active state"}
               </p>
               <h3 className="mt-3 max-w-[14ch] font-heading text-[clamp(2rem,4vw,3.35rem)] font-bold leading-[0.98] text-white">
                 {activeGroup.title}
               </h3>
               <p className="mt-3 max-w-[34rem] text-[1rem] leading-[1.58] text-white">
-                {groupIntents[activeIndex]}
+                {localizedGroupIntents[activeIndex]}
               </p>
             </div>
             </div>
@@ -218,7 +236,7 @@ export function ProgramLibraryExperience({
                         selected ? "text-[#31443b]" : "text-white/88"
                       }`}
                     >
-                      {groupIntents[index]}
+                      {localizedGroupIntents[index]}
                     </p>
                   </div>
                   <div className="mt-5 flex flex-wrap gap-2">
@@ -248,7 +266,7 @@ export function ProgramLibraryExperience({
         className="mt-5 rounded-[8px] border border-[#f6f1ea]/14 bg-[#f6f1ea]/6 p-5"
       >
         <summary className="cursor-pointer text-[0.95rem] font-bold text-white">
-          Read the full program logic
+          {isRussian ? "Ознакомьтесь с полной логикой программы" : "Read the full program logic"}
         </summary>
         <div className="mt-5 grid gap-4 text-[0.96rem] leading-[1.72] text-white/88 lg:grid-cols-3">
           {body.slice(1).map((paragraph) => (

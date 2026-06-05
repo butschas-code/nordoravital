@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { Inter, Manrope } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { ContactDrawerProvider } from "@/components/contact/contact-drawer-context";
 import { CookieBanner } from "@/components/cookie-banner";
 import { SanzaBoldener } from "@/components/sanza-boldener";
@@ -120,6 +121,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             </ContactDrawerProvider>
           )}
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );

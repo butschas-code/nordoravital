@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { LegalPageShell } from "@/components/legal/legal-page-shell";
+import { RussianLegalContent, russianLegalMeta } from "@/components/legal/russian-legal-content";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -17,11 +18,15 @@ const metaByLocale = {
     title: "Sīkdatņu politika | Nordora Vital",
     description: "Informācija par to, kā un kāpēc mēs izmantojam sīkdatnes Nordora Vital vietnē.",
   },
+  ru: {
+    title: `${russianLegalMeta["cookie-policy"].title} | Nordora Vital`,
+    description: russianLegalMeta["cookie-policy"].description,
+  },
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const lang = (locale === "de" || locale === "lv") ? locale : "en";
+  const lang = (locale === "de" || locale === "lv" || locale === "ru") ? locale : "en";
   return {
     title: metaByLocale[lang].title,
     description: metaByLocale[lang].description,
@@ -306,6 +311,14 @@ const pageMeta = {
 
 export default async function CookiePolicyPage({ params }: Props) {
   const { locale } = await params;
+  if (locale === "ru") {
+    const { title, subtitle } = russianLegalMeta["cookie-policy"];
+    return (
+      <LegalPageShell title={title} subtitle={subtitle}>
+        <RussianLegalContent slug="cookie-policy" />
+      </LegalPageShell>
+    );
+  }
   const lang = (locale === "de" || locale === "lv") ? locale : "en";
   const { title, subtitle } = pageMeta[lang];
 

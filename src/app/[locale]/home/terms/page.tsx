@@ -7,6 +7,7 @@ import {
 import { HomeSiteLayout } from "@/components/home-site/home-site-shell";
 import { getOriginForSurface } from "@/lib/domains";
 import { homeLocale } from "@/lib/home-copy";
+import { mergeRussianContent } from "@/lib/russian-content";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -168,7 +169,7 @@ const pageCopy = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const copy = pageCopy[homeLocale(locale)];
+  const copy = mergeRussianContent(locale, "homeuse/terms", pageCopy[homeLocale(locale)]);
   return {
     title: copy.metaTitle,
     description: copy.metaDescription,
@@ -181,11 +182,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function HomeTermsPage({ params }: Props) {
   const { locale: routeLocale } = await params;
-  const locale = homeLocale(routeLocale);
-  const copy = pageCopy[locale];
+  const activeLocale = homeLocale(routeLocale);
+  const copy = mergeRussianContent(routeLocale, "homeuse/terms", pageCopy[activeLocale]);
 
   return (
-    <HomeSiteLayout locale={locale}>
+    <HomeSiteLayout locale={routeLocale}>
       <HomeLegalPage
         eyebrow={copy.eyebrow}
         title={copy.title}

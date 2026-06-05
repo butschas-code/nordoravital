@@ -2,6 +2,7 @@ import type { CampaignPageContent } from "@/types/campaign-page";
 import type { CampaignSlug } from "@/lib/campaign-slugs";
 import type { Locale } from "@/i18n/routing";
 import { MASSAGE_CAMPAIGN_CONTENT } from "@/lib/massage-campaign-content";
+import { getRussianCampaignContent, isRussianLocale } from "@/lib/russian-content";
 
 type ContactCategory = NonNullable<CampaignPageContent["contactCategory"]>;
 
@@ -4630,10 +4631,13 @@ export function getCampaignPageContent(
   slug: CampaignSlug,
   locale: Locale,
 ): CampaignPageContent | null {
+  let content: CampaignPageContent | null = null;
+
   if (slug === "masaza") {
-    return MASSAGE_CAMPAIGN_CONTENT[
+    content = MASSAGE_CAMPAIGN_CONTENT[
       locale === "de" || locale === "lv" ? locale : "en"
     ];
+    return isRussianLocale(locale) ? getRussianCampaignContent(slug, content) : content;
   }
   if (locale === "de") {
     return CAMPAIGN_PAGE_CONTENT_DE[slug] ?? CAMPAIGN_PAGE_CONTENT[slug] ?? null;
@@ -4641,5 +4645,6 @@ export function getCampaignPageContent(
   if (locale === "lv") {
     return CAMPAIGN_PAGE_CONTENT_LV[slug] ?? CAMPAIGN_PAGE_CONTENT[slug] ?? null;
   }
-  return CAMPAIGN_PAGE_CONTENT[slug] ?? null;
+  content = CAMPAIGN_PAGE_CONTENT[slug] ?? null;
+  return isRussianLocale(locale) ? getRussianCampaignContent(slug, content) : content;
 }

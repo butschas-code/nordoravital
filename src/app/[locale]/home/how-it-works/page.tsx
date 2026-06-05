@@ -11,6 +11,7 @@ import { HomeSiteLayout } from "@/components/home-site/home-site-shell";
 import { getOriginForSurface, getSiteSurface } from "@/lib/domains";
 import { getHomeDisplayPath, getHomeSharedCopy, homeLocale } from "@/lib/home-copy";
 import { IMAGE_PATHS } from "@/lib/public-images";
+import { mergeRussianContent } from "@/lib/russian-content";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -386,7 +387,7 @@ const pageCopy = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const copy = pageCopy[homeLocale(locale)];
+  const copy = mergeRussianContent(locale, "homeuse/how-it-works", pageCopy[homeLocale(locale)]);
   return {
     title: copy.metaTitle,
     description: copy.metaDescription,
@@ -418,9 +419,9 @@ function Eyebrow({ children, light = false }: { children: ReactNode; light?: boo
 
 export default async function TheSanzaExperiencePage({ params }: Props) {
   const { locale: routeLocale } = await params;
-  const locale = homeLocale(routeLocale);
-  const copy = pageCopy[locale];
-  const shared = getHomeSharedCopy(locale);
+  const activeLocale = homeLocale(routeLocale);
+  const copy = mergeRussianContent(routeLocale, "homeuse/how-it-works", pageCopy[activeLocale]);
+  const shared = getHomeSharedCopy(routeLocale);
   const heads = await headers();
   const surface = getSiteSurface(heads.get("x-forwarded-host") ?? heads.get("host"));
   const programsHref = getHomeDisplayPath(surface, "/programs");
@@ -429,7 +430,7 @@ export default async function TheSanzaExperiencePage({ params }: Props) {
   const accessorySections = copy.sections.slice(1);
 
   return (
-    <HomeSiteLayout locale={locale}>
+    <HomeSiteLayout locale={routeLocale}>
       <main className="site-marketing-root">
         <section
           className="home-hero--how relative isolate left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] overflow-hidden bg-[var(--brand-deep)]"
