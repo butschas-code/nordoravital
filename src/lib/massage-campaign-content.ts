@@ -8,10 +8,10 @@ const images = {
   fits: [
     "/images/campaign/massage-fit-01-calm-arrival.jpg",
     "/images/campaign/massage-fit-02-targeted-support.jpg",
-    "/images/campaign/massage-fit-01-calm-arrival.jpg",
+    "/images/campaign/massage-fit-03-closing-ritual.jpg",
     "/images/campaign/massage-fit-04-combined-session.jpg",
   ],
-  practice: "/images/campaign/chiro-for-practice.jpg",
+  practice: "/images/campaign/massage-for-practice.jpg",
 } as const;
 
 const common = {
@@ -251,7 +251,7 @@ const common = {
     quickStats: [
       { value: "15", label: "strukturētas labsajūtas programmas" },
       { value: "1", label: "vienkārša sistēma visai komandai" },
-      { value: "10–15 min", label: "ierašanās vai noslēguma rituālam" },
+      { value: "15 min", label: "ierašanās vai noslēguma rituālam" },
       { value: "0", label: "izmaiņu jūsu masāžas tehnikā" },
     ],
     problemEyebrow: "Seanss sākas pirms pirmā pieskāriena.",
