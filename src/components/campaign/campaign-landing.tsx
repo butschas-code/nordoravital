@@ -113,6 +113,11 @@ export async function CampaignLanding({ content }: Props) {
                 priority
                 sizes="100vw"
                 className="object-cover object-center"
+                style={
+                  content.heroImagePosition
+                    ? { objectPosition: content.heroImagePosition }
+                    : undefined
+                }
               />
             ) : (
               <OptimizedBackgroundVideo
@@ -239,6 +244,11 @@ export async function CampaignLanding({ content }: Props) {
                     fill
                     sizes="(min-width: 1024px) 45vw, 90vw"
                     className="object-cover"
+                    style={
+                      content.problemImagePosition
+                        ? { objectPosition: content.problemImagePosition }
+                        : undefined
+                    }
                   />
                   <div
                     className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-[var(--brand-deep)]/30 via-transparent to-[var(--brand-secondary)]/15"

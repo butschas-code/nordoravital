@@ -13,6 +13,7 @@ type CampaignInput = {
   contactCategory?: ContactCategory;
   demoRequestMessage?: string;
   heroImage?: string;
+  heroImagePosition?: string;
   heroTextAlign?: "left" | "right";
   heroKicker: string;
   heroHeadline: string;
@@ -25,6 +26,7 @@ type CampaignInput = {
   problemTitle: string;
   problemBody: string;
   problemImage?: string;
+  problemImagePosition?: string;
   solutionEyebrow?: string;
   solutionSpecs?: CampaignPageContent["solutionSpecs"];
   solutionTitle: string;
@@ -242,6 +244,7 @@ function makeCampaignPage(input: CampaignInput, locale: "en" | "de" | "lv" = "en
     metaTitle: input.metaTitle ?? `${input.segmentName} | sanza × Nordora Vital`,
     metaDescription: input.metaDescription,
     heroImage: input.heroImage,
+    heroImagePosition: input.heroImagePosition,
     heroTextAlign: input.heroTextAlign,
     heroKicker: input.heroKicker,
     heroHeadline: input.heroHeadline,
@@ -257,6 +260,7 @@ function makeCampaignPage(input: CampaignInput, locale: "en" | "de" | "lv" = "en
     problemTitle: input.problemTitle,
     problemBody: input.problemBody,
     problemImage: input.problemImage,
+    problemImagePosition: input.problemImagePosition,
     solutionEyebrow: input.solutionEyebrow ?? common.solutionEyebrow,
     solutionTitle: input.solutionTitle,
     solutionBody: input.solutionBody,
@@ -528,7 +532,8 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
     segmentName: "Alternative Therapists, Homeopaths & Naturopaths",
     metaDescription:
       "A calm, premium wellbeing layer for alternative therapy, homeopathy and naturopathy practices where the visit experience matters as much as the method.",
-    heroImage: "/images/campaign/chiro-hero.jpg",
+    heroImage: "/images/campaign/alternative-therapists-hero.jpg",
+    heroImagePosition: "72% center",
     heroTextAlign: "left",
     heroKicker:
       "FOR PRACTICES WHERE REGULATION, TRUST AND READINESS SHAPE THE WHOLE SESSION",
@@ -553,7 +558,8 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
     problemTitle: "Support your clients before, during and after the session.",
     problemBody:
       "Many of your clients are looking for more than symptom relief. They want better regulation, more energy, deeper recovery and a way back into balance. <strong>sanza</strong> adds PEMF technology and selected frequency programs to your practice, giving you an additional wellbeing tool that can complement your therapeutic work, support physical comfort and strengthen the experience around your care — while your method remains fully yours.\r\n\r\nUsing PEMF technology and selected frequency programs, <strong>sanza</strong> can help create a calmer starting point, support physical comfort during the session and give clients a few minutes to recover before they leave.\r\n\r\nIt does not change your method or your professional scope. It simply adds a practical, repeatable wellbeing layer around the care you already provide.",
-    problemImage: "/images/campaign/chiro-block-1.jpg",
+    problemImage: "/images/campaign/alternative-therapists-block-1.jpg",
+    problemImagePosition: "52% 56%",
     solutionTitle: "Support your clients before, during and after the session.",
     solutionBody:
       "With <strong>sanza</strong>, you can add a 10–15 minute PEMF, biofrequency or laser-supported program around your existing therapeutic work. Use it to help clients prepare for the session, stay more regulated during the process or recover more comfortably afterwards. It is gentle, non-invasive and simple to explain — a modern wellbeing addition that complements your approach without replacing your method.",
@@ -576,10 +582,11 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
     fitsLead:
       "Use <strong>sanza</strong> before, during or after your session to complement the work you already do. It adds PEMF, biofrequency and light support without changing your method, your consultation style or the way you guide your clients.",
     fitsImages: [
-      "/images/campaign/chiro-fit-arrival.jpg",
-      "/images/campaign/chiro-fit-applicators.jpg",
-      "/images/campaign/chiro-fit-decompression.jpg",
+      "/images/campaign/alternative-therapists-integration-01.jpg",
+      "/images/campaign/alternative-therapists-integration-02.jpg",
+      "/images/campaign/alternative-therapists-integration-03.jpg",
     ],
+    fitsImagePositions: ["58% center", "54% center", "48% center"],
     fitsItems: [
       {
         title: "Before",
@@ -604,8 +611,8 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
       "Premium add-on or package potential without changing your core offer",
       "A simple ritual that can be repeated consistently across sessions",
     ],
-    whatChangesPracticeImage: "/images/campaign/chiro-for-practice.jpg",
-    whatChangesPracticeImagePosition: "50% 32%",
+    whatChangesPracticeImage: "/images/campaign/alternative-therapists-outcomes.jpg",
+    whatChangesPracticeImagePosition: "70% center",
     socialProofQuote:
       "For practitioners whose work depends on presence, the first minutes in the room matter. sanza makes those minutes easier to shape.",
     finalCtaTitle:
@@ -2067,7 +2074,8 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     segmentName: "Alternative Therapeuten, Homöopathen und Naturheilkundler",
     metaTitle: "Alternativtherapeuten, Homöopathen und Naturheilkundler | sanza × Nordora Vital",
     metaDescription: "Eine ruhige, hochwertige Wohlfühlatmosphäre für Praxen für alternative Therapie, Homöopathie und Naturheilkunde, in denen das Erlebnis des Besuchs genauso wichtig ist wie die Methode.",
-    heroImage: "/images/campaign/chiro-hero.jpg",
+    heroImage: "/images/campaign/alternative-therapists-hero.jpg",
+    heroImagePosition: "72% center",
     heroTextAlign: "left",
     heroKicker: "FÜR PRAXEN, IN DENEN REGELUNG, VERTRAUEN UND BEREITSCHAFT DIE GESAMTE SITZUNG PRÄGEN",
     heroHeadline: "Unterstützen Sie Ihre Klienten vor, während und nach Ihrer therapeutischen Arbeit.",
@@ -2089,7 +2097,8 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     problemEyebrow: "FÜR HOMÖOPATHEN, NATURHEILPRAKTIKER UND HOLISTISCHE THERAPEUTEN",
     problemTitle: "Unterstützen Sie Ihre Klienten vor, während und nach der Sitzung.",
     problemBody: "Viele Ihrer Klienten suchen mehr als nur eine Linderung ihrer Symptome. Sie wünschen sich eine bessere Regulierung, mehr Energie, eine tiefere Erholung und einen Weg zurück ins Gleichgewicht. sanza ergänzt Ihre Praxis um PEMF-Technologie und ausgewählte Frequenzprogramme und bietet Ihnen damit ein zusätzliches Instrument für das Wohlbefinden, das Ihre therapeutische Arbeit ergänzen, das körperliche Wohlbefinden fördern und das Erlebnis rund um Ihre Behandlung stärken kann – während Ihre Methode ganz und gar Ihre eigene bleibt.\n\nMithilfe der PEMF-Technologie und ausgewählter Frequenzprogramme kann sanza dazu beitragen, eine ruhigere Ausgangsbasis zu schaffen, das körperliche Wohlbefinden während der Sitzung zu fördern und Ihren Kunden vor dem Verlassen Ihrer Praxis ein paar Minuten Zeit zur Erholung zu geben.\n\nEs verändert weder Ihre Methode noch Ihren beruflichen Tätigkeitsbereich. Es ergänzt lediglich die von Ihnen bereits angebotene Betreuung um eine praktische, wiederholbare Ebene des Wohlbefindens.",
-    problemImage: "/images/campaign/chiro-block-1.jpg",
+    problemImage: "/images/campaign/alternative-therapists-block-1.jpg",
+    problemImagePosition: "52% 56%",
     solutionEyebrow: "Integrierte PEMF-, Biofrequenz- und Lasertherapie",
     solutionTitle: "Unterstützen Sie Ihre Klienten vor, während und nach der Sitzung.",
     solutionBody: "Mit sanza können Sie Ihre bestehende therapeutische Arbeit um ein 10–15-minütiges, durch PEMF, Biofrequenz oder Laser unterstütztes Programm ergänzen. Nutzen Sie es, um Kunden bei der Vorbereitung auf die Sitzung zu helfen, während des Prozesses für mehr Ausgeglichenheit zu sorgen oder ihnen anschließend eine angenehmere Erholung zu ermöglichen. Es ist sanft, nicht-invasiv und leicht zu erklären – eine moderne Ergänzung für das Wohlbefinden, die Ihren Ansatz ergänzt, ohne Ihre Methode zu ersetzen.",
@@ -2111,10 +2120,11 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     fitsTitle: "Drei einfache Möglichkeiten, sanza in Ihre Praxis zu integrieren",
     fitsLead: "Nutzen Sie sanza vor, während oder nach Ihrer Sitzung, um Ihre bestehende Arbeit zu ergänzen. Es bietet Unterstützung durch PEMF, Biofrequenz und Licht, ohne Ihre Methode, Ihren Beratungsstil oder die Art und Weise, wie Sie Ihre Klienten begleiten, zu verändern.",
     fitsImages: [
-      "/images/campaign/chiro-fit-arrival.jpg",
-      "/images/campaign/chiro-fit-applicators.jpg",
-      "/images/campaign/chiro-fit-decompression.jpg",
+      "/images/campaign/alternative-therapists-integration-01.jpg",
+      "/images/campaign/alternative-therapists-integration-02.jpg",
+      "/images/campaign/alternative-therapists-integration-03.jpg",
     ],
+    fitsImagePositions: ["58% center", "54% center", "48% center"],
     fitsItems: [
       {
         title: "Vorher",
@@ -2143,8 +2153,8 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
       "Potenzial für hochwertige Zusatzangebote oder Pakete, ohne Ihr Kernangebot zu verändern",
       "Ein einfaches Ritual, das über alle Sitzungen hinweg konsistent wiederholt werden kann",
     ],
-    whatChangesPracticeImage: "/images/campaign/chiro-for-practice.jpg",
-    whatChangesPracticeImagePosition: "50% 32%",
+    whatChangesPracticeImage: "/images/campaign/alternative-therapists-outcomes.jpg",
+    whatChangesPracticeImagePosition: "70% center",
     socialProofLabel: "Warum Partner darum bitten, es zu sehen",
     socialProofQuote: "Für Fachleute, deren Arbeit von Präsenz abhängt, sind die ersten Minuten im Raum entscheidend. sanza macht es einfacher, diese Minuten zu gestalten.",
     socialProofAttribution: "Nordora Vital · Professionelles Partnerprogramm",
@@ -3622,7 +3632,8 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
     segmentName: "Alternatīvās terapijas speciālisti, homeopāti un naturopāti",
     metaTitle: "Alternatīvās terapijas speciālisti, homeopāti un naturopāti | sanza × Nordora Vital",
     metaDescription: "Mierīga, augstākās kvalitātes labklājības vide alternatīvās terapijas, homeopātijas un naturopātijas praksēm, kur apmeklējuma pieredze ir tikpat svarīga kā izmantotā metode.",
-    heroImage: "/images/campaign/chiro-hero.jpg",
+    heroImage: "/images/campaign/alternative-therapists-hero.jpg",
+    heroImagePosition: "72% center",
     heroTextAlign: "left",
     heroKicker: "PRAKSĒM, KUR REGULĀCIJA, UZTICĒŠANĀS UN GATAVĪBA VEIDO VISU SEANSU",
     heroHeadline: "Atbalstiet savus klientus pirms, terapijas laikā un pēc tās.",
@@ -3644,7 +3655,8 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
     problemEyebrow: "HOMEOPĀTIEM, NATUROPĀTIEM UN HOLISTISKAJIEM TERAPEITIEM",
     problemTitle: "Atbalstiet savus klientus pirms, sesijas laikā un pēc tās.",
     problemBody: "Daudzi no jūsu klientiem meklē ko vairāk nekā tikai simptomu atvieglojumu. Viņi vēlas labāku regulāciju, vairāk enerģijas, dziļāku atveseļošanos un ceļu atpakaļ uz līdzsvaru. „sanza” papildina jūsu praksi ar PEMF tehnoloģiju un izvēlētajām frekvenču programmām, sniedzot jums papildu labklājības rīku, kas var papildināt jūsu terapeitisko darbu, veicināt fizisko komfortu un uzlabot pieredzi saistībā ar jūsu sniegto aprūpi — vienlaikus pilnībā saglabājot jūsu metodes individualitāti.\nIzmantojot PEMF tehnoloģiju un izvēlētas frekvenču programmas, „sanza“ var palīdzēt radīt mierīgāku sākuma punktu, veicināt fizisko komfortu seansa laikā un dot klientiem dažas minūtes, lai atgūtos pirms došanās prom.\nTas nemaina ne jūsu metodi, ne profesionālo darbības jomu. Tas vienkārši pievieno praktisku, atkārtojamu labklājības slāni aprūpei, ko jūs jau sniedzat.",
-    problemImage: "/images/campaign/chiro-block-1.jpg",
+    problemImage: "/images/campaign/alternative-therapists-block-1.jpg",
+    problemImagePosition: "52% 56%",
     solutionEyebrow: "Integrēta PEMF, biofrekvences un lāzera terapija",
     solutionTitle: "Atbalstiet savus klientus pirms, sesijas laikā un pēc tās.",
     solutionBody: "Ar „sanza“ jūs varat papildināt savu esošo terapeitisko darbu ar 10–15 minūšu ilgu PEMF, biofrekvences vai lāzera atbalstītu programmu. Izmantojiet to, lai palīdzētu klientiem sagatavoties seansam, saglabāt lielāku līdzsvaru procesa laikā vai ērtāk atgūties pēc tam. Tas ir maigs, neinvazīvs un viegli izskaidrojams — mūsdienīgs labsajūtas papildinājums, kas papildina jūsu pieeju, neaizstājot jūsu metodi.",
@@ -3666,10 +3678,11 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
     fitsTitle: "Trīs vienkārši veidi, kā iekļaut „sanza” savā praksē",
     fitsLead: "Izmantojiet „sanza” pirms, sesijas laikā vai pēc tās, lai papildinātu darbu, ko jau veicat. Tas pievieno PEMF, biofrekvences un gaismas atbalstu, nemainot jūsu metodi, konsultāciju stilu vai veidu, kādā jūs vadāt savus klientus.",
     fitsImages: [
-      "/images/campaign/chiro-fit-arrival.jpg",
-      "/images/campaign/chiro-fit-applicators.jpg",
-      "/images/campaign/chiro-fit-decompression.jpg",
+      "/images/campaign/alternative-therapists-integration-01.jpg",
+      "/images/campaign/alternative-therapists-integration-02.jpg",
+      "/images/campaign/alternative-therapists-integration-03.jpg",
     ],
+    fitsImagePositions: ["58% center", "54% center", "48% center"],
     fitsItems: [
       {
         title: "Pirms",
@@ -3698,8 +3711,8 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
       "Iespēja piedāvāt ekskluzīvu papildpakalpojumu vai pakalpojumu komplektu, nemainot jūsu pamatpiedāvājumu",
       "Vienkāršs rituāls, ko var konsekventi atkārtot visās sesijās",
     ],
-    whatChangesPracticeImage: "/images/campaign/chiro-for-practice.jpg",
-    whatChangesPracticeImagePosition: "50% 32%",
+    whatChangesPracticeImage: "/images/campaign/alternative-therapists-outcomes.jpg",
+    whatChangesPracticeImagePosition: "70% center",
     socialProofLabel: "Kāpēc partneri vēlas to redzēt",
     socialProofQuote: "Praktizētājiem, kuru darbs ir atkarīgs no klātbūtnes, pirmās minūtes telpā ir ļoti svarīgas. „sanza“ palīdz vieglāk veidot šīs minūtes.",
     socialProofAttribution: "Nordora Vital · Profesionālā partneru programma",

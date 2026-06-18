@@ -9,6 +9,7 @@ export type CampaignPageContent = {
 
   /** Tiny hero pill above the kicker. */
   heroImage?: string;
+  heroImagePosition?: string;
   heroTextAlign?: "left" | "right";
   heroBadge?: string;
   heroKicker: string;
@@ -41,6 +42,7 @@ export type CampaignPageContent = {
   problemTitle: string;
   problemBody: string;
   problemImage?: string;
+  problemImagePosition?: string;
 
   solutionEyebrow: string;
   solutionTitle: string;
