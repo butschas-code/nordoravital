@@ -7,6 +7,7 @@ export const CAMPAIGN_SLUGS = [
   "fizioterapija",
   "sporta-medicina",
   "hiropraktika",
+  "alternativie-terapeiti",
   "joga-meditacija",
   "sporta-zales",
   "vecu-cilveku-aprupe",
@@ -32,6 +33,7 @@ export const CAMPAIGN_SHARE_ALIASES: Record<
     fizioterapija: "physiotherapie",
     "sporta-medicina": "sportmedizin",
     hiropraktika: "chiropraktik",
+    "alternativie-terapeiti": "heilpraktiker-homoeopathie-naturheilkunde",
     "joga-meditacija": "yoga-meditation",
     "sporta-zales": "fitnessstudios",
     "vecu-cilveku-aprupe": "seniorenpflege",
@@ -48,6 +50,7 @@ export const CAMPAIGN_SHARE_ALIASES: Record<
     fizioterapija: "physiotherapy",
     "sporta-medicina": "sports-medicine",
     hiropraktika: "chiropractic",
+    "alternativie-terapeiti": "alternative-therapists-homeopaths-naturopaths",
     "joga-meditacija": "yoga-meditation",
     "sporta-zales": "gyms",
     "vecu-cilveku-aprupe": "senior-care",
@@ -71,13 +74,26 @@ export function resolveCampaignSlugForLocale(
   locale: string,
 ): CampaignSlug | null {
   if (isCampaignSlug(value)) return value;
-  if (locale !== "de" && locale !== "en") return null;
 
-  const aliasEntries = Object.entries(CAMPAIGN_SHARE_ALIASES[locale]) as [
-    CampaignSlug,
-    string,
-  ][];
-  return aliasEntries.find(([, alias]) => alias === value)?.[0] ?? null;
+  if (locale === "de" || locale === "en") {
+    const localeAliasEntries = Object.entries(CAMPAIGN_SHARE_ALIASES[locale]) as [
+      CampaignSlug,
+      string,
+    ][];
+    const localeMatch = localeAliasEntries.find(([, alias]) => alias === value)?.[0];
+    if (localeMatch) return localeMatch;
+  }
+
+  for (const aliases of Object.values(CAMPAIGN_SHARE_ALIASES)) {
+    const aliasEntries = Object.entries(aliases) as [
+      CampaignSlug,
+      string,
+    ][];
+    const match = aliasEntries.find(([, alias]) => alias === value)?.[0];
+    if (match) return match;
+  }
+
+  return null;
 }
 
 export function getCampaignStaticPathsForLocale(locale: string): string[] {

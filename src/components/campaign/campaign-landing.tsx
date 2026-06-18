@@ -80,15 +80,15 @@ export async function CampaignLanding({ content }: Props) {
   const heroCopyClass =
     heroTextAlign === "left"
       ? "mr-auto w-full max-w-xl text-left sm:max-w-2xl"
-      : "ml-auto w-full max-w-xl text-right sm:max-w-2xl";
+      : "ml-auto w-full max-w-xl text-left sm:max-w-2xl md:text-right";
   const heroCtaClass =
     heroTextAlign === "left"
       ? "flex flex-col items-stretch justify-start gap-3 sm:flex-row sm:items-center sm:gap-4"
-      : "flex flex-col items-stretch justify-end gap-3 sm:flex-row sm:items-center sm:gap-4";
+      : "flex flex-col items-stretch justify-start gap-3 sm:flex-row sm:items-center sm:gap-4 md:justify-end";
   const heroEyebrowClass =
     heroTextAlign === "left"
-      ? "campaign-eyebrow campaign-eyebrow--left inline-block text-[0.875rem] font-semibold uppercase tracking-[0.18em] text-white/85 sm:text-[0.9375rem]"
-      : "campaign-eyebrow inline-block text-[0.875rem] font-semibold uppercase tracking-[0.18em] text-white/85 sm:text-[0.9375rem]";
+      ? "campaign-eyebrow campaign-eyebrow--left inline-block max-w-full text-[0.72rem] font-semibold uppercase leading-snug tracking-[0.11em] text-white/85 sm:text-[0.875rem] sm:tracking-[0.16em] md:text-[0.9375rem] md:tracking-[0.18em]"
+      : "campaign-eyebrow campaign-eyebrow--responsive-right inline-block max-w-full text-[0.72rem] font-semibold uppercase leading-snug tracking-[0.11em] text-white/85 sm:text-[0.875rem] sm:tracking-[0.16em] md:text-[0.9375rem] md:tracking-[0.18em]";
   const heroOverlayClass =
     heroTextAlign === "left"
       ? "home-hero-overlay home-hero-overlay--left pointer-events-none absolute inset-0"
@@ -103,7 +103,7 @@ export async function CampaignLanding({ content }: Props) {
         className="relative isolate left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] overflow-hidden bg-[var(--brand-deep)]"
         aria-labelledby="campaign-hero-heading"
       >
-        <div className="relative min-h-[min(86dvh,820px)] lg:min-h-[min(82dvh,780px)]">
+        <div className="relative min-h-[min(760px,92svh)] lg:min-h-[min(82dvh,780px)]">
           <div className="absolute inset-0">
             {content.heroImage ? (
               <Image
@@ -131,7 +131,7 @@ export async function CampaignLanding({ content }: Props) {
             </div>
           </div>
 
-          <div className="relative z-10 mx-auto flex min-h-[min(86dvh,820px)] max-w-[1200px] flex-col justify-end px-4 pb-28 pt-20 sm:px-6 sm:pb-32 sm:pt-24 md:px-8 lg:min-h-[min(82dvh,780px)] lg:pb-32 lg:pt-28 lg:px-10">
+          <div className="relative z-10 mx-auto flex min-h-[min(760px,92svh)] max-w-[1200px] flex-col justify-end px-5 pb-16 pt-24 sm:px-6 sm:pb-24 sm:pt-24 md:px-8 lg:min-h-[min(82dvh,780px)] lg:pb-32 lg:pt-28 lg:px-10">
             <div className={heroCopyClass}>
               <FadeUp immediate delay={1}>
                 <p className={heroEyebrowClass}>
@@ -141,18 +141,18 @@ export async function CampaignLanding({ content }: Props) {
               <FadeUp immediate delay={2} className="mt-4">
                 <h1
                   id="campaign-hero-heading"
-                  className="font-heading text-[clamp(2.1rem,5vw,3.6rem)] font-bold leading-[1.05] tracking-tight text-white whitespace-pre-line [text-shadow:0_2px_28px_rgba(0,0,0,0.45)]"
+                  className="font-heading text-[clamp(2rem,11vw,3.6rem)] font-bold leading-[1.04] tracking-tight text-white whitespace-pre-line [text-shadow:0_2px_28px_rgba(0,0,0,0.45)] sm:text-[clamp(2.3rem,7vw,3.6rem)] md:text-[clamp(2.4rem,5vw,3.6rem)]"
                 >
                   <RichLine text={content.heroHeadline} variant="onDark" />
                 </h1>
               </FadeUp>
-              <FadeUp immediate delay={3} className="mt-7">
-                <p className="text-lg leading-relaxed text-white/92 [text-shadow:0_1px_10px_rgba(0,0,0,0.3)]">
+              <FadeUp immediate delay={3} className="mt-5 sm:mt-7">
+                <p className="text-base leading-relaxed text-white/92 [text-shadow:0_1px_10px_rgba(0,0,0,0.3)] sm:text-lg">
                   <RichLine text={content.heroSubhead} variant="onDark" />
                 </p>
               </FadeUp>
 
-              <FadeUp immediate delay={5} className="mt-10">
+              <FadeUp immediate delay={5} className="mt-7 sm:mt-10">
                 <div className={heroCtaClass}>
                   <ContactDrawerTrigger
                     label={content.heroCtaPrimary}
@@ -176,19 +176,19 @@ export async function CampaignLanding({ content }: Props) {
 
       {/* ═════════ STAT STRIP ═════════ */}
       <section
-        className="campaign-stat-strip relative isolate left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] overflow-hidden py-12 sm:py-14"
+        className="campaign-stat-strip relative isolate left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] overflow-hidden py-7 sm:py-12 md:py-14"
         aria-label="Quick facts"
       >
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
-          <ul className="grid grid-cols-2 divide-x divide-white/10 md:grid-cols-4">
+          <ul className="grid grid-cols-1 divide-y divide-white/10 sm:grid-cols-2 sm:divide-x sm:divide-y-0 md:grid-cols-4">
             {content.quickStats.map((stat, i) => (
-              <li key={i} className="px-4 py-2 sm:px-6">
+              <li key={i} className="px-2 py-4 sm:px-5 sm:py-3 md:px-6">
                 <FadeUp delay={Math.min(i + 1, 4) as 1 | 2 | 3 | 4}>
-                  <div className="flex flex-col items-center text-center md:items-start md:text-left">
-                    <span className="font-heading text-[clamp(2.2rem,4.8vw,3.2rem)] font-bold leading-none tracking-tight text-white [text-shadow:0_2px_18px_rgba(0,0,0,0.45)]">
+                  <div className="grid grid-cols-[4.75rem_minmax(0,1fr)] items-center gap-4 text-left sm:flex sm:flex-col sm:items-center sm:text-center md:items-start md:text-left">
+                    <span className="font-heading text-[2.4rem] font-bold leading-none tracking-tight text-white [text-shadow:0_2px_18px_rgba(0,0,0,0.45)] sm:text-[clamp(2.2rem,4.8vw,3.2rem)]">
                       {stat.value}
                     </span>
-                    <span className="mt-3 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--brand-secondary)]/95 sm:text-sm">
+                    <span className="text-[0.7rem] font-semibold uppercase leading-snug tracking-[0.11em] text-[var(--brand-secondary)]/95 sm:mt-3 sm:text-xs sm:tracking-[0.14em] md:text-sm md:tracking-[0.16em]">
                       {stat.label}
                     </span>
                   </div>
@@ -201,15 +201,15 @@ export async function CampaignLanding({ content }: Props) {
 
       {/* ═════════ PROBLEM (light, image collage) ═════════ */}
       <section
-        className="campaign-band-soft relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] py-24 sm:py-28"
+        className="campaign-band-soft relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] py-16 sm:py-20 md:py-24 lg:py-28"
         aria-labelledby="campaign-problem-heading"
       >
         <div className="mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
-          <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-20">
+          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-20">
             <div>
               {content.problemEyebrow ? (
                 <FadeUp>
-                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--brand-strong)] sm:text-[0.9375rem]">
+                  <p className="text-[0.72rem] font-semibold uppercase leading-snug tracking-[0.11em] text-[var(--brand-strong)] sm:text-sm sm:tracking-[0.16em] md:text-[0.9375rem] md:tracking-[0.18em]">
                     {content.problemEyebrow}
                   </p>
                 </FadeUp>
@@ -217,7 +217,7 @@ export async function CampaignLanding({ content }: Props) {
               <FadeUp delay={1}>
                 <h2
                   id="campaign-problem-heading"
-                  className={`${content.problemEyebrow ? "mt-3 " : ""}font-heading text-[clamp(1.9rem,4vw,2.7rem)] font-bold leading-[1.08] tracking-tight text-[var(--text)]`}
+                  className={`${content.problemEyebrow ? "mt-3 " : ""}font-heading text-[clamp(1.8rem,8vw,2.7rem)] font-bold leading-[1.08] tracking-tight text-[var(--text)] sm:text-[clamp(2rem,5vw,2.7rem)] md:text-[clamp(2rem,4vw,2.7rem)]`}
                 >
                   {content.problemTitle}
                 </h2>
@@ -231,8 +231,8 @@ export async function CampaignLanding({ content }: Props) {
 
             {/* Problem image */}
             <FadeUp delay={2} className="relative">
-              <div className="relative mx-auto aspect-[4/5] w-full max-w-md lg:max-w-none">
-                <div className="absolute inset-0 overflow-hidden rounded-3xl shadow-[var(--shadow-raised)] ring-1 ring-[var(--border)]">
+              <div className="relative mx-auto aspect-[4/3] w-full max-w-md sm:aspect-[4/5] lg:max-w-none">
+                <div className="absolute inset-0 overflow-hidden rounded-2xl shadow-[var(--shadow-raised)] ring-1 ring-[var(--border)] sm:rounded-3xl">
                   <Image
                     src={content.problemImage ?? PROBLEM_IMAGE}
                     alt=""
@@ -254,18 +254,18 @@ export async function CampaignLanding({ content }: Props) {
 
       {/* ═════════ SOLUTION (dark) ═════════ */}
       <section
-        className="home-band-full home-band--quotes relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] py-24 sm:py-28 md:py-32"
+        className="home-band-full home-band--quotes relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] py-16 sm:py-20 md:py-28 lg:py-32"
         aria-labelledby="campaign-solution-heading"
       >
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
           {/* Header — full-width centred */}
           <FadeUp className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/60 sm:text-[0.9375rem]">
+            <p className="text-[0.72rem] font-semibold uppercase leading-snug tracking-[0.11em] text-white/60 sm:text-sm sm:tracking-[0.16em] md:text-[0.9375rem] md:tracking-[0.18em]">
               {content.solutionEyebrow}
             </p>
             <h2
               id="campaign-solution-heading"
-              className="mt-3 font-heading text-[clamp(1.9rem,4vw,2.9rem)] font-bold leading-[1.08] tracking-tight text-white [text-shadow:0_1px_18px_rgba(0,0,0,0.4)]"
+              className="mt-3 font-heading text-[clamp(1.8rem,8vw,2.9rem)] font-bold leading-[1.08] tracking-tight text-white [text-shadow:0_1px_18px_rgba(0,0,0,0.4)] sm:text-[clamp(2rem,5vw,2.9rem)] md:text-[clamp(2rem,4vw,2.9rem)]"
             >
               <RichLine text={content.solutionTitle} variant="onDark" />
             </h2>
@@ -276,11 +276,11 @@ export async function CampaignLanding({ content }: Props) {
 
           {/* 3 spec cards — horizontal, full-width, generous padding */}
           <FadeUp delay={2}>
-            <ul className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3">
+            <ul className="mt-10 grid grid-cols-1 gap-4 sm:mt-12 md:mt-14 md:grid-cols-3 md:gap-5">
               {content.solutionSpecs.map((spec, i) => (
                 <li
                   key={i}
-                  className="flex flex-col gap-6 rounded-3xl border border-white/10 bg-white/[0.05] p-8 backdrop-blur-sm"
+                  className="flex flex-col gap-5 rounded-2xl border border-white/10 bg-white/[0.05] p-5 backdrop-blur-sm sm:rounded-3xl sm:p-7 md:p-8"
                 >
                   {/* Icon */}
                   <span
@@ -328,17 +328,17 @@ export async function CampaignLanding({ content }: Props) {
 
       {/* ═════════ HOW IT FITS (light, equal-height image cards) ═════════ */}
       <section
-        className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] bg-[var(--bg)] py-24 sm:py-28"
+        className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] bg-[var(--bg)] py-16 sm:py-20 md:py-24 lg:py-28"
         aria-labelledby="campaign-fits-heading"
       >
         <div className="mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
           <FadeUp className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--brand-strong)] sm:text-[0.9375rem]">
+            <p className="text-[0.72rem] font-semibold uppercase leading-snug tracking-[0.11em] text-[var(--brand-strong)] sm:text-sm sm:tracking-[0.16em] md:text-[0.9375rem] md:tracking-[0.18em]">
               {content.fitsEyebrow}
             </p>
             <h2
               id="campaign-fits-heading"
-              className="mt-3 font-heading text-[clamp(1.9rem,4vw,2.7rem)] font-bold leading-[1.08] tracking-tight text-[var(--text)]"
+              className="mt-3 font-heading text-[clamp(1.8rem,8vw,2.7rem)] font-bold leading-[1.08] tracking-tight text-[var(--text)] sm:text-[clamp(2rem,5vw,2.7rem)] md:text-[clamp(2rem,4vw,2.7rem)]"
             >
               {content.fitsTitle}
             </h2>
@@ -347,11 +347,11 @@ export async function CampaignLanding({ content }: Props) {
             </p>
           </FadeUp>
 
-          <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:gap-7" style={{ gridAutoRows: "1fr" }}>
+          <ul className="mt-9 grid gap-5 sm:mt-12 sm:grid-cols-2 lg:gap-7" style={{ gridAutoRows: "1fr" }}>
             {content.fitsItems.map((item, idx) => (
               <li key={idx} className="h-full">
                 <FadeUp delay={Math.min(idx + 1, 6) as 1 | 2 | 3 | 4 | 5 | 6} className="h-full">
-                  <article className="campaign-card group flex h-full min-h-[320px] flex-col overflow-hidden">
+                  <article className="campaign-card group flex h-full min-h-0 flex-col overflow-hidden sm:min-h-[320px]">
                     {/* Header image strip */}
                     <div className="relative aspect-[16/9] w-full overflow-hidden">
                       <Image
@@ -376,12 +376,12 @@ export async function CampaignLanding({ content }: Props) {
                       >
                         {String(idx + 1).padStart(2, "0")}
                       </span>
-                      <h3 className="absolute bottom-4 left-5 right-5 font-heading text-lg font-semibold leading-snug text-white [text-shadow:0_1px_14px_rgba(0,0,0,0.6)]">
+                      <h3 className="absolute bottom-4 left-5 right-5 font-heading text-base font-semibold leading-snug text-white [text-shadow:0_1px_14px_rgba(0,0,0,0.6)] sm:text-lg">
                         <RichLine text={item.title} variant="onDark" />
                       </h3>
                     </div>
                     {/* Body */}
-                    <div className="flex flex-1 flex-col p-6 sm:p-7">
+                    <div className="flex flex-1 flex-col p-5 sm:p-7">
                       <p className="text-base leading-relaxed text-[var(--muted)] sm:text-[1.0625rem]">
                         <RichLine text={item.body} />
                       </p>
@@ -396,23 +396,23 @@ export async function CampaignLanding({ content }: Props) {
 
       {/* ═════════ WHAT CHANGES (dark, two equal cards w/ header images) ═════════ */}
       <section
-        className="campaign-no-grid home-band-full home-band--pillars relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] py-24 sm:py-28"
+        className="campaign-no-grid home-band-full home-band--pillars relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] py-16 sm:py-20 md:py-24 lg:py-28"
         aria-labelledby="campaign-changes-heading"
       >
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
           <FadeUp className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/72 sm:text-[0.9375rem]">
+            <p className="text-[0.72rem] font-semibold uppercase leading-snug tracking-[0.11em] text-white/72 sm:text-sm sm:tracking-[0.16em] md:text-[0.9375rem] md:tracking-[0.18em]">
               {content.whatChangesEyebrow}
             </p>
             <h2
               id="campaign-changes-heading"
-              className="mt-3 font-heading text-[clamp(1.9rem,4vw,2.7rem)] font-bold leading-[1.08] tracking-tight text-white [text-shadow:0_1px_18px_rgba(0,0,0,0.4)]"
+              className="mt-3 font-heading text-[clamp(1.8rem,8vw,2.7rem)] font-bold leading-[1.08] tracking-tight text-white [text-shadow:0_1px_18px_rgba(0,0,0,0.4)] sm:text-[clamp(2rem,5vw,2.7rem)] md:text-[clamp(2rem,4vw,2.7rem)]"
             >
               {content.whatChangesTitle}
             </h2>
           </FadeUp>
 
-          <div className="mt-12 grid gap-7 md:grid-cols-2" style={{ gridAutoRows: "1fr" }}>
+          <div className="mt-9 grid gap-5 sm:mt-12 md:grid-cols-2 md:gap-7" style={{ gridAutoRows: "1fr" }}>
             {[
               {
                 title: content.whatChangesPatientsTitle,
@@ -430,7 +430,7 @@ export async function CampaignLanding({ content }: Props) {
               },
             ].map((col, i) => (
               <FadeUp key={i} delay={(i + 1) as 1 | 2} className="h-full">
-                <article className="group flex h-full min-h-[460px] flex-col overflow-hidden rounded-3xl border border-white/12 bg-white/[0.04] shadow-2xl backdrop-blur-md">
+                <article className="group flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border border-white/12 bg-white/[0.04] shadow-2xl backdrop-blur-md sm:rounded-3xl md:min-h-[460px]">
                   <div className="relative aspect-[16/9] w-full overflow-hidden">
                     <Image
                       src={col.image}
@@ -448,11 +448,11 @@ export async function CampaignLanding({ content }: Props) {
                       className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#082721]/85 via-[#082721]/30 to-transparent"
                       aria-hidden
                     />
-                    <p className="absolute bottom-5 left-6 text-xs font-semibold uppercase tracking-[0.15em] text-white/95 sm:text-sm">
+                    <p className="absolute bottom-5 left-5 right-5 text-[0.7rem] font-semibold uppercase leading-snug tracking-[0.11em] text-white/95 sm:left-6 sm:text-sm sm:tracking-[0.15em]">
                       {col.title}
                     </p>
                   </div>
-                  <ul className="flex flex-1 flex-col gap-4 p-6 sm:p-8">
+                  <ul className="flex flex-1 flex-col gap-4 p-5 sm:p-8">
                     {col.items.map((item, j) => (
                       <li key={j} className="flex gap-3 leading-relaxed text-white/90">
                         <span
@@ -476,12 +476,12 @@ export async function CampaignLanding({ content }: Props) {
 
       {/* ═════════ SOCIAL PROOF (light w/ image-bg quote panel) ═════════ */}
       <section
-        className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] bg-[var(--bg)] py-24 sm:py-28"
+        className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] bg-[var(--bg)] py-16 sm:py-20 md:py-24 lg:py-28"
         aria-label={content.socialProofLabel}
       >
         <div className="mx-auto max-w-[1100px] px-4 sm:px-6 md:px-8 lg:px-10">
           <FadeUp>
-            <article className="relative overflow-hidden rounded-[28px] shadow-[var(--shadow-raised)] ring-1 ring-[var(--border)]">
+            <article className="relative overflow-hidden rounded-2xl shadow-[var(--shadow-raised)] ring-1 ring-[var(--border)] sm:rounded-[28px]">
               <div className="absolute inset-0">
                 <Image
                   src={SOCIAL_PROOF_BG}
@@ -499,12 +499,12 @@ export async function CampaignLanding({ content }: Props) {
                   }}
                 />
               </div>
-              <div className="relative grid gap-8 px-6 py-14 sm:px-12 sm:py-16 md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:gap-12 md:px-16">
+              <div className="relative grid gap-8 px-5 py-10 sm:px-12 sm:py-16 md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:gap-12 md:px-16">
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/76 sm:text-[0.9375rem]">
+                  <p className="text-[0.72rem] font-semibold uppercase leading-snug tracking-[0.11em] text-white/76 sm:text-sm sm:tracking-[0.16em] md:text-[0.9375rem] md:tracking-[0.18em]">
                     {content.socialProofLabel}
                   </p>
-                  <blockquote className="mt-5 font-heading text-[clamp(1.5rem,2.6vw,2.1rem)] font-semibold leading-snug text-white [text-shadow:0_1px_14px_rgba(0,0,0,0.4)]">
+                  <blockquote className="mt-5 font-heading text-[clamp(1.35rem,6vw,2.1rem)] font-semibold leading-snug text-white [text-shadow:0_1px_14px_rgba(0,0,0,0.4)] sm:text-[clamp(1.5rem,3vw,2.1rem)] md:text-[clamp(1.5rem,2.6vw,2.1rem)]">
                     “<RichLine text={content.socialProofQuote} variant="onDark" />”
                   </blockquote>
                   <figcaption className="mt-6 text-base leading-relaxed text-white/78">
@@ -533,26 +533,26 @@ export async function CampaignLanding({ content }: Props) {
 
       {/* ═════════ DEMO HANDOFF (light, conversion reassurance) ═════════ */}
       <section
-        className="campaign-band-soft relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] py-20 sm:py-24"
+        className="campaign-band-soft relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] py-16 sm:py-20 md:py-24"
         aria-labelledby="campaign-demo-heading"
       >
         <div className="mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-center lg:gap-14">
+          <div className="grid gap-9 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-center lg:gap-14">
             <FadeUp>
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--brand-strong)] sm:text-[0.9375rem]">
+                <p className="text-[0.72rem] font-semibold uppercase leading-snug tracking-[0.11em] text-[var(--brand-strong)] sm:text-sm sm:tracking-[0.16em] md:text-[0.9375rem] md:tracking-[0.18em]">
                   {content.demoStepsEyebrow}
                 </p>
                 <h2
                   id="campaign-demo-heading"
-                  className="mt-3 font-heading text-[clamp(1.85rem,3.8vw,2.55rem)] font-bold leading-[1.08] tracking-tight text-[var(--text)]"
+                  className="mt-3 font-heading text-[clamp(1.75rem,8vw,2.55rem)] font-bold leading-[1.08] tracking-tight text-[var(--text)] sm:text-[clamp(1.9rem,5vw,2.55rem)] md:text-[clamp(1.9rem,3.8vw,2.55rem)]"
                 >
                   <RichLine text={content.demoStepsTitle} />
                 </h2>
                 <p className="mt-5 text-base leading-relaxed text-[var(--muted)] sm:text-lg">
                   <RichLine text={content.demoStepsLead} />
                 </p>
-                <div className="mt-8">
+                <div className="mt-7 sm:mt-8">
                   <ContactDrawerTrigger
                     label={content.heroCtaPrimary}
                     options={DEMO_OPTIONS(content.demoRequestMessage, content.contactCategory)}
@@ -566,7 +566,7 @@ export async function CampaignLanding({ content }: Props) {
               {demoSteps.map((step, i) => (
                 <li key={i} className="h-full">
                   <FadeUp delay={Math.min(i + 1, 3) as 1 | 2 | 3} className="h-full">
-                    <article className="campaign-card flex h-full flex-col p-6 sm:p-7">
+                    <article className="campaign-card flex h-full flex-col p-5 sm:p-7">
                       <span className="campaign-step-num" aria-hidden>
                         {i + 1}
                       </span>
@@ -587,7 +587,7 @@ export async function CampaignLanding({ content }: Props) {
 
       {/* ═════════ FINAL CTA (dark, glow + product silhouette) ═════════ */}
       <section
-        className="home-band--cta relative isolate left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] overflow-hidden py-28 sm:py-32"
+        className="home-band--cta relative isolate left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] overflow-hidden py-[4.5rem] sm:py-24 md:py-28 lg:py-32"
         aria-labelledby="campaign-final-cta-heading"
       >
         <div className="campaign-cta-glow" aria-hidden />
@@ -615,7 +615,7 @@ export async function CampaignLanding({ content }: Props) {
           <FadeUp>
             <h2
               id="campaign-final-cta-heading"
-              className="font-heading text-[clamp(2rem,4.6vw,3.1rem)] font-bold leading-[1.08] tracking-tight text-white [text-shadow:0_2px_28px_rgba(0,0,0,0.4)]"
+              className="font-heading text-[clamp(1.85rem,8vw,3.1rem)] font-bold leading-[1.08] tracking-tight text-white [text-shadow:0_2px_28px_rgba(0,0,0,0.4)] sm:text-[clamp(2rem,5vw,3.1rem)] md:text-[clamp(2rem,4.6vw,3.1rem)]"
             >
               <RichLine text={content.finalCtaTitle} variant="onDark" />
             </h2>
@@ -627,7 +627,7 @@ export async function CampaignLanding({ content }: Props) {
           </FadeUp>
 
           <FadeUp delay={2}>
-            <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+            <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4">
               <ContactDrawerTrigger
                 label={content.finalCtaPrimary}
                 options={DEMO_OPTIONS(content.demoRequestMessage, content.contactCategory)}
