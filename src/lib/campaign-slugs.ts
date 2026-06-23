@@ -65,6 +65,16 @@ export const CAMPAIGN_SHARE_ALIASES: Record<
   },
 };
 
+export const CAMPAIGN_SECONDARY_SHARE_ALIASES: Record<
+  CampaignAliasLocale,
+  Partial<Record<CampaignSlug, string[]>>
+> = {
+  de: {
+    "alternativie-terapeiti": ["heilpraktiker"],
+  },
+  en: {},
+};
+
 export function isCampaignSlug(value: string): value is CampaignSlug {
   return (CAMPAIGN_SLUGS as readonly string[]).includes(value);
 }
@@ -82,6 +92,14 @@ export function resolveCampaignSlugForLocale(
     ][];
     const localeMatch = localeAliasEntries.find(([, alias]) => alias === value)?.[0];
     if (localeMatch) return localeMatch;
+
+    const localeSecondaryAliasEntries = Object.entries(
+      CAMPAIGN_SECONDARY_SHARE_ALIASES[locale],
+    ) as [CampaignSlug, string[]][];
+    const localeSecondaryMatch = localeSecondaryAliasEntries.find(([, aliases]) =>
+      aliases.includes(value),
+    )?.[0];
+    if (localeSecondaryMatch) return localeSecondaryMatch;
   }
 
   for (const aliases of Object.values(CAMPAIGN_SHARE_ALIASES)) {
@@ -93,6 +111,17 @@ export function resolveCampaignSlugForLocale(
     if (match) return match;
   }
 
+  for (const aliases of Object.values(CAMPAIGN_SECONDARY_SHARE_ALIASES)) {
+    const aliasEntries = Object.entries(aliases) as [
+      CampaignSlug,
+      string[],
+    ][];
+    const match = aliasEntries.find(([, aliasList]) =>
+      aliasList.includes(value),
+    )?.[0];
+    if (match) return match;
+  }
+
   return null;
 }
 
@@ -101,7 +130,11 @@ export function getCampaignStaticPathsForLocale(locale: string): string[] {
     locale === "de" || locale === "en"
       ? Object.values(CAMPAIGN_SHARE_ALIASES[locale])
       : [];
-  return [...CAMPAIGN_SLUGS, ...aliases];
+  const secondaryAliases =
+    locale === "de" || locale === "en"
+      ? Object.values(CAMPAIGN_SECONDARY_SHARE_ALIASES[locale]).flat()
+      : [];
+  return [...CAMPAIGN_SLUGS, ...aliases, ...secondaryAliases];
 }
 
 export function getCampaignPathnameForLocale(
