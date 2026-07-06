@@ -540,7 +540,7 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
     heroHeadline: "Support your clients before, during and after your therapeutic work.",
     heroSubhead:
       "<strong>sanza</strong> gives your practice a modern PEMF and frequency-based wellbeing layer around homeopathy, naturopathy and alternative therapy sessions. Clients arrive more settled, stay more regulated throughout the visit and leave with more space for recovery and integration — while your method, intuition and therapeutic relationship remain fully yours.",
-    heroCtaPrimary: "See sanza in a therapy room",
+    heroCtaPrimary: "Can I send a short practice pilot outline?",
     heroValueProps: [
       "Practice-room demo",
       "Gentle integration",
@@ -619,7 +619,7 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
       "Try sanza in the kind of room your clients actually enter.",
     finalCtaBody:
       "We will show you how the arrival, reset and closing rituals could fit around your alternative therapy, homeopathy or naturopathy practice.",
-    finalCtaPrimary: "Book a therapy-room demo",
+    finalCtaPrimary: "Send me the practice pilot outline",
   }),
   "joga-meditacija": {
     segmentName: "Yoga & Meditation Studios",
@@ -1235,7 +1235,7 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
     heroKicker: "For facilities that understand member retention is earned between sessions",
     heroHeadline: "Your members train hard. Give them a recovery experience that matches.",
     heroSubhead: "<strong>sanza</strong> brings structured PEMF wellbeing technology to tennis clubs — a premium post-match recovery offer that sets your facility apart and keeps members invested in being here.",
-    heroCtaPrimary: "See how tennis clubs use sanza",
+    heroCtaPrimary: "Can I send a short club pilot outline?",
     heroValueProps: [
       "On-site demo",
       "Clear setup guidance",
@@ -1476,7 +1476,7 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
     heroKicker: "For dental practices where comfort changes the whole visit",
     heroHeadline: "Help patients feel more at ease before they sit in the chair.",
     heroSubhead: "<strong>sanza</strong> adds a calm, structured wellbeing layer to your dental practice — helping patients settle before appointments, feel more supported around treatment, and leave with a stronger sense of care. Your clinical work stays exactly as it is. The experience around it becomes better.",
-    heroCtaPrimary: "Book a dental clinic demo",
+    heroCtaPrimary: "Can I send a short dental pilot outline?",
     heroValueProps: [
       "Dental clinic walkthrough",
       "Clear room setup",
@@ -1596,7 +1596,7 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
     ],
     finalCtaTitle: "Add a comfort layer patients will remember.",
     finalCtaBody: "See how sanza could fit into your dental practice — before treatment, around longer procedures, and after appointments where the patient experience matters most.",
-    finalCtaPrimary: "Book a dental clinic demo"
+    finalCtaPrimary: "Can I send a short dental pilot outline?"
   },
   poliklinika: {
     segmentName: "Polyclinics & Multi-Speciality Clinics",
@@ -2080,7 +2080,7 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     heroKicker: "FÜR PRAXEN, IN DENEN REGELUNG, VERTRAUEN UND BEREITSCHAFT DIE GESAMTE SITZUNG PRÄGEN",
     heroHeadline: "Unterstützen Sie Ihre Klienten vor, während und nach Ihrer therapeutischen Arbeit.",
     heroSubhead: "sanza verleiht Ihrer Praxis eine moderne, auf PEMF und Frequenzen basierende Wohlfühlkomponente rund um homöopathische, naturheilkundliche und alternative Therapiesitzungen. Klienten kommen gelassener an, bleiben während des gesamten Besuchs ausgeglichener und verlassen die Praxis mit mehr Raum für Erholung und Integration – während Ihre Methode, Ihre Intuition und Ihre therapeutische Beziehung ganz bei Ihnen bleiben.",
-    heroCtaPrimary: "Erleben Sie sanza im Therapieraum",
+    heroCtaPrimary: "Darf ich Ihnen eine kurze Praxis-Pilotidee senden?",
     heroValueProps: [
       "Demo im Behandlungsraum",
       "Sanfte Integration",
@@ -2177,7 +2177,7 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     ],
     finalCtaTitle: "Testen Sie sanza in genau der Art von Raum, den Ihre Kunden tatsächlich betreten.",
     finalCtaBody: "Wir zeigen Ihnen, wie sich die Rituale bei Ankunft, zur Erholung und zum Abschluss in Ihre Praxis für alternative Therapie, Homöopathie oder Naturheilkunde einfügen könnten.",
-    finalCtaPrimary: "Buchen Sie eine Demo für Ihren Therapieraum",
+    finalCtaPrimary: "Pilotidee für meine Praxis anfragen",
   }, "de"),
   "joga-meditacija": {
     segmentName: "Yoga- und Meditationsstudios",
@@ -2793,7 +2793,7 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     heroKicker: "Für Einrichtungen, die wissen, dass Mitgliederbindung zwischen den Trainingseinheiten entsteht",
     heroHeadline: "Ihre Mitglieder trainieren hart. Bieten Sie ihnen ein Regenerationserlebnis, das dem gerecht wird.",
     heroSubhead: "<strong>sanza</strong> bringt strukturierte PEMF-Wellness-Technologie in Tennisclubs – ein erstklassiges Erholungsangebot nach dem Spiel, das Ihre Anlage von anderen abhebt und dafür sorgt, dass Ihre Mitglieder gerne hier bleiben.",
-    heroCtaPrimary: "Sehen Sie, wie Tennisclubs sanza nutzen",
+    heroCtaPrimary: "Darf ich Ihnen eine kurze Club-Pilotidee senden?",
     heroValueProps: [
       "Vor-Ort-Demo",
       "Klare Einrichtungsanleitung",
@@ -2909,8 +2909,8 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
       }
     ],
     finalCtaTitle: "Bieten Sie Ihrem Verein ein Regenerationsangebot, an das sich die Spieler erinnern werden.",
-    finalCtaBody: "Buchen Sie eine Standortberatung und wir zeigen Ihnen, wo sanza in Ihren Verein passt – von Regenerations- und Trainingsprogrammen nach dem Spiel bis hin zu Turniertagen und Premium-Erlebnissen für Mitglieder.",
-    finalCtaPrimary: "Buchen Sie eine Standortberatung"
+    finalCtaBody: "Fragen Sie nach einer kurzen Pilotidee, und wir zeigen Ihnen, wo sanza in Ihren Verein passt – von Regenerations- und Trainingsprogrammen nach dem Spiel bis hin zu Turniertagen und Premium-Erlebnissen für Mitglieder.",
+    finalCtaPrimary: "Pilotidee für den Club anfragen"
   },
   "gimenes-arsti": {
     segmentName: "Hausärzte",
@@ -3034,7 +3034,7 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     heroKicker: "Für Zahnarztpraxen, in denen Komfort den gesamten Besuch verändert",
     heroHeadline: "Helfen Sie Patienten, sich wohler zu fühlen, bevor sie sich auf den Stuhl setzen.",
     heroSubhead: "<strong>sanza</strong> fügt Ihrer Zahnarztpraxis eine ruhige, strukturierte Wohlfühlkomponente hinzu – sie hilft Patienten, sich vor dem Termin zu entspannen, sich während der Behandlung besser unterstützt zu fühlen und mit einem stärkeren Gefühl der Fürsorge nach Hause zu gehen. Ihre klinische Arbeit bleibt genau so, wie sie ist. Das Erlebnis drumherum wird besser.",
-    heroCtaPrimary: "Buchen Sie eine Demo für Zahnkliniken",
+    heroCtaPrimary: "Darf ich Ihnen eine kurze Dental-Pilotidee senden?",
     heroValueProps: [
       "Rundgang durch die Zahnklinik",
       "Einfache Raumaufteilung",
@@ -3154,7 +3154,7 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     ],
     finalCtaTitle: "Ein einfacher Demo-Pfad, der auf Ihre Umgebung zugeschnitten ist.",
     finalCtaBody: "Kein Druck, kein Standard-Verkaufsgespräch. Erzählen Sie uns, wie Ihre Praxis funktioniert, und wir zeigen Ihnen, wo sanza passen könnte, bevor Sie eine Entscheidung treffen.",
-    finalCtaPrimary: "Kurzes Kennenlerngespräch"
+    finalCtaPrimary: "Dental-Pilotidee anfragen"
   },
   poliklinika: {
     segmentName: "Polikliniken & Facharztzentren",
@@ -3638,7 +3638,7 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
     heroKicker: "PRAKSĒM, KUR REGULĀCIJA, UZTICĒŠANĀS UN GATAVĪBA VEIDO VISU SEANSU",
     heroHeadline: "Atbalstiet savus klientus pirms, terapijas laikā un pēc tās.",
     heroSubhead: "sanza nodrošina jūsu praksei modernu, uz PEMF un frekvencēm balstītu labklājības slāni homeopātijas, naturopātijas un alternatīvās terapijas seansu laikā. Klienti ierodas mierīgāki, vizītes laikā jūtas līdzsvarotāki un aiziet ar lielāku telpu atveseļošanai un integrācijai — vienlaikus jūsu metode, intuīcija un terapeitiskās attiecības paliek pilnībā jūsu ziņā.",
-    heroCtaPrimary: "Iepazīstieties ar „sanza“ terapijas telpā",
+    heroCtaPrimary: "Vai varu nosūtīt īsu prakses pilota ideju?",
     heroValueProps: [
       "Demo prakses telpā",
       "Maiga integrācija",
@@ -3735,7 +3735,7 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
     ],
     finalCtaTitle: "Izmēģiniet „sanza” tieši tādā telpā, kurā jūsu klienti patiešām ienāk.",
     finalCtaBody: "Mēs parādīsim, kā ierašanās, atjaunošanās un noslēguma rituāli varētu iekļauties jūsu alternatīvās terapijas, homeopātijas vai naturopātijas praksē.",
-    finalCtaPrimary: "Piesakieties uz demonstrāciju terapijas telpā",
+    finalCtaPrimary: "Saņemt prakses pilota ideju",
   }, "lv"),
   "joga-meditacija": {
     segmentName: "Jogas un meditācijas studijas",
@@ -4351,7 +4351,7 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
     heroKicker: "Iestādēm, kas saprot, ka biedru lojalitāte tiek veidota starp treniņiem",
     heroHeadline: "Jūsu biedri smagi trenējas. Piedāvājiet viņiem atgūšanās pieredzi, kas tam atbilst.",
     heroSubhead: "<strong>sanza</strong> piedāvā strukturētu PEMF labklājības tehnoloģiju tenisa klubiem — augstākās kvalitātes atgūšanās piedāvājumu pēc spēles, kas izceļ jūsu iestādi un liek biedriem turpināt šeit trenēties.",
-    heroCtaPrimary: "Uzziniet, kā tenisa klubi izmanto sanza",
+    heroCtaPrimary: "Vai varu nosūtīt īsu kluba pilota ideju?",
     heroValueProps: [
       "Demo uz vietas",
       "Skaidras uzstādīšanas instrukcijas",
@@ -4467,8 +4467,8 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
       }
     ],
     finalCtaTitle: "Piedāvājiet savam klubam atgūšanās programmu, ko spēlētāji atcerēsies.",
-    finalCtaBody: "Piesakieties uz konsultāciju par telpām, un mēs parādīsim, kur sanza iederas jūsu klubā — sākot no atgūšanās pēc spēles un treniņu programmām līdz turnīru dienām un premium locekļu pieredzēm.",
-    finalCtaPrimary: "Piesakieties uz konsultāciju par telpām"
+    finalCtaBody: "Pajautājiet īsu kluba pilota ideju, un mēs parādīsim, kur sanza iederas jūsu klubā — sākot no atgūšanās pēc spēles un treniņu programmām līdz turnīru dienām un premium locekļu pieredzēm.",
+    finalCtaPrimary: "Saņemt kluba pilota ideju"
   },
   "gimenes-arsti": {
     segmentName: "Ģimenes ārsti",
@@ -4592,7 +4592,7 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
     heroKicker: "Zobārstniecības praksēm, kurās komforts maina visu vizīti",
     heroHeadline: "Palīdziet pacientiem justies mierīgāk, pirms viņi apsēžas krēslā.",
     heroSubhead: "<strong>sanza</strong> piešķir jūsu zobārstniecības praksei mierīgu, strukturētu labklājības slāni — palīdzot pacientiem nomierināties pirms vizītes, justies atbalstītiem ārstēšanas laikā un aiziet ar spēcīgāku aprūpes sajūtu. Jūsu klīniskais darbs paliek tieši tāds, kāds tas ir. Pieredze ap to kļūst labāka.",
-    heroCtaPrimary: "Rezervējiet zobārstniecības klīnikas demo",
+    heroCtaPrimary: "Vai varu nosūtīt īsu dental pilota ideju?",
     heroValueProps: [
       "Zobārstniecības klīnikas apskats",
       "Skaidra telpas iekārtojuma",
@@ -4712,7 +4712,7 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
     ],
     finalCtaTitle: "Vienkārša demonstrācijas programma, kas veidota atbilstoši jūsu vidē.",
     finalCtaBody: "Bez spiediena, bez vispārīgiem pārdošanas trikiem. Pastāstiet mums, kā darbojas jūsu telpas, un mēs parādīsim, kur sanza varētu iederēties, pirms jūs pieņemat lēmumu.",
-    finalCtaPrimary: "Īss iepazīšanās zvans"
+    finalCtaPrimary: "Saņemt dental pilota ideju"
   },
   poliklinika: {
     segmentName: "Poliklīnikas un daudzprofilu klīnikas",

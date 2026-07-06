@@ -70,9 +70,12 @@ export const CAMPAIGN_SECONDARY_SHARE_ALIASES: Record<
   Partial<Record<CampaignSlug, string[]>>
 > = {
   de: {
-    "alternativie-terapeiti": ["heilpraktiker"],
+    "alternativie-terapeiti": ["heilpraxis", "heilpraktiker"],
   },
-  en: {},
+  en: {
+    "alternativie-terapeiti": ["heilpraxis", "heilpraktiker"],
+    zobarstnieciba: ["dentists"],
+  },
 };
 
 export function isCampaignSlug(value: string): value is CampaignSlug {
