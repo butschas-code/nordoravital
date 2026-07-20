@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { headers } from "next/headers";
 import { LanguageSwitcher } from "@/components/language-switcher";
-import { OptimizedBackgroundVideo } from "@/components/optimized-background-video";
 import { SiteFooter } from "@/components/site-footer";
 import { getSiteSurface, HOME_DOMAIN, PRO_DOMAIN } from "@/lib/domains";
 import { homeLocale } from "@/lib/home-copy";
@@ -193,12 +192,14 @@ export default async function GatewayPage({ params }: Props) {
           className="relative isolate min-h-[min(92dvh,860px)] overflow-hidden"
           aria-labelledby="gateway-heading"
         >
-          <OptimizedBackgroundVideo
-            src={IMAGE_PATHS.hero.backgroundVideo}
-            poster={IMAGE_PATHS.gateway.homeCard}
+          <Image
+            src={IMAGE_PATHS.gateway.homeCard}
+            alt=""
+            fill
             priority
+            sizes="100vw"
+            aria-hidden
             className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
-            posterClassName="-z-20 object-cover object-center"
           />
           <div className="home-hero-overlay pointer-events-none absolute inset-0 -z-10" aria-hidden />
 
