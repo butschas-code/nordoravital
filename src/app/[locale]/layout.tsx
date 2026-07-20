@@ -7,6 +7,7 @@ import { Inter, Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { ContactDrawerProvider } from "@/components/contact/contact-drawer-context";
 import { CookieBanner } from "@/components/cookie-banner";
+import { PostHogAnalytics } from "@/components/posthog-analytics";
 import { SanzaBoldener } from "@/components/sanza-boldener";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -116,10 +117,11 @@ export default async function LocaleLayout({ children, params }: Props) {
                   {children}
                 </main>
                 <SiteFooter />
-                <CookieBanner />
               </div>
             </ContactDrawerProvider>
           )}
+          {!deckFullscreen ? <CookieBanner /> : null}
+          <PostHogAnalytics />
         </NextIntlClientProvider>
         <Analytics />
       </body>

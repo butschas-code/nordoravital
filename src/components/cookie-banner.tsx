@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
 const CONSENT_KEY = "nv_cookie_consent";
+const POSTHOG_CONSENT_EVENT = "nv-cookie-consent";
 
 type ConsentState =
   | "all"       // user accepted all cookies
@@ -39,6 +40,7 @@ export function CookieBanner() {
     } catch {
       /* ignore write errors */
     }
+    window.dispatchEvent(new CustomEvent(POSTHOG_CONSENT_EVENT, { detail: value }));
     setConsent(value);
   };
 
