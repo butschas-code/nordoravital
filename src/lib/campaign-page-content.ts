@@ -1016,7 +1016,7 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
     problemBody: "What they cannot find everywhere is a wellness experience that feels genuinely new, deeply calming and worth remembering.\r\n\r\nThat is the opportunity.\r\n\r\n<strong>sanza</strong> helps you add a distinctive, technology-led reset to your spa — not another standard treatment on the menu, but a premium wellbeing moment guests can feel immediately. It makes your spa experience more complete, more differentiated and more likely to become the part of the stay they mention to someone else.",
     problemImage: "/images/campaign/spa-hotel-block-1.jpg",
     solutionEyebrow: "The sanza layer",
-    solutionTitle: "sanza: the experience guests can't get anywhere else in Latvia.",
+    solutionTitle: "sanza: the experience guests can't get anywhere else in the Baltics.",
     solutionBody: "sanza is a professional PEMF wellbeing system — a premium wellness technology that uses chronobiological electromagnetic frequency programs to create a full-body grounding and settling experience. It is not massage. It is not heat. It is something distinctly different — a deep, quiet settling that guests feel as a kind of profound relaxation they immediately want again. Position it as a signature programme. Name it as yours.",
     solutionSpecs: [
       {
@@ -2582,7 +2582,7 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
         body: "Die sanza-Ebene"
       },
       {
-        title: "sanza: das Erlebnis, das Gäste nirgendwo sonst in Lettland finden.",
+        title: "sanza: the experience guests can't get anywhere else in the Baltics.",
         body: "sanza ist ein professionelles PEMF-Wellness-System – eine Premium-Wellness-Technologie, die chronobiologische elektromagnetische Frequenzprogramme nutzt, um ein Ganzkörper-Erlebnis der Erdung und Beruhigung zu schaffen. Es ist keine Massage. Es ist keine Wärme. Es ist etwas ganz anderes – eine tiefe, ruhige Entspannung, die Gäste als eine Art tiefgreifende Entspannung empfinden, die sie sofort wieder erleben möchten. Positionieren Sie es als Ihr Signature-Programm. Geben Sie ihm Ihren Namen."
       },
       {
