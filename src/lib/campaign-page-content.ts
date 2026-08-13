@@ -1354,6 +1354,135 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
     finalCtaBody: "Book a facility consultation and we’ll show you where sanza fits into your club — from post-match recovery and coaching programmes to tournament days and premium member experiences.",
     finalCtaPrimary: "Book a facility consultation"
   },
+  "padel-klubi": {
+    segmentName: "Padel Clubs",
+    metaTitle: "Padel Clubs | sanza x Nordora Vital",
+    metaDescription: "A premium PEMF wellbeing and recovery-style station for padel clubs that want stronger retention, better player experience and a differentiator beyond court rental.",
+    heroImage: "/images/campaign/padel-hero.jpg",
+    heroTextAlign: "left",
+    heroKicker: "For padel clubs building more than booked courts",
+    heroHeadline: "Turn the energy around every match into a premium recovery ritual.",
+    heroSubhead: "Padel is social, fast-growing and easy to love. But as clubs multiply, players start comparing more than court availability.\r\n\r\n<strong>sanza</strong> gives your club a calm, premium wellbeing layer after play — a structured PEMF reset players can use between matches, after coaching or before leaving the club.",
+    heroCtaPrimary: "Can I send a short padel club pilot outline?",
+    heroValueProps: [
+      "On-site demo",
+      "Clear setup guidance",
+      "No workflow redesign"
+    ],
+    contactCategory: "sports-performance",
+    demoRequestMessage: "I'd like to arrange a sanza demo and receive more information for Padel Clubs.",
+    quickStats: [
+      {
+        value: "15",
+        label: "wellbeing programs for players"
+      },
+      {
+        value: "1",
+        label: "simple station your team can run"
+      },
+      {
+        value: "10 min",
+        label: "to help players downshift after play"
+      },
+      {
+        value: "0",
+        label: "changes to court operations"
+      }
+    ],
+    problemEyebrow: "Court time is the start. The club experience decides who comes back.",
+    problemTitle: "Padel players come for the game, the people and the feeling of belonging.",
+    problemBody: "Most padel clubs already understand the obvious business problem: peak hours fill quickly, but loyalty is earned outside the court too.\r\n\r\nPadel loads the elbow, shoulder, knees, calves, Achilles and lower back through quick starts, rotation, repeated volleys and sudden changes of direction. Players may leave excited, but also wired, hot and carrying tension into the rest of the day.\r\n\r\n<strong>sanza</strong> helps your club shape that after-match moment into something intentional: a short, calm, premium reset that makes the visit feel more complete without making medical claims or changing how your club operates.",
+    problemImage: "/images/campaign/padel-block-1.jpg",
+    solutionEyebrow: "The sanza layer",
+    solutionTitle: "sanza gives your padel club a recovery-style experience players can repeat.",
+    solutionBody: "A sanza station in your lounge, locker-room area or coaching zone gives players a simple 10–20 minute PEMF wellbeing session before they leave. Full-body mat for general decompression, pad or applicators for local comfort areas, and a clear program menu your team can explain once.\r\n\r\nIt fits naturally into the padel rhythm: after league nights, between tournament matches, as a coaching add-on, or as a premium membership benefit.",
+    solutionSpecs: [
+      {
+        title: "PEMF",
+        body: "Pulsed electromagnetic field — gentle, non-invasive."
+      },
+      {
+        title: "Programmed",
+        body: "Ready-to-use routines for calm, activation and recovery-style support."
+      },
+      {
+        title: "Modular",
+        body: "Mat, pad and targeted applicators for lounges, locker rooms and coaching spaces."
+      }
+    ],
+    fitsTitle: "Where sanza fits in your padel club",
+    fitsEyebrow: "Integration",
+    fitsLead: "Padel clubs move quickly. sanza is designed to add value around that rhythm without slowing reception, booking or court turnover.",
+    fitsImages: [
+      "/images/campaign/padel-recovery-room.jpg",
+      "/images/campaign/padel-lounge.jpg",
+      "/images/campaign/padel-performance.jpg",
+      "/images/campaign/padel-tournament.jpg"
+    ],
+    fitsImagePositions: [
+      "50% 50%",
+      "50% 50%",
+      "50% 50%",
+      "64% 32%"
+    ],
+    fitsItems: [
+      {
+        title: "Post-match reset station",
+        body: "A visible recovery-style corner players can use after matches, leagues or open play."
+      },
+      {
+        title: "Premium membership benefit",
+        body: "Add sanza access to higher-value memberships so the club offers more than court access."
+      },
+      {
+        title: "Coaching and academy add-on",
+        body: "Let coaches include a short pre-session settling or post-session decompression moment."
+      },
+      {
+        title: "Tournament and corporate events",
+        body: "Use sanza as a memorable hospitality detail during events, company days and competitions."
+      }
+    ],
+    whatChangesTitle: "What changes when sanza joins your club",
+    whatChangesEyebrow: "Outcomes",
+    whatChangesPatientsTitle: "For your players",
+    whatChangesPatientsItems: [
+      "A calm after-match ritual they can build into regular padel nights",
+      "A club visit that feels more premium, less rushed and more complete",
+      "A reason to stay longer, return more often and talk about the experience"
+    ],
+    whatChangesPatientsImage: "/images/campaign/padel-for-members.jpg",
+    whatChangesPracticeTitle: "For your club",
+    whatChangesPracticeItems: [
+      "A differentiator beyond court quality, booking software and location",
+      "A practical upgrade for memberships, coaching packages and corporate events",
+      "A visible signal that your club cares about the full player experience"
+    ],
+    whatChangesPracticeImage: "/images/campaign/padel-for-club.jpg",
+    socialProofLabel: "Why padel clubs should look at it now",
+    socialProofQuote: "As padel becomes more competitive, the clubs that win loyalty will be the ones players remember after the match.",
+    socialProofAttribution: "Nordora Vital · Professional partner programme",
+    demoStepsEyebrow: "What happens after you contact us",
+    demoStepsTitle: "A simple demo path, built around your club.",
+    demoStepsLead: "No pressure, no generic pitch. Tell us how your courts, lounge, coaching and events work, and we will show you where sanza could fit before you make any decision.",
+    demoSteps: [
+      {
+        title: "Short fit call",
+        body: "We clarify your club model, player flow, membership offer and the questions you want answered."
+      },
+      {
+        title: "Practical demo",
+        body: "You experience the programs, applicators and setup in a context close to a real padel club visit."
+      },
+      {
+        title: "Clear next steps",
+        body: "If it fits, we outline the recommended setup, onboarding path and pricing. If not, you still leave informed."
+      }
+    ],
+    finalCtaTitle: "Give your padel club a recovery-style offer players will remember.",
+    finalCtaBody: "Book a facility consultation and we’ll show you where sanza fits into your club — from post-match reset and coaching packages to tournaments, corporate events and premium memberships.",
+    finalCtaPrimary: "Book a padel club consultation"
+  },
   "gimenes-arsti": {
     segmentName: "General Practitioners",
     metaTitle: "General Practitioners | sanza × Nordora Vital",
@@ -2912,6 +3041,135 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     finalCtaBody: "Fragen Sie nach einer kurzen Pilotidee, und wir zeigen Ihnen, wo sanza in Ihren Verein passt – von Regenerations- und Trainingsprogrammen nach dem Spiel bis hin zu Turniertagen und Premium-Erlebnissen für Mitglieder.",
     finalCtaPrimary: "Pilotidee für den Club anfragen"
   },
+  "padel-klubi": {
+    segmentName: "Padel-Clubs",
+    metaTitle: "Padel-Clubs | sanza x Nordora Vital",
+    metaDescription: "Eine hochwertige PEMF-Station für Wohlbefinden und Regeneration für Padel-Clubs, die eine stärkere Kundenbindung, ein besseres Spielerlebnis und ein Alleinstellungsmerkmal über die Platzvermietung hinaus anstreben.",
+    heroImage: "/images/campaign/padel-hero.jpg",
+    heroTextAlign: "left",
+    heroKicker: "Für Padel-Clubs, die mehr als nur gebuchte Plätze bieten möchten",
+    heroHeadline: "Verwandeln Sie die Energie jedes Spiels in ein erstklassiges Regenerationsritual.",
+    heroSubhead: "Padel ist gesellig, boomt und macht schnell Spaß. Doch mit der steigenden Zahl der Vereine achten die Spieler mittlerweile nicht mehr nur auf die Verfügbarkeit der Plätze.\n\n<strong>sanza</strong> bietet Ihrem Verein nach dem Spiel ein entspannendes, hochwertiges Wohlfühlerlebnis – eine strukturierte PEMF-Regenerationsbehandlung, die die Spieler zwischen den Spielen, nach dem Training oder vor dem Verlassen des Vereins nutzen können.",
+    heroCtaPrimary: "Kann ich eine kurze Übersicht über das Padel-Club-Pilotprojekt schicken?",
+    heroValueProps: [
+      "Vorführung vor Ort",
+      "Klare Anleitung zum Aufbau",
+      "Keine Umgestaltung der Arbeitsabläufe"
+    ],
+    contactCategory: "sports-performance",
+    demoRequestMessage: "Ich würde gerne eine Sanza-Vorführung organisieren und weitere Informationen zu Padel-Clubs erhalten.",
+    quickStats: [
+      {
+        value: "15",
+        label: "Wellness-Programme für Spieler"
+      },
+      {
+        value: "1",
+        label: "einfache Station, die Ihr Team betreiben kann"
+      },
+      {
+        value: "10 Min.",
+        label: "um den Spielern zu helfen, nach dem Spiel einen Gang herunterzuschalten"
+      },
+      {
+        value: "0",
+        label: "Änderungen am Platzbetrieb"
+      }
+    ],
+    problemEyebrow: "Die Zeit auf dem Platz ist der Anfang. Das Club-Erlebnis entscheidet darüber, wer wiederkommt.",
+    problemTitle: "Padel-Spieler kommen wegen des Spiels, der Menschen und des Zugehörigkeitsgefühls.",
+    problemBody: "Die meisten Padel-Clubs haben das offensichtliche geschäftliche Problem bereits erkannt: Die Spitzenzeiten sind schnell ausgebucht, aber Kundenbindung entsteht auch abseits des Platzes.\n\nPadel belastet Ellbogen, Schultern, Knie, Waden, Achillessehne und den unteren Rücken durch schnelle Starts, Drehbewegungen, wiederholte Volleys und plötzliche Richtungswechsel. Die Spieler verlassen den Platz zwar begeistert, sind aber oft auch überdreht, überhitzt und tragen diese Anspannung den Rest des Tages mit sich.\n\n<strong>sanza</strong> hilft Ihrem Club dabei, diesen Moment nach dem Spiel bewusst zu gestalten: eine kurze, ruhige und hochwertige Erholungspause, die den Besuch abrunder macht, ohne medizinische Versprechen zu machen oder die Arbeitsweise Ihres Clubs zu verändern.",
+    problemImage: "/images/campaign/padel-block-1.jpg",
+    solutionEyebrow: "Die Sanza-Schicht",
+    solutionTitle: "Sanza bietet Ihrem Padel-Club ein Erlebnis im Recovery-Stil, das die Spieler immer wieder genießen können.",
+    solutionBody: "Eine Sanza-Station in Ihrer Lounge, im Umkleidebereich oder in der Trainingszone bietet den Spielern eine einfache 10- bis 20-minütige PEMF-Wellness-Sitzung, bevor sie gehen. Eine Ganzkörpermatte zur allgemeinen Entspannung, Polster oder Applikatoren für bestimmte Komfortbereiche sowie ein übersichtliches Programmmenü, das Ihr Team einmal erklären kann.\n\nDas fügt sich ganz natürlich in den Padel-Rhythmus ein: nach Ligaspielen, zwischen Turnierspielen, als Ergänzung zum Training oder als Premium-Mitgliedervorteil.",
+    solutionSpecs: [
+      {
+        title: "PEMF",
+        body: "Pulsierendes elektromagnetisches Feld – sanft, nicht-invasiv."
+      },
+      {
+        title: "Voreingestellt",
+        body: "Gebrauchsfertige Programme zur Entspannung, Aktivierung und Regeneration."
+      },
+      {
+        title: "Modular",
+        body: "Matte, Kissen und gezielte Applikatoren für Lounges, Umkleideräume und Trainingsbereiche."
+      }
+    ],
+    fitsTitle: "So lässt sich sanza in Ihren Padel-Club integrieren",
+    fitsEyebrow: "Integration",
+    fitsLead: "Padel-Clubs sind schnelllebig. sanza wurde so konzipiert, dass es diesen Rhythmus unterstützt, ohne den Empfang, die Buchung oder den Platzwechsel zu verlangsamen.",
+    fitsImages: [
+      "/images/campaign/padel-recovery-room.jpg",
+      "/images/campaign/padel-lounge.jpg",
+      "/images/campaign/padel-performance.jpg",
+      "/images/campaign/padel-tournament.jpg"
+    ],
+    fitsImagePositions: [
+      "50% 50%",
+      "50% 50%",
+      "50% 50%",
+      "64% 32%"
+    ],
+    fitsItems: [
+      {
+        title: "Erholungsstation nach dem Spiel",
+        body: "Eine gut sichtbare Erholungsecke, die Spieler nach Matches, Ligaspielen oder freiem Spiel nutzen können."
+      },
+      {
+        title: "Vorteil für Premium-Mitglieder",
+        body: "Erweitern Sie höherwertige Mitgliedschaften um den Zugang zu sanza, damit der Club mehr als nur Platznutzung bietet."
+      },
+      {
+        title: "Ergänzung für Training und Akademie",
+        body: "Ermöglichen Sie Trainern, vor dem Training einen kurzen Moment der Besinnung oder nach dem Training einen Moment der Entspannung einzubauen."
+      },
+      {
+        title: "Turniere und Firmenveranstaltungen",
+        body: "Nutzen Sie sanza als unvergessliches Hospitality-Highlight bei Veranstaltungen, Firmentagen und Wettkämpfen."
+      }
+    ],
+    whatChangesTitle: "Was sich ändert, wenn sanza in Ihren Club Einzug hält",
+    whatChangesEyebrow: "Ergebnisse",
+    whatChangesPatientsTitle: "Für Ihre Spieler",
+    whatChangesPatientsItems: [
+      "Ein ruhiges Ritual nach dem Spiel, das sie in ihre regelmäßigen Padel-Abende integrieren können",
+      "Ein Clubbesuch, der sich hochwertiger, weniger gehetzt und rundum vollständiger anfühlt",
+      "Ein Grund, länger zu bleiben, öfter wiederzukommen und über das Erlebnis zu sprechen"
+    ],
+    whatChangesPatientsImage: "/images/campaign/padel-for-members.jpg",
+    whatChangesPracticeTitle: "Für Ihren Club",
+    whatChangesPracticeItems: [
+      "Ein Alleinstellungsmerkmal, das über Platzqualität, Buchungssoftware und Lage hinausgeht",
+      "Eine praktische Aufwertung für Mitgliedschaften, Trainingspakete und Firmenveranstaltungen",
+      "Ein sichtbares Zeichen dafür, dass Ihrem Club das gesamte Spielerlebnis am Herzen liegt"
+    ],
+    whatChangesPracticeImage: "/images/campaign/padel-for-club.jpg",
+    socialProofLabel: "Warum Padel-Clubs sich das jetzt ansehen sollten",
+    socialProofQuote: "Da Padel immer wettbewerbsintensiver wird, werden diejenigen Clubs die Loyalität der Spieler gewinnen, an die sich diese nach dem Spiel erinnern.",
+    socialProofAttribution: "Nordora Vital · Professionelles Partnerprogramm",
+    demoStepsEyebrow: "Was passiert, nachdem Sie uns kontaktiert haben",
+    demoStepsTitle: "Ein einfacher Demo-Prozess, der ganz auf Ihren Club zugeschnitten ist.",
+    demoStepsLead: "Kein Druck, kein Standard-Verkaufsgespräch. Erzählen Sie uns, wie Ihre Plätze, Ihre Lounge, Ihr Training und Ihre Veranstaltungen funktionieren, und wir zeigen Ihnen, wo „sanza“ passen könnte, bevor Sie eine Entscheidung treffen.",
+    demoSteps: [
+      {
+        title: "Kurzes Beratungsgespräch",
+        body: "Wir klären Ihr Clubmodell, den Spielerfluss, Ihr Mitgliedschaftsangebot und die Fragen, auf die Sie Antworten suchen."
+      },
+      {
+        title: "Praktische Demo",
+        body: "Sie erleben die Programme, die Anwendungen und die Einrichtung in einem Umfeld, das einem echten Besuch in einem Padel-Club nahekommt."
+      },
+      {
+        title: "Klare nächste Schritte",
+        body: "Wenn es passt, skizzieren wir die empfohlene Einrichtung, den Onboarding-Prozess und die Preisgestaltung. Wenn nicht, gehen Sie dennoch gut informiert nach Hause."
+      }
+    ],
+    finalCtaTitle: "Bieten Sie Ihrem Padel-Club ein Regenerationsangebot, an das sich die Spieler erinnern werden.",
+    finalCtaBody: "Buchen Sie eine Anlageberatung, und wir zeigen Ihnen, wo sanza in Ihren Club passt – von Erholungsangeboten nach dem Spiel und Trainingspaketen bis hin zu Turnieren, Firmenveranstaltungen und Premium-Mitgliedschaften.",
+    finalCtaPrimary: "Buchen Sie eine Padel-Club-Beratung"
+  },
   "gimenes-arsti": {
     segmentName: "Hausärzte",
     metaTitle: "Hausärzte | sanza × Nordora Vital",
@@ -4469,6 +4727,135 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
     finalCtaTitle: "Piedāvājiet savam klubam atgūšanās programmu, ko spēlētāji atcerēsies.",
     finalCtaBody: "Pajautājiet īsu kluba pilota ideju, un mēs parādīsim, kur sanza iederas jūsu klubā — sākot no atgūšanās pēc spēles un treniņu programmām līdz turnīru dienām un premium locekļu pieredzēm.",
     finalCtaPrimary: "Saņemt kluba pilota ideju"
+  },
+  "padel-klubi": {
+    segmentName: "Padela klubi",
+    metaTitle: "Padela klubi | sanza x Nordora Vital",
+    metaDescription: "Augstākās klases PEMF labklājības un atveseļošanās stacija padela klubiem, kuri vēlas palielināt klientu lojalitāti, uzlabot spēlētāju pieredzi un izcelties ar piedāvājumu, kas pārsniedz vienkāršu korta nomu.",
+    heroImage: "/images/campaign/padel-hero.jpg",
+    heroTextAlign: "left",
+    heroKicker: "Padela klubiem, kas izveido vairāk kortu, nekā ir rezervēts",
+    heroHeadline: "Pārvērtiet katras spēles laikā radīto enerģiju par izcilu atjaunošanās rituālu.",
+    heroSubhead: "Padel ir sabiedrisks, strauji augošs un viegli iemīļojams sporta veids. Taču, pieaugot klubu skaitam, spēlētāji sāk salīdzināt ne tikai kortu pieejamību.\n\n<strong>sanza</strong> nodrošina jūsu klubam mierīgu, augstākās kvalitātes labsajūtas pieredzi pēc spēles — strukturētu PEMF atjaunošanas procedūru, ko spēlētāji var izmantot starp mačiem, pēc treniņa vai pirms došanās prom no kluba.",
+    heroCtaPrimary: "Vai varu nosūtīt īsu padel kluba izmēģinājuma programmas aprakstu?",
+    heroValueProps: [
+      "Demonstrācija klātienē",
+      "Skaidras uzstādīšanas instrukcijas",
+      "Nav nepieciešams pārveidot darba plūsmu"
+    ],
+    contactCategory: "sports-performance",
+    demoRequestMessage: "Es vēlētos noorganizēt „Sanza“ demonstrāciju un saņemt vairāk informācijas par padel klubiem.",
+    quickStats: [
+      {
+        value: "15",
+        label: "labklājības programmas spēlētājiem"
+      },
+      {
+        value: "1",
+        label: "vienkārša stacija, ko var vadīt jūsu komanda"
+      },
+      {
+        value: "10 min",
+        label: "lai palīdzētu spēlētājiem atslābināties pēc spēles"
+      },
+      {
+        value: "0",
+        label: "izmaiņas korta darbībā"
+      }
+    ],
+    problemEyebrow: "Korta laiks ir sākums. Kluba pieredze nosaka, kuri atgriezīsies.",
+    problemTitle: "Padela spēlētāji nāk spēlēt, satikt cilvēkus un izjust piederības sajūtu.",
+    problemBody: "Lielākā daļa padela klubu jau apzinās šo acīmredzamo biznesa problēmu: maksimālās noslogotības stundas ātri aizpildās, taču lojalitāti var iegūt arī ārpus korta.\n\nPadels noslogo elkoņus, plecus, ceļgalus, apakšstilbus, Ahileja cīpslu un muguras lejasdaļu, jo spēlē ir strauji starti, pagriezieni, atkārtoti volejboli un pēkšņas virziena maiņas. Spēlētāji var aiziet no spēles aizrautīgi, taču arī pārāk uzbudināti, pārkarsuši un ar spriedzi, kas saglabājas visas dienas garumā.\n\n<strong>sanza</strong> palīdz jūsu klubam pārvērst šo brīdi pēc spēles par apzinātu pieredzi: īsu, mierīgu un augstvērtīgu atjaunošanos, kas padara apmeklējumu pilnīgāku, neizvirzot medicīniskas pretenzijas un nemainot kluba darbības veidu.",
+    problemImage: "/images/campaign/padel-block-1.jpg",
+    solutionEyebrow: "„Sanza“ slānis",
+    solutionTitle: "„Sanza“ nodrošina jūsu padela klubam atjaunojošu pieredzi, ko spēlētāji var atkārtot.",
+    solutionBody: "Sanza stacija jūsu atpūtas telpā, ģērbtuves zonā vai treniņu zonā nodrošina spēlētājiem vienkāršu 10–20 minūšu ilgu PEMF labsajūtas seansu pirms viņi dodas prom. Viss ķermeņa paklājs vispārējai relaksācijai, spilventiņi vai aplikatori lokālai komforta nodrošināšanai, kā arī skaidra programmu izvēlne, ko jūsu komanda var izskaidrot vienreiz.\n\nTas dabiski iekļaujas padela ritmā: pēc līgas spēļu vakariem, starp turnīra mačiem, kā treniņu papildinājums vai kā premium dalības priekšrocība.",
+    solutionSpecs: [
+      {
+        title: "PEMF",
+        body: "Impulsveida elektromagnētiskais lauks — maigs, neinvazīvs."
+      },
+      {
+        title: "Programmēts",
+        body: "Gatavas lietošanai programmas, kas nodrošina atbalstu mieram, aktivizācijai un atgūšanai."
+      },
+      {
+        title: "Modulārs",
+        body: "Paklājs, spilventiņš un mērķtiecīgi aplikatori atpūtas telpām, ģērbtuvēm un treniņu telpām."
+      }
+    ],
+    fitsTitle: "Kā „sanza“ iederas jūsu padela klubā",
+    fitsEyebrow: "Integrācija",
+    fitsLead: "Padela klubi darbojas strauji. „sanza“ ir izstrādāta tā, lai radītu pievienoto vērtību šajā ritmā, nepalēninot reģistrāciju, rezervēšanu vai kortu apgrozību.",
+    fitsImages: [
+      "/images/campaign/padel-recovery-room.jpg",
+      "/images/campaign/padel-lounge.jpg",
+      "/images/campaign/padel-performance.jpg",
+      "/images/campaign/padel-tournament.jpg"
+    ],
+    fitsImagePositions: [
+      "50% 50%",
+      "50% 50%",
+      "50% 50%",
+      "64% 32%"
+    ],
+    fitsItems: [
+      {
+        title: "Atpūtas stacija pēc spēles",
+        body: "Redzams atpūtas stūrītis, ko spēlētāji var izmantot pēc spēlēm, līgām vai brīvās spēles."
+      },
+      {
+        title: "Prēmijas klases biedru priekšrocība",
+        body: "Pievienojiet „sanza“ piekļuvi augstākas vērtības biedru programmām, lai klubs piedāvātu vairāk nekā tikai piekļuvi kortiem."
+      },
+      {
+        title: "Papildinājums treniņiem un akadēmijai",
+        body: "Ļaujiet treneriem iekļaut īsu nomierināšanās brīdi pirms nodarbības vai relaksācijas brīdi pēc tās."
+      },
+      {
+        title: "Turnīri un korporatīvie pasākumi",
+        body: "Izmantojiet „sanza” kā neaizmirstamu viesmīlības detaļu pasākumu, uzņēmuma dienu un sacensību laikā."
+      }
+    ],
+    whatChangesTitle: "Kas mainās, kad „sanza” pievienojas jūsu klubam",
+    whatChangesEyebrow: "Rezultāti",
+    whatChangesPatientsTitle: "Jūsu spēlētājiem",
+    whatChangesPatientsItems: [
+      "Rāms rituāls pēc spēles, ko viņi var iekļaut regulārajās padela vakaros",
+      "Kluba apmeklējums, kas šķiet ekskluzīvāks, mazāk steidzīgs un pilnīgāks",
+      "Iemesls palikt ilgāk, atgriezties biežāk un stāstīt par šo pieredzi"
+    ],
+    whatChangesPatientsImage: "/images/campaign/padel-for-members.jpg",
+    whatChangesPracticeTitle: "Jūsu klubam",
+    whatChangesPracticeItems: [
+      "Atšķirības faktors, kas pārsniedz korta kvalitāti, rezervēšanas programmatūru un atrašanās vietu",
+      "Praktisks uzlabojums dalības pakalpojumiem, treniņu pakām un korporatīvajiem pasākumiem",
+      "Redzams signāls, ka jūsu klubs rūpējas par pilnvērtīgu spēlētāju pieredzi"
+    ],
+    whatChangesPracticeImage: "/images/campaign/padel-for-club.jpg",
+    socialProofLabel: "Kāpēc padela klubiem vajadzētu pievērsties tam jau tagad",
+    socialProofQuote: "Tā kā padels kļūst arvien konkurētspējīgāks, lojalitāti iegūs tie klubi, kurus spēlētāji atcerēsies pēc spēles.",
+    socialProofAttribution: "Nordora Vital · Profesionālā partneru programma",
+    demoStepsEyebrow: "Kas notiek pēc tam, kad sazināties ar mums",
+    demoStepsTitle: "Vienkārša demonstrācijas procedūra, kas veidota tieši jūsu klubam.",
+    demoStepsLead: "Bez spiediena, bez standarta pārdošanas runām. Pastāstiet mums, kā darbojas jūsu korti, atpūtas zona, treniņi un pasākumi, un mēs parādīsim, kur „sanza“ varētu iederēties, pirms jūs pieņemat lēmumu.",
+    demoSteps: [
+      {
+        title: "Īss iepazīšanās zvans",
+        body: "Mēs noskaidrosim jūsu kluba darbības modeli, spēlētāju plūsmu, biedru piedāvājumu un jautājumus, uz kuriem vēlaties saņemt atbildes."
+      },
+      {
+        title: "Praktiska demonstrācija",
+        body: "Jūs iepazīsieties ar programmām, lietotājiem un iestatījumiem apstākļos, kas ir tuvi reālai padela kluba apmeklēšanai."
+      },
+      {
+        title: "Skaidri nākamie soļi",
+        body: "Ja risinājums ir piemērots, mēs izklāstīsim ieteicamo konfigurāciju, ieviešanas procesu un cenas. Ja nē, jūs joprojām saņemsiet visu nepieciešamo informāciju."
+      }
+    ],
+    finalCtaTitle: "Piedāvājiet savam padela klubam atjaunojošu piedāvājumu, ko spēlētāji atcerēsies.",
+    finalCtaBody: "Rezervējiet konsultāciju par jūsu kluba telpām, un mēs parādīsim, kā „sanza“ iederas jūsu klubā — sākot no atpūtas pēc spēles un treniņu pakām līdz turnīriem, korporatīvajiem pasākumiem un premium biedra programmām.",
+    finalCtaPrimary: "Rezervējiet padela kluba konsultāciju"
   },
   "gimenes-arsti": {
     segmentName: "Ģimenes ārsti",
