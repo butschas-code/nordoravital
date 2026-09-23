@@ -440,7 +440,7 @@ export function HomePersonalContactForm({
                 render={({ field }) => (
                   <input
                     type="checkbox"
-                    className="size-4 rounded border-[var(--brand-border)] text-[var(--brand-primary)] focus:ring-[var(--brand-primary)]"
+                    className="size-5 rounded border-[var(--brand-border)] text-[var(--brand-primary)] focus:ring-[var(--brand-primary)]"
                     checked={field.value.includes(goal)}
                     onChange={(e) => {
                       const next = e.target.checked
@@ -501,14 +501,14 @@ export function HomePersonalContactForm({
             ["langEn", copy.languages[1]],
             ["langLv", copy.languages[2]],
           ].map(([name, label]) => (
-            <label key={name} className="flex cursor-pointer items-center gap-2 text-base text-[var(--brand-heading)]">
+            <label key={name} className="flex min-h-11 cursor-pointer items-center gap-2.5 text-base pointer-fine:min-h-0 text-[var(--brand-heading)]">
               <Controller
                 name={name as "langDe" | "langEn" | "langLv"}
                 control={control}
                 render={({ field }) => (
                   <input
                     type="checkbox"
-                    className="size-4 rounded border-[var(--brand-border)] text-[var(--brand-primary)] focus:ring-[var(--brand-primary)]"
+                    className="size-5 rounded border-[var(--brand-border)] text-[var(--brand-primary)] focus:ring-[var(--brand-primary)]"
                     checked={field.value}
                     onChange={(e) => field.onChange(e.target.checked)}
                     onBlur={field.onBlur}
@@ -533,7 +533,7 @@ export function HomePersonalContactForm({
             render={({ field }) => (
               <input
                 type="checkbox"
-                className="mt-0.5 size-4 shrink-0 rounded border-[var(--brand-border)] text-[var(--brand-primary)] focus:ring-[var(--brand-primary)]"
+                className="mt-0.5 size-5 shrink-0 rounded border-[var(--brand-border)] text-[var(--brand-primary)] focus:ring-[var(--brand-primary)]"
                 checked={field.value}
                 onChange={(e) => field.onChange(e.target.checked)}
                 onBlur={field.onBlur}

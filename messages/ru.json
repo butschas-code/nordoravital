@@ -447,7 +447,8 @@
     "ctaHeadline": "See it in your practice",
     "ctaSubhead": "Book a short pilot conversation with our team. We'll cover setup, the right protocol for your setting, and how to introduce it to clients and staff.",
     "ctaCta": "Book a Pilot Demo",
-    "ctaSecondaryCta": "How it works"
+    "ctaSecondaryCta": "How it works",
+    "gatingLabel": "Professional access"
   },
   "Booking": {
     "title": "Booking request",

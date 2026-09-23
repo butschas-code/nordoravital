@@ -324,7 +324,8 @@
     "ctaHeadline": "Erleben Sie es in Ihrer Praxis",
     "ctaSubhead": "Vereinbaren Sie ein kurzes Pilotgespräch mit unserem Team. Wir besprechen die Einrichtung, das passende Protokoll für Ihre Praxis sowie die Einführung bei Klienten und Mitarbeitern.",
     "ctaCta": "Pilot-Demo vereinbaren",
-    "ctaSecondaryCta": "So funktioniert es"
+    "ctaSecondaryCta": "So funktioniert es",
+    "gatingLabel": "Zugang für Fachkräfte"
   },
   "Booking": {
     "title": "Terminanfrage",

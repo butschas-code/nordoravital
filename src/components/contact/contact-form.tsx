@@ -308,14 +308,14 @@ export function ContactForm({
           {t("langPreferenceTitle")}
         </legend>
         <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-x-6">
-          <label className="flex cursor-pointer items-center gap-2 text-base text-[var(--brand-heading)]">
+          <label className="flex min-h-11 cursor-pointer items-center gap-2.5 text-base text-[var(--brand-heading)] pointer-fine:min-h-0">
             <Controller
               name="langDe"
               control={control}
               render={({ field }) => (
                 <input
                   type="checkbox"
-                  className="size-4 rounded border-[var(--brand-border)] text-[var(--brand-primary)] focus:ring-[var(--brand-primary)]"
+                  className="size-5 rounded border-[var(--brand-border)] text-[var(--brand-primary)] focus:ring-[var(--brand-primary)]"
                   checked={field.value}
                   onChange={(e) => field.onChange(e.target.checked)}
                   onBlur={field.onBlur}
@@ -325,14 +325,14 @@ export function ContactForm({
             />
             {t("langDe")}
           </label>
-          <label className="flex cursor-pointer items-center gap-2 text-base text-[var(--brand-heading)]">
+          <label className="flex min-h-11 cursor-pointer items-center gap-2.5 text-base text-[var(--brand-heading)] pointer-fine:min-h-0">
             <Controller
               name="langEn"
               control={control}
               render={({ field }) => (
                 <input
                   type="checkbox"
-                  className="size-4 rounded border-[var(--brand-border)] text-[var(--brand-primary)] focus:ring-[var(--brand-primary)]"
+                  className="size-5 rounded border-[var(--brand-border)] text-[var(--brand-primary)] focus:ring-[var(--brand-primary)]"
                   checked={field.value}
                   onChange={(e) => field.onChange(e.target.checked)}
                   onBlur={field.onBlur}
@@ -342,14 +342,14 @@ export function ContactForm({
             />
             {t("langEn")}
           </label>
-          <label className="flex cursor-pointer items-center gap-2 text-base text-[var(--brand-heading)]">
+          <label className="flex min-h-11 cursor-pointer items-center gap-2.5 text-base text-[var(--brand-heading)] pointer-fine:min-h-0">
             <Controller
               name="langLv"
               control={control}
               render={({ field }) => (
                 <input
                   type="checkbox"
-                  className="size-4 rounded border-[var(--brand-border)] text-[var(--brand-primary)] focus:ring-[var(--brand-primary)]"
+                  className="size-5 rounded border-[var(--brand-border)] text-[var(--brand-primary)] focus:ring-[var(--brand-primary)]"
                   checked={field.value}
                   onChange={(e) => field.onChange(e.target.checked)}
                   onBlur={field.onBlur}
@@ -375,7 +375,7 @@ export function ContactForm({
             render={({ field }) => (
               <input
                 type="checkbox"
-                className="mt-0.5 size-4 shrink-0 rounded border-[var(--brand-border)] text-[var(--brand-primary)] focus:ring-[var(--brand-primary)]"
+                className="mt-0.5 size-5 shrink-0 rounded border-[var(--brand-border)] text-[var(--brand-primary)] focus:ring-[var(--brand-primary)]"
                 checked={field.value}
                 onChange={(e) => field.onChange(e.target.checked)}
                 onBlur={field.onBlur}

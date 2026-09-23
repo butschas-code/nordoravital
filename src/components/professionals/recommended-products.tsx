@@ -76,7 +76,7 @@ export async function RecommendedProducts({ copy }: Props) {
                 </p>
                 <Link
                   href="/how-it-works"
-                  className="mt-4 inline-flex text-base font-medium text-[var(--brand-primary)] underline-offset-4 hover:underline"
+                  className="mt-2 inline-flex min-h-11 items-center text-base font-medium text-[var(--brand-primary)] underline-offset-4 transition-colors hover:underline hover:text-[var(--brand-strong)] sm:mt-3"
                 >
                   {copy.detailsLink}
                 </Link>

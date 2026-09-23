@@ -2727,6 +2727,16 @@ h1, h2, h3 {
   font-weight: 700 !important;
   line-height: 1.375 !important;
   color: #ffffff !important;
+  /* Keep the tap area at 44px on touch screens without moving the text. */
+  min-height: 44px;
+  align-items: center;
+}
+
+@media (pointer: fine) {
+  .pro-card-link,
+  .home-site-root .site-marketing-root .pro-card-link {
+    min-height: 0;
+  }
 }
 
 @media (min-width: 640px) {

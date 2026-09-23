@@ -43,8 +43,9 @@ export async function SiteFooter({ localeOverride }: { localeOverride?: string }
     { href: homeCopy.shopUrl, label: t("homeuseShop") },
   ];
 
+  /** 44px tap area on any touch device (tablets included); mouse users get compact rows. */
   const linkClass =
-    "text-white/85 transition hover:text-[var(--brand-secondary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-secondary)]";
+    "inline-flex min-h-11 items-center text-white/85 transition hover:text-[var(--brand-secondary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-secondary)] pointer-fine:min-h-0 pointer-fine:py-1";
 
   /** Same stack as `.site-footer--brand` in globals — inline so it wins over Tailwind layers. */
   const footerBackground: CSSProperties = {
@@ -66,7 +67,7 @@ export async function SiteFooter({ localeOverride }: { localeOverride?: string }
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-12 lg:gap-10">
           {/* Brand column */}
           <div className="lg:col-span-3">
-            <Link href="/" className="group mb-4 inline-block">
+            <Link href="/" className="group mb-4 inline-flex min-h-11 items-center">
               <span className="relative block h-9 w-[132px] sm:h-10 sm:w-[148px]">
                 <Image
                   src={IMAGE_PATHS.brand.logo}
@@ -88,7 +89,7 @@ export async function SiteFooter({ localeOverride }: { localeOverride?: string }
               {t("sectionProfessional")}
             </h2>
             <nav aria-label={t("sectionProfessional")}>
-              <ul className="flex flex-col gap-2.5 text-base">
+              <ul className="flex flex-col gap-0.5 text-base pointer-fine:gap-2">
                 {professionalLinks.map((item) => (
                   <li key={item.href}>
                     <a href={item.href} className={linkClass}>
@@ -106,7 +107,7 @@ export async function SiteFooter({ localeOverride }: { localeOverride?: string }
               {t("sectionHomeuse")}
             </h2>
             <nav aria-label={t("sectionHomeuse")}>
-              <ul className="flex flex-col gap-2.5 text-base">
+              <ul className="flex flex-col gap-0.5 text-base pointer-fine:gap-2">
                 {homeuseLinks.map((item) => (
                   <li key={item.href}>
                     <a href={item.href} className={linkClass}>
@@ -124,7 +125,7 @@ export async function SiteFooter({ localeOverride }: { localeOverride?: string }
               {t("sectionLegal")}
             </h2>
             <nav aria-label={t("sectionLegal")}>
-              <ul className="flex flex-col gap-2.5 text-base">
+              <ul className="flex flex-col gap-0.5 text-base pointer-fine:gap-2">
                 <li>
                   <Link href="/imprint" className={linkClass}>
                     {t("linkImprint")}

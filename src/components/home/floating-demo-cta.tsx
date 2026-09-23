@@ -1,41 +1,16 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
-import { useContactDrawer } from "@/components/contact/contact-drawer-context";
+import { FloatingCtaPill } from "@/components/floating-cta-pill";
 
-export function FloatingDemoCta() {
+export function FloatingDemoCta({ label, message }: { label?: string; message?: string } = {}) {
   const t = useTranslations("Home");
-  const { openDrawer } = useContactDrawer();
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 480);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
-    <div
-      className="fixed bottom-6 right-5 z-50 transition-[opacity,transform] duration-300 ease-[var(--ease-out)] sm:right-8"
-      style={{
-        transform: visible ? "translateY(0)" : "translateY(20px)",
-        opacity: visible ? 1 : 0,
-        pointerEvents: visible ? "auto" : "none",
-      }}
-      aria-hidden={!visible}
-    >
-      <button
-        type="button"
-        onClick={() => openDrawer()}
-        className="group relative flex items-center gap-2.5 rounded-full bg-[var(--brand-deep)] px-5 py-3 text-base font-semibold text-white shadow-2xl ring-1 ring-white/10 transition-[background-color,box-shadow,transform] duration-200 ease-[var(--ease-out)] hover:bg-[var(--brand)] hover:shadow-[0_8px_32px_rgba(14,61,52,0.45)]"
-        tabIndex={visible ? 0 : -1}
-        data-pressable
-      >
-        {t("ctaBookDemo")}
-        <span className="transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden>→</span>
-      </button>
-    </div>
+    <FloatingCtaPill
+      label={label ?? t("ctaBookDemo")}
+      options={message ? { message } : undefined}
+      showAfter={480}
+    />
   );
 }

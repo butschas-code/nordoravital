@@ -144,7 +144,7 @@ export default async function ProfessionalsIndexPage() {
                     </svg>
                   </div>
                   <p className="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-[var(--brand-secondary)]">
-                    Professional access
+                    {t("gatingLabel")}
                   </p>
                 </div>
                 <p className="text-sm leading-[1.7] text-[var(--muted)]">

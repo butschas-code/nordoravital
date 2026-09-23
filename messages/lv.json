@@ -447,7 +447,8 @@
     "ctaHeadline": "Izmēģiniet to savā praksē",
     "ctaSubhead": "Piesakieties uz īsu ievada sarunu ar mūsu komandu. Mēs apspriedīsim sistēmas uzstādīšanu, jūsu vidē piemēroto darbības kārtību, kā arī to, kā iepazīstināt ar to klientus un personālu.",
     "ctaCta": "Piesakieties uz ievada demonstrāciju",
-    "ctaSecondaryCta": "Kā tas darbojas"
+    "ctaSecondaryCta": "Kā tas darbojas",
+    "gatingLabel": "Piekļuve profesionāļiem"
   },
   "Booking": {
     "title": "Rezervācijas pieprasījums",

@@ -70,7 +70,7 @@ export function BookingForm() {
           id="name"
           type="text"
           autoComplete="name"
-          className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2 text-sm text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
+          className="mt-1 min-h-11 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2.5 text-sm text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
           {...register("name")}
         />
         {errors.name && (
@@ -86,7 +86,7 @@ export function BookingForm() {
           id="email"
           type="email"
           autoComplete="email"
-          className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2 text-sm text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
+          className="mt-1 min-h-11 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2.5 text-sm text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
           {...register("email")}
         />
         {errors.email && (
@@ -102,7 +102,7 @@ export function BookingForm() {
           id="phone"
           type="tel"
           autoComplete="tel"
-          className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2 text-sm text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
+          className="mt-1 min-h-11 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2.5 text-sm text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
           {...register("phone")}
         />
       </div>
@@ -114,7 +114,7 @@ export function BookingForm() {
         <input
           id="date"
           type="date"
-          className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2 text-sm text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
+          className="mt-1 min-h-11 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2.5 text-sm text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
           {...register("date")}
         />
       </div>
@@ -126,7 +126,7 @@ export function BookingForm() {
         <textarea
           id="message"
           rows={4}
-          className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2 text-sm text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
+          className="mt-1 min-h-11 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2.5 text-sm text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
           {...register("message")}
         />
       </div>
