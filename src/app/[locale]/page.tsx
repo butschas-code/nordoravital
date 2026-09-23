@@ -3,6 +3,7 @@ import {
   HomeClosing,
   HomeHero,
   HomeManifesto,
+  HomeOrigin,
   HomeScene,
   HomeTrySession,
 } from "@/components/home/home-story-sections";
@@ -25,6 +26,8 @@ export default async function HomePage() {
 
       <div className="flex flex-col gap-0">
         <HomeClientOutcomes />
+        {/* Manufacturer credibility stands in for customer proof until pilots exist. */}
+        <HomeOrigin />
         <HomeTrySession />
         {/* Technology and rollout follow as proof, not as the pitch. */}
         <HomePillars />

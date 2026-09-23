@@ -158,6 +158,47 @@ export async function HomeScene() {
   );
 }
 
+export async function HomeOrigin() {
+  const t = await getTranslations("HomeStory");
+  const facts = [
+    { title: "originFact1Title", body: "originFact1Body" },
+    { title: "originFact2Title", body: "originFact2Body" },
+    { title: "originFact3Title", body: "originFact3Body" },
+  ] as const;
+
+  return (
+    <section
+      className="home-band-full py-20 sm:py-24 lg:py-28"
+      aria-labelledby="home-origin-heading"
+    >
+      <div className={container}>
+        <FadeUp className="mx-auto max-w-2xl text-center">
+          <p className={eyebrow}>{t("originEyebrow")}</p>
+          <h2
+            id="home-origin-heading"
+            className="mt-4 font-heading text-[clamp(1.75rem,4vw,2.6rem)] font-bold leading-[1.1] tracking-tight text-[var(--text)]"
+          >
+            {t("originTitle")}
+          </h2>
+        </FadeUp>
+
+        <dl className="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-3">
+          {facts.map((f, i) => (
+            <FadeUp key={f.title} delay={(i + 1) as 1 | 2 | 3} className="h-full">
+              <div className="flex h-full flex-col rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-card)]">
+                <dt className="font-heading text-xl font-bold leading-snug text-[var(--brand-strong)]">
+                  {t(f.title)}
+                </dt>
+                <dd className="mt-3 text-base leading-relaxed text-[var(--muted)]">{t(f.body)}</dd>
+              </div>
+            </FadeUp>
+          ))}
+        </dl>
+      </div>
+    </section>
+  );
+}
+
 export async function HomeTrySession() {
   const t = await getTranslations("HomeStory");
   const options = [

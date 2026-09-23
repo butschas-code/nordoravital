@@ -720,7 +720,7 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
     ],
     whatChangesPracticeImage: "/images/campaign/yoga-for-studio.jpg",
     socialProofLabel: "Why partners ask to see it",
-    socialProofQuote: "I want this in my studio. — Every studio owner who experiences <strong>sanza</strong> for the first time.",
+    socialProofQuote: "We'd rather you feel it than read about it — one session in your studio, then you decide.",
     socialProofAttribution: "Nordora Vital · Professional partner programme",
     demoStepsEyebrow: "What happens after you contact us",
     demoStepsTitle: "A simple demo path, built around your setting.",
@@ -823,7 +823,7 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
       },
       {
         title: "Personal training add-on",
-        body: "PTs can include sanza as a 10-minute close-out — adds value and increases PT rebooking."
+        body: "PTs can include sanza as a 10-minute close-out — a tangible extra in the session they sell."
       }
     ],
     whatChangesTitle: "What changes when sanza joins your space",
@@ -1325,13 +1325,13 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
     whatChangesPatientsImage: "/images/campaign/tennis-for-members.jpg",
     whatChangesPracticeTitle: "For your club",
     whatChangesPracticeItems: [
-      "A tangible differentiator no competitor on your street currently offers",
+      "A tangible differentiator that is still rare among Baltic clubs",
       "Higher visit frequency from members who have another reason to be here",
       "A facility invested in the whole player experience, not just court time"
     ],
     whatChangesPracticeImage: "/images/campaign/tennis-for-club.jpg",
     socialProofLabel: "Why partners ask to see it",
-    socialProofQuote: "No competitor on your street currently offers this.",
+    socialProofQuote: "Still a rare offer at Baltic clubs — which is the whole point of being early.",
     socialProofAttribution: "Nordora Vital · Professional partner programme",
     demoStepsEyebrow: "What happens after you contact us",
     demoStepsTitle: "A simple demo path, built around your setting.",
@@ -1933,7 +1933,7 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
     whatChangesPatientsTitle: "For your guests",
     whatChangesPatientsItems: [
       "An experience they haven't had and will come back for",
-      "Guests rebook before they leave the building — consistently"
+      "A quiet, premium touchpoint that sets the visit apart"
     ],
     whatChangesPracticeTitle: "For your spa",
     whatChangesPracticeItems: [
@@ -1943,7 +1943,7 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
     ],
     whatChangesPracticeImage: "/images/campaign/day-spa-hero.jpg",
     socialProofLabel: "Why partners ask to see it",
-    socialProofQuote: "Guests who try it once rebook before they leave the building.",
+    socialProofQuote: "Already part of the guest offer at premium European spa and wellness hotels.",
     socialProofAttribution: "Nordora Vital · Professional partner programme",
     demoStepsEyebrow: "What happens after you contact us",
     demoStepsTitle: "A simple demo path, built around your setting.",
@@ -2407,7 +2407,7 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     ],
     whatChangesPracticeImage: "/images/campaign/yoga-for-studio.jpg",
     socialProofLabel: "Warum Partner danach fragen",
-    socialProofQuote: "„Ich möchte das in meinem Studio.“ – Jeder Studiobetreiber, der <strong>sanza</strong> zum ersten Mal erlebt.",
+    socialProofQuote: "Uns ist lieber, Sie erleben es, als darüber zu lesen — eine Session in Ihrem Studio, dann entscheiden Sie.",
     socialProofAttribution: "Nordora Vital · Professionelles Partnerprogramm",
     demoStepsEyebrow: "Was passiert, nachdem Sie uns kontaktiert haben",
     demoStepsTitle: "Ein einfacher Demo-Pfad, der auf Ihre Umgebung zugeschnitten ist.",
@@ -3012,13 +3012,13 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     whatChangesPatientsImage: "/images/campaign/tennis-for-members.jpg",
     whatChangesPracticeTitle: "Für Ihren Club",
     whatChangesPracticeItems: [
-      "Ein greifbares Alleinstellungsmerkmal, das derzeit kein Mitbewerber in Ihrer Straße bietet",
+      "Ein greifbares Alleinstellungsmerkmal, das in baltischen Clubs noch selten ist",
       "Höhere Besuchsfrequenz von Mitgliedern, die einen weiteren Grund haben, hier zu sein",
       "Eine Anlage, die in das gesamte Spielererlebnis investiert, nicht nur in die Spielzeit"
     ],
     whatChangesPracticeImage: "/images/campaign/tennis-for-club.jpg",
     socialProofLabel: "Warum Partner danach fragen",
-    socialProofQuote: "Kein Mitbewerber in Ihrer Straße bietet dies derzeit an.",
+    socialProofQuote: "In baltischen Clubs bislang ein seltenes Angebot — genau darin liegt der Vorteil, früh dabei zu sein.",
     socialProofAttribution: "Nordora Vital · Professionelles Partnerprogramm",
     demoStepsEyebrow: "Was passiert, nachdem Sie uns kontaktiert haben",
     demoStepsTitle: "Ein einfacher Demo-Pfad, der auf Ihre Umgebung zugeschnitten ist.",
@@ -3620,7 +3620,7 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     whatChangesPatientsTitle: "Für Ihre Gäste",
     whatChangesPatientsItems: [
       "Ein Erlebnis, das sie noch nie hatten und für das sie wiederkommen werden",
-      "Gäste buchen nach, bevor sie das Gebäude verlassen – und das regelmäßig"
+      "Ein ruhiger, hochwertiger Berührungspunkt, der den Besuch abhebt"
     ],
     whatChangesPracticeTitle: "Für Ihren Spa",
     whatChangesPracticeItems: [
@@ -3630,7 +3630,7 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     ],
     whatChangesPracticeImage: "/images/campaign/day-spa-hero.jpg",
     socialProofLabel: "Warum Partner danach fragen",
-    socialProofQuote: "Gäste, die es einmal ausprobieren, buchen erneut, bevor sie das Gebäude verlassen.",
+    socialProofQuote: "Bereits Teil des Gästeangebots in europäischen Premium-Spas und Wellnesshotels.",
     socialProofAttribution: "Nordora Vital · Professionelles Partnerprogramm",
     demoStepsEyebrow: "Was passiert, nachdem Sie uns kontaktiert haben",
     demoStepsTitle: "Ein einfacher Demo-Ablauf, der auf Ihre Umgebung zugeschnitten ist.",
@@ -4094,7 +4094,7 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
     ],
     whatChangesPracticeImage: "/images/campaign/yoga-for-studio.jpg",
     socialProofLabel: "Kāpēc partneri vēlas to redzēt",
-    socialProofQuote: "Es to gribu savā studijā. — Katrs studijas īpašnieks, kurš pirmo reizi izmēģina <strong>sanza</strong>.",
+    socialProofQuote: "Labāk to sajust nekā par to lasīt — viena sesija jūsu studijā, un tad jūs izlemjat.",
     socialProofAttribution: "Nordora Vital · Profesionālā partneru programma",
     demoStepsEyebrow: "Kas notiek pēc tam, kad sazināties ar mums",
     demoStepsTitle: "Vienkārša demonstrācijas programma, kas veidota atbilstoši jūsu vidē.",
@@ -4699,13 +4699,13 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
     whatChangesPatientsImage: "/images/campaign/tennis-for-members.jpg",
     whatChangesPracticeTitle: "Jūsu klubam",
     whatChangesPracticeItems: [
-      "Konkrēts atšķirības faktors, ko pašlaik nepiedāvā neviens konkurents jūsu ielā",
+      "Konkrēts atšķirības faktors, kas Baltijas klubos joprojām ir rets",
       "Biežāki apmeklējumi no biedriem, kuriem ir vēl viens iemesls šeit būt",
       "Iekārta, kas ieguldīta visā spēlētāju pieredzē, nevis tikai laukumā pavadītajā laikā"
     ],
     whatChangesPracticeImage: "/images/campaign/tennis-for-club.jpg",
     socialProofLabel: "Kāpēc partneri vēlas to redzēt",
-    socialProofQuote: "Pašlaik neviens konkurents jūsu ielā to nepiedāvā.",
+    socialProofQuote: "Baltijas klubos tas joprojām ir rets piedāvājums — tieši tāpēc ir vērts būt starp pirmajiem.",
     socialProofAttribution: "Nordora Vital · Profesionālā partneru programma",
     demoStepsEyebrow: "Kas notiek pēc tam, kad sazināties ar mums",
     demoStepsTitle: "Vienkārša demonstrācijas programma, kas veidota atbilstoši jūsu vidē.",
@@ -5307,7 +5307,7 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
     whatChangesPatientsTitle: "Jūsu viesiem",
     whatChangesPatientsItems: [
       "Pieredze, kādu viņi vēl nav piedzīvojuši un kāpēc atgriezīsies",
-      "Viesi veic atkārtotu rezervāciju, pirms pamet ēku — pastāvīgi"
+      "Kluss, augstākās klases pieskāriens, kas atšķir apmeklējumu"
     ],
     whatChangesPracticeTitle: "Jūsu spa",
     whatChangesPracticeItems: [
@@ -5317,7 +5317,7 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
     ],
     whatChangesPracticeImage: "/images/campaign/day-spa-hero.jpg",
     socialProofLabel: "Kāpēc partneri vēlas to redzēt",
-    socialProofQuote: "Viesi, kuri to izmēģina vienreiz, veic atkārtotu rezervāciju, pirms pamet ēku.",
+    socialProofQuote: "Jau ir daļa no viesu piedāvājuma Eiropas augstākās klases spa un wellness viesnīcās.",
     socialProofAttribution: "Nordora Vital · Profesionālā partneru programma",
     demoStepsEyebrow: "Kas notiek pēc tam, kad sazināties ar mums",
     demoStepsTitle: "Vienkārša demonstrācija, kas veidota atbilstoši jūsu vidē.",
