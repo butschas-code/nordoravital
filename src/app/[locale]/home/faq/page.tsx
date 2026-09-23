@@ -11,7 +11,7 @@ import { mergeRussianContent } from "@/lib/russian-content";
 
 type Props = { params: Promise<{ locale: string }> };
 
-const shopUrl = "https://nordoravital.sanzanet.com/shop-en";
+
 const heroImage = "/images/homeuse-faq-hero.jpg";
 const heroMobileImage = "/images/homeuse-faq-hero-mobile.jpg";
 const introImage = "/images/homeuse-experiences-intro.jpg";
@@ -510,7 +510,7 @@ export default async function HomeFaqPage({ params }: Props) {
                   <Link href={programsHref} className="btn-primary inline-flex justify-center">
                     {shared.common.viewPrograms}
                   </Link>
-                  <a href={shopUrl} className="btn-ghost-white inline-flex justify-center">
+                  <a href={shared.shopUrl} className="btn-ghost-white inline-flex justify-center">
                     {shared.common.viewShop}
                   </a>
                 </div>
@@ -634,7 +634,7 @@ export default async function HomeFaqPage({ params }: Props) {
               <CtaLink href="mailto:info@nordoravital.com">
                 {shared.common.bookIntro}
               </CtaLink>
-              <CtaLink href={shopUrl} variant="secondary">
+              <CtaLink href={shared.shopUrl} variant="secondary">
                 {shared.common.viewShop}
               </CtaLink>
             </div>

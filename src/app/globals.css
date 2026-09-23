@@ -91,6 +91,24 @@ body {
   color: var(--bg);
 }
 
+/* ── Typographic wrapping (all surfaces) ──────────────────────────────
+   Headings, eyebrows and card titles balance their lines instead of
+   dropping a single orphan word onto the last line — this matters most in
+   German and Latvian, where compounds are long. Body copy uses `pretty`,
+   which only prevents the orphan without re-flowing the whole block.      */
+:where(h1, h2, h3, h4, blockquote, figcaption, .campaign-eyebrow, .pro-card-title, .pro-card-link) {
+  text-wrap: balance;
+}
+
+:where(p, li, dd, summary, label) {
+  text-wrap: pretty;
+}
+
+/* Long compounds must never punch out of a card or button. */
+:where(h1, h2, h3, h4, p, li, blockquote) {
+  overflow-wrap: break-word;
+}
+
 :focus-visible {
   outline: 2px solid var(--brand);
   outline-offset: 3px;

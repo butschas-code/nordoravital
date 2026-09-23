@@ -1,20 +1,22 @@
 import Image from "next/image";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { ContactDrawerTrigger } from "@/components/contact/contact-drawer-trigger";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { SiteHeaderDesktopNav } from "@/components/site-header-desktop-nav";
 import { SiteHeaderMobileNav } from "@/components/site-header-mobile-nav";
 import { IMAGE_PATHS } from "@/lib/public-images";
+import { getShopUrl } from "@/lib/home-copy";
 
 export async function SiteHeader() {
   const t = await getTranslations("Nav");
+  const locale = await getLocale();
 
   const navLinks = [
     { href: "/how-it-works", label: t("howItWorks") },
     { href: "/offers", label: t("offers") },
     { href: "/professionals", label: t("professionals") },
-    { href: "https://nordoravital.sanzanet.com/shop-en", label: t("visitShop"), external: true },
+    { href: getShopUrl(locale), label: t("visitShop"), external: true },
   ];
 
   return (

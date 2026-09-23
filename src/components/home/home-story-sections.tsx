@@ -13,13 +13,13 @@ const sectionTitle =
   "font-heading text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.05] tracking-tight text-[var(--text)]";
 const eyebrow = "text-sm font-semibold uppercase tracking-[0.14em] text-[var(--brand-strong)]";
 
-export async function DraftHero() {
-  const t = await getTranslations("HomeDraft");
+export async function HomeHero() {
+  const t = await getTranslations("HomeStory");
 
   return (
     <section
       className="relative isolate left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] overflow-hidden bg-[var(--bg)]"
-      aria-labelledby="draft-hero-heading"
+      aria-labelledby="home-hero-heading"
     >
       <div className="relative min-h-[min(92dvh,880px)] lg:min-h-[min(88dvh,800px)]">
         <div className="absolute inset-0">
@@ -39,7 +39,7 @@ export async function DraftHero() {
             <p className="campaign-eyebrow fade-up mb-5 text-sm font-semibold uppercase tracking-[0.14em] text-white/90 sm:text-[0.875rem] sm:tracking-[0.16em]">
               {t("heroKicker")}
             </p>
-            <h1 id="draft-hero-heading" className="fade-up fade-up-delay-1 font-heading text-h1 text-white">
+            <h1 id="home-hero-heading" className="fade-up fade-up-delay-1 font-heading text-h1 text-white">
               {t("heroHeadline")}
             </h1>
             <p className="fade-up fade-up-delay-2 mt-6 max-w-[52ch] text-xl leading-[1.65] text-white/92 md:ml-auto md:text-2xl md:leading-[1.55]">
@@ -63,14 +63,14 @@ export async function DraftHero() {
   );
 }
 
-export async function DraftManifesto() {
-  const t = await getTranslations("HomeDraft");
+export async function HomeManifesto() {
+  const t = await getTranslations("HomeStory");
   const lines = ["manifestoLine1", "manifestoLine2", "manifestoLine3", "manifestoLine4"] as const;
 
   return (
     <section
       className="home-band-full campaign-band-soft py-24 sm:py-28 md:py-32"
-      aria-labelledby="draft-manifesto-heading"
+      aria-labelledby="home-manifesto-heading"
     >
       <div className={container}>
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center lg:gap-16">
@@ -78,7 +78,7 @@ export async function DraftManifesto() {
             <FadeUp>
               <p className={eyebrow}>{t("manifestoEyebrow")}</p>
               <h2
-                id="draft-manifesto-heading"
+                id="home-manifesto-heading"
                 className="mt-4 font-heading text-[clamp(1.85rem,4.2vw,2.8rem)] font-bold leading-[1.1] tracking-tight text-[var(--text)]"
               >
                 {t("manifestoTitle")}
@@ -115,15 +115,15 @@ export async function DraftManifesto() {
   );
 }
 
-export async function DraftScene() {
-  const t = await getTranslations("HomeDraft");
+export async function HomeScene() {
+  const t = await getTranslations("HomeStory");
 
   return (
-    <section className="home-band-full py-24 sm:py-28 lg:py-32" aria-labelledby="draft-scene-heading">
+    <section className="home-band-full py-24 sm:py-28 lg:py-32" aria-labelledby="home-scene-heading">
       <div className={container}>
         <FadeUp className="mx-auto max-w-3xl text-center">
           <p className={eyebrow}>{t("sceneEyebrow")}</p>
-          <h2 id="draft-scene-heading" className={`mt-4 ${sectionTitle}`}>
+          <h2 id="home-scene-heading" className={`mt-4 ${sectionTitle}`}>
             {t("sceneTitle")}
           </h2>
           <p className="mt-5 font-heading text-lg font-semibold text-[var(--muted)]">{t("sceneTime")}</p>
@@ -158,8 +158,8 @@ export async function DraftScene() {
   );
 }
 
-export async function DraftTry() {
-  const t = await getTranslations("HomeDraft");
+export async function HomeTrySession() {
+  const t = await getTranslations("HomeStory");
   const options = [
     { title: "tryMeetTitle", body: "tryMeetBody", cta: "tryMeetCta", message: "tryMeetMessage" },
     { title: "tryRentTitle", body: "tryRentBody", cta: "tryRentCta", message: "tryRentMessage" },
@@ -168,12 +168,12 @@ export async function DraftTry() {
   return (
     <section
       className="home-band-full campaign-band-soft py-24 sm:py-28 lg:py-32"
-      aria-labelledby="draft-try-heading"
+      aria-labelledby="home-try-heading"
     >
       <div className={container}>
         <FadeUp className="mx-auto max-w-3xl text-center">
           <p className={eyebrow}>{t("tryEyebrow")}</p>
-          <h2 id="draft-try-heading" className={`mt-4 ${sectionTitle}`}>
+          <h2 id="home-try-heading" className={`mt-4 ${sectionTitle}`}>
             {t("tryTitle")}
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-[1.65] text-[var(--text)] opacity-90 sm:text-xl">
@@ -202,19 +202,19 @@ export async function DraftTry() {
   );
 }
 
-export async function DraftClosing() {
-  const t = await getTranslations("HomeDraft");
+export async function HomeClosing() {
+  const t = await getTranslations("HomeStory");
 
   return (
     <section
       className="home-band-full bg-[var(--brand-deep)] py-24 text-white sm:py-28 lg:py-32"
-      aria-labelledby="draft-closing-heading"
+      aria-labelledby="home-closing-heading"
     >
       <div className={container}>
         <FadeUp className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-white/75">{t("closingEyebrow")}</p>
           <h2
-            id="draft-closing-heading"
+            id="home-closing-heading"
             className="mt-4 font-heading text-[clamp(1.9rem,4.4vw,3rem)] font-bold leading-[1.1] tracking-tight text-white"
           >
             {t("closingTitle")}

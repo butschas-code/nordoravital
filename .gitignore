@@ -42,6 +42,7 @@ yarn-error.log*
 next-env.d.ts
 .gstack/
 
-# scraped contact data and local working files — never commit (public repo)
+# scraped contact data, scrapers and local working files — never commit (public repo)
 /exports/
 /outputs/
+/scripts/scrape_*.py

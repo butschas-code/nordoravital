@@ -1,4 +1,4 @@
-import type { HomeLocale } from "@/lib/home-copy";
+import { SHOP_URL_EN, type HomeLocale } from "@/lib/home-copy";
 
 export const HOME_SITE_NAV = [
   { label: "Home", href: "/home", external: false },
@@ -6,7 +6,7 @@ export const HOME_SITE_NAV = [
   { label: "Programs", href: "/programs", external: false },
   { label: "sanza Experiences", href: "/sanza-experiences", external: false },
   { label: "FAQ", href: "/faq", external: false },
-  { label: "Shop", href: "https://nordoravital.sanzanet.com/shop-en", external: true },
+  { label: "Shop", href: SHOP_URL_EN, external: true },
 ] as const;
 
 export const HOME_SITE_SLUGS = [

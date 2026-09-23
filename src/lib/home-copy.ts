@@ -9,11 +9,17 @@ export function homeLocale(locale: string | Locale): HomeLocale {
   return "en";
 }
 
-const shopUrl = "https://nordoravital.sanzanet.com/shop-en";
+/**
+ * External sanzanet shop. German visitors get the German storefront; every
+ * other language is sent to the English one.
+ */
+export function getShopUrl(locale: string | Locale) {
+  return locale === "de"
+    ? "https://nordoravital.sanzanet.com/de/shop-de"
+    : "https://nordoravital.sanzanet.com/en/shop-en";
+}
 
-const shared = {
-  shopUrl,
-};
+export const SHOP_URL_EN = getShopUrl("en");
 
 export const HOME_COPY = {
   "en": {
@@ -104,7 +110,7 @@ export const HOME_COPY = {
 
 export function getHomeSharedCopy(locale: string | Locale) {
   return {
-    ...shared,
+    shopUrl: getShopUrl(locale),
     ...mergeRussianContent(locale, "homeuse/shared", HOME_COPY[homeLocale(locale)]),
   };
 }

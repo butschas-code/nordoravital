@@ -572,7 +572,9 @@ export async function CampaignLanding({ content }: Props) {
               </div>
             </FadeUp>
 
-            <ol className="grid gap-4 sm:grid-cols-3 lg:gap-5">
+            {/* Stacked: inside the narrow right-hand column three across left only
+                ~120px of text width, which wrapped headings to six lines. */}
+            <ol className="grid gap-4 lg:gap-5">
               {demoSteps.map((step, i) => (
                 <li key={i} className="h-full">
                   <FadeUp delay={Math.min(i + 1, 3) as 1 | 2 | 3} className="h-full">
