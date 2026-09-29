@@ -63,12 +63,22 @@ export async function SiteFooter({ localeOverride }: { localeOverride?: string }
           ? "Снятие стресса и перезагрузка"
           : "Daily Stress Reset";
 
+  const compareLabel =
+    rawLocale === "de"
+      ? "Technologie-Vergleich"
+      : rawLocale === "lv"
+        ? "Tehnoloģiju salīdzinājums"
+        : rawLocale === "ru"
+          ? "Сравнение технологий"
+          : "Technology Comparisons";
+
   const professionalLinks: { href: string; label: string }[] = [
     { href: proHref(), label: t("proHome") },
     { href: proHref("/how-it-works"), label: tNav("howItWorks") },
     { href: proHref("/offers"), label: tNav("offers") },
     { href: proHref("/professionals"), label: tNav("professionals") },
     { href: proHref("/professionals/sectors"), label: proSectorsLabel },
+    { href: proHref("/compare"), label: compareLabel },
     { href: proHref("/contact"), label: tNav("contact") },
   ];
 
