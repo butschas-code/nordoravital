@@ -336,23 +336,49 @@ export function HomeSeoLanding({ content, locale }: HomeSeoLandingProps) {
           </FadeUp>
 
           <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {content.solutionSpecs.map((spec, idx) => (
-              <FadeUp key={spec.title} delay={Math.min(idx + 1, 6) as 1 | 2 | 3}>
-                <article className="campaign-card flex h-full flex-col justify-between rounded-2xl border border-white/15 bg-white/10 p-6 backdrop-blur-md transition-all duration-300 hover:border-white/30 hover:bg-white/15 sm:p-7">
-                  <div>
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/15 font-heading text-lg font-bold text-white shadow-sm ring-1 ring-white/20">
-                      0{idx + 1}
+            {content.solutionSpecs.map((spec, idx) => {
+              const specImages = [
+                "/images/02_sanza_mat_700.jpg",
+                "/images/sanza hand electrode 01.jpg",
+                "/images/02_sanza_pen_700.jpg",
+              ];
+              const specImage = specImages[idx % specImages.length];
+              return (
+                <FadeUp key={spec.title} delay={Math.min(idx + 1, 6) as 1 | 2 | 3}>
+                  <div className="group flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-white/20 bg-[#07251f]/90 shadow-2xl backdrop-blur-md transition-all duration-500 hover:border-white/40 hover:bg-[#07251f] sm:rounded-3xl">
+                    {/* Applicator Image Header */}
+                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-black/40">
+                      <Image
+                        src={specImage}
+                        alt={spec.title}
+                        fill
+                        className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                        sizes="(max-width: 767px) 100vw, 380px"
+                      />
+                      <div
+                        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#07251f] via-transparent to-transparent"
+                        aria-hidden
+                      />
+                      <span className="absolute left-4 top-3 font-heading text-xl font-bold text-white/90 [text-shadow:0_2px_12px_rgba(0,0,0,0.7)]">
+                        0{idx + 1}
+                      </span>
                     </div>
-                    <h3 className="mt-5 font-heading text-xl font-bold leading-snug text-white">
-                      {spec.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-white/80 sm:text-base">
-                      {spec.body}
-                    </p>
+
+                    {/* Card Text Content */}
+                    <div className="flex flex-1 flex-col justify-between p-6 sm:p-7">
+                      <div>
+                        <h3 className="font-heading text-xl font-bold leading-snug text-white">
+                          {spec.title}
+                        </h3>
+                        <p className="mt-3 text-sm leading-relaxed text-white/85 sm:text-base">
+                          {spec.body}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </article>
-              </FadeUp>
-            ))}
+                </FadeUp>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -390,28 +416,50 @@ export function HomeSeoLanding({ content, locale }: HomeSeoLandingProps) {
           </FadeUp>
 
           <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {content.ritualSteps.map((step, idx) => (
-              <FadeUp key={step.step} delay={Math.min(idx + 1, 6) as 1 | 2 | 3}>
-                <div className="flex h-full flex-col justify-between rounded-2xl border border-[#d8cec2] bg-white p-7 shadow-sm transition hover:shadow-md">
-                  <div>
-                    <div className="flex items-center justify-between border-b border-[#d8cec2]/60 pb-3">
-                      <span className="font-heading text-2xl font-bold text-[#0e3d34]">
-                        {step.step}
-                      </span>
-                      <span className="rounded-full bg-[#0e3d34]/10 px-2.5 py-0.5 text-xs font-bold text-[#0e3d34]">
+            {content.ritualSteps.map((step, idx) => {
+              const ritualImages = [
+                "/images/sanza calmer arrivals.jpg",
+                "/images/sanza comfort routines.jpg",
+                "/images/sanza a softer landing.jpg",
+              ];
+              const ritualImg = ritualImages[idx % ritualImages.length];
+              return (
+                <FadeUp key={step.step} delay={Math.min(idx + 1, 6) as 1 | 2 | 3}>
+                  <div className="group flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-[#d8cec2] bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#0e3d34]/60 hover:shadow-xl sm:rounded-3xl">
+                    <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#0e3d34]/10">
+                      <Image
+                        src={ritualImg}
+                        alt={step.title}
+                        fill
+                        className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                        sizes="(max-width: 767px) 100vw, 380px"
+                      />
+                      <div
+                        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
+                        aria-hidden
+                      />
+                      <span className="absolute bottom-3 left-4 rounded-full bg-white/95 px-3 py-0.5 text-xs font-bold text-[#0e3d34] shadow-sm backdrop-blur-md">
                         {step.duration}
                       </span>
+                      <span className="absolute left-4 top-3 font-heading text-2xl font-bold text-white [text-shadow:0_2px_12px_rgba(0,0,0,0.6)]">
+                        {step.step}
+                      </span>
                     </div>
-                    <h3 className="mt-4 font-heading text-lg font-bold text-[var(--text)]">
-                      {step.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-[var(--muted)] sm:text-base">
-                      {step.body}
-                    </p>
+
+                    <div className="flex flex-1 flex-col justify-between p-6 sm:p-7">
+                      <div>
+                        <h3 className="font-heading text-lg font-bold text-[#1e2a22]">
+                          {step.title}
+                        </h3>
+                        <p className="mt-2 text-sm leading-relaxed text-[#1e2a22]/80 sm:text-base">
+                          {step.body}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </FadeUp>
-            ))}
+                </FadeUp>
+              );
+            })}
           </div>
         </div>
       </section>

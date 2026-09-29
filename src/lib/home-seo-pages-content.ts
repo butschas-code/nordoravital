@@ -59,7 +59,7 @@ export const HOME_SEO_PAGES: Record<
         "Passive sitting on the couch leaves metabolic waste lingering in tired muscle groups. Shoulders, hamstrings, and the lower back remain braced, maintaining low-grade sympathetic tone that delays genuine tissue repair.",
         "Ice baths and foam rollers provide temporary relief, but they demand high friction and discomfort. Your body needs a systemic, repeatable down-regulation signal that supports natural microcirculation and cellular recharge without adding another grueling chore to your day.",
       ],
-      problemImage: IMAGE_PATHS.home.howItWorksTechnologies ?? "/images/homeuse-how-three-technologies.jpg",
+      problemImage: "/images/homeuse-how-three-technologies.jpg",
       solutionEyebrow: "The multi-technology layer",
       solutionTitle: "Three restorative inputs. One effortless 16-minute mat ritual.",
       solutionBody: [
@@ -165,7 +165,7 @@ export const HOME_SEO_PAGES: Record<
         "Passives Sitzen auf dem Sofa lässt Stoffwechselrückstände in überlasteten Muskelgruppen verharren. Oberschenkel, Waden und der untere Rücken bleiben in einer unbewussten Schutzspannung, die das Nervensystem im Stressmodus hält.",
         "Eisbäder und Faszienrollen bringen zwar kurzfristige Reize, sind aber mühsam und schmerzhaft. Ihr Körper braucht ein systemisches, müheloses Entspannungssignal, das die Mikrozirkulation und die zelluläre Erholung sanft unterstützt.",
       ],
-      problemImage: IMAGE_PATHS.home.howItWorksTechnologies ?? "/images/homeuse-how-three-technologies.jpg",
+      problemImage: "/images/homeuse-how-three-technologies.jpg",
       solutionEyebrow: "Die Multi-Technologie-Ebene",
       solutionTitle: "Drei regenerative Impulse. Ein einfaches 16-Minuten-Mattenritual.",
       solutionBody: [
@@ -271,7 +271,7 @@ export const HOME_SEO_PAGES: Record<
         "Pasīva sēdēšana dīvānā nepalīdz nogurušajiem muskuļiem atbrīvoties no saspringuma. Kājas un muguras lejasdaļa paliek saspringta, paildzinot atjaunošanās laiku.",
         "Ledus vannas un masāžas ruļļi prasa piepūli un diskomfortu. Jūsu ķermenim ir nepieciešams maigs, sistēmisks signāls, kas atbalsta mikrocirkulāciju un šūnu līdzsvaru bez papildu grūtībām.",
       ],
-      problemImage: IMAGE_PATHS.home.howItWorksTechnologies ?? "/images/homeuse-how-three-technologies.jpg",
+      problemImage: "/images/homeuse-how-three-technologies.jpg",
       solutionEyebrow: "Daudztehnoloģiju pieeja",
       solutionTitle: "Trīs atjaunojošas iedarbības. Viens 16 minūšu paklāja rituāls.",
       solutionBody: [
@@ -377,7 +377,7 @@ export const HOME_SEO_PAGES: Record<
         "Пассивный отдых на диване оставляет продукты обмена в перегруженных мышцах. Спина и ноги остаются зажатыми, сохраняя защитный гипертонус.",
         "Ледяные ванны и жесткие массажные валики требуют преодоления боли. Вашему организму нужен системный, комфортный сигнал, ускоряющий микроциркуляцию и клеточный энергообмен.",
       ],
-      problemImage: IMAGE_PATHS.home.howItWorksTechnologies ?? "/images/homeuse-how-three-technologies.jpg",
+      problemImage: "/images/homeuse-how-three-technologies.jpg",
       solutionEyebrow: "Мультимодальная система",
       solutionTitle: "Три восстановительных импульса. Один 16-минутный ритуал на мате.",
       solutionBody: [
@@ -486,7 +486,7 @@ export const HOME_SEO_PAGES: Record<
         "You climb into bed feeling physically drained, yet your mind continues cycling through conversations, tasks, and future obligations. Even when you eventually fall asleep, it is often shallow, fragmented, and unrefreshing.",
         "Sleeping pills and synthetic sleep aids leave you groggy the following morning without restoring true slow-wave restorative sleep architecture. Your body does not need sedation — it needs a clear, biological signal that the day is over.",
       ],
-      problemImage: IMAGE_PATHS.home.welcomeSide ?? "/images/sanza comfort routines 01.png",
+      problemImage: "/images/sanza comfort routines.jpg",
       solutionEyebrow: "The chronobiological approach",
       solutionTitle: "Gentle delta-wave entrainment to ease you into the night.",
       solutionBody: [
@@ -592,7 +592,7 @@ export const HOME_SEO_PAGES: Record<
         "Sie gehen körperlich müde ins Bett, doch der Kopf rattert weiter: unerledigte Aufgaben, Gespräche des Tages, Sorgen um morgen. Selbst wenn Sie einschlafen, bleibt der Schlaf oft unruhig und zerfahren.",
         "Schlafmittel hinterlassen am nächsten Morgen oft einen schweren Kopf, ohne die echte Tiefschlafarchitektur zu fördern. Ihr Körper braucht keine Betäubung, sondern ein klares, biologisches Feierabendsignal.",
       ],
-      problemImage: IMAGE_PATHS.home.welcomeSide ?? "/images/sanza comfort routines 01.png",
+      problemImage: "/images/sanza comfort routines.jpg",
       solutionEyebrow: "Der chronobiologische Ansatz",
       solutionTitle: "Sanfte Delta-Wellen-Frequenzen für einen harmonischen Übergang in die Nacht.",
       solutionBody: [
@@ -698,7 +698,7 @@ export const HOME_SEO_PAGES: Record<
         "Ķermenis jūtas noguris, taču prāts turpina risināt dienas sarunas un rītdienas uzdevumus. Miega fāzes kļūst seklas un saraustītas.",
         "Miega zāles sniedz tikai īslaicīgu efektu un rada smagumu no rīta. Ķermenim nav vajadzīga iemidzināšana, bet gan skaidrs dabisks signāls, ka diena ir beigusies.",
       ],
-      problemImage: IMAGE_PATHS.home.welcomeSide ?? "/images/sanza comfort routines 01.png",
+      problemImage: "/images/sanza comfort routines.jpg",
       solutionEyebrow: "Hronobioloģiskā pieeja",
       solutionTitle: "Maigas delta frekvences mierpilnai pārejai naktī.",
       solutionBody: [
@@ -804,7 +804,7 @@ export const HOME_SEO_PAGES: Record<
         "Вы ложитесь в кровать физически истощенным, но голова переполнена планами, тревогами и задачами. Сон становится прерывистым, поверхностным и не приносит отдыха.",
         "Снотворные препараты дают тяжесть по утрам и разрушают естественную архитектуру медленноволнового сна. Телу нужно не медикаментозное отключение, а естественный биологический сигнал покоя.",
       ],
-      problemImage: IMAGE_PATHS.home.welcomeSide ?? "/images/sanza comfort routines 01.png",
+      problemImage: "/images/sanza comfort routines.jpg",
       solutionEyebrow: "Хронобиологический подход",
       solutionTitle: "Мягкие дельта-ритмы для гармоничного погружения в сон.",
       solutionBody: [
@@ -913,7 +913,7 @@ export const HOME_SEO_PAGES: Record<
         "When the workday ends, that tension does not vanish. You walk into your living room irritable, mentally drained, and unable to genuinely connect with family or enjoy your evening.",
         "Scrolling through social media or watching television provides passive distraction, but it keeps sensory inputs firing. Your nervous system needs a deliberate, tactile reset — a quiet space where sensory input is lowered and cellular regulation is restored.",
       ],
-      problemImage: IMAGE_PATHS.home.howItWorksIntro ?? "/images/homeuse-how-block-what-sanza-is.jpg",
+      problemImage: "/images/sanza, less wired.jpg",
       solutionEyebrow: "The reset mechanism",
       solutionTitle: "Harmonizing Alpha frequencies and full-spine decompression.",
       solutionBody: [
@@ -1019,7 +1019,7 @@ export const HOME_SEO_PAGES: Record<
         "Wenn der Arbeitstag vorbei ist, verpufft dieser Stress nicht von allein. Man betritt das Wohnzimmer gereizt, innerlich unruhig und unfähig, den Feierabend mit der Familie wirklich zu genießen.",
         "Social-Media-Konsum oder Fernsehen lenken zwar ab, halten das Gehirn aber weiter unter Reizen. Ihr Nervensystem braucht eine bewusste Entlastung – einen Ort, an dem äußere Reize sinken und zelluläre Ruhe einzieht.",
       ],
-      problemImage: IMAGE_PATHS.home.howItWorksIntro ?? "/images/homeuse-how-block-what-sanza-is.jpg",
+      problemImage: "/images/sanza, less wired.jpg",
       solutionEyebrow: "Der Reset-Mechanismus",
       solutionTitle: "Alpha-Wellen-Frequenzen und Entlastung der Wirbelsäule.",
       solutionBody: [
@@ -1125,7 +1125,7 @@ export const HOME_SEO_PAGES: Record<
         "Darba dienai beidzoties, šis stress nepāriet pats no sevis. Cilvēks pārnāk mājās aizkaitināts un nespēj patiesi atpūsties kopā ar ģimeni.",
         "Viedtālruņa šķirstīšana vai televizors tikai turpina kairināt maņas. Nervu sistēmai ir vajadzīga apzināta atslodze — klusa vieta, kur kairinājumi norimst.",
       ],
-      problemImage: IMAGE_PATHS.home.howItWorksIntro ?? "/images/homeuse-how-block-what-sanza-is.jpg",
+      problemImage: "/images/sanza, less wired.jpg",
       solutionEyebrow: "Atiestatīšanas mehānisms",
       solutionTitle: "Alfa viļņu frekvences un mugurkaula atslogošana.",
       solutionBody: [
@@ -1231,7 +1231,7 @@ export const HOME_SEO_PAGES: Record<
         "После работы это напряжение не растворяется само по себе. Человек возвращается к семье взвинченным, истощенным и неспособным спокойно отдохнуть.",
         "Лента соцсетей или просмотр сериала лишь продолжают бомбардировать мозг стимулами. Нервной системе требуется осознанная, тихая пауза без внешних раздражителей.",
       ],
-      problemImage: IMAGE_PATHS.home.howItWorksIntro ?? "/images/homeuse-how-block-what-sanza-is.jpg",
+      problemImage: "/images/sanza, less wired.jpg",
       solutionEyebrow: "Механизм перезагрузки",
       solutionTitle: "Альфа-ритмы и декомпрессия позвоночника.",
       solutionBody: [
