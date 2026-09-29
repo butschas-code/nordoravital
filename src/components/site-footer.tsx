@@ -11,7 +11,8 @@ import { getHomeDisplayPath, getHomeSharedCopy, homeLocale } from "@/lib/home-co
 import { IMAGE_PATHS } from "@/lib/public-images";
 
 export async function SiteFooter({ localeOverride }: { localeOverride?: string } = {}) {
-  const locale = homeLocale(localeOverride ?? (await getLocale()));
+  const rawLocale = localeOverride ?? (await getLocale());
+  const locale = homeLocale(rawLocale);
   const homeCopy = getHomeSharedCopy(locale);
   const t = await getTranslations({ locale, namespace: "Footer" });
   const tNav = await getTranslations({ locale, namespace: "Nav" });
@@ -20,17 +21,54 @@ export async function SiteFooter({ localeOverride }: { localeOverride?: string }
   const surface = getSiteSurface(heads.get("x-forwarded-host") ?? heads.get("host"));
   const useLocalLinks = surface === "local";
   const proHref = (path = "") =>
-    useLocalLinks ? `/${locale}${path}` : `https://${PRO_DOMAIN}/${locale}${path}`;
+    useLocalLinks ? `/${rawLocale}${path}` : `https://${PRO_DOMAIN}/${rawLocale}${path}`;
   const homeHref = (path = "") => {
     const displayPath = getHomeDisplayPath(useLocalLinks ? "local" : "home", path);
-    return useLocalLinks ? `/${locale}${displayPath}` : `https://${HOME_DOMAIN}/${locale}${displayPath}`;
+    return useLocalLinks ? `/${rawLocale}${displayPath}` : `https://${HOME_DOMAIN}/${rawLocale}${displayPath}`;
   };
+
+  const proSectorsLabel =
+    rawLocale === "de"
+      ? "Alle 16 Fachbereiche"
+      : rawLocale === "lv"
+        ? "Visas 16 nozares"
+        : rawLocale === "ru"
+          ? "Все 16 секторов"
+          : "All 16 Sectors";
+
+  const recoveryLabel =
+    rawLocale === "de"
+      ? "Sport & Regeneration"
+      : rawLocale === "lv"
+        ? "Atjaunošanās pēc slodzes"
+        : rawLocale === "ru"
+          ? "Восстановление после спорта"
+          : "Athletic Recovery";
+
+  const sleepLabel =
+    rawLocale === "de"
+      ? "Tiefschlaf & Abendruhe"
+      : rawLocale === "lv"
+        ? "Dziļš miegs un atpūta"
+        : rawLocale === "ru"
+          ? "Глубокий сон и отдых"
+          : "Deep Rest & Sleep";
+
+  const stressResetLabel =
+    rawLocale === "de"
+      ? "Stress & Bildschirm-Reset"
+      : rawLocale === "lv"
+        ? "Stresa un ekrāna atslodze"
+        : rawLocale === "ru"
+          ? "Снятие стресса и перезагрузка"
+          : "Daily Stress Reset";
 
   const professionalLinks: { href: string; label: string }[] = [
     { href: proHref(), label: t("proHome") },
     { href: proHref("/how-it-works"), label: tNav("howItWorks") },
     { href: proHref("/offers"), label: tNav("offers") },
     { href: proHref("/professionals"), label: tNav("professionals") },
+    { href: proHref("/professionals/sectors"), label: proSectorsLabel },
     { href: proHref("/contact"), label: tNav("contact") },
   ];
 
@@ -39,6 +77,9 @@ export async function SiteFooter({ localeOverride }: { localeOverride?: string }
     { href: homeHref("/how-it-works"), label: t("homeuseExperience") },
     { href: homeHref("/programs"), label: t("homeusePrograms") },
     { href: homeHref("/sanza-experiences"), label: t("homeuseExperiences") },
+    { href: homeHref("/recovery"), label: recoveryLabel },
+    { href: homeHref("/sleep"), label: sleepLabel },
+    { href: homeHref("/stress-reset"), label: stressResetLabel },
     { href: homeHref("/faq"), label: t("homeuseFaq") },
     { href: homeCopy.shopUrl, label: t("homeuseShop") },
   ];

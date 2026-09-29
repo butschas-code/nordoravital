@@ -34,6 +34,51 @@ export async function HomeSiteNav({ locale }: { locale: string }) {
   ] as const;
   const desktopNavItems = navItems.filter((item) => item.label !== copy.nav.shop);
 
+  const mobileExtraItems = [
+    {
+      label:
+        locale === "de"
+          ? "Sport & Regeneration"
+          : locale === "lv"
+            ? "Atjaunošanās pēc slodzes"
+            : locale === "ru"
+              ? "Восстановление после спорта"
+              : "Athletic Recovery",
+      href: homePath("/recovery"),
+      external: false,
+    },
+    {
+      label:
+        locale === "de"
+          ? "Tiefschlaf & Abendruhe"
+          : locale === "lv"
+            ? "Dziļš miegs un atpūta"
+            : locale === "ru"
+              ? "Глубокий сон и отдых"
+              : "Deep Rest & Sleep",
+      href: homePath("/sleep"),
+      external: false,
+    },
+    {
+      label:
+        locale === "de"
+          ? "Stress & Bildschirm-Reset"
+          : locale === "lv"
+            ? "Stresa un ekrāna atslodze"
+            : locale === "ru"
+              ? "Снятие стресса и перезагрузка"
+              : "Daily Stress Reset",
+      href: homePath("/stress-reset"),
+      external: false,
+    },
+  ];
+
+  const mobileNavItems = [
+    ...navItems.slice(0, 4),
+    ...mobileExtraItems,
+    ...navItems.slice(4),
+  ];
+
   return (
     <header className="sticky top-0 z-[90] overflow-visible border-b border-[var(--border)] bg-[var(--brand-header-bg)] shadow-[0_1px_0_rgba(30,42,34,0.05)] backdrop-blur-md backdrop-saturate-150">
       <div className="mx-auto flex min-h-[88px] max-w-[1200px] items-center justify-between gap-4 px-4 py-2 sm:min-h-[92px] sm:gap-6 sm:px-6 md:px-8 lg:gap-3 lg:px-6 xl:px-8 min-[1360px]:gap-5 min-[1360px]:px-10">
@@ -62,7 +107,7 @@ export async function HomeSiteNav({ locale }: { locale: string }) {
         </nav>
 
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-          <SiteHeaderMobileNav links={[...navItems]} className="flex items-center min-[1360px]:hidden" />
+          <SiteHeaderMobileNav links={mobileNavItems} className="flex items-center min-[1360px]:hidden" />
           <div className="hidden items-center gap-2 sm:gap-3 min-[1360px]:flex">
             <LanguageSwitcher />
             <a

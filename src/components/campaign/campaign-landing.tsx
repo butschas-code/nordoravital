@@ -6,10 +6,35 @@ import { FadeUp } from "@/components/fade-up";
 import { RichLine } from "@/components/rich-line";
 import { CampaignFloatingCta } from "@/components/campaign/campaign-floating-cta";
 import { OptimizedBackgroundVideo } from "@/components/optimized-background-video";
+import { ClinicWorkflowSimulator } from "@/components/professionals/clinic-workflow-simulator";
+import { JsonLd } from "@/components/seo/json-ld";
 import { IMAGE_PATHS } from "@/lib/public-images";
 import type { CampaignPageContent } from "@/types/campaign-page";
 
-type Props = { content: CampaignPageContent };
+type Props = {
+  content: CampaignPageContent;
+  locale?: string;
+  campaignSlug?: string;
+};
+
+function getSimulatorSector(slug?: string, category?: string): string {
+  if (slug) {
+    if (slug === "fizioterapija") return "physio";
+    if (slug === "kiropraktika" || slug === "osteopatija" || slug === "manuala-terapija") return "chiro";
+    if (slug === "sporta-medicina" || slug === "fitnesa-klubi" || slug === "sporta-klubi") return "sports";
+    if (slug === "zobarstnieciba") return "dental";
+    if (slug === "alternativa-terapija" || slug === "rehabilitacija") return "alternative";
+    if (slug === "masazas-saloni" || slug === "spa-viesnicas" || slug === "veselibas-centri" || slug === "skaistumkopsana") return "spa";
+  }
+  if (category) {
+    if (category === "physiotherapists") return "physio";
+    if (category === "sports-performance") return "sports";
+    if (category === "dentists") return "dental";
+    if (category === "therapists") return "alternative";
+    if (category === "beauty-cosmetic") return "spa";
+  }
+  return "physio";
+}
 
 /* ── Inline icon set (currentColor) ─────────────────────────────── */
 
@@ -75,7 +100,11 @@ const DEMO_STEPS_FALLBACK: CampaignPageContent["demoSteps"] = [
    carries imagery; cards use grid stretch + flex column for equal heights.
    ────────────────────────────────────────────────────────────────── */
 
-export async function CampaignLanding({ content }: Props) {
+export async function CampaignLanding({
+  content,
+  locale = "en",
+  campaignSlug,
+}: Props) {
   const heroTextAlign = content.heroTextAlign ?? "right";
   const heroCopyClass =
     heroTextAlign === "left"
@@ -98,6 +127,19 @@ export async function CampaignLanding({ content }: Props) {
 
   return (
     <div className="campaign-page-root flex flex-col gap-0">
+      <JsonLd
+        breadcrumbs={[
+          { name: "Home", url: "https://pro.nordoravital.com" },
+          { name: "Sectors", url: `https://pro.nordoravital.com/${locale}/professionals/sectors` },
+          { name: content.segmentName, url: `https://pro.nordoravital.com/${locale}/${campaignSlug ?? ""}` },
+        ]}
+        medicalBusiness={{
+          name: `sanza × Nordora Vital — ${content.segmentName}`,
+          description: content.metaDescription,
+          url: `https://pro.nordoravital.com/${locale}/${campaignSlug ?? ""}`,
+          medicalSpecialty: [content.segmentName],
+        }}
+      />
       {/* ═════════ HERO ═════════ */}
       <section
         className="relative isolate left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] overflow-hidden bg-[var(--brand-deep)]"
@@ -481,6 +523,21 @@ export async function CampaignLanding({ content }: Props) {
               </FadeUp>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ═════════ CLINIC WORKFLOW SIMULATOR (interactive) ═════════ */}
+      <section
+        className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] bg-[#fbf7ef] py-16 sm:py-20 md:py-24"
+        aria-label="Interactive Clinic Workflow Simulator"
+      >
+        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
+          <FadeUp>
+            <ClinicWorkflowSimulator
+              locale={locale}
+              defaultSectorId={getSimulatorSector(campaignSlug, content.contactCategory)}
+            />
+          </FadeUp>
         </div>
       </section>
 

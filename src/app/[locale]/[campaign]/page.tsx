@@ -50,5 +50,5 @@ export default async function CampaignPage({ params }: Props) {
   const content = getContent(campaign, locale as Locale);
   if (!content) notFound();
 
-  return <CampaignLanding content={content} />;
+  return <CampaignLanding content={content} locale={locale} campaignSlug={campaign} />;
 }

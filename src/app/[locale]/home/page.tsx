@@ -324,6 +324,13 @@ export default async function HomeUserPage({ params }: Props) {
             <div className="mt-16 grid gap-6 md:grid-cols-3 md:gap-7 xl:grid-cols-4">
               {copy.rituals.map((ritual, index) => {
                 const visual = ritualVisuals[index % ritualVisuals.length];
+                const ritualHrefs = [
+                  homePath("/recovery"),
+                  homePath("/stress-reset"),
+                  homePath("/sleep"),
+                  programsHref,
+                ];
+                const targetHref = ritualHrefs[index] ?? programsHref;
 
                 return (
                   <DarkMarketingCard
@@ -331,7 +338,7 @@ export default async function HomeUserPage({ params }: Props) {
                     title={ritual.title}
                     body={ritual.body}
                     cta={copy.secondary}
-                    href={programsHref}
+                    href={targetHref}
                     mediaClassName="bg-[#122e27]"
                     titleInsetClassName="right-6"
                     media={

@@ -406,5 +406,5 @@ export default async function FizioterapijaPage({ params }: Props) {
   setRequestLocale(locale);
   const content = getContent(locale);
   if (!content) notFound();
-  return <CampaignLanding content={content} />;
+  return <CampaignLanding content={content} locale={locale} campaignSlug="fizioterapija" />;
 }
