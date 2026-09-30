@@ -14,16 +14,38 @@ interface ComparisonPageViewProps {
 }
 
 const COMPARISON_HERO_BG: Record<string, string> = {
-  "pemf-systems": "/images/sanza recovery 01.jpg",
-  "pemf-vs-red-light": "/images/sanza focus and presence.jpg",
-  "frequency-vs-cold-plunge": "/images/sanza, less wired.jpg",
+  "pemf-systems": "/images/Sanza mat 01.jpg",
+  "pemf-vs-red-light": "/images/references/lifestyle/calm-wellness-session-warm-light.jpg",
+  "frequency-vs-cold-plunge": "/images/sanza recovery 01.jpg",
+};
+
+const COMPARISON_SANZA_HARDWARE: Record<
+  string,
+  { src: string; alt: string; label: string }
+> = {
+  "pemf-systems": {
+    src: "/images/sanza_gesamtsystem_645.png",
+    alt: "sanza 3-in-1 modular platform",
+    label: "3-in-1 Modular Platform (Mat, Generator, Applicators)",
+  },
+  "pemf-vs-red-light": {
+    src: "/images/02_sanza_twinc_700.jpg",
+    alt: "sanza Twin Laser and Photobiomodulation Applicator",
+    label: "Synchronized Soft Laser & PEMF Applicator",
+  },
+  "frequency-vs-cold-plunge": {
+    src: "/images/02_sanza_mat_700.jpg",
+    alt: "sanza Full-Body Induction Mat",
+    label: "Full-Body Vasomotion & Circulation Mat",
+  },
 };
 
 export const ComparisonPageView: FC<ComparisonPageViewProps> = ({
   content,
   locale,
 }) => {
-  const heroBg = COMPARISON_HERO_BG[content.slug] ?? "/images/sanza comfort routines.jpg";
+  const heroBg = COMPARISON_HERO_BG[content.slug] ?? "/images/references/lifestyle/wellness-room-natural-materials.jpg";
+  const hardware = COMPARISON_SANZA_HARDWARE[content.slug];
 
   const statLabels: Record<string, { value: string; label: string }[]> = {
     en: [
@@ -164,22 +186,51 @@ export const ComparisonPageView: FC<ComparisonPageViewProps> = ({
             {/* Quick Dual Cards */}
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               <FadeUp delay={4}>
-                <div className="h-full rounded-2xl border-2 border-[#a3c2b0]/60 bg-[#082721]/80 p-6 shadow-2xl backdrop-blur-md sm:p-8">
-                  <div className="flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#a3c2b0]/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#a3c2b0]">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#a3c2b0] shadow-[0_0_6px_#a3c2b0]" />
-                      sanza Multi-Wave System
-                    </span>
-                    <span className="text-xs font-bold uppercase tracking-wider text-white/70">
-                      3-in-1 Engine
-                    </span>
+                <div className="flex h-full flex-col justify-between rounded-2xl border-2 border-[#a3c2b0]/60 bg-[#082721]/80 p-6 shadow-2xl backdrop-blur-md sm:p-8">
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#a3c2b0]/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#a3c2b0]">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#a3c2b0] shadow-[0_0_6px_#a3c2b0]" />
+                        sanza Multi-Wave System
+                      </span>
+                      <span className="text-xs font-bold uppercase tracking-wider text-white/70">
+                        3-in-1 Engine
+                      </span>
+                    </div>
+                    <h2 className="mt-4 font-heading text-xl font-bold text-white sm:text-2xl">
+                      {content.summaryCard.sanzaTitle}
+                    </h2>
+                    <p className="mt-3 text-sm leading-relaxed text-white/88 sm:text-base">
+                      {content.summaryCard.sanzaSummary}
+                    </p>
                   </div>
-                  <h2 className="mt-4 font-heading text-xl font-bold text-white sm:text-2xl">
-                    {content.summaryCard.sanzaTitle}
-                  </h2>
-                  <p className="mt-3 text-sm leading-relaxed text-white/88 sm:text-base">
-                    {content.summaryCard.sanzaSummary}
-                  </p>
+                  {hardware && (
+                    <div className="mt-6 flex items-center gap-4 rounded-xl border border-white/15 bg-white/[0.07] p-3.5 backdrop-blur-sm">
+                      <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg bg-black/30">
+                        <Image
+                          src={hardware.src}
+                          alt={hardware.alt}
+                          fill
+                          className="object-contain p-1"
+                          sizes="56px"
+                        />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-[0.68rem] font-bold uppercase tracking-wider text-[#a3c2b0]">
+                          {locale === "de"
+                            ? "Zugehöriges Hardware-Modul"
+                            : locale === "lv"
+                              ? "Saistītais aparatūras modulis"
+                              : locale === "ru"
+                                ? "Ключевой аппаратный модуль"
+                                : "Featured Hardware Module"}
+                        </p>
+                        <p className="mt-0.5 truncate text-xs font-medium text-white/95 sm:text-sm">
+                          {hardware.label}
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </FadeUp>
 

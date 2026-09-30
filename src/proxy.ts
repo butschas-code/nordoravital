@@ -86,10 +86,10 @@ function rewriteToLocalePath(
 ) {
   const url = request.nextUrl.clone();
   url.pathname = pathname;
+  const requestHeaders = withNordoraHeaders(request, displayPathname, surface);
+  requestHeaders.set("X-NEXT-INTL-LOCALE", locale);
   const response = NextResponse.rewrite(url, {
-    request: {
-      headers: withNordoraHeaders(request, displayPathname, surface),
-    },
+    request: { headers: requestHeaders },
   });
   return setLocaleCookie(response, locale);
 }

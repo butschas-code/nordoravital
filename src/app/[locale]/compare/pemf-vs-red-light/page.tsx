@@ -36,6 +36,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `https://pro.nordoravital.com/${locale}/compare/pemf-vs-red-light`,
       siteName: "Nordora Vital",
       type: "article",
+      images: [
+        {
+          url: "/images/02_sanza_twinc_700.jpg",
+          width: 1200,
+          height: 630,
+          alt: content.heroHeadline,
+        },
+      ],
     },
   };
 }

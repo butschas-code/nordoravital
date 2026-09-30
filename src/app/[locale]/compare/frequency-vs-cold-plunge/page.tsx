@@ -36,6 +36,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `https://pro.nordoravital.com/${locale}/compare/frequency-vs-cold-plunge`,
       siteName: "Nordora Vital",
       type: "article",
+      images: [
+        {
+          url: "/images/sanza recovery 01.jpg",
+          width: 1200,
+          height: 630,
+          alt: content.heroHeadline,
+        },
+      ],
     },
   };
 }

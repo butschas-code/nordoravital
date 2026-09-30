@@ -76,6 +76,69 @@ export function HomeSeoLanding({ content, locale }: HomeSeoLandingProps) {
         ];
 
   // Structured Data Schema.org
+  // Contextual images tailored with surgical precision to each topic and protocol
+  const pageImagery = {
+    recovery: {
+      problem: "/images/homeuse-card-post-activity-recovery.jpg",
+      specImages: [
+        "/images/02_sanza_mat_700.jpg",
+        "/images/sanza hand electrode 01.jpg",
+        "/images/02_sanza_pen_700.jpg",
+      ],
+      ritualImages: [
+        "/images/sanza calmer arrivals.jpg",
+        "/images/sanza recovery 01.jpg",
+        "/images/homeuse-targeted-body-support.jpg",
+      ],
+      bodyOutcome: "/images/sanza recovery 01.jpg",
+      mindOutcome: "/images/sanza focus and presence.jpg",
+    },
+    sleep: {
+      problem: "/images/sanza comfort routines.jpg",
+      specImages: [
+        "/images/02_sanza_mat_700.jpg",
+        "/images/sanza hand electrode 01.jpg",
+        "/images/homeuse-card-rest-sleep-preparation.jpg",
+      ],
+      ritualImages: [
+        "/images/references/lifestyle/calm-wellness-session-warm-light.jpg",
+        "/images/sanza comfort routines.jpg",
+        "/images/homeuse-card-rest-sleep-preparation.jpg",
+      ],
+      bodyOutcome: "/images/sanza a softer landing.jpg",
+      mindOutcome: "/images/sanza focus and presence.jpg",
+    },
+    "stress-reset": {
+      problem: "/images/sanza, less wired.jpg",
+      specImages: [
+        "/images/02_sanza_mat_700.jpg",
+        "/images/sanza hand electrode 01.jpg",
+        "/images/02_sanza_pad_700.jpg",
+      ],
+      ritualImages: [
+        "/images/sanza calmer arrivals.jpg",
+        "/images/sanza, less wired.jpg",
+        "/images/sanza focus and presence.jpg",
+      ],
+      bodyOutcome: "/images/sanza, less wired.jpg",
+      mindOutcome: "/images/sanza focus and presence.jpg",
+    },
+  }[content.slug] ?? {
+    problem: content.problemImage,
+    specImages: [
+      "/images/02_sanza_mat_700.jpg",
+      "/images/sanza hand electrode 01.jpg",
+      "/images/02_sanza_pad_700.jpg",
+    ],
+    ritualImages: [
+      "/images/sanza calmer arrivals.jpg",
+      "/images/sanza comfort routines.jpg",
+      "/images/sanza a softer landing.jpg",
+    ],
+    bodyOutcome: "/images/sanza recovery 01.jpg",
+    mindOutcome: "/images/sanza focus and presence.jpg",
+  };
+
   const jsonLdData = [
     {
       "@context": "https://schema.org",
@@ -292,7 +355,7 @@ export function HomeSeoLanding({ content, locale }: HomeSeoLandingProps) {
             <FadeUp delay={1}>
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-[var(--shadow-card)] ring-1 ring-[var(--border)] sm:rounded-3xl">
                 <Image
-                  src={content.problemImage}
+                  src={pageImagery.problem}
                   alt={content.problemTitle}
                   fill
                   className="object-cover"
@@ -337,12 +400,7 @@ export function HomeSeoLanding({ content, locale }: HomeSeoLandingProps) {
 
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {content.solutionSpecs.map((spec, idx) => {
-              const specImages = [
-                "/images/02_sanza_mat_700.jpg",
-                "/images/sanza hand electrode 01.jpg",
-                "/images/02_sanza_pen_700.jpg",
-              ];
-              const specImage = specImages[idx % specImages.length];
+              const specImage = pageImagery.specImages[idx % pageImagery.specImages.length];
               return (
                 <FadeUp key={spec.title} delay={Math.min(idx + 1, 6) as 1 | 2 | 3}>
                   <div className="group flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-white/20 bg-[#07251f]/90 shadow-2xl backdrop-blur-md transition-all duration-500 hover:border-white/40 hover:bg-[#07251f] sm:rounded-3xl">
@@ -417,12 +475,7 @@ export function HomeSeoLanding({ content, locale }: HomeSeoLandingProps) {
 
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {content.ritualSteps.map((step, idx) => {
-              const ritualImages = [
-                "/images/sanza calmer arrivals.jpg",
-                "/images/sanza comfort routines.jpg",
-                "/images/sanza a softer landing.jpg",
-              ];
-              const ritualImg = ritualImages[idx % ritualImages.length];
+              const ritualImg = pageImagery.ritualImages[idx % pageImagery.ritualImages.length];
               return (
                 <FadeUp key={step.step} delay={Math.min(idx + 1, 6) as 1 | 2 | 3}>
                   <div className="group flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-[#d8cec2] bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#0e3d34]/60 hover:shadow-xl sm:rounded-3xl">
@@ -488,7 +541,7 @@ export function HomeSeoLanding({ content, locale }: HomeSeoLandingProps) {
               <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/15 bg-white/[0.05] shadow-2xl backdrop-blur-md sm:rounded-3xl">
                 <div className="relative aspect-[16/9] w-full overflow-hidden">
                   <Image
-                    src="/images/sanza recovery 01.jpg"
+                    src={pageImagery.bodyOutcome}
                     alt=""
                     fill
                     sizes="(min-width: 768px) 50vw, 100vw"
@@ -527,7 +580,7 @@ export function HomeSeoLanding({ content, locale }: HomeSeoLandingProps) {
               <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/15 bg-white/[0.05] shadow-2xl backdrop-blur-md sm:rounded-3xl">
                 <div className="relative aspect-[16/9] w-full overflow-hidden">
                   <Image
-                    src="/images/sanza focus and presence.jpg"
+                    src={pageImagery.mindOutcome}
                     alt=""
                     fill
                     sizes="(min-width: 768px) 50vw, 100vw"

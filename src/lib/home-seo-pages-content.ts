@@ -59,7 +59,7 @@ export const HOME_SEO_PAGES: Record<
         "Passive sitting on the couch leaves metabolic waste lingering in tired muscle groups. Shoulders, hamstrings, and the lower back remain braced, maintaining low-grade sympathetic tone that delays genuine tissue repair.",
         "Ice baths and foam rollers provide temporary relief, but they demand high friction and discomfort. Your body needs a systemic, repeatable down-regulation signal that supports natural microcirculation and cellular recharge without adding another grueling chore to your day.",
       ],
-      problemImage: "/images/homeuse-how-three-technologies.jpg",
+      problemImage: "/images/homeuse-card-post-activity-recovery.jpg",
       solutionEyebrow: "The multi-technology layer",
       solutionTitle: "Three restorative inputs. One effortless 16-minute mat ritual.",
       solutionBody: [
@@ -165,7 +165,7 @@ export const HOME_SEO_PAGES: Record<
         "Passives Sitzen auf dem Sofa lässt Stoffwechselrückstände in überlasteten Muskelgruppen verharren. Oberschenkel, Waden und der untere Rücken bleiben in einer unbewussten Schutzspannung, die das Nervensystem im Stressmodus hält.",
         "Eisbäder und Faszienrollen bringen zwar kurzfristige Reize, sind aber mühsam und schmerzhaft. Ihr Körper braucht ein systemisches, müheloses Entspannungssignal, das die Mikrozirkulation und die zelluläre Erholung sanft unterstützt.",
       ],
-      problemImage: "/images/homeuse-how-three-technologies.jpg",
+      problemImage: "/images/homeuse-card-post-activity-recovery.jpg",
       solutionEyebrow: "Die Multi-Technologie-Ebene",
       solutionTitle: "Drei regenerative Impulse. Ein einfaches 16-Minuten-Mattenritual.",
       solutionBody: [
@@ -271,7 +271,7 @@ export const HOME_SEO_PAGES: Record<
         "Pasīva sēdēšana dīvānā nepalīdz nogurušajiem muskuļiem atbrīvoties no saspringuma. Kājas un muguras lejasdaļa paliek saspringta, paildzinot atjaunošanās laiku.",
         "Ledus vannas un masāžas ruļļi prasa piepūli un diskomfortu. Jūsu ķermenim ir nepieciešams maigs, sistēmisks signāls, kas atbalsta mikrocirkulāciju un šūnu līdzsvaru bez papildu grūtībām.",
       ],
-      problemImage: "/images/homeuse-how-three-technologies.jpg",
+      problemImage: "/images/homeuse-card-post-activity-recovery.jpg",
       solutionEyebrow: "Daudztehnoloģiju pieeja",
       solutionTitle: "Trīs atjaunojošas iedarbības. Viens 16 minūšu paklāja rituāls.",
       solutionBody: [
@@ -377,7 +377,7 @@ export const HOME_SEO_PAGES: Record<
         "Пассивный отдых на диване оставляет продукты обмена в перегруженных мышцах. Спина и ноги остаются зажатыми, сохраняя защитный гипертонус.",
         "Ледяные ванны и жесткие массажные валики требуют преодоления боли. Вашему организму нужен системный, комфортный сигнал, ускоряющий микроциркуляцию и клеточный энергообмен.",
       ],
-      problemImage: "/images/homeuse-how-three-technologies.jpg",
+      problemImage: "/images/homeuse-card-post-activity-recovery.jpg",
       solutionEyebrow: "Мультимодальная система",
       solutionTitle: "Три восстановительных импульса. Один 16-минутный ритуал на мате.",
       solutionBody: [

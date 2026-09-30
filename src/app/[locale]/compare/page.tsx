@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
       images: [
         {
-          url: "/images/sanza comfort routines.jpg",
+          url: "/images/Sanza mat 01.jpg",
           width: 1200,
           height: 630,
           alt: content.headline,
@@ -55,9 +55,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const COMPARISON_IMAGES: Record<ComparisonSlug, string> = {
-  "pemf-systems": "/images/sanza recovery 01.jpg",
-  "pemf-vs-red-light": "/images/sanza focus and presence.jpg",
-  "frequency-vs-cold-plunge": "/images/sanza, less wired.jpg",
+  "pemf-systems": "/images/Sanza mat 01.jpg",
+  "pemf-vs-red-light": "/images/02_sanza_twinc_700.jpg",
+  "frequency-vs-cold-plunge": "/images/sanza recovery 01.jpg",
 };
 
 export default async function ComparisonHubPage({ params }: Props) {
@@ -147,7 +147,7 @@ export default async function ComparisonHubPage({ params }: Props) {
           {/* Background image */}
           <div className="absolute inset-0">
             <Image
-              src="/images/sanza comfort routines.jpg"
+              src="/images/references/lifestyle/wellness-room-natural-materials.jpg"
               alt=""
               fill
               priority
