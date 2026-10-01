@@ -1848,20 +1848,20 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
   "spa-wellness": {
     segmentName: "Day Spas & Wellness Centres",
     metaTitle: "Day Spas & Wellness Centres | sanza × Nordora Vital",
-    metaDescription: "A premium, technology-led wellness experience for day spas and wellness centres that want a memorable signature offer.",
+    metaDescription: "See how a hotel or spa can introduce sanza as a bookable session, a treatment add-on or part of a package — and test the idea before deciding.",
     heroImage: "/images/campaign/day-spa-hero.jpg",
     heroTextAlign: "left",
     heroKicker: "For spas where the guest experience is the product",
     heroHeadline: "Give guests a wellness experience they cannot get everywhere.",
-    heroSubhead: "Your spa already creates atmosphere, care and escape. <strong>sanza</strong> helps you add something guests immediately understand as different: a quiet, technology-led wellbeing experience that helps them reset, decompress and feel deeply looked after.\r\n\r\nIt becomes a premium treatment moment without needing constant therapist time, complex protocols or operational pressure. A simple addition that makes your spa feel more distinctive, more complete and more worth returning to.",
+    heroSubhead: "Your spa already creates atmosphere, care and escape. <strong>sanza</strong> helps you add something guests immediately understand as different: a quiet, technology-led wellbeing experience that helps them reset, decompress and feel deeply looked after.\n\nIt can sit on the treatment menu as its own session, as a short addition to a treatment guests already book, or inside a package. Once a guest is comfortably set up, it is designed to need limited hands-on involvement.",
     heroCtaPrimary: "Discover sanza for your spa",
     heroValueProps: [
       "On-site demo",
       "Clear setup guidance",
-      "No workflow redesign"
+      "Pilot before you decide"
     ],
     contactCategory: "beauty-cosmetic",
-    demoRequestMessage: "I'd like to arrange a sanza demo and receive more information for Day Spas & Wellness Centres.",
+    demoRequestMessage: "I'd like to arrange a sanza demonstration for our spa.",
     quickStats: [
       {
         value: "15",
@@ -1869,32 +1869,32 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
       },
       {
         value: "1",
-        label: "Simple system your team can run"
+        label: "System your team can run"
       },
       {
-        value: "10 min",
-        label: "To create a deeper reset"
+        value: "10–30 min",
+        label: "Session lengths for the treatment menu"
       },
       {
-        value: "0",
-        label: "Pressure on therapist capacity"
+        value: "4",
+        label: "Ways to place it in the guest offer"
       }
     ],
     problemEyebrow: "Give loyal guests a new reason to be impressed.",
     problemTitle: "Your best guests already trust your spa.",
-    problemBody: "They know your treatments, your therapists, your atmosphere, your standard of care. That is why they return.\r\n\r\nBut loyalty also raises expectations.\r\n\r\nAt some point, another massage, facial or seasonal ritual is not enough to feel new. Your guests want the same excellence they love — with a fresh layer of discovery, depth and perceived value.\r\n\r\n<strong>sanza</strong> helps you add that next layer without expanding your team, rebuilding your rooms or adding pressure to your therapists. It gives guests a premium, technology-led wellbeing experience they can feel immediately: quiet, deep, memorable and different from the usual spa menu.\r\n\r\nNot a replacement for what already works.\r\nA stronger reason for loyal guests to say: “You need to try this.”",
+    problemBody: "They know your treatments, your therapists, your atmosphere, your standard of care. That is why they return.\n\nBut loyalty also raises expectations.\n\nAt some point, another massage, facial or seasonal ritual is not enough to feel new. Your guests want the same excellence they love — with a fresh layer of discovery.\n\n<strong>sanza</strong> is a way to add that layer without rebuilding your rooms or opening a new department. It gives guests a quiet, technology-led wellbeing experience that feels different from the usual spa menu.\n\nNot a replacement for what already works.\nSomething genuinely new for guests who already know your spa.",
     problemImage: "/images/campaign/day-spa-block-1.jpg",
     solutionEyebrow: "The sanza layer",
-    solutionTitle: "sanza: the experience they haven't had yet — anywhere.",
-    solutionBody: "A sanza session uses structured PEMF frequency programs to create a full-body experience of deep, quiet settling that guests cannot easily explain but immediately want to repeat. It's not heat. It's not pressure. It's something underneath both — a resonance that feels like the body finally remembering how to stop. Position it as your premium tier. Name it as your own. Let the results do the marketing.",
+    solutionTitle: "A quiet wellness session your menu does not have yet.",
+    solutionBody: "A sanza session is simple to explain. The guest is comfortably set up, and a structured PEMF frequency programme runs. It is not heat. It is not massage pressure. It is a calm, full-body wellness moment that can stand on its own or sit beside a treatment your guests already understand.\n\nYou name it. You set the duration. You decide whether it is a session, an add-on or part of a package.",
     solutionSpecs: [
       {
         title: "PEMF",
-        body: "Pulsed electromagnetic field — gentle, non-invasive."
+        body: "Pulsed electromagnetic field — a gentle, non-invasive wellness technology."
       },
       {
-        title: "Chronobiological",
-        body: "Frequency programs aligned to body rhythms."
+        title: "Programmes",
+        body: "Structured frequency programmes your team selects for the session."
       },
       {
         title: "Modular",
@@ -1903,7 +1903,7 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
     ],
     fitsTitle: "Where sanza fits in your spa",
     fitsEyebrow: "Integration",
-    fitsLead: "A few simple touchpoints around the work you already do. The experience changes, while your core service stays yours.",
+    fitsLead: "sanza does not replace the treatments guests already book. It adds a moment your team can place around the work you already do.",
     fitsImages: [
       "/images/campaign/day-spa-fit-signature.jpg",
       "/images/campaign/day-spa-fit-treatment-enhancer.jpg",
@@ -1912,59 +1912,63 @@ export const CAMPAIGN_PAGE_CONTENT: Partial<Record<CampaignSlug, CampaignPageCon
     ],
     fitsItems: [
       {
-        title: "Signature 60-min session",
-        body: "High-margin, low-overhead, waitlisted within weeks of launch."
+        title: "A bookable session",
+        body: "Create a bookable standalone wellness experience."
       },
       {
-        title: "Treatment enhancer",
-        body: "15-min sanza pre-treatment before massage or facial — an upsell guests request by name after the first time."
+        title: "A treatment enhancement",
+        body: "Add sanza as a paid enhancement to an existing treatment."
       },
       {
-        title: "Membership feature",
-        body: "Include sanza access in your premium membership — anchor for retention and per-member spend."
+        title: "Packages and memberships",
+        body: "Include sanza within selected premium packages or memberships."
       },
       {
-        title: "Retail crossover",
-        body: "Guests who love the technology ask about home units — a natural conversation Nordora Vital supports."
+        title: "Something new to return for",
+        body: "Give repeat guests something genuinely new to discover."
       }
     ],
-    whatChangesTitle: "What changes when sanza joins your space",
-    whatChangesEyebrow: "Outcomes",
+    whatChangesTitle: "What this can add to a visit",
+    whatChangesEyebrow: "For guests and for the spa",
     whatChangesPatientsTitle: "For your guests",
     whatChangesPatientsItems: [
-      "An experience they haven't had and will come back for",
-      "A quiet, premium touchpoint that sets the visit apart"
+      "A quiet wellness moment that feels different from massage, heat or a facial",
+      "A way to pause, reset or wind down — on its own, or beside a treatment they already understand"
     ],
     whatChangesPracticeTitle: "For your spa",
     whatChangesPracticeItems: [
-      "A signature offer that creates demand no marketing budget can replicate",
-      "Premium pricing supported by a genuinely premium experience",
-      "Retail revenue from guests who want to extend the experience at home"
+      "A treatment-menu addition you can test before it becomes a permanent part of the offer",
+      "A way to make selected packages or memberships feel more distinctive",
+      "An experience the team can introduce without rebuilding the spa"
     ],
     whatChangesPracticeImage: "/images/campaign/day-spa-hero.jpg",
     socialProofLabel: "Why partners ask to see it",
     socialProofQuote: "Already part of the guest offer at premium European spa and wellness hotels.",
     socialProofAttribution: "Nordora Vital · Professional partner programme",
-    demoStepsEyebrow: "What happens after you contact us",
-    demoStepsTitle: "A simple demo path, built around your setting.",
-    demoStepsLead: "No pressure, no generic pitch. Tell us how your space works, and we will show you where sanza could fit before you make any decision.",
+    demoStepsEyebrow: "Before you decide",
+    demoStepsTitle: "You don't need to decide from a website.",
+    demoStepsLead: "The best way to evaluate sanza is to experience it, place it into your actual guest journey and decide whether the concept makes commercial and operational sense for your property.",
     demoSteps: [
       {
-        title: "Short fit call",
-        body: "We clarify your setting, room flow, audience, and the questions you want answered."
+        title: "Experience it",
+        body: "We demonstrate sanza to you and your team."
       },
       {
-        title: "Practical demo",
-        body: "You experience the programs, applicators, and setup in a context close to your daily work."
+        title: "Map the fit",
+        body: "We identify the room, guest journey and treatment-menu position that makes the most sense."
       },
       {
-        title: "Clear next steps",
-        body: "If it fits, we outline the recommended setup, onboarding path, and pricing. If not, you still leave informed."
+        title: "Test the concept",
+        body: "Where appropriate, discuss a pilot or rental period in your own environment."
+      },
+      {
+        title: "Decide from experience",
+        body: "If it works for your property, we discuss the appropriate permanent setup."
       }
     ],
-    finalCtaTitle: "Talk to us about launching sanza in your spa.",
-    finalCtaBody: "A showcase presentation tailored to your facility — at no cost.",
-    finalCtaPrimary: "Talk to us about launching sanza"
+    finalCtaTitle: "Let's look at your spa together.",
+    finalCtaBody: "Every property is different. Rather than sending you a generic equipment proposal, I would prefer to see your spa, understand your current guest journey and show you where sanza could realistically fit.",
+    finalCtaPrimary: "Arrange a short meeting"
   }
 };
 
@@ -3540,7 +3544,7 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     heroTextAlign: "left",
     heroKicker: "Für Spas, in denen das Gästeerlebnis das Produkt ist",
     heroHeadline: "Bieten Sie Ihren Gästen ein Wellnesserlebnis, das sie nicht überall finden.",
-    heroSubhead: "Ihr Spa bietet bereits Atmosphäre, Pflege und Entspannung. <strong>sanza</strong> hilft Ihnen dabei, etwas hinzuzufügen, das Ihre Gäste sofort als etwas Besonderes wahrnehmen: ein ruhiges, technologiegestütztes Wellness-Erlebnis, das ihnen hilft, sich zu erholen, abzuschalten und sich rundum umsorgt zu fühlen.\r\n\r\nEs wird zu einem exklusiven Behandlungserlebnis, ohne dass ständige Anwesenheit von Therapeuten, komplexe Abläufe oder betrieblicher Druck erforderlich sind. Eine einfache Ergänzung, die Ihr Spa unverwechselbarer, vollständiger und lohnenswerter macht – ein Ort, an den man gerne zurückkehrt.",
+    heroSubhead: "Ihr Spa bietet bereits Atmosphäre, Pflege und Entspannung. <strong>sanza</strong> hilft Ihnen dabei, etwas hinzuzufügen, das Ihre Gäste sofort als etwas Besonderes wahrnehmen: ein ruhiges, technologiegestütztes Wellness-Erlebnis, das ihnen hilft, sich zu erholen, abzuschalten und sich rundum umsorgt zu fühlen.\r\n\r\nEs kann auf der Behandlungskarte als eigene Sitzung, als kurze Ergänzung oder innerhalb eines Pakets stehen. Sobald der Gast bequem vorbereitet ist, ist es auf begrenzte persönliche Begleitung ausgelegt. Eine einfache Ergänzung, die Ihr Spa unverwechselbarer, vollständiger und lohnenswerter macht – ein Ort, an den man gerne zurückkehrt.",
     heroCtaPrimary: "Entdecken Sie sanza für Ihr Spa",
     heroValueProps: [
       "Vor-Ort-Vorführung",
@@ -3559,21 +3563,21 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
         label: "Einfaches System, das Ihr Team bedienen kann"
       },
       {
-        value: "10 Min",
-        label: "Für eine tiefgreifende Erholung"
+        value: "10–30 Min.",
+        label: "Sitzungslängen für die Behandlungskarte"
       },
       {
-        value: "0",
-        label: "Belastung der Therapeutenkapazitäten"
+        value: "4",
+        label: "Wege, es ins Gästeangebot einzufügen"
       }
     ],
     problemEyebrow: "Geben Sie treuen Gästen einen neuen Grund, begeistert zu sein.",
     problemTitle: "Ihre besten Gäste vertrauen Ihrem Spa bereits.",
-    problemBody: "Sie kennen Ihre Behandlungen, Ihre Therapeuten, Ihre Atmosphäre und Ihren Betreuungsstandard. Deshalb kommen sie wieder.\r\n\r\nDoch mit der Treue steigen auch die Erwartungen.\r\n\r\nIrgendwann reicht eine weitere Massage, Gesichtsbehandlung oder ein saisonales Ritual nicht mehr aus, um ein Gefühl der Neuheit zu vermitteln. Ihre Gäste wünschen sich dieselbe Exzellenz, die sie so schätzen – ergänzt um eine neue Dimension der Entdeckung, Tiefe und wahrgenommenen Wertigkeit.\r\n\r\n<strong>sanza</strong> hilft Ihnen dabei, diese nächste Ebene hinzuzufügen, ohne Ihr Team zu vergrößern, Ihre Räume umzugestalten oder Ihre Therapeuten zusätzlich zu belasten. Es bietet Gästen ein erstklassiges, technologiegetriebenes Wellness-Erlebnis, das sie sofort spüren können: ruhig, tiefgehend, unvergesslich und anders als das übliche Spa-Angebot.\r\n\r\nKein Ersatz für das, was bereits funktioniert.\r\nEin stärkerer Grund für treue Gäste zu sagen: „Das musst du unbedingt ausprobieren.“",
+    problemBody: "Sie kennen Ihre Behandlungen, Ihre Therapeuten, Ihre Atmosphäre und Ihren Betreuungsstandard. Deshalb kommen sie wieder.\r\n\r\nDoch mit der Treue steigen auch die Erwartungen.\r\n\r\nIrgendwann reicht eine weitere Massage, Gesichtsbehandlung oder ein saisonales Ritual nicht mehr aus, um ein Gefühl der Neuheit zu vermitteln. Ihre Gäste wünschen sich dieselbe Exzellenz, die sie so schätzen – ergänzt um eine neue Dimension der Entdeckung, Tiefe und wahrgenommenen Wertigkeit.\r\n\r\n<strong>sanza</strong> ist eine Möglichkeit, diese Ebene hinzuzufügen, ohne die Räume umzubauen oder eine neue Abteilung zu eröffnen. Es gibt Gästen ein ruhiges, technologiegestütztes Wellness-Erlebnis, das sich vom üblichen Spa-Angebot unterscheidet.\r\n\r\nKein Ersatz für das, was bereits funktioniert.\r\nEin stärkerer Grund für treue Gäste zu sagen: „Das musst du unbedingt ausprobieren.“",
     problemImage: "/images/campaign/day-spa-block-1.jpg",
     solutionEyebrow: "Die Sanza-Ebene",
     solutionTitle: "Sanza: das Erlebnis, das sie noch nirgendwo erlebt haben.",
-    solutionBody: "Eine Sanza-Sitzung nutzt strukturierte PEMF-Frequenzprogramme, um ein Ganzkörpererlebnis tiefer, stiller Entspannung zu schaffen, das Gäste nicht leicht beschreiben können, aber sofort wiederholen möchten. Es ist keine Wärme. Es ist kein Druck. Es ist etwas, das darunter liegt – eine Resonanz, die sich anfühlt, als würde sich der Körper endlich wieder daran erinnern, wie man zur Ruhe kommt. Positionieren Sie es als Ihr Premium-Angebot. Geben Sie ihr einen eigenen Namen. Lassen Sie die Ergebnisse für sich sprechen.",
+    solutionBody: "Eine sanza-Sitzung ist einfach zu erklären. Der Gast wird bequem vorbereitet, und ein strukturiertes PEMF-Frequenzprogramm läuft. Es ist keine Wärme. Es ist kein Massagedruck. Es ist ein ruhiger Wellness-Moment für den ganzen Körper, der für sich stehen oder neben einer Behandlung liegen kann, die Ihre Gäste bereits kennen.\n\nSie geben ihm den Namen. Sie bestimmen die Dauer. Sie entscheiden, ob es eine eigene Sitzung, eine Ergänzung oder Teil eines Pakets ist.",
     solutionSpecs: [
       {
         title: "PEMF",
@@ -3599,34 +3603,34 @@ export const CAMPAIGN_PAGE_CONTENT_DE: Partial<Record<CampaignSlug, CampaignPage
     ],
     fitsItems: [
       {
-        title: "Signature-60-Minuten-Sitzung",
-        body: "Hohe Margen, geringe Betriebskosten, Warteliste innerhalb weniger Wochen nach Einführung."
+        title: "Eine buchbare Sitzung",
+        body: "Schaffen Sie ein eigenständiges, buchbares Wellness-Erlebnis."
       },
       {
-        title: "Behandlungsverstärker",
-        body: "15-minütige Sanza-Vorbehandlung vor Massage oder Gesichtsbehandlung – ein Upsell, den Gäste nach dem ersten Mal namentlich anfragen."
+        title: "Ergänzung zu einer Behandlung",
+        body: "Fügen Sie sanza als bezahlte Ergänzung zu einer bestehenden Behandlung hinzu."
       },
       {
-        title: "Mitgliedschaftsfunktion",
-        body: "Beziehen Sie den Zugang zu Sanza in Ihre Premium-Mitgliedschaft ein – ein Anker für Kundenbindung und Umsatz pro Mitglied."
+        title: "Pakete und Mitgliedschaften",
+        body: "Nehmen Sie sanza in ausgewählte Premium-Pakete oder Mitgliedschaften auf."
       },
       {
-        title: "Crossover im Einzelhandel",
-        body: "Gäste, die die Technologie lieben, fragen nach Geräten für zu Hause – ein natürliches Gespräch, das Nordora Vital unterstützt."
+        title: "Etwas Neues für Stammgäste",
+        body: "Geben Sie wiederkehrenden Gästen etwas wirklich Neues zu entdecken."
       }
     ],
     whatChangesTitle: "Was sich ändert, wenn sanza in Ihren Spa-Bereich kommt",
     whatChangesEyebrow: "Ergebnisse",
     whatChangesPatientsTitle: "Für Ihre Gäste",
     whatChangesPatientsItems: [
-      "Ein Erlebnis, das sie noch nie hatten und für das sie wiederkommen werden",
-      "Ein ruhiger, hochwertiger Berührungspunkt, der den Besuch abhebt"
+      "Ein ruhiger Wellness-Moment, der sich von Massage, Wärme oder einer Gesichtsbehandlung unterscheidet",
+      "Eine Möglichkeit, innezuhalten oder zur Ruhe zu kommen — allein oder neben einer Behandlung, die sie bereits kennen"
     ],
     whatChangesPracticeTitle: "Für Ihren Spa",
     whatChangesPracticeItems: [
-      "Ein Signature-Angebot, das eine Nachfrage schafft, die kein Marketingbudget nachbilden kann",
-      "Premium-Preise, gestützt durch ein echtes Premium-Erlebnis",
-      "Umsatz aus dem Einzelhandel durch Gäste, die das Erlebnis zu Hause fortsetzen möchten"
+      "Eine Ergänzung der Behandlungskarte, die Sie testen können, bevor sie fest zum Angebot gehört",
+      "Eine Möglichkeit, ausgewählte Pakete oder Mitgliedschaften unverwechselbarer zu machen",
+      "Ein Erlebnis, das das Team einführen kann, ohne das Spa umzubauen"
     ],
     whatChangesPracticeImage: "/images/campaign/day-spa-hero.jpg",
     socialProofLabel: "Warum Partner danach fragen",
@@ -5227,7 +5231,7 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
     heroTextAlign: "left",
     heroKicker: "Spa centriem, kur viesu pieredze ir pats produkts",
     heroHeadline: "Piedāvājiet viesiem tādu veselības pieredzi, kādu viņi nevar gūt visur.",
-    heroSubhead: "Jūsu spa jau tagad rada atmosfēru, rūpes un iespēju atslābināties. <strong>sanza</strong> palīdzēs jums pievienot kaut ko, ko viesi uzreiz uztvers kā kaut ko īpašu: klusu, uz tehnoloģijām balstītu labsajūtas pieredzi, kas palīdzēs viņiem atjaunot spēkus, atslābināties un justies patiesi aprūpētiem.\r\n\r\nTas kļūst par izsmalcinātu procedūru brīdi, kam nav nepieciešama terapeita pastāvīga klātbūtne, sarežģīti protokoli vai darbības spiediens. Vienkāršs papildinājums, kas padara jūsu spa izcilāku, pilnīgāku un tādu, kurā ir vērts atgriezties.",
+    heroSubhead: "Jūsu spa jau tagad rada atmosfēru, rūpes un iespēju atslābināties. <strong>sanza</strong> palīdzēs jums pievienot kaut ko, ko viesi uzreiz uztvers kā kaut ko īpašu: klusu, uz tehnoloģijām balstītu labsajūtas pieredzi, kas palīdzēs viņiem atjaunot spēkus, atslābināties un justies patiesi aprūpētiem.\r\n\r\nTo var novietot procedūru kartē kā atsevišķu seansu, īsu papildinājumu vai daļu no paketes. Kad viesis ir ērti sagatavots, paredzēta ierobežota klātienes iesaiste. Vienkāršs papildinājums, kas padara jūsu spa izcilāku, pilnīgāku un tādu, kurā ir vērts atgriezties.",
     heroCtaPrimary: "Atklājiet „sanza“ savam spa",
     heroValueProps: [
       "Demonstrācija uz vietas",
@@ -5246,21 +5250,21 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
         label: "Vienkārša sistēma, ko var pārvaldīt jūsu komanda"
       },
       {
-        value: "10 min",
-        label: "Lai panāktu dziļāku atjaunošanos"
+        value: "10–30 min",
+        label: "Seansu ilgumi procedūru kartei"
       },
       {
-        value: "0",
-        label: "Spiediens uz terapeitu darba slodzi"
+        value: "4",
+        label: "Veidi, kā iekļaut to viesu piedāvājumā"
       }
     ],
     problemEyebrow: "Dodiet pastāvīgajiem viesiem jaunu iemeslu, lai viņi būtu pārsteigti.",
     problemTitle: "Jūsu labākie viesi jau uzticas jūsu spa.",
-    problemBody: "Viņi pazīst jūsu procedūras, jūsu terapeitus, jūsu atmosfēru un jūsu aprūpes standartu. Tāpēc viņi atgriežas.\r\n\r\nTaču lojalitāte rada arī augstākas prasības.\r\n\r\nKādu brīdi vairs nepietiek ar vēl vienu masāžu, sejas procedūru vai sezonas rituālu, lai justos kā no jauna. Jūsu viesi vēlas to pašu izcilību, ko viņi mīl — papildinātu ar jaunu atklājumu slāni, dziļumu un uztveramo vērtību.\r\n\r\n<strong>sanza</strong> palīdz jums pievienot šo nākamo slāni, nepaplašinot komandu, nepārbūvējot telpas un neuzliekot papildu spiedienu terapeitiem. Tas sniedz viesiem augstākās klases, uz tehnoloģijām balstītu labsajūtas pieredzi, ko viņi var izjust uzreiz: klusu, dziļu, neaizmirstamu un atšķirīgu no parastā spa piedāvājuma.\r\n\r\nTas nav aizstājējs tam, kas jau darbojas.\r\nTā ir spēcīgāka iemesla dēļ, kāpēc lojāliem viesiem ir vērts teikt: „Tev tas ir jāizmēģina.”",
+    problemBody: "Viņi pazīst jūsu procedūras, jūsu terapeitus, jūsu atmosfēru un jūsu aprūpes standartu. Tāpēc viņi atgriežas.\r\n\r\nTaču lojalitāte rada arī augstākas prasības.\r\n\r\nKādu brīdi vairs nepietiek ar vēl vienu masāžu, sejas procedūru vai sezonas rituālu, lai justos kā no jauna. Jūsu viesi vēlas to pašu izcilību, ko viņi mīl — papildinātu ar jaunu atklājumu slāni, dziļumu un uztveramo vērtību.\r\n\r\n<strong>sanza</strong> ir veids, kā pievienot šo slāni, nepārbūvējot telpas un neatverot jaunu nodaļu. Tas sniedz viesiem klusu, uz tehnoloģijām balstītu labsajūtas pieredzi, kas atšķiras no parastā spa piedāvājuma.\r\n\r\nTas nav aizstājējs tam, kas jau darbojas.\r\nTā ir spēcīgāka iemesla dēļ, kāpēc lojāliem viesiem ir vērts teikt: „Tev tas ir jāizmēģina.”",
     problemImage: "/images/campaign/day-spa-block-1.jpg",
     solutionEyebrow: "„Sanza“ slānis",
     solutionTitle: "„Sanza“: pieredze, kādu viņi vēl nav piedzīvojuši — nekur citur.",
-    solutionBody: "„Sanza“ seansā tiek izmantotas strukturētas PEMF frekvenču programmas, lai radītu visam ķermenim dziļu, mierīgu atslābumu, ko viesi nevar viegli izskaidrot, bet ko viņi uzreiz vēlas atkārtot. Tas nav siltums. Tas nav spiediens. Tas ir kaut kas, kas atrodas zem abiem — rezonanse, kas liek justies, it kā ķermenis beidzot atcerētos, kā apstāties. Pozicionējiet to kā savu premium līmeņa piedāvājumu. Nosauciet to pēc saviem ieskatiem. Ļaujiet rezultātiem veikt mārketingu.",
+    solutionBody: "sanza seansu ir vienkārši izskaidrot. Viesis tiek ērti sagatavots, un darbojas strukturēta PEMF frekvenču programma. Tas nav siltums. Tas nav masāžas spiediens. Tas ir mierīgs visa ķermeņa labsajūtas brīdis, kas var pastāvēt atsevišķi vai blakus procedūrai, kuru viesi jau pazīst.\n\nJūs to nosaucat. Jūs nosakāt ilgumu. Jūs izlemjat, vai tas ir seanss, papildinājums vai daļa no paketes.",
     solutionSpecs: [
       {
         title: "PEMF",
@@ -5286,34 +5290,34 @@ export const CAMPAIGN_PAGE_CONTENT_LV: Partial<Record<CampaignSlug, CampaignPage
     ],
     fitsItems: [
       {
-        title: "60 minūšu firmas seanss",
-        body: "Augsta peļņas norma, zemas izmaksas, gaidīšanas saraksts jau pāris nedēļas pēc atklāšanas."
+        title: "Rezervējams seanss",
+        body: "Izveidojiet patstāvīgu, rezervējamu labsajūtas pieredzi."
       },
       {
         title: "Procedūras papildinājums",
-        body: "15 minūšu sanza procedūra pirms masāžas vai sejas procedūras — papildus pakalpojums, ko viesi pēc pirmās reizes pieprasa vārdā."
+        body: "Pievienojiet sanza kā maksas papildinājumu esošai procedūrai."
       },
       {
-        title: "Biedru programma",
-        body: "Iekļaujiet sanza piekļuvi savā premium biedru programmā — tas ir pamats klientu piesaistīšanai un izdevumiem uz vienu biedru."
+        title: "Paketes un dalība",
+        body: "Iekļaujiet sanza izvēlētās premium paketēs vai dalības programmās."
       },
       {
-        title: "Mazumtirdzniecības paplašināšana",
-        body: "Viesi, kam patīk šī tehnoloģija, interesējas par ierīcēm mājām — tas ir dabisks sarunas pavērsiens, ko atbalsta Nordora Vital."
+        title: "Kas jauns pastāvīgajiem viesiem",
+        body: "Dodiet atkārtotiem viesiem kaut ko patiesi jaunu, ko atklāt."
       }
     ],
     whatChangesTitle: "Kas mainās, kad sanza pievienojas jūsu telpām",
     whatChangesEyebrow: "Rezultāti",
     whatChangesPatientsTitle: "Jūsu viesiem",
     whatChangesPatientsItems: [
-      "Pieredze, kādu viņi vēl nav piedzīvojuši un kāpēc atgriezīsies",
-      "Kluss, augstākās klases pieskāriens, kas atšķir apmeklējumu"
+      "Kluss labsajūtas brīdis, kas atšķiras no masāžas, siltuma vai sejas procedūras",
+      "Iespēja apstāties vai nomierināties — atsevišķi vai blakus procedūrai, ko viņi jau saprot"
     ],
     whatChangesPracticeTitle: "Jūsu spa",
     whatChangesPracticeItems: [
-      "Firmveida piedāvājums, kas rada pieprasījumu, ko nevar atkārtot neviens mārketinga budžets",
-      "Premium cenas, ko atbalsta patiesi premium pieredze",
-      "Mazumtirdzniecības ieņēmumi no viesiem, kuri vēlas pagarināt pieredzi mājās"
+      "Papildinājums procedūru kartei, ko varat izmēģināt, pirms tas kļūst par pastāvīgu piedāvājuma daļu",
+      "Veids, kā izvēlētās paketes vai dalības programmas padarīt atšķirīgākas",
+      "Pieredze, ko komanda var ieviest, nepārbūvējot spa"
     ],
     whatChangesPracticeImage: "/images/campaign/day-spa-hero.jpg",
     socialProofLabel: "Kāpēc partneri vēlas to redzēt",

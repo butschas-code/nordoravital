@@ -7,7 +7,17 @@ import { RichLine } from "@/components/rich-line";
 import { CampaignFloatingCta } from "@/components/campaign/campaign-floating-cta";
 import { OptimizedBackgroundVideo } from "@/components/optimized-background-video";
 import { ClinicWorkflowSimulator } from "@/components/professionals/clinic-workflow-simulator";
+import { SpaBusinessSections } from "@/components/campaign/spa-business-sections";
 import { JsonLd } from "@/components/seo/json-ld";
+import {
+  SPA_DEMO_CTA,
+  SPA_DEMO_MESSAGE,
+  SPA_MEETING_MESSAGE,
+  SPA_PILOT_CTA,
+  SPA_PILOT_MESSAGE,
+  SPA_QUESTION_CTA,
+  SPA_QUESTION_MESSAGE,
+} from "@/lib/spa-wellness-outreach";
 import { IMAGE_PATHS } from "@/lib/public-images";
 import type { CampaignPageContent } from "@/types/campaign-page";
 
@@ -15,6 +25,7 @@ type Props = {
   content: CampaignPageContent;
   locale?: string;
   campaignSlug?: string;
+  propertyName?: string | null;
 };
 
 function getSimulatorSector(slug?: string, category?: string): string {
@@ -104,6 +115,7 @@ export async function CampaignLanding({
   content,
   locale = "en",
   campaignSlug,
+  propertyName,
 }: Props) {
   const heroTextAlign = content.heroTextAlign ?? "right";
   const heroCopyClass =
@@ -124,6 +136,10 @@ export async function CampaignLanding({
       : "home-hero-overlay pointer-events-none absolute inset-0";
   const fitsImages = content.fitsImages ?? FITS_IMAGES;
   const demoSteps = content.demoSteps ?? DEMO_STEPS_FALLBACK;
+  const isSpaWellness = campaignSlug === "spa-wellness";
+  const showSpaBusiness = isSpaWellness && locale === "en";
+  const demoMessage = showSpaBusiness ? SPA_DEMO_MESSAGE : content.demoRequestMessage;
+  const demoLabel = showSpaBusiness ? SPA_DEMO_CTA : content.heroCtaPrimary;
 
   return (
     <div className="campaign-page-root flex flex-col gap-0">
@@ -180,6 +196,13 @@ export async function CampaignLanding({
 
           <div className="relative z-10 mx-auto flex min-h-[min(760px,92svh)] max-w-[1200px] flex-col justify-end px-5 pb-16 pt-24 sm:px-6 sm:pb-24 sm:pt-24 md:px-8 lg:min-h-[min(82dvh,780px)] lg:pb-32 lg:pt-28 lg:px-10">
             <div className={heroCopyClass}>
+              {propertyName ? (
+                <FadeUp immediate>
+                  <p className="mb-4 inline-flex max-w-full rounded-full border border-white/25 bg-white/10 px-3.5 py-1.5 text-sm leading-snug text-white/90 backdrop-blur-sm">
+                    Exploring sanza for <span className="ml-1 font-semibold">{propertyName}</span>
+                  </p>
+                </FadeUp>
+              ) : null}
               <FadeUp immediate delay={1}>
                 <p className={heroEyebrowClass}>
                   {content.heroKicker}
@@ -194,7 +217,7 @@ export async function CampaignLanding({
                 </h1>
               </FadeUp>
               <FadeUp immediate delay={3} className="mt-5 sm:mt-7">
-                <p className="text-base leading-relaxed text-white/92 [text-shadow:0_1px_10px_rgba(0,0,0,0.3)] sm:text-lg">
+                <p className="whitespace-pre-line text-base leading-relaxed text-white/92 [text-shadow:0_1px_10px_rgba(0,0,0,0.3)] sm:text-lg">
                   <RichLine text={content.heroSubhead} variant="onDark" />
                 </p>
               </FadeUp>
@@ -270,7 +293,7 @@ export async function CampaignLanding({
                 </h2>
               </FadeUp>
               <FadeUp delay={2}>
-                <p className="mt-6 text-base leading-relaxed text-[var(--muted)] sm:text-lg">
+                <p className="mt-6 whitespace-pre-line text-base leading-relaxed text-[var(--muted)] sm:text-lg">
                   <RichLine text={content.problemBody} />
                 </p>
               </FadeUp>
@@ -321,7 +344,7 @@ export async function CampaignLanding({
             >
               <RichLine text={content.solutionTitle} variant="onDark" />
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-white/80 sm:text-lg">
+            <p className="mt-5 whitespace-pre-line text-base leading-relaxed text-white/80 sm:text-lg">
               <RichLine text={content.solutionBody} variant="onDark" />
             </p>
           </FadeUp>
@@ -446,6 +469,8 @@ export async function CampaignLanding({
         </div>
       </section>
 
+      {showSpaBusiness ? <SpaBusinessSections /> : null}
+
       {/* ═════════ WHAT CHANGES (dark, two equal cards w/ header images) ═════════ */}
       <section
         className="campaign-no-grid home-band-full home-band--pillars relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] py-16 sm:py-20 md:py-24 lg:py-28"
@@ -526,7 +551,8 @@ export async function CampaignLanding({
         </div>
       </section>
 
-      {/* ═════════ CLINIC WORKFLOW SIMULATOR (interactive) ═════════ */}
+      {/* Clinic workflow stays on clinical routes. The spa page uses a guest-journey section instead. */}
+      {isSpaWellness ? null : (
       <section
         className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] bg-[#fbf7ef] py-16 sm:py-20 md:py-24"
         aria-label="Interactive Clinic Workflow Simulator"
@@ -540,6 +566,7 @@ export async function CampaignLanding({
           </FadeUp>
         </div>
       </section>
+      )}
 
       {/* ═════════ SOCIAL PROOF (light w/ image-bg quote panel) ═════════ */}
       <section
@@ -619,12 +646,19 @@ export async function CampaignLanding({
                 <p className="mt-5 text-base leading-relaxed text-[var(--muted)] sm:text-lg">
                   <RichLine text={content.demoStepsLead} />
                 </p>
-                <div className="mt-7 sm:mt-8">
+                <div className="mt-7 flex flex-col items-stretch gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center">
                   <ContactDrawerTrigger
-                    label={content.heroCtaPrimary}
-                    options={DEMO_OPTIONS(content.demoRequestMessage, content.contactCategory)}
+                    label={demoLabel}
+                    options={DEMO_OPTIONS(demoMessage, content.contactCategory)}
                     className="btn-primary group inline-flex justify-center"
                   />
+                  {showSpaBusiness ? (
+                    <ContactDrawerTrigger
+                      label={SPA_PILOT_CTA}
+                      options={DEMO_OPTIONS(SPA_PILOT_MESSAGE, content.contactCategory)}
+                      className="btn-outline inline-flex justify-center"
+                    />
+                  ) : null}
                 </div>
               </div>
             </FadeUp>
@@ -690,16 +724,30 @@ export async function CampaignLanding({
             </h2>
           </FadeUp>
           <FadeUp delay={1}>
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/88 sm:text-lg">
+            <p className="mx-auto mt-6 max-w-2xl whitespace-pre-line text-base leading-relaxed text-white/88 sm:text-lg">
               <RichLine text={content.finalCtaBody} variant="onDark" />
             </p>
           </FadeUp>
+
+          {showSpaBusiness ? (
+            <FadeUp delay={2}>
+              <p className="mt-8 text-white">
+                <span className="block font-heading text-2xl font-semibold">Sascha</span>
+                <span className="mt-1 block text-sm font-semibold uppercase tracking-[0.18em] text-white/70">
+                  Nordora Vital
+                </span>
+              </p>
+            </FadeUp>
+          ) : null}
 
           <FadeUp delay={2}>
             <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4">
               <ContactDrawerTrigger
                 label={content.finalCtaPrimary}
-                options={DEMO_OPTIONS(content.demoRequestMessage, content.contactCategory)}
+                options={DEMO_OPTIONS(
+                  showSpaBusiness ? SPA_MEETING_MESSAGE : content.demoRequestMessage,
+                  content.contactCategory,
+                )}
                 className="btn-secondary group inline-flex justify-center"
               >
                 {content.finalCtaPrimary}
@@ -707,7 +755,13 @@ export async function CampaignLanding({
                   <IconArrow />
                 </span>
               </ContactDrawerTrigger>
-              {content.finalCtaSecondary ? (
+              {showSpaBusiness ? (
+                <ContactDrawerTrigger
+                  label={SPA_QUESTION_CTA}
+                  options={DEMO_OPTIONS(SPA_QUESTION_MESSAGE, content.contactCategory)}
+                  className="btn-ghost-white inline-flex justify-center"
+                />
+              ) : content.finalCtaSecondary ? (
                 <Link href="/how-it-works" className="btn-ghost-white inline-flex justify-center">
                   {content.finalCtaSecondary}
                 </Link>
@@ -719,8 +773,8 @@ export async function CampaignLanding({
       </section>
 
       <CampaignFloatingCta
-        label={content.heroCtaPrimary}
-        options={DEMO_OPTIONS(content.demoRequestMessage, content.contactCategory)}
+        label={demoLabel}
+        options={DEMO_OPTIONS(demoMessage, content.contactCategory)}
       />
     </div>
   );

@@ -81,11 +81,7 @@ export type CampaignPageContent = {
   demoStepsEyebrow: string;
   demoStepsTitle: string;
   demoStepsLead: string;
-  demoSteps: [
-    { title: string; body: string },
-    { title: string; body: string },
-    { title: string; body: string },
-  ];
+  demoSteps: { title: string; body: string }[];
 
   finalCtaTitle: string;
   finalCtaBody: string;

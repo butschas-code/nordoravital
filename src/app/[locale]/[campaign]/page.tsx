@@ -9,8 +9,12 @@ import {
   resolveCampaignSlugForLocale,
   type CampaignSlug,
 } from "@/lib/campaign-slugs";
+import { sanitizePropertyName } from "@/lib/sanitize-property-name";
 
-type Props = { params: Promise<{ locale: string; campaign: string }> };
+type Props = {
+  params: Promise<{ locale: string; campaign: string }>;
+  searchParams: Promise<{ property?: string | string[] }>;
+};
 
 const HANDCRAFTED_STATIC_CAMPAIGNS: CampaignSlug[] = ["fizioterapija"];
 
@@ -42,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function CampaignPage({ params }: Props) {
+export default async function CampaignPage({ params, searchParams }: Props) {
   const { locale, campaign } = await params;
   if (!routing.locales.includes(locale as Locale)) notFound();
   setRequestLocale(locale);
@@ -50,5 +54,18 @@ export default async function CampaignPage({ params }: Props) {
   const content = getContent(campaign, locale as Locale);
   if (!content) notFound();
 
-  return <CampaignLanding content={content} locale={locale} campaignSlug={campaign} />;
+  const resolvedSlug = resolveCampaignSlugForLocale(campaign, locale);
+  const propertyName =
+    resolvedSlug === "spa-wellness"
+      ? sanitizePropertyName((await searchParams).property)
+      : null;
+
+  return (
+    <CampaignLanding
+      content={content}
+      locale={locale}
+      campaignSlug={campaign}
+      propertyName={propertyName}
+    />
+  );
 }
