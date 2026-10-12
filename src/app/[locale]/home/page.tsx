@@ -8,6 +8,7 @@ import { HomeHeroPicture } from "@/components/home-site/home-hero-picture";
 import { Link } from "@/i18n/navigation";
 import { HomeSiteLayout } from "@/components/home-site/home-site-shell";
 import { getOriginForSurface, getSiteSurface } from "@/lib/domains";
+import { localizedUrl, pageAlternates } from "@/lib/seo";
 import { getHomeDisplayPath, homeLocale } from "@/lib/home-copy";
 import { IMAGE_PATHS } from "@/lib/public-images";
 import { mergeRussianContent } from "@/lib/russian-content";
@@ -41,8 +42,8 @@ const ritualVisuals = [
 
 const pageCopy = {
   "en": {
-    "metaTitle": "Nordora Vital Home | Private sanza wellness rituals",
-    "metaDescription": "Bring sanza into everyday home wellbeing with private rituals for recovery, relaxation, calm and modern personal care.",
+    "metaTitle": "Nordora Vital Home | sanza PEMF for recovery, sleep and calm",
+    "metaDescription": "Private sanza PEMF rituals for recovery, sleep and everyday calm. Nordora Vital is the sanza partner for homes in Latvia and the Baltics.",
     "eyebrow": "sanza at home",
     "headline": "A simple way to support your body every day.",
     "intro": "sanza brings modern wellness technology into your daily routine — for recovery, calm, balance and the moments that help you feel better throughout everyday life. Use it after sport, before sleep, during busy weeks, after travel, or simply as a regular way to support your body and take care of yourself.",
@@ -94,8 +95,8 @@ const pageCopy = {
     "systemAlt": "sanza system components arranged for home use",
   },
   "de": {
-    "metaTitle": "Nordora Vital Home | Private sanza-Wellnessrituale",
-    "metaDescription": "Bringen Sie sanza in Ihr tägliches Wohlbefinden zu Hause – mit privaten Ritualen für Erholung, Entspannung, Ruhe und moderne Körperpflege.",
+    "metaTitle": "Nordora Vital Home | sanza PEMF für Erholung, Schlaf und Ruhe",
+    "metaDescription": "Private sanza-PEMF-Rituale für Erholung, Schlaf und Ruhe. Nordora Vital ist der sanza-Partner für Zuhause in Lettland und im Baltikum.",
     "eyebrow": "sanza zu Hause",
     "headline": "Eine einfache Möglichkeit, Ihren Körper jeden Tag zu unterstützen.",
     "intro": "sanza bringt moderne Wellness-Technologie in Ihren Alltag – für Erholung, Ruhe, Ausgeglichenheit und die Momente, die Ihnen helfen, sich im Alltag besser zu fühlen. Nutzen Sie es nach dem Sport, vor dem Schlafengehen, in stressigen Wochen, nach Reisen oder einfach als regelmäßige Methode, Ihren Körper zu unterstützen und sich um sich selbst zu kümmern.",
@@ -147,8 +148,8 @@ const pageCopy = {
     "systemAlt": "Sanza-Systemkomponenten für den Heimgebrauch angeordnet",
   },
   "lv": {
-    "metaTitle": "Nordora Vital Home | Privāti „sanza“ labsajūtas rituāli",
-    "metaDescription": "Iekļaujiet „sanza“ savā ikdienas mājas labsajūtā ar privātiem rituāliem, kas veltīti atgūšanai, relaksācijai, mieram un mūsdienīgai personīgajai kopšanai.",
+    "metaTitle": "Nordora Vital Home | sanza PEMF mājās atjaunošanai un miegam",
+    "metaDescription": "Privāti sanza PEMF rituāli atjaunošanai, miegam un mieram. Nordora Vital ir sanza partneris mājām Latvijā un Baltijā.",
     "eyebrow": "„sanza“ mājās",
     "headline": "Vienkāršs veids, kā ikdienā rūpēties par savu ķermeni.",
     "intro": "sanza ievieš modernas labsajūtas tehnoloģijas jūsu ikdienas rutīnā — atveseļošanai, mieram, līdzsvaram un brīžiem, kas palīdz jums justies labāk ikdienā. Lietojiet to pēc sporta, pirms miega, aizņemtajās nedēļās, pēc ceļojuma vai vienkārši kā regulāru veidu, kā atbalstīt savu ķermeni un rūpēties par sevi.",
@@ -208,13 +209,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: copy.metaTitle,
     description: copy.metaDescription,
     metadataBase: new URL(getOriginForSurface("home")),
-    alternates: {
-      canonical: "/",
-    },
+    alternates: pageAlternates(getOriginForSurface("home"), locale, ""),
     openGraph: {
       title: copy.metaTitle,
       description: copy.metaDescription,
-      url: getOriginForSurface("home"),
+      url: localizedUrl(getOriginForSurface("home"), locale, ""),
       siteName: "Nordora Vital Home",
       type: "website",
     },

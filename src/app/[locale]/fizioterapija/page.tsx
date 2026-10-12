@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { CampaignLanding } from "@/components/campaign/campaign-landing";
 import { routing, type Locale } from "@/i18n/routing";
+import { getOriginForSurface } from "@/lib/domains";
+import { pageAlternates } from "@/lib/seo";
 import { getRussianCampaignContent, isRussianLocale } from "@/lib/russian-content";
 import type { CampaignPageContent } from "@/types/campaign-page";
 
@@ -397,7 +399,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const content = getContent(locale);
   if (!content) return {};
-  return { title: content.metaTitle, description: content.metaDescription };
+  return {
+    title: content.metaTitle,
+    description: content.metaDescription,
+    alternates: pageAlternates(getOriginForSurface("pro"), locale, "fizioterapija"),
+  };
 }
 
 export default async function FizioterapijaPage({ params }: Props) {

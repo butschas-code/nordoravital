@@ -10,6 +10,8 @@ import { FadeUp } from "@/components/fade-up";
 import { JsonLd } from "@/components/seo/json-ld";
 import { routing, type Locale } from "@/i18n/routing";
 import { COMPARISON_HUB_CONTENT, type ComparisonSlug } from "@/lib/comparison-content";
+import { getOriginForSurface } from "@/lib/domains";
+import { pageAlternates } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -27,15 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: content.metaTitle,
     description: content.metaDescription,
-    alternates: {
-      canonical: `https://pro.nordoravital.com/${locale}/compare`,
-      languages: {
-        en: "https://pro.nordoravital.com/en/compare",
-        de: "https://pro.nordoravital.com/de/compare",
-        lv: "https://pro.nordoravital.com/lv/compare",
-        ru: "https://pro.nordoravital.com/ru/compare",
-      },
-    },
+    alternates: pageAlternates(getOriginForSurface("pro"), locale, "compare"),
     openGraph: {
       title: content.metaTitle,
       description: content.metaDescription,

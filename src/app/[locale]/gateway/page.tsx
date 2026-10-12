@@ -7,14 +7,15 @@ import { getSiteSurface, HOME_DOMAIN, PRO_DOMAIN } from "@/lib/domains";
 import { homeLocale } from "@/lib/home-copy";
 import { IMAGE_PATHS } from "@/lib/public-images";
 import { mergeRussianContent } from "@/lib/russian-content";
+import { ROOT_INDEXABLE_ORIGIN } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
 
 const pageCopy = {
   en: {
-    metaTitle: "Nordora Vital | Wellness technology for professional spaces and modern homes",
+    metaTitle: "Nordora Vital | sanza for clinics and homes in Latvia",
     metaDescription:
-      "Choose the Nordora Vital experience for clinics, recovery spaces, hotels, gyms, spas, or modern wellness rituals at home.",
+      "Official sanza partner in Latvia and the Baltics. Choose professional in-room programmes for clinics, or private PEMF rituals for home.",
     heroTitle: "Nordora Vital",
     heroHeadline: ["Wellbeing solutions", "for the moments", "when the body needs support."],
     heroBody:
@@ -57,9 +58,9 @@ const pageCopy = {
     ],
   },
   de: {
-    metaTitle: "Nordora Vital | Wellness-Technologie für professionelle Räume und Zuhause",
+    metaTitle: "Nordora Vital | sanza für Praxen und Zuhause in Lettland",
     metaDescription:
-      "Wählen Sie den passenden Nordora Vital Bereich für Kliniken, Recovery Spaces, Hotels, Fitness, Spas oder moderne Wohlfühlrituale zu Hause.",
+      "Offizieller sanza-Partner in Lettland und im Baltikum. Wählen Sie Programme für Praxen oder private PEMF-Rituale für zu Hause.",
     heroTitle: "Nordora Vital",
     heroHeadline: ["Wellbeing-Lösungen", "für die Momente,", "in denen der Körper Unterstützung braucht."],
     heroBody:
@@ -102,9 +103,9 @@ const pageCopy = {
     ],
   },
   lv: {
-    metaTitle: "Nordora Vital | Labsajūtas tehnoloģija profesionālām telpām un mājām",
+    metaTitle: "Nordora Vital | sanza klīnikām un mājām Latvijā",
     metaDescription:
-      "Izvēlieties Nordora Vital pieredzi klīnikām, atjaunošanās telpām, viesnīcām, sporta zālēm, spa vai mūsdienīgiem labsajūtas rituāliem mājās.",
+      "Oficiālais sanza partneris Latvijā un Baltijā. Izvēlieties programmas klīnikām vai privātus PEMF rituālus mājās.",
     heroTitle: "Nordora Vital",
     heroHeadline: ["Labsajūtas risinājumi", "brīžiem,", "kad ķermenim vajadzīgs atbalsts."],
     heroBody:
@@ -155,12 +156,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: copy.metaTitle,
     description: copy.metaDescription,
     alternates: {
-      canonical: "https://nordoravital.com",
+      canonical: ROOT_INDEXABLE_ORIGIN,
     },
     openGraph: {
       title: copy.metaTitle,
       description: copy.metaDescription,
-      url: "https://nordoravital.com",
+      url: ROOT_INDEXABLE_ORIGIN,
       siteName: "Nordora Vital",
       type: "website",
     },

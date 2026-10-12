@@ -7,6 +7,7 @@ import { HomeHeroPicture } from "@/components/home-site/home-hero-picture";
 import { HomeSiteLayout } from "@/components/home-site/home-site-shell";
 import { ProgramLibraryExperience } from "@/components/home-site/program-library-experience";
 import { getOriginForSurface } from "@/lib/domains";
+import { localizedUrl, pageAlternates } from "@/lib/seo";
 import { homeLocale } from "@/lib/home-copy";
 import { IMAGE_PATHS } from "@/lib/public-images";
 import { mergeRussianContent } from "@/lib/russian-content";
@@ -476,13 +477,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: copy.metaTitle,
     description: copy.metaDescription,
     metadataBase: new URL(getOriginForSurface("home")),
-    alternates: {
-      canonical: "/programs",
-    },
+    alternates: pageAlternates(getOriginForSurface("home"), locale, "programs"),
     openGraph: {
       title: copy.metaTitle,
       description: copy.metaDescription,
-      url: `${getOriginForSurface("home")}/programs`,
+      url: localizedUrl(getOriginForSurface("home"), locale, "programs"),
       siteName: "Nordora Vital Home",
       type: "website",
     },

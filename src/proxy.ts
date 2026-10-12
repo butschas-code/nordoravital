@@ -6,6 +6,7 @@ import {
   LOCALE_COOKIE_NAME,
 } from "./lib/locale-cookie-constants";
 import { resolveDefaultLocale } from "./lib/locale-from-request";
+import { resolveCampaignSlugForLocale } from "./lib/campaign-slugs";
 import {
   getDomainForSurface,
   getSiteSurface,
@@ -156,6 +157,17 @@ function localeFromPrefixedPath(pathname: string, request: NextRequest): Locale 
   return resolveDefaultLocale(request);
 }
 
+/** Share aliases such as /en/physiotherapy consolidate onto the Latvian slug. */
+function redirectCampaignAlias(pathname: string): string | null {
+  const parsed = pathnameWithoutLocalePrefix(pathname);
+  if (!parsed || !routing.locales.includes(parsed.locale as Locale)) return null;
+  const segments = parsed.rest.split("/").filter(Boolean);
+  if (segments.length !== 1) return null;
+  const resolved = resolveCampaignSlugForLocale(segments[0], parsed.locale);
+  if (!resolved || resolved === segments[0]) return null;
+  return `/${parsed.locale}/${resolved}`;
+}
+
 function redirectLegacyHomeExperiencePath(request: NextRequest, surface: SiteSurface) {
   const parsed = pathnameWithoutLocalePrefix(request.nextUrl.pathname);
   if (!parsed || !routing.locales.includes(parsed.locale as Locale)) return null;
@@ -208,11 +220,9 @@ export default function proxy(request: NextRequest) {
       return rewriteToLocalePath(request, `/${locale}/gateway`, "root", locale, "/");
     }
     if (isRootGatewayInternalPath(pathname)) {
-      return intlMiddleware(
-        new NextRequest(request.url, {
-          headers: withNordoraHeaders(request, "/", "root"),
-        }),
-      );
+      const url = request.nextUrl.clone();
+      url.pathname = "/";
+      return NextResponse.redirect(url, 301);
     }
     return redirectToSurface(request, "pro");
   }
@@ -223,35 +233,44 @@ export default function proxy(request: NextRequest) {
   }
 
   if (surface === "home") {
-    if (isHomeInternalPath(pathname)) {
-      return intlMiddleware(
-        new NextRequest(request.url, {
-          headers: withNordoraHeaders(request, pathname, "home"),
-        }),
-      );
-    }
     const locale = pathnameHasLocale(pathname)
       ? localeFromPrefixedPath(pathname, request)
       : resolveDefaultLocale(request);
-    if (pathnameHasLocale(pathname)) {
-      return rewriteToLocalePath(
-        request,
-        homeInternalPath(pathname, locale),
-        "home",
-        locale,
-        pathname,
-      );
+
+    if (isHomeInternalPath(pathname)) {
+      const parsed = pathnameWithoutLocalePrefix(pathname);
+      const rest = parsed?.rest ?? "";
+      const publicRest = rest === "/home" ? "" : rest.replace(/^\/home/, "");
+      const url = request.nextUrl.clone();
+      url.pathname = `/${locale}${publicRest}`;
+      return setLocaleCookie(NextResponse.redirect(url, 301), locale);
     }
-    const url = request.nextUrl.clone();
-    url.pathname = pathname === "/" ? `/${locale}/home` : `/${locale}${pathname}`;
-    const response = NextResponse.redirect(url);
-    return setLocaleCookie(response, locale);
+
+    if (!pathnameHasLocale(pathname)) {
+      const stripped =
+        pathname === "/home" || pathname.startsWith("/home/")
+          ? pathname.replace(/^\/home/, "") || "/"
+          : pathname;
+      const url = request.nextUrl.clone();
+      url.pathname = stripped === "/" ? `/${locale}` : `/${locale}${stripped}`;
+      return setLocaleCookie(NextResponse.redirect(url, 301), locale);
+    }
+
+    return rewriteToLocalePath(
+      request,
+      homeInternalPath(pathname, locale),
+      "home",
+      locale,
+      pathname,
+    );
   }
 
   if (surface === "pro") {
     if (isProHomePath(pathname)) {
       const locale = localeFromPrefixedPath(pathname, request);
-      return rewriteToLocalePath(request, `/${locale}`, "pro", locale, pathname);
+      const url = request.nextUrl.clone();
+      url.pathname = `/${locale}`;
+      return setLocaleCookie(NextResponse.redirect(url, 301), locale);
     }
 
     if (pathname === "/home" || pathname.startsWith("/home/")) {
@@ -266,9 +285,8 @@ export default function proxy(request: NextRequest) {
     if (!pathnameHasLocale(pathname)) {
       const locale = resolveDefaultLocale(request);
       const url = request.nextUrl.clone();
-      url.pathname = pathname === "/" ? `/${locale}/home` : `/${locale}${pathname}`;
-      const response = NextResponse.redirect(url);
-      return setLocaleCookie(response, locale);
+      url.pathname = pathname === "/" ? `/${locale}` : `/${locale}${pathname}`;
+      return setLocaleCookie(NextResponse.redirect(url, 301), locale);
     }
   }
 
@@ -283,15 +301,22 @@ export default function proxy(request: NextRequest) {
     const url = request.nextUrl.clone();
     const suffix = pathname === "/" ? "" : pathname;
     url.pathname = `/${locale}${suffix}`;
-    const response = NextResponse.redirect(url);
-    return setLocaleCookie(response, locale);
+    return setLocaleCookie(NextResponse.redirect(url, 301), locale);
   }
 
   const deckOnlyRedirect = redirectDeckOnlyLocaleFromNonDeck(pathname);
   if (deckOnlyRedirect) {
     const url = request.nextUrl.clone();
     url.pathname = deckOnlyRedirect;
-    return NextResponse.redirect(url);
+    return NextResponse.redirect(url, 301);
+  }
+
+  const aliasTarget = redirectCampaignAlias(pathname);
+  if (aliasTarget) {
+    const url = request.nextUrl.clone();
+    url.pathname = aliasTarget;
+    const locale = pathnameWithoutLocalePrefix(pathname)?.locale ?? "en";
+    return setLocaleCookie(NextResponse.redirect(url, 301), locale);
   }
 
   const requestHeaders = new Headers(request.headers);

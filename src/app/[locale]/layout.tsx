@@ -12,7 +12,15 @@ import { SanzaBoldener } from "@/components/sanza-boldener";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { routing, type Locale } from "@/i18n/routing";
-import { getOriginForSurface, type SiteSurface } from "@/lib/domains";
+import type { SiteSurface } from "@/lib/domains";
+import {
+  ROOT_INDEXABLE_ORIGIN,
+  getIndexableOrigin,
+  localizedUrl,
+  organizationJsonLd,
+  pageAlternates,
+  splitPublicPath,
+} from "@/lib/seo";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext", "cyrillic"],
@@ -43,21 +51,56 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+const OG_LOCALE: Record<string, string> = {
+  de: "de_DE",
+  en: "en_US",
+  lv: "lv_LV",
+  ru: "ru_RU",
+  tr: "tr_TR",
+};
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const heads = await headers();
   const surface = heads.get("x-nordora-surface") as SiteSurface | null;
-  const metadataBase =
-    surface === "pro" || surface === "home" || surface === "root"
-      ? getOriginForSurface(surface)
-      : "https://nordoravital.com";
+  const pathname = heads.get("x-nordora-pathname") ?? `/${locale}`;
+  const { path } = splitPublicPath(pathname);
+  const indexableSurface =
+    surface === "pro" || surface === "home" || surface === "root" ? surface : "pro";
+  const origin = getIndexableOrigin(indexableSurface);
+  const isGateway = surface === "root" || path === "gateway";
+  const isDeck = path === "deck" || path.startsWith("deck/");
   const messages = (await import(`../../../messages/${locale}.json`)).default as {
     Meta: { title: string; description: string };
   };
+  const canonical = isGateway ? ROOT_INDEXABLE_ORIGIN : localizedUrl(origin, locale, path);
+  const siteName = indexableSurface === "home" ? "Nordora Vital Home" : "Nordora Vital";
+
   return {
     title: messages.Meta.title,
     description: messages.Meta.description,
-    metadataBase: new URL(metadataBase),
+    metadataBase: new URL(origin),
+    alternates: isGateway
+      ? { canonical: ROOT_INDEXABLE_ORIGIN }
+      : pageAlternates(origin, locale, path),
+    openGraph: {
+      title: messages.Meta.title,
+      description: messages.Meta.description,
+      url: canonical,
+      siteName,
+      locale: OG_LOCALE[locale] ?? "en_US",
+      type: "website",
+    },
+    robots: isDeck
+      ? { index: false, follow: true }
+      : { index: true, follow: true },
+    icons: {
+      icon: [
+        { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },
+        { url: "/icon.png", sizes: "192x192", type: "image/png" },
+      ],
+      apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+    },
   };
 }
 
@@ -90,6 +133,15 @@ export default async function LocaleLayout({ children, params }: Props) {
   const pathname = heads.get("x-nordora-pathname") ?? "";
   const surface = heads.get("x-nordora-surface");
   const deckFullscreen = isDeckPath(pathname);
+  const indexableSurface =
+    surface === "pro" || surface === "home" || surface === "root" ? surface : "root";
+  const messagesForSchema = (await import(`../../../messages/${locale}.json`)).default as {
+    Meta: { description: string };
+  };
+  const organizationSchema = organizationJsonLd(
+    getIndexableOrigin(indexableSurface),
+    messagesForSchema.Meta.description,
+  );
   const gatewayOnly = surface === "root" || isGatewayPath(pathname);
   const homeOnly = surface === "home" || (surface !== "pro" && isHomePath(pathname));
 
@@ -105,6 +157,14 @@ export default async function LocaleLayout({ children, params }: Props) {
             : "min-h-full overflow-x-hidden bg-[var(--bg)] font-sans text-[var(--text)] antialiased"
         }
       >
+        {!deckFullscreen ? (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(organizationSchema).replace(/</g, "\\u003c"),
+            }}
+          />
+        ) : null}
         <NextIntlClientProvider locale={locale} messages={messages}>
           <SanzaBoldener />
           {deckFullscreen || gatewayOnly || homeOnly ? (

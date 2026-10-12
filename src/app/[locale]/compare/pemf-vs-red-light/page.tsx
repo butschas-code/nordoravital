@@ -4,6 +4,8 @@ import { setRequestLocale } from "next-intl/server";
 import { ComparisonPageView } from "@/components/compare/comparison-page-view";
 import { routing, type Locale } from "@/i18n/routing";
 import { COMPARISONS_DATA } from "@/lib/comparison-content";
+import { getOriginForSurface } from "@/lib/domains";
+import { pageAlternates } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -21,15 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: content.metaTitle,
     description: content.metaDescription,
-    alternates: {
-      canonical: `https://pro.nordoravital.com/${locale}/compare/pemf-vs-red-light`,
-      languages: {
-        en: "https://pro.nordoravital.com/en/compare/pemf-vs-red-light",
-        de: "https://pro.nordoravital.com/de/compare/pemf-vs-red-light",
-        lv: "https://pro.nordoravital.com/lv/compare/pemf-vs-red-light",
-        ru: "https://pro.nordoravital.com/ru/compare/pemf-vs-red-light",
-      },
-    },
+    alternates: pageAlternates(getOriginForSurface("pro"), locale, "compare/pemf-vs-red-light"),
     openGraph: {
       title: content.metaTitle,
       description: content.metaDescription,

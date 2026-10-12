@@ -6,8 +6,9 @@ import { BrandArc } from "@/components/brand-arc";
 import { FadeUp } from "@/components/fade-up";
 import { JsonLd } from "@/components/seo/json-ld";
 import { ProfessionalDirectoryView } from "@/components/professionals/professional-directory-view";
-import { routing, SITE_LOCALES, type Locale } from "@/i18n/routing";
+import { routing, type Locale } from "@/i18n/routing";
 import { getOriginForSurface } from "@/lib/domains";
+import { pageAlternates } from "@/lib/seo";
 import { getProfessionalDirectoryContent } from "@/lib/professional-directory-content";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -21,19 +22,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const content = getProfessionalDirectoryContent(locale);
   const proOrigin = getOriginForSurface("pro");
 
-  const languages: Record<string, string> = {};
-  for (const loc of SITE_LOCALES) {
-    languages[loc] = `${proOrigin}/${loc}/professionals/sectors`;
-  }
-
   return {
     title: content.metaTitle,
     description: content.metaDescription,
     metadataBase: new URL(proOrigin),
-    alternates: {
-      canonical: `/${locale}/professionals/sectors`,
-      languages,
-    },
+    alternates: pageAlternates(proOrigin, locale, "professionals/sectors"),
     openGraph: {
       title: content.metaTitle,
       description: content.metaDescription,

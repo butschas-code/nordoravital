@@ -7,6 +7,7 @@ import {
 } from "@/components/home-site/home-legal-page";
 import { HomeSiteLayout } from "@/components/home-site/home-site-shell";
 import { getOriginForSurface } from "@/lib/domains";
+import { pageAlternates } from "@/lib/seo";
 import { homeLocale } from "@/lib/home-copy";
 import { mergeRussianContent } from "@/lib/russian-content";
 
@@ -220,9 +221,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: copy.metaTitle,
     description: copy.metaDescription,
     metadataBase: new URL(getOriginForSurface("home")),
-    alternates: {
-      canonical: "/privacy",
-    },
+    alternates: pageAlternates(getOriginForSurface("home"), locale, "privacy"),
   };
 }
 

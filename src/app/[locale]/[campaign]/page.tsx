@@ -9,6 +9,8 @@ import {
   resolveCampaignSlugForLocale,
   type CampaignSlug,
 } from "@/lib/campaign-slugs";
+import { getOriginForSurface } from "@/lib/domains";
+import { pageAlternates } from "@/lib/seo";
 import { sanitizePropertyName } from "@/lib/sanitize-property-name";
 
 type Props = {
@@ -40,9 +42,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? getContent(campaign, locale as Locale)
     : null;
   if (!content) return {};
+  const resolved = resolveCampaignSlugForLocale(campaign, locale) ?? campaign;
   return {
     title: content.metaTitle,
     description: content.metaDescription,
+    alternates: pageAlternates(getOriginForSurface("pro"), locale, resolved),
   };
 }
 

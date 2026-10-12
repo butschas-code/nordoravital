@@ -1,13 +1,16 @@
 import type { MetadataRoute } from "next";
 import { headers } from "next/headers";
-import {
-  getOriginForSurface,
-  getSiteSurface,
-  type SiteSurface,
-} from "@/lib/domains";
 import { CAMPAIGN_SLUGS } from "@/lib/campaign-slugs";
-import { SECTOR_SLUGS } from "@/lib/sector-slugs";
+import { getSiteSurface, type SiteSurface } from "@/lib/domains";
 import { HOME_SITE_SLUGS } from "@/lib/home-site-content";
+import {
+  INDEXABLE_LOCALES,
+  ROOT_INDEXABLE_ORIGIN,
+  getIndexableOrigin,
+  languageAlternates,
+  localizedUrl,
+} from "@/lib/seo";
+import { SECTOR_SLUGS } from "@/lib/sector-slugs";
 
 const PRO_PATHS = [
   "",
@@ -34,7 +37,6 @@ const PRO_PATHS = [
 
 const HOME_PATHS = [
   "",
-  "home",
   "how-it-works",
   "programs",
   "sanza-experiences",
@@ -49,19 +51,26 @@ const HOME_PATHS = [
   ...HOME_SITE_SLUGS,
 ] as const;
 
+const LOW_PRIORITY = new Set(["privacy", "terms", "cookie-policy", "imprint"]);
+
 function entriesFor(origin: string, paths: readonly string[]): MetadataRoute.Sitemap {
-  return paths.map((path) => ({
-    url: path ? `${origin}/${path}` : origin,
-    lastModified: new Date(),
-    changeFrequency: path ? "monthly" : "weekly",
-    priority: path ? 0.7 : 1,
-  }));
+  const entries: MetadataRoute.Sitemap = [];
+  for (const path of paths) {
+    const languages = languageAlternates(origin, path);
+    for (const locale of INDEXABLE_LOCALES) {
+      entries.push({
+        url: localizedUrl(origin, locale, path),
+        changeFrequency: path ? "monthly" : "weekly",
+        priority: path ? (LOW_PRIORITY.has(path) ? 0.3 : 0.7) : 1,
+        alternates: { languages },
+      });
+    }
+  }
+  return entries;
 }
 
 function originFor(surface: SiteSurface) {
-  if (surface === "home") return getOriginForSurface("home");
-  if (surface === "pro") return getOriginForSurface("pro");
-  return getOriginForSurface("root");
+  return getIndexableOrigin(surface);
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -78,5 +87,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     return entriesFor(originFor("pro"), PRO_PATHS);
   }
 
-  return entriesFor(originFor("root"), [""]);
+  return [
+    {
+      url: ROOT_INDEXABLE_ORIGIN,
+      changeFrequency: "weekly",
+      priority: 1,
+    },
+  ];
 }

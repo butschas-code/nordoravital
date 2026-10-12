@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { HomeSiteLayout } from "@/components/home-site/home-site-shell";
 import { getOriginForSurface } from "@/lib/domains";
+import { localizedUrl, pageAlternates } from "@/lib/seo";
 import {
   HOME_SITE_PAGES,
   HOME_SITE_SLUGS,
@@ -24,13 +25,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${page.eyebrow} | Nordora Vital Home`,
     description: page.description,
     metadataBase: new URL(getOriginForSurface("home")),
-    alternates: {
-      canonical: `/${slug}`,
-    },
+    alternates: pageAlternates(getOriginForSurface("home"), locale, slug),
     openGraph: {
       title: `${page.eyebrow} | Nordora Vital Home`,
       description: page.description,
-      url: `${getOriginForSurface("home")}/${slug}`,
+      url: localizedUrl(getOriginForSurface("home"), locale, slug),
       siteName: "Nordora Vital Home",
       type: "website",
     },
