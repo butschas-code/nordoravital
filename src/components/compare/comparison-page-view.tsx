@@ -367,7 +367,13 @@ export const ComparisonPageView: FC<ComparisonPageViewProps> = ({
             </div>
           </FadeUp>
 
-          <div className="overflow-x-auto rounded-2xl border border-[#d8cec2] bg-white shadow-md sm:rounded-3xl">
+          {/* Focusable so keyboard users can scroll the table sideways on small screens. */}
+          <div
+            tabIndex={0}
+            role="region"
+            aria-label="Technology comparison table"
+            className="overflow-x-auto rounded-2xl border border-[#d8cec2] bg-white shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-strong)] sm:rounded-3xl"
+          >
             <table className="w-full min-w-[640px] text-left text-sm">
               <thead>
                 <tr className="border-b border-[#0e3d34]/30 bg-[#082721] text-white">
@@ -542,7 +548,7 @@ export const ComparisonPageView: FC<ComparisonPageViewProps> = ({
             </div>
 
             <div className="rounded-2xl border border-[#d8cec2] bg-white p-7 shadow-sm sm:rounded-3xl sm:p-9">
-              <span className="inline-block rounded-full bg-black/5 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#1e2a22]/60">
+              <span className="inline-block rounded-full bg-black/5 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[var(--muted)]">
                 Alternative Scenario
               </span>
               <h3 className="mt-4 font-heading text-xl font-bold text-[#1e2a22]/70 sm:text-2xl">
@@ -634,7 +640,7 @@ export const ComparisonPageView: FC<ComparisonPageViewProps> = ({
         <div className="mx-auto max-w-3xl">
           <FadeUp>
             <div className="mb-12 text-center">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6f8a7a]">
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#507040]">
                 FAQ
               </span>
               <h2 className="mt-2 font-heading text-2xl font-bold text-[#1e2a22] sm:text-3xl">

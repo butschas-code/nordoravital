@@ -12,6 +12,13 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Local working files (gitignored) and test output.
+    "outputs/**",
+    "exports/**",
+    "deck-export/**",
+    "deck-export-smoke/**",
+    "playwright-report/**",
+    "test-results/**",
   ]),
 ]);
 

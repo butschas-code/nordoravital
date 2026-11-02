@@ -16,7 +16,8 @@
     "openMenu": "Menü öffnen",
     "closeMenu": "Menü schließen",
     "mobileMenuTitle": "Menü",
-    "visitShop": "Zum Shop"
+    "visitShop": "Zum Shop",
+    "skipToContent": "Zum Hauptinhalt springen"
   },
   "Home": {
     "heroKicker": "<strong>sanza</strong>-Technologie · entwickelt für Therapeuten, Kliniken und Inhaber",
@@ -271,7 +272,8 @@
     "socialFacebook": "Facebook (Profil-Link folgt in Kürze)",
     "socialNote": "Links zu den Social-Media-Profilen werden in Kürze hier hinzugefügt.",
     "tagline": "<strong>sanza:</strong> PEMF, Biofrequenz und Laser – programmiert für entspanntere Besuche.",
-    "linkCookiePolicy": "Cookie-Richtlinie"
+    "linkCookiePolicy": "Cookie-Richtlinie",
+    "linkCookieSettings": "Cookie-Einstellungen"
   },
   "Imprint": {
     "metaTitle": "Impressum | Nordora Vital",
@@ -762,5 +764,17 @@
     "originFact2Body": "sanza ist seit über 20 Jahren am Markt — professionell und privat im Einsatz.",
     "originFact3Title": "Europaweit im Einsatz",
     "originFact3Body": "Von Praxen und Seniorenpflege bis zu Premium-Spas und Wellnesshotels. Nordora Vital ist der sanza Partner für das Baltikum."
+  },
+  "NotFound": {
+    "title": "Seite nicht gefunden",
+    "body": "Diese Seite existiert nicht oder wurde verschoben. Über diese Links geht es weiter.",
+    "home": "Zur Startseite",
+    "contact": "Kontakt aufnehmen"
+  },
+  "Error": {
+    "title": "Etwas ist schiefgelaufen",
+    "body": "Die Seite konnte nicht geladen werden. Bitte versuchen Sie es erneut. Wenn das Problem bleibt, schreiben Sie uns an info@nordoravital.com.",
+    "retry": "Erneut versuchen",
+    "home": "Zur Startseite"
   }
 }

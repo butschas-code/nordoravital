@@ -913,7 +913,7 @@ export const HOME_SEO_PAGES: Record<
         "When the workday ends, that tension does not vanish. You walk into your living room irritable, mentally drained, and unable to genuinely connect with family or enjoy your evening.",
         "Scrolling through social media or watching television provides passive distraction, but it keeps sensory inputs firing. Your nervous system needs a deliberate, tactile reset — a quiet space where sensory input is lowered and cellular regulation is restored.",
       ],
-      problemImage: "/images/sanza, less wired.jpg",
+      problemImage: "/images/sanza-less-wired.jpg",
       solutionEyebrow: "The reset mechanism",
       solutionTitle: "Harmonizing Alpha frequencies and full-spine decompression.",
       solutionBody: [
@@ -1019,7 +1019,7 @@ export const HOME_SEO_PAGES: Record<
         "Wenn der Arbeitstag vorbei ist, verpufft dieser Stress nicht von allein. Man betritt das Wohnzimmer gereizt, innerlich unruhig und unfähig, den Feierabend mit der Familie wirklich zu genießen.",
         "Social-Media-Konsum oder Fernsehen lenken zwar ab, halten das Gehirn aber weiter unter Reizen. Ihr Nervensystem braucht eine bewusste Entlastung – einen Ort, an dem äußere Reize sinken und zelluläre Ruhe einzieht.",
       ],
-      problemImage: "/images/sanza, less wired.jpg",
+      problemImage: "/images/sanza-less-wired.jpg",
       solutionEyebrow: "Der Reset-Mechanismus",
       solutionTitle: "Alpha-Wellen-Frequenzen und Entlastung der Wirbelsäule.",
       solutionBody: [
@@ -1125,7 +1125,7 @@ export const HOME_SEO_PAGES: Record<
         "Darba dienai beidzoties, šis stress nepāriet pats no sevis. Cilvēks pārnāk mājās aizkaitināts un nespēj patiesi atpūsties kopā ar ģimeni.",
         "Viedtālruņa šķirstīšana vai televizors tikai turpina kairināt maņas. Nervu sistēmai ir vajadzīga apzināta atslodze — klusa vieta, kur kairinājumi norimst.",
       ],
-      problemImage: "/images/sanza, less wired.jpg",
+      problemImage: "/images/sanza-less-wired.jpg",
       solutionEyebrow: "Atiestatīšanas mehānisms",
       solutionTitle: "Alfa viļņu frekvences un mugurkaula atslogošana.",
       solutionBody: [
@@ -1231,7 +1231,7 @@ export const HOME_SEO_PAGES: Record<
         "После работы это напряжение не растворяется само по себе. Человек возвращается к семье взвинченным, истощенным и неспособным спокойно отдохнуть.",
         "Лента соцсетей или просмотр сериала лишь продолжают бомбардировать мозг стимулами. Нервной системе требуется осознанная, тихая пауза без внешних раздражителей.",
       ],
-      problemImage: "/images/sanza, less wired.jpg",
+      problemImage: "/images/sanza-less-wired.jpg",
       solutionEyebrow: "Механизм перезагрузки",
       solutionTitle: "Альфа-ритмы и декомпрессия позвоночника.",
       solutionBody: [

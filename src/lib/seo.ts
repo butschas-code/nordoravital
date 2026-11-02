@@ -11,6 +11,20 @@ export const INDEXABLE_LOCALES = SITE_LOCALES;
  */
 export const ROOT_INDEXABLE_ORIGIN = "https://www.nordoravital.com";
 
+/** Default share images. Pages that set `openGraph` must include one, since it replaces the layout's. */
+export const PRO_SHARE_IMAGE = {
+  url: "/images/professionals-hero.jpg",
+  width: 2752,
+  height: 1536,
+  alt: "Nordora Vital",
+};
+export const HOME_SHARE_IMAGE = {
+  url: "/images/homeuse-home-hero.jpg",
+  width: 2752,
+  height: 1536,
+  alt: "Nordora Vital Home",
+};
+
 const LOCALE_SEGMENT = /^(de|en|lv|ru|tr)$/;
 
 export function getIndexableOrigin(

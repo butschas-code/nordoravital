@@ -7,7 +7,7 @@ import { HomeHeroPicture } from "@/components/home-site/home-hero-picture";
 import { HomeSiteLayout } from "@/components/home-site/home-site-shell";
 import { ProgramLibraryExperience } from "@/components/home-site/program-library-experience";
 import { getOriginForSurface } from "@/lib/domains";
-import { localizedUrl, pageAlternates } from "@/lib/seo";
+import { HOME_SHARE_IMAGE, localizedUrl, pageAlternates } from "@/lib/seo";
 import { homeLocale } from "@/lib/home-copy";
 import { IMAGE_PATHS } from "@/lib/public-images";
 import { mergeRussianContent } from "@/lib/russian-content";
@@ -484,6 +484,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: localizedUrl(getOriginForSurface("home"), locale, "programs"),
       siteName: "Nordora Vital Home",
       type: "website",
+      images: [HOME_SHARE_IMAGE],
     },
   };
 }
@@ -492,7 +493,7 @@ function Eyebrow({ children, light = false }: { children: ReactNode; light?: boo
   return (
     <p
       className={`mb-5 text-[0.72rem] font-semibold uppercase tracking-[0.24em] ${
-        light ? "text-white/72" : "text-[#6f8a7a]"
+        light ? "text-white/72" : "text-[#507040]"
       }`}
     >
       {children}

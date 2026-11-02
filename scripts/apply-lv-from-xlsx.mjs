@@ -1,6 +1,10 @@
 /**
  * Apply column E (Latvian) from translations-review.xlsx to messages/lv.json.
  * Sheet wins; keys missing from sheet fall back to current lv.json; must cover all en keys.
+ *
+ * Because the sheet wins, a stale sheet reverts newer edits made directly in lv.json.
+ * The default is a dry run that lists every key the sheet would change; review it, then:
+ *   node scripts/apply-lv-from-xlsx.mjs --write
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -181,6 +185,18 @@ function main() {
     if (got !== enVal) continue;
     if (enVal === "") continue;
     console.warn(`WARNING: LV equals EN (verify intentional): ${keyPath}`);
+  }
+
+  const changed = [...enFlat.keys()].filter(
+    (k) => getAt(lvPrev, parsePath(k)) !== getAt(out, parsePath(k)),
+  );
+  console.log(`lv.json: ${changed.length} keys would change`);
+  for (const k of changed) {
+    console.log(`  ${k}\n    now:   ${JSON.stringify(getAt(lvPrev, parsePath(k)))}\n    sheet: ${JSON.stringify(getAt(out, parsePath(k)))}`);
+  }
+  if (!process.argv.includes("--write")) {
+    console.log("Dry run. Re-run with --write to update lv.json.");
+    return;
   }
 
   fs.writeFileSync(lvPath, `${JSON.stringify(out, null, 2)}\n`, "utf8");

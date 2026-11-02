@@ -9,7 +9,7 @@ import { HomeHeroPicture } from "@/components/home-site/home-hero-picture";
 import { Link } from "@/i18n/navigation";
 import { HomeSiteLayout } from "@/components/home-site/home-site-shell";
 import { getOriginForSurface, getSiteSurface } from "@/lib/domains";
-import { localizedUrl, pageAlternates } from "@/lib/seo";
+import { HOME_SHARE_IMAGE, localizedUrl, pageAlternates } from "@/lib/seo";
 import { getHomeDisplayPath, getHomeSharedCopy, homeLocale } from "@/lib/home-copy";
 import { IMAGE_PATHS } from "@/lib/public-images";
 import { mergeRussianContent } from "@/lib/russian-content";
@@ -400,6 +400,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: localizedUrl(getOriginForSurface("home"), locale, "how-it-works"),
       siteName: "Nordora Vital Home",
       type: "website",
+      images: [HOME_SHARE_IMAGE],
     },
   };
 }
@@ -408,7 +409,7 @@ function Eyebrow({ children, light = false }: { children: ReactNode; light?: boo
   return (
     <p
       className={`mb-5 text-[0.72rem] font-semibold uppercase tracking-[0.24em] ${
-        light ? "text-[#d8cec2]" : "text-[#6f8a7a]"
+        light ? "text-[#d8cec2]" : "text-[#507040]"
       }`}
     >
       {children}
@@ -483,7 +484,7 @@ export default async function TheSanzaExperiencePage({ params }: Props) {
         <section className="campaign-band-soft relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] px-5 py-20 sm:px-8 sm:py-24 md:py-28 lg:px-10">
           <div className="mx-auto grid max-w-[1200px] gap-12 lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1fr)] lg:items-center lg:gap-16">
             <div>
-              <p className="campaign-eyebrow campaign-eyebrow--left mb-5 inline-block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-[#6f8a7a]">
+              <p className="campaign-eyebrow campaign-eyebrow--left mb-5 inline-block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-[#507040]">
                 {systemIntro.eyebrow}
               </p>
               <h2 className="font-heading text-[clamp(1.85rem,4.2vw,2.8rem)] font-bold leading-[1.1] tracking-tight text-[#1e2a22]">

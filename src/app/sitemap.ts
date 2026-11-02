@@ -25,7 +25,6 @@ const PRO_PATHS = [
   "contact",
   "booking",
   "pilot",
-  "pilot-program",
   "fizioterapija",
   "privacy",
   "terms",

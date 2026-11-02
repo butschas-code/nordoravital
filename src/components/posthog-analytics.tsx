@@ -2,14 +2,15 @@
 
 import { useEffect } from "react";
 import posthog from "posthog-js";
-
-const CONSENT_KEY = "nv_cookie_consent";
-const POSTHOG_CONSENT_EVENT = "nv-cookie-consent";
+import { CONSENT_KEY, POSTHOG_CONSENT_EVENT } from "@/lib/cookie-consent";
 
 let posthogStarted = false;
 
 function startPostHog() {
-  if (posthogStarted) return;
+  if (posthogStarted) {
+    posthog.opt_in_capturing();
+    return;
+  }
 
   const token = process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN;
   const host = process.env.NEXT_PUBLIC_POSTHOG_HOST;
@@ -33,8 +34,13 @@ export function PostHogAnalytics() {
       }
 
       const handleConsent = (event: Event) => {
-        if (event instanceof CustomEvent && event.detail === "all") {
+        if (!(event instanceof CustomEvent)) return;
+        if (event.detail === "all") {
           startPostHog();
+        } else if (posthogStarted) {
+          // Consent withdrawn: stop capturing and clear PostHog's cookie and storage.
+          posthog.opt_out_capturing();
+          posthog.reset();
         }
       };
 

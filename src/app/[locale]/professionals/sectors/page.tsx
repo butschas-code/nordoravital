@@ -4,7 +4,7 @@ import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { BrandArc } from "@/components/brand-arc";
 import { FadeUp } from "@/components/fade-up";
-import { JsonLd } from "@/components/seo/json-ld";
+import { JsonLd, professionalServiceJsonLd } from "@/components/seo/json-ld";
 import { ProfessionalDirectoryView } from "@/components/professionals/professional-directory-view";
 import { routing, type Locale } from "@/i18n/routing";
 import { getOriginForSurface } from "@/lib/domains";
@@ -62,18 +62,12 @@ export default async function ProfessionalSectorsDirectoryPage({ params }: Props
 
   const jsonLdData = [
     {
-      "@context": "https://schema.org",
-      "@type": "MedicalBusiness",
-      name: "Nordora Vital Professional Sectors Hub",
-      description: content.metaDescription,
-      url: canonicalUrl,
-      medicalSpecialty: [
-        "Physiotherapy",
-        "Chiropractic",
-        "SportsMedicine",
-        "Dentistry",
-        "HolisticMedicine",
-      ],
+      ...professionalServiceJsonLd({
+        name: "Nordora Vital Professional Sectors Hub",
+        description: content.metaDescription,
+        url: canonicalUrl,
+        medicalSpecialty: ["Physiotherapy", "Chiropractic", "SportsMedicine", "Dentistry", "HolisticMedicine"],
+      }),
       offers: {
         "@type": "Offer",
         name: "On-site clinic demonstration and pilot evaluation",

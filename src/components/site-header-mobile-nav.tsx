@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
@@ -9,6 +9,7 @@ import {
   useContactDrawer,
   type ContactDrawerOptions,
 } from "@/components/contact/contact-drawer-context";
+import { useDialogFocus } from "@/lib/use-dialog-focus";
 
 export type MobileNavLink = {
   href: string;
@@ -31,6 +32,9 @@ export function SiteHeaderMobileNav({
   const { openDrawer } = useContactDrawer();
   const [open, setOpen] = useState(false);
   const panelId = useId();
+  const panelRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  useDialogFocus(open, panelRef, triggerRef);
 
   useEffect(() => {
     if (!open) return;
@@ -53,6 +57,7 @@ export function SiteHeaderMobileNav({
   return (
     <div className={className}>
       <button
+        ref={triggerRef}
         type="button"
         className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--panel)] text-[var(--text)] shadow-sm transition-[border-color,background-color,color] duration-[var(--duration-ui)] ease-[var(--ease-brand)] hover:border-[var(--brand)] hover:bg-[var(--panel-deep)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand)]"
         aria-expanded={open}
@@ -90,6 +95,7 @@ export function SiteHeaderMobileNav({
             onClick={() => setOpen(false)}
           />
           <div
+            ref={panelRef}
             id={panelId}
             role="dialog"
             aria-modal="true"

@@ -32,7 +32,7 @@ export async function HowItWorksCta() {
       </div>
 
       {/* Kicker */}
-      <p className="mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--brand)] sm:text-sm sm:tracking-[0.14em]">
+      <p className="mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--brand-strong)] sm:text-sm sm:tracking-[0.14em]">
         {t("ctaKicker")}
       </p>
 

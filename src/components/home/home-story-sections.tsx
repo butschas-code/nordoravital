@@ -184,13 +184,16 @@ export async function HomeOrigin() {
 
         <dl className="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-3">
           {facts.map((f, i) => (
-            <FadeUp key={f.title} delay={(i + 1) as 1 | 2 | 3} className="h-full">
-              <div className="flex h-full flex-col rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-card)]">
-                <dt className="font-heading text-xl font-bold leading-snug text-[var(--brand-strong)]">
-                  {t(f.title)}
-                </dt>
-                <dd className="mt-3 text-base leading-relaxed text-[var(--muted)]">{t(f.body)}</dd>
-              </div>
+            // FadeUp's own div groups each dt/dd pair, the only wrapper a <dl> allows.
+            <FadeUp
+              key={f.title}
+              delay={(i + 1) as 1 | 2 | 3}
+              className="flex h-full flex-col rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-card)]"
+            >
+              <dt className="font-heading text-xl font-bold leading-snug text-[var(--brand-strong)]">
+                {t(f.title)}
+              </dt>
+              <dd className="mt-3 text-base leading-relaxed text-[var(--muted)]">{t(f.body)}</dd>
             </FadeUp>
           ))}
         </dl>

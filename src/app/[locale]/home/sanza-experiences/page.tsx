@@ -6,7 +6,7 @@ import { Link } from "@/i18n/navigation";
 import { HomeHeroPicture } from "@/components/home-site/home-hero-picture";
 import { HomeSiteLayout } from "@/components/home-site/home-site-shell";
 import { getOriginForSurface, getSiteSurface } from "@/lib/domains";
-import { localizedUrl, pageAlternates } from "@/lib/seo";
+import { HOME_SHARE_IMAGE, localizedUrl, pageAlternates } from "@/lib/seo";
 import { getHomeDisplayPath, getHomeSharedCopy, homeLocale } from "@/lib/home-copy";
 import { IMAGE_PATHS } from "@/lib/public-images";
 import { mergeRussianContent } from "@/lib/russian-content";
@@ -556,6 +556,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: localizedUrl(getOriginForSurface("home"), locale, "sanza-experiences"),
       siteName: "Nordora Vital Home",
       type: "website",
+      images: [HOME_SHARE_IMAGE],
     },
   };
 }
@@ -564,7 +565,7 @@ function Eyebrow({ children, light = false }: { children: ReactNode; light?: boo
   return (
     <p
       className={`mb-5 text-[0.72rem] font-semibold uppercase tracking-[0.24em] ${
-        light ? "text-[#cfe1d2]" : "text-[#6f8a7a]"
+        light ? "text-[#cfe1d2]" : "text-[#507040]"
       }`}
     >
       {children}
@@ -809,7 +810,7 @@ function HabitSection({
                 <h3 className="font-heading text-[clamp(1.55rem,2.7vw,2.6rem)] leading-tight tracking-normal text-[#17221d]">
                   {experience.title}
                 </h3>
-                <p className="mt-3 text-[0.82rem] font-semibold uppercase tracking-[0.16em] text-[#6f8a7a]">
+                <p className="mt-3 text-[0.82rem] font-semibold uppercase tracking-[0.16em] text-[#507040]">
                   {suggestedPrograms}: {experience.programs.join(" / ")}
                 </p>
               </div>

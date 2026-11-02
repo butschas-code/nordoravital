@@ -367,10 +367,11 @@ export function HomePersonalContactForm({
           autoComplete="name"
           className={inputClass}
           aria-invalid={errors.name ? "true" : undefined}
+          aria-describedby={errors.name ? fid("name-error") : undefined}
           {...register("name")}
         />
         {errors.name?.message ? (
-          <p className="mt-1 text-sm text-red-600" role="alert">{errors.name.message}</p>
+          <p id={fid("name-error")} className="mt-1 text-sm text-red-600" role="alert">{errors.name.message}</p>
         ) : null}
       </div>
 
@@ -385,10 +386,11 @@ export function HomePersonalContactForm({
             autoComplete="email"
             className={inputClass}
             aria-invalid={errors.email ? "true" : undefined}
+            aria-describedby={errors.email ? fid("email-error") : undefined}
             {...register("email")}
           />
           {errors.email?.message ? (
-            <p className="mt-1 text-sm text-red-600" role="alert">{errors.email.message}</p>
+            <p id={fid("email-error")} className="mt-1 text-sm text-red-600" role="alert">{errors.email.message}</p>
           ) : null}
         </div>
 
@@ -484,10 +486,11 @@ export function HomePersonalContactForm({
           className={inputClass}
           aria-invalid={errors.message ? "true" : undefined}
           placeholder={copy.messagePlaceholder}
+          aria-describedby={errors.message ? fid("message-error") : undefined}
           {...register("message")}
         />
         {errors.message?.message ? (
-          <p className="mt-1 text-sm text-red-600" role="alert">{errors.message.message}</p>
+          <p id={fid("message-error")} className="mt-1 text-sm text-red-600" role="alert">{errors.message.message}</p>
         ) : null}
       </div>
 

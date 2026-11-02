@@ -101,10 +101,12 @@ export function SectorBookingForm({ categoryLabel, sectorSlug }: Props) {
           type="text"
           autoComplete="name"
           className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2.5 text-base text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
+          aria-invalid={errors.name ? "true" : undefined}
+          aria-describedby={errors.name ? "sector-name-error" : undefined}
           {...register("name")}
         />
         {errors.name && (
-          <p className="mt-1 text-sm text-red-600">{t("error")}</p>
+          <p id="sector-name-error" className="mt-1 text-sm text-red-600">{t("error")}</p>
         )}
       </div>
 
@@ -117,10 +119,12 @@ export function SectorBookingForm({ categoryLabel, sectorSlug }: Props) {
           type="email"
           autoComplete="email"
           className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2.5 text-base text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
+          aria-invalid={errors.email ? "true" : undefined}
+          aria-describedby={errors.email ? "sector-email-error" : undefined}
           {...register("email")}
         />
         {errors.email && (
-          <p className="mt-1 text-sm text-red-600">{t("error")}</p>
+          <p id="sector-email-error" className="mt-1 text-sm text-red-600">{t("error")}</p>
         )}
       </div>
 

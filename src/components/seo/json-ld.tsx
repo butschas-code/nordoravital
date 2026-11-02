@@ -24,6 +24,26 @@ export interface ProductData {
   url?: string;
 }
 
+export function professionalServiceJsonLd(data: MedicalBusinessData): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: data.name,
+    description: data.description,
+    url: data.url,
+    provider: { "@type": "Organization", name: "Nordora Vital SIA", url: "https://www.nordoravital.com" },
+    areaServed: ["LV", "EE", "LT"],
+    ...(data.medicalSpecialty?.length
+      ? {
+          audience: data.medicalSpecialty.map((audienceType) => ({
+            "@type": "BusinessAudience",
+            audienceType,
+          })),
+        }
+      : {}),
+  };
+}
+
 interface JsonLdProps {
   data?: Record<string, unknown> | Array<Record<string, unknown>>;
   breadcrumbs?: BreadcrumbItem[];
@@ -77,15 +97,10 @@ export const JsonLd: FC<JsonLdProps> = ({
     });
   }
 
+  // Published as a Service for professionals, not a MedicalBusiness: Nordora Vital
+  // supplies wellbeing equipment and must not be presented as a medical provider.
   if (medicalBusiness) {
-    schemas.push({
-      "@context": "https://schema.org",
-      "@type": "MedicalBusiness",
-      name: medicalBusiness.name,
-      description: medicalBusiness.description,
-      url: medicalBusiness.url,
-      medicalSpecialty: medicalBusiness.medicalSpecialty,
-    });
+    schemas.push(professionalServiceJsonLd(medicalBusiness));
   }
 
   if (product) {
@@ -109,7 +124,7 @@ export const JsonLd: FC<JsonLdProps> = ({
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(payload) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(payload).replace(/</g, "\\u003c") }}
     />
   );
 };

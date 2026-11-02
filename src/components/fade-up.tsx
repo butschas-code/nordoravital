@@ -9,6 +9,8 @@ type Props = {
   delay?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
   /** Whether to run the animation immediately (no IntersectionObserver) */
   immediate?: boolean;
+  /** Render as a list item when the wrapper is a direct child of `<ul>`/`<ol>`. */
+  as?: "div" | "li";
 };
 
 const DELAY_CLASSES: Record<number, string> = {
@@ -21,8 +23,8 @@ const DELAY_CLASSES: Record<number, string> = {
   6: "fade-up fade-up-delay-6",
 };
 
-export function FadeUp({ children, className = "", delay = 0, immediate = false }: Props) {
-  const ref = useRef<HTMLDivElement>(null);
+export function FadeUp({ children, className = "", delay = 0, immediate = false, as: Tag = "div" }: Props) {
+  const ref = useRef<HTMLDivElement & HTMLLIElement>(null);
   const [visible, setVisible] = useState(immediate);
 
   useEffect(() => {
@@ -43,11 +45,11 @@ export function FadeUp({ children, className = "", delay = 0, immediate = false 
   }, [immediate]);
 
   return (
-    <div
+    <Tag
       ref={ref}
       className={`${className} ${visible ? DELAY_CLASSES[delay] : "opacity-0"}`}
     >
       {children}
-    </div>
+    </Tag>
   );
 }

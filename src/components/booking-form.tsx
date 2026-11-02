@@ -71,10 +71,12 @@ export function BookingForm() {
           type="text"
           autoComplete="name"
           className="mt-1 min-h-11 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2.5 text-sm text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
+          aria-invalid={errors.name ? "true" : undefined}
+          aria-describedby={errors.name ? "name-error" : undefined}
           {...register("name")}
         />
         {errors.name && (
-          <p className="mt-1 text-xs text-red-600">{t("error")}</p>
+          <p id="name-error" className="mt-1 text-xs text-red-600">{t("error")}</p>
         )}
       </div>
 
@@ -87,10 +89,12 @@ export function BookingForm() {
           type="email"
           autoComplete="email"
           className="mt-1 min-h-11 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2.5 text-sm text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
+          aria-invalid={errors.email ? "true" : undefined}
+          aria-describedby={errors.email ? "email-error" : undefined}
           {...register("email")}
         />
         {errors.email && (
-          <p className="mt-1 text-xs text-red-600">{t("error")}</p>
+          <p id="email-error" className="mt-1 text-xs text-red-600">{t("error")}</p>
         )}
       </div>
 

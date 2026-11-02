@@ -250,7 +250,7 @@ export default async function ComparisonHubPage({ params }: Props) {
       {/* ═════════ SCIENTIFIC CONTEXT INTRO ═════════ */}
       <section className="border-b border-[#d8cec2]/80 bg-[#fbf7ef] px-5 py-12 sm:px-8 sm:py-16">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6f8a7a]">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#507040]">
             {safeLocale === "de"
               ? "Wissenschaftliche & Technische Differenzierung"
               : safeLocale === "lv"

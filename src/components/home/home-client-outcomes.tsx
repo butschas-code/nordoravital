@@ -99,9 +99,9 @@ export async function HomeClientOutcomes() {
         {/* Bento grid — featured 2x2 anchor + 4 standard cards */}
         <ul className="mt-16 grid auto-rows-[minmax(200px,1fr)] gap-4 sm:auto-rows-[minmax(240px,1fr)] sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {OUTCOMES.map((o, i) => (
-            <FadeUp key={o.title} delay={((i % 3) + 1) as 1 | 2 | 3} className={o.span}>
+            <FadeUp as="li" key={o.title} delay={((i % 3) + 1) as 1 | 2 | 3} className={o.span}>
               {o.isFeature ? (
-                <li className="group relative flex h-full min-h-[280px] flex-col justify-end overflow-hidden rounded-3xl shadow-[var(--shadow-raised)] ring-1 ring-[var(--border)] transition duration-500 hover:-translate-y-1 hover:shadow-2xl sm:min-h-[420px]">
+                <div className="group relative flex h-full min-h-[280px] flex-col justify-end overflow-hidden rounded-3xl shadow-[var(--shadow-raised)] ring-1 ring-[var(--border)] transition duration-500 hover:-translate-y-1 hover:shadow-2xl sm:min-h-[420px]">
                   <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
                     <BrandAtmosphere variant={o.variant} latticeFocal={o.latticeFocal} />
                   </div>
@@ -152,9 +152,9 @@ export async function HomeClientOutcomes() {
                       </div>
                     </div>
                   </div>
-                </li>
+                </div>
               ) : (
-                <li className="group relative flex h-full flex-col overflow-hidden rounded-3xl bg-[var(--surface)] shadow-[var(--shadow-card)] ring-1 ring-[var(--border)] transition duration-500 hover:-translate-y-1 hover:border-[var(--brand)]/40 hover:shadow-[var(--shadow-raised)]">
+                <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl bg-[var(--surface)] shadow-[var(--shadow-card)] ring-1 ring-[var(--border)] transition duration-500 hover:-translate-y-1 hover:border-[var(--brand)]/40 hover:shadow-[var(--shadow-raised)]">
                   {/* Accent stripe top */}
                   <div
                     className="absolute left-0 right-0 top-0 z-10 h-1"
@@ -194,7 +194,7 @@ export async function HomeClientOutcomes() {
                       </p>
                     ) : null}
                   </div>
-                </li>
+                </div>
               )}
             </FadeUp>
           ))}

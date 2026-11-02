@@ -84,7 +84,7 @@ export function LanguageSwitcher({
                       ? "bg-white/12 font-semibold text-[var(--brand-secondary)]"
                       : "text-white/90 hover:bg-white/10"
                     : active
-                      ? "bg-[var(--panel)] font-semibold text-[var(--brand)]"
+                      ? "bg-[var(--panel)] font-semibold text-[var(--brand-strong)]"
                       : "text-[var(--text)] hover:bg-[var(--panel)]"
                 }`}
                 onClick={() => {
@@ -99,7 +99,7 @@ export function LanguageSwitcher({
                       ? active
                         ? "text-[var(--brand-secondary)]"
                         : "text-white/55"
-                      : `text-[var(--muted)] ${active ? "text-[var(--brand)]" : ""}`
+                      : `text-[var(--muted)] ${active ? "text-[var(--brand-strong)]" : ""}`
                   }`}
                 >
                   {loc.toUpperCase()}
@@ -180,7 +180,7 @@ export function LanguageSwitcher({
                         ? "bg-white/12 font-semibold text-[var(--brand-secondary)]"
                         : "text-white/90 hover:bg-white/10"
                       : active
-                        ? "bg-[var(--panel)] font-semibold text-[var(--brand)]"
+                        ? "bg-[var(--panel)] font-semibold text-[var(--brand-strong)]"
                         : "text-[var(--text)] hover:bg-[var(--panel)]"
                   }`}
                   onClick={() => {
@@ -195,7 +195,7 @@ export function LanguageSwitcher({
                         ? active
                           ? "text-[var(--brand-secondary)]"
                           : "text-white/55"
-                        : `text-[var(--muted)] ${active ? "text-[var(--brand)]" : ""}`
+                        : `text-[var(--muted)] ${active ? "text-[var(--brand-strong)]" : ""}`
                     }`}
                   >
                     {loc.toUpperCase()}

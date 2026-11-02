@@ -826,7 +826,7 @@ export function ClinicWorkflowSimulator({ locale, defaultSectorId = "physio" }: 
     <div className="clinic-workflow-simulator w-full rounded-[24px] border border-[#d8cec2] bg-[#fbf7ef] p-5 shadow-[0_4px_24px_rgba(30,42,34,0.06)] sm:p-8 md:p-10">
       {/* Header */}
       <div className="mx-auto max-w-3xl text-center">
-        <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#6f8a7a]">
+        <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#507040]">
           {data.eyebrow}
         </p>
         <h3 className="mt-2 font-heading text-[clamp(1.5rem,3.2vw,2.25rem)] font-bold tracking-tight text-[#1e2a22]">
@@ -851,7 +851,7 @@ export function ClinicWorkflowSimulator({ locale, defaultSectorId = "physio" }: 
 
       {/* Sector tabs */}
       <div className="mt-8">
-        <p className="mb-3 text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-[#6f8a7a]">
+        <p className="mb-3 text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-[#507040]">
           {data.sectorLabel}
         </p>
         <div className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-4">
@@ -895,7 +895,7 @@ export function ClinicWorkflowSimulator({ locale, defaultSectorId = "physio" }: 
         <div className="flex flex-col justify-between rounded-2xl border border-[#d8cec2] bg-white p-6 lg:col-span-7 sm:p-7">
           <div>
             <div className="flex items-center justify-between border-b border-[#d8cec2]/60 pb-3">
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#6f8a7a]">
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#507040]">
                 {data.workflowTimelineLabel}
               </span>
               <span className="text-xs font-bold text-[#0e3d34]">
@@ -945,7 +945,7 @@ export function ClinicWorkflowSimulator({ locale, defaultSectorId = "physio" }: 
 
               <div className="grid gap-3 pt-2 sm:grid-cols-2">
                 <div className="rounded-lg border border-[#d8cec2] bg-white p-3">
-                  <span className="text-[0.72rem] font-semibold uppercase tracking-wider text-[#6f8a7a]">
+                  <span className="text-[0.72rem] font-semibold uppercase tracking-wider text-[#507040]">
                     👤 {data.patientStateLabel}
                   </span>
                   <p className="mt-1 text-xs leading-relaxed text-[#1e2a22]/90">
@@ -953,7 +953,7 @@ export function ClinicWorkflowSimulator({ locale, defaultSectorId = "physio" }: 
                   </p>
                 </div>
                 <div className="rounded-lg border border-[#d8cec2] bg-white p-3">
-                  <span className="text-[0.72rem] font-semibold uppercase tracking-wider text-[#6f8a7a]">
+                  <span className="text-[0.72rem] font-semibold uppercase tracking-wider text-[#507040]">
                     🩺 {data.practitionerLabel}
                   </span>
                   <p className="mt-1 text-xs leading-relaxed text-[#1e2a22]/90">
@@ -988,7 +988,7 @@ export function ClinicWorkflowSimulator({ locale, defaultSectorId = "physio" }: 
         <div className="flex flex-col justify-between rounded-2xl border border-[#d8cec2] bg-white p-6 lg:col-span-5 sm:p-7">
           <div className="space-y-6">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-[#6f8a7a]">
+              <p className="text-xs font-semibold uppercase tracking-wider text-[#507040]">
                 {data.bilateralHeader}
               </p>
               <h4 className="mt-1 font-heading text-lg font-bold text-[#1e2a22]">

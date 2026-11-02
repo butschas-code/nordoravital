@@ -569,7 +569,7 @@ export async function HowItWorksSections() {
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,0.76fr)_minmax(0,1fr)] lg:items-start">
             <FadeUp>
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand)] sm:text-sm">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand-strong)] sm:text-sm">
                 {t("trustKicker")}
               </p>
               <h2

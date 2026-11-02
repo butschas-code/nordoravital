@@ -16,7 +16,8 @@
     "openMenu": "Atvērt izvēlni",
     "closeMenu": "Aizvērt izvēlni",
     "mobileMenuTitle": "Izvēlne",
-    "visitShop": "Apmeklējiet veikalu"
+    "visitShop": "Apmeklējiet veikalu",
+    "skipToContent": "Pāriet uz galveno saturu"
   },
   "Home": {
     "heroKicker": "<strong>sanza</strong> tehnoloģija · izstrādāta terapeitiem, klīnikām un īpašniekiem",
@@ -394,7 +395,8 @@
     "socialFacebook": "Facebook (profila saite drīzumā)",
     "socialNote": "Sociālo tīklu profilu saites tiks pievienotas šeit drīzumā.",
     "tagline": "<strong>sanza:</strong> PEMF, biofrekvence un lāzers — programmēti mierīgākām vizītēm.",
-    "linkCookiePolicy": "Sīkdatņu politika"
+    "linkCookiePolicy": "Sīkdatņu politika",
+    "linkCookieSettings": "Sīkdatņu iestatījumi"
   },
   "Imprint": {
     "metaTitle": "Juridiskais paziņojums | Nordora Vital",
@@ -762,5 +764,17 @@
     "originFact2Body": "sanza tirgū ir jau vairāk nekā 20 gadus — gan profesionālā, gan privātā lietošanā.",
     "originFact3Title": "Izmanto visā Eiropā",
     "originFact3Body": "No praksēm un senioru aprūpes līdz augstākās klases spa un wellness viesnīcām. Nordora Vital ir sanza partneris Baltijā."
+  },
+  "NotFound": {
+    "title": "Lapa nav atrasta",
+    "body": "Šī lapa neeksistē vai ir pārvietota. Šīs saites palīdzēs turpināt.",
+    "home": "Uz sākumlapu",
+    "contact": "Sazināties ar mums"
+  },
+  "Error": {
+    "title": "Radās kļūda",
+    "body": "Lapu neizdevās ielādēt. Lūdzu, mēģiniet vēlreiz. Ja kļūda atkārtojas, rakstiet mums uz info@nordoravital.com.",
+    "retry": "Mēģināt vēlreiz",
+    "home": "Uz sākumlapu"
   }
 }

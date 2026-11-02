@@ -17,7 +17,7 @@ export function LegalPageShell({ title, subtitle, kicker = "Legal", children }: 
       {/* ── Full-bleed header band ── */}
       <div className="home-band-full home-band--welcome pb-12 pt-12 md:pb-16 md:pt-16 lg:pb-20 lg:pt-20">
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-[var(--brand)] sm:text-sm">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)] sm:text-sm">
             {kicker}
           </p>
           <h1 className="font-heading text-[clamp(2rem,4.2vw,2.85rem)] font-bold leading-tight text-[var(--text)]">

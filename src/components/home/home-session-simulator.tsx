@@ -378,7 +378,7 @@ export function HomeSessionSimulator({ locale }: HomeSessionSimulatorProps) {
     <div className="home-session-simulator w-full rounded-[24px] border border-[#d8cec2] bg-[#fffaf3] p-5 shadow-[0_4px_24px_rgba(30,42,34,0.06)] sm:p-8 md:p-10">
       {/* Header */}
       <div className="mx-auto max-w-2xl text-center">
-        <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#6f8a7a]">
+        <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#507040]">
           {data.eyebrow}
         </p>
         <h3 className="mt-2 font-heading text-[clamp(1.5rem,3.2vw,2.25rem)] font-bold tracking-tight text-[#1e2a22]">
@@ -391,7 +391,7 @@ export function HomeSessionSimulator({ locale }: HomeSessionSimulatorProps) {
 
       {/* Goal Selector Tabs */}
       <div className="mt-8">
-        <p className="mb-3 text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-[#6f8a7a]">
+        <p className="mb-3 text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-[#507040]">
           {data.goalLabel}
         </p>
         <div className="grid gap-3 sm:grid-cols-3">
@@ -438,7 +438,7 @@ export function HomeSessionSimulator({ locale }: HomeSessionSimulatorProps) {
           <div>
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#d8cec2]/70 pb-4">
               <div>
-                <span className="text-xs font-semibold uppercase tracking-wider text-[#6f8a7a]">
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#507040]">
                   {data.frequencyLabel}
                 </span>
                 <p className="font-heading text-lg font-bold text-[#1e2a22]">
@@ -512,7 +512,7 @@ export function HomeSessionSimulator({ locale }: HomeSessionSimulatorProps) {
 
             {/* Active Applicators */}
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-[#6f8a7a]">
+              <p className="text-xs font-semibold uppercase tracking-wider text-[#507040]">
                 {data.applicatorsLabel}
               </p>
               <div className="mt-3 grid gap-2.5 sm:grid-cols-3">
@@ -575,7 +575,7 @@ export function HomeSessionSimulator({ locale }: HomeSessionSimulatorProps) {
         <div className="flex flex-col justify-between rounded-2xl border border-[#d8cec2] bg-white p-6 lg:col-span-5 sm:p-7">
           <div className="space-y-6">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-[#6f8a7a]">
+              <p className="text-xs font-semibold uppercase tracking-wider text-[#507040]">
                 {data.sensationLabel}
               </p>
               <div className="mt-2 rounded-xl bg-[#f6f1ea] p-4 text-[0.92rem] leading-relaxed text-[#1e2a22]">
@@ -584,7 +584,7 @@ export function HomeSessionSimulator({ locale }: HomeSessionSimulatorProps) {
             </div>
 
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-[#6f8a7a]">
+              <p className="text-xs font-semibold uppercase tracking-wider text-[#507040]">
                 {data.outcomesLabel}
               </p>
               <ul className="mt-3 space-y-2.5">

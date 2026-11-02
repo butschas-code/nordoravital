@@ -1,9 +1,11 @@
 /**
  * Apply Russian (column F) and Turkish (column G) from deck-translations.xlsx
  * onto full copies of messages/en.json → messages/ru.json and messages/tr.json.
- * Deck keys only differ from en; all other strings stay English until wider i18n.
+ * Only deck keys come from the sheet. Every other key keeps its current ru/tr value
+ * (Russian site copy lives there too); keys missing from ru/tr fall back to English.
  *
- * Run: node scripts/apply-deck-ru-tr-from-xlsx.mjs
+ * Dry run (lists changed keys): node scripts/apply-deck-ru-tr-from-xlsx.mjs
+ * Write the files:              node scripts/apply-deck-ru-tr-from-xlsx.mjs --write
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -153,8 +155,24 @@ function main() {
     }
   }
 
-  const outRu = deepClone(en);
-  const outTr = deepClone(en);
+  const ruPath = path.join(root, "messages/ru.json");
+  const trPath = path.join(root, "messages/tr.json");
+  const ruPrev = JSON.parse(fs.readFileSync(ruPath, "utf8"));
+  const trPrev = JSON.parse(fs.readFileSync(trPath, "utf8"));
+
+  /** English structure with the current translation laid over it, so non-deck copy survives. */
+  function withExisting(prev) {
+    const out = deepClone(en);
+    for (const keyPath of enFlat.keys()) {
+      const parts = parsePath(keyPath);
+      const v = getAt(prev, parts);
+      if (typeof v === "string") setAt(out, parts, v);
+    }
+    return out;
+  }
+
+  const outRu = withExisting(ruPrev);
+  const outTr = withExisting(trPrev);
 
   for (const keyPath of expectedDeckKeys) {
     const parts = parsePath(keyPath);
@@ -164,8 +182,17 @@ function main() {
     if (tr !== undefined) setAt(outTr, parts, tr);
   }
 
-  const ruPath = path.join(root, "messages/ru.json");
-  const trPath = path.join(root, "messages/tr.json");
+  const changed = (prev, out) =>
+    [...enFlat.keys()].filter((k) => getAt(prev, parsePath(k)) !== getAt(out, parsePath(k)));
+  const ruChanged = changed(ruPrev, outRu);
+  const trChanged = changed(trPrev, outTr);
+  console.log(`ru.json: ${ruChanged.length} keys would change${ruChanged.length ? `\n  ${ruChanged.join("\n  ")}` : ""}`);
+  console.log(`tr.json: ${trChanged.length} keys would change${trChanged.length ? `\n  ${trChanged.join("\n  ")}` : ""}`);
+  if (!process.argv.includes("--write")) {
+    console.log("Dry run. Re-run with --write to update the files.");
+    return;
+  }
+
   fs.writeFileSync(ruPath, `${JSON.stringify(outRu, null, 2)}\n`);
   fs.writeFileSync(trPath, `${JSON.stringify(outTr, null, 2)}\n`);
   console.log(`Wrote ${ruPath}`);

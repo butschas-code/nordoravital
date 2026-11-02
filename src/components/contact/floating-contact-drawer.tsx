@@ -2,10 +2,11 @@
 
 import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { ContactForm } from "@/components/contact/contact-form";
 import { useContactDrawer } from "@/components/contact/contact-drawer-context";
 import { HomePersonalContactForm } from "@/components/home-site/home-personal-contact-form";
+import { useDialogFocus } from "@/lib/use-dialog-focus";
 
 const homePersonalDrawerTitles = {
   en: "Personal sanza question",
@@ -21,6 +22,8 @@ export function FloatingContactDrawer() {
     homePersonalDrawerTitles[locale as keyof typeof homePersonalDrawerTitles] ??
     homePersonalDrawerTitles.en;
   const isHomePersonal = options.drawerType === "homePersonal";
+  const panelRef = useRef<HTMLDivElement>(null);
+  useDialogFocus(open, panelRef);
 
   useEffect(() => {
     if (!open) return;
@@ -52,7 +55,7 @@ export function FloatingContactDrawer() {
         aria-label={t("drawerClose")}
         onClick={closeDrawer}
       />
-      <div className="drawer-panel-enter relative flex h-full w-full max-w-md flex-col bg-[var(--bg)] shadow-[var(--shadow-raised)]">
+      <div ref={panelRef} className="drawer-panel-enter relative flex h-full w-full max-w-md flex-col bg-[var(--bg)] shadow-[var(--shadow-raised)]">
         <div className="flex shrink-0 items-center justify-between border-b border-[var(--border)] px-4 py-3 sm:px-5">
           <h2
             id="floating-contact-title"

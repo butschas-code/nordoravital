@@ -82,11 +82,11 @@ const FITS_IMAGES = [
 ];
 
 const WHAT_CHANGES_IMAGES = {
-  patients: "/images/sanza, less wired.jpg",
+  patients: "/images/sanza-less-wired.jpg",
   practice: "/images/sanza a softer landing.jpg",
 };
 
-const PROBLEM_IMAGE = "/images/sanza, less wired.jpg";
+const PROBLEM_IMAGE = "/images/sanza-less-wired.jpg";
 
 const SOCIAL_PROOF_BG = "/images/campaign/quote-background.jpg";
 

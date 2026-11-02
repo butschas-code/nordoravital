@@ -68,7 +68,7 @@ export function SpaGuestJourney() {
                 {step}
               </div>
               {index < active.steps.length - 1 ? (
-                <span aria-hidden className="text-center text-lg font-semibold text-[#6f8a7a] md:px-1">
+                <span aria-hidden className="text-center text-lg font-semibold text-[#507040] md:px-1">
                   <span className="inline-block rotate-90 md:rotate-0">→</span>
                 </span>
               ) : null}

@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import Image from "next/image";
 import { headers } from "next/headers";
 import { getLocale, getTranslations } from "next-intl/server";
+import { CookieSettingsButton } from "@/components/cookie-settings-button";
 import { Link } from "@/i18n/navigation";
 import { richParts } from "@/lib/i18n-rich";
 import { FooterSocialPlaceholders } from "@/components/footer-social-placeholders";
@@ -196,6 +197,12 @@ export async function SiteFooter({ localeOverride }: { localeOverride?: string }
                   <Link href="/cookie-policy" className={linkClass}>
                     {t("linkCookiePolicy")}
                   </Link>
+                </li>
+                <li>
+                  <CookieSettingsButton
+                    label={t("linkCookieSettings")}
+                    className={`${linkClass} cursor-pointer text-left`}
+                  />
                 </li>
               </ul>
             </nav>

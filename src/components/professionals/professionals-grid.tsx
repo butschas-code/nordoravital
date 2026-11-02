@@ -180,7 +180,7 @@ export function ProfessionalsGrid({ sectors, labels }: ProfessionalsGridProps) {
                   </div>
                 </div>
                 <div>
-                  <p className="text-xs font-bold tracking-[0.08em] text-[var(--brand)] sm:text-sm">
+                  <p className="text-xs font-bold tracking-[0.08em] text-[var(--brand-strong)] sm:text-sm">
                     sanza for
                   </p>
                   <h3 className="font-heading text-xl font-bold text-[var(--text)]">

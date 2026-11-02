@@ -6,7 +6,7 @@ import { Link } from "@/i18n/navigation";
 import { HomeHeroPicture } from "@/components/home-site/home-hero-picture";
 import { HomeSiteLayout } from "@/components/home-site/home-site-shell";
 import { getOriginForSurface, getSiteSurface } from "@/lib/domains";
-import { localizedUrl, pageAlternates } from "@/lib/seo";
+import { HOME_SHARE_IMAGE, localizedUrl, pageAlternates } from "@/lib/seo";
 import { getHomeDisplayPath, getHomeSharedCopy, homeLocale } from "@/lib/home-copy";
 import { mergeRussianContent } from "@/lib/russian-content";
 
@@ -368,6 +368,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: localizedUrl(getOriginForSurface("home"), locale, "faq"),
       siteName: "Nordora Vital Home",
       type: "website",
+      images: [HOME_SHARE_IMAGE],
     },
   };
 }
@@ -376,7 +377,7 @@ function Eyebrow({ children, light = false }: { children: ReactNode; light?: boo
   return (
     <p
       className={`mb-5 text-[0.72rem] font-semibold uppercase tracking-[0.24em] ${
-        light ? "text-[#d8cec2]" : "text-[#6f8a7a]"
+        light ? "text-[#d8cec2]" : "text-[#507040]"
       }`}
     >
       {children}
@@ -472,7 +473,7 @@ export default async function HomeFaqPage({ params }: Props) {
     <HomeSiteLayout locale={routeLocale}>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }}
       />
       <main className="site-marketing-root sanza-experiences-page">
         <section

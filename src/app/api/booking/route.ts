@@ -1,30 +1,21 @@
-import { NextResponse } from "next/server";
-import { z } from "zod";
+import {
+  bookingEmail,
+  bookingSchema,
+  enquiryLimiter,
+  handleEnquiry,
+} from "@/lib/server/enquiry";
 
-const bodySchema = z.object({
-  name: z.string().min(2),
-  email: z.string().email(),
-  phone: z.string().optional(),
-  date: z.string().optional(),
-  message: z.string().optional(),
-  professionalCategory: z.string().optional(),
-  sectorSlug: z.string().optional(),
-  sector: z.string().optional(),
-  preferredStart: z.string().optional(),
-  questions: z.string().optional(),
-  source: z.string().optional(),
-});
+const limiter = enquiryLimiter();
 
 /**
- * Demo endpoint: replace with email provider, CRM, or CMS workflow.
+ * Booking, pilot and sector forms. Emailed through Resend to the same inbox as
+ * /api/contact (CONTACT_EMAIL_TO, default info@nordoravital.com).
  */
 export async function POST(request: Request) {
-  try {
-    const json = await request.json();
-    const data = bodySchema.parse(json);
-    console.info("[booking demo]", data);
-    return NextResponse.json({ ok: true });
-  } catch {
-    return NextResponse.json({ ok: false }, { status: 400 });
-  }
+  return handleEnquiry(request, {
+    kind: "booking",
+    schema: bookingSchema,
+    toEmail: bookingEmail,
+    deps: { env: process.env, limiter },
+  });
 }

@@ -109,7 +109,7 @@ export function HomeSeoLanding({ content, locale }: HomeSeoLandingProps) {
       mindOutcome: "/images/sanza focus and presence.jpg",
     },
     "stress-reset": {
-      problem: "/images/sanza, less wired.jpg",
+      problem: "/images/sanza-less-wired.jpg",
       specImages: [
         "/images/02_sanza_mat_700.jpg",
         "/images/sanza hand electrode 01.jpg",
@@ -117,10 +117,10 @@ export function HomeSeoLanding({ content, locale }: HomeSeoLandingProps) {
       ],
       ritualImages: [
         "/images/sanza calmer arrivals.jpg",
-        "/images/sanza, less wired.jpg",
+        "/images/sanza-less-wired.jpg",
         "/images/sanza focus and presence.jpg",
       ],
-      bodyOutcome: "/images/sanza, less wired.jpg",
+      bodyOutcome: "/images/sanza-less-wired.jpg",
       mindOutcome: "/images/sanza focus and presence.jpg",
     },
   }[content.slug] ?? {
@@ -681,7 +681,7 @@ export function HomeSeoLanding({ content, locale }: HomeSeoLandingProps) {
         <div className="mx-auto max-w-3xl">
           <FadeUp>
             <div className="mb-10 text-center">
-              <span className="text-xs font-semibold uppercase tracking-widest text-[#6f8a7a]">
+              <span className="text-xs font-semibold uppercase tracking-widest text-[#507040]">
                 FAQ
               </span>
               <h2 className="mt-2 font-heading text-2xl font-bold text-[#1e2a22] sm:text-3xl">

@@ -16,7 +16,8 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "mobileMenuTitle": "Menu",
-    "visitShop": "visit shop"
+    "visitShop": "visit shop",
+    "skipToContent": "Ana içeriğe geç"
   },
   "Home": {
     "heroKicker": "<strong>sanza</strong> teknolojisi · terapistler, klinikler ve işletme sahipleri için tasarlandı",
@@ -394,7 +395,8 @@
     "socialFacebook": "Facebook (profile link coming soon)",
     "socialNote": "Social profile links will be added here soon.",
     "tagline": "<strong>sanza</strong> wellbeing technology for practices that care how every visit feels.",
-    "linkCookiePolicy": "Cookie Policy"
+    "linkCookiePolicy": "Cookie Policy",
+    "linkCookieSettings": "Çerez ayarları"
   },
   "Imprint": {
     "metaTitle": "Legal Notice | Nordora Vital",
@@ -512,7 +514,10 @@
     "imprintLink": "Imprint",
     "legalNote": "Full privacy policy and imprint pages will be published here soon.",
     "drawerTitle": "Contact us",
-    "drawerClose": "Close"
+    "drawerClose": "Close",
+    "bookingTitle": "Want to talk first?",
+    "bookingLead": "Book a 15-minute discovery call and we will look at where sanza could fit in your practice.",
+    "bookingCta": "Book discovery call"
   },
   "Language": {
     "label": "Language",
@@ -759,5 +764,17 @@
     "originFact2Body": "sanza 20 yılı aşkın süredir piyasada — profesyonel ve kişisel kullanımda.",
     "originFact3Title": "Avrupa genelinde kullanımda",
     "originFact3Body": "Kliniklerden ve bakım evlerinden üst segment spa ve wellness otellerine kadar. Nordora Vital, Baltık bölgesinde sanza iş ortağıdır."
+  },
+  "NotFound": {
+    "title": "Sayfa bulunamadı",
+    "body": "Bu sayfa mevcut değil veya taşındı. Bu bağlantılar devam etmenize yardımcı olur.",
+    "home": "Ana sayfaya git",
+    "contact": "Bize ulaşın"
+  },
+  "Error": {
+    "title": "Bir şeyler ters gitti",
+    "body": "Sayfa yüklenemedi. Lütfen tekrar deneyin. Sorun devam ederse info@nordoravital.com adresine yazın.",
+    "retry": "Tekrar dene",
+    "home": "Ana sayfaya git"
   }
 }

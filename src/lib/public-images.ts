@@ -102,7 +102,7 @@ export const IMAGE_PATHS = {
     outcomePhotos: [
       "/images/sanza calmer arrivals.jpg",
       "/images/sanza a softer landing.jpg",
-      "/images/sanza, less wired.jpg",
+      "/images/sanza-less-wired.jpg",
       "/images/sanza focus and presence.jpg",
       "/images/sanza comfort routines.jpg",
     ] as const,

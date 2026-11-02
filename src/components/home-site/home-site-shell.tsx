@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { headers } from "next/headers";
 import { getLocale } from "next-intl/server";
-import { CookieBanner } from "@/components/cookie-banner";
 import { ContactDrawerProvider } from "@/components/contact/contact-drawer-context";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { SiteFooter } from "@/components/site-footer";
@@ -188,7 +187,6 @@ export async function HomeSiteLayout({
         <HomeSiteNav locale={locale} />
         {children}
         <SiteFooter localeOverride={locale} />
-        <CookieBanner />
       </div>
     </ContactDrawerProvider>
   );

@@ -55,7 +55,7 @@ export function OfferCard({
           <ul className="mt-2 space-y-2 pl-1">
             {pricingLines.map((line, i) => (
               <li key={i} className="flex items-start gap-2 text-base leading-relaxed text-[var(--muted)]">
-                <span aria-hidden className="mt-0.5 text-[var(--brand)]">✦</span>
+                <span aria-hidden className="mt-0.5 text-[var(--brand-strong)]">✦</span>
                 {line}
               </li>
             ))}

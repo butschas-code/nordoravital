@@ -11,7 +11,7 @@ function iconWrap(iconAppearance: "default" | "onDark", label: string, children:
   const dark =
     iconAppearance === "onDark"
       ? "border-white/20 bg-white/10 text-white/80 hover:border-[var(--brand-secondary)] hover:bg-white/[0.12] hover:text-[var(--brand-secondary)]"
-      : "border-[var(--border)] bg-[var(--surface)] text-[var(--muted)] hover:border-[var(--brand)] hover:text-[var(--brand)]";
+      : "border-[var(--border)] bg-[var(--surface)] text-[var(--muted)] hover:border-[var(--brand)] hover:text-[var(--brand-strong)]";
   return (
     <span
       className={`inline-flex h-9 w-9 items-center justify-center rounded-full border transition ${dark}`}

@@ -45,7 +45,7 @@ export async function HomeSystemSnapshot() {
                   className="flex gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)]/90 px-4 py-4 text-base shadow-sm transition duration-300 hover:border-[var(--brand)]/40 hover:shadow-[var(--shadow-raised)]"
                 >
                   <span
-                    className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--brand)] text-xs font-bold text-white"
+                    className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--brand-strong)] text-xs font-bold text-white"
                     aria-hidden
                   >
                     {i + 1}

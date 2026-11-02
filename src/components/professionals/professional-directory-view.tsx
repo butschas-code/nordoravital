@@ -160,7 +160,7 @@ export function ProfessionalDirectoryView({ content, locale }: ProfessionalDirec
       {/* ═════════ SECTORS BENTO GRID ═════════ */}
       <div className="mt-10">
         <div className="mb-6 flex items-center justify-between">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f8a7a]">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#507040]">
             {locale === "de"
               ? `Zeige ${filteredSectors.length} von ${content.sectors.length} Fachbereichen`
               : locale === "lv"
@@ -363,7 +363,7 @@ export function ProfessionalDirectoryView({ content, locale }: ProfessionalDirec
       <section className="mt-28 rounded-2xl border border-[#d8cec2] bg-white p-8 sm:p-12 sm:rounded-3xl shadow-sm">
         <FadeUp>
           <div className="mx-auto max-w-2xl text-center">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6f8a7a]">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#507040]">
               {content.faqEyebrow}
             </span>
             <h2 className="mt-2 font-heading text-2xl font-bold text-[#1e2a22] sm:text-3xl">

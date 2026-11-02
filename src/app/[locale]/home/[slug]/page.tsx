@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { HomeSiteLayout } from "@/components/home-site/home-site-shell";
 import { getOriginForSurface } from "@/lib/domains";
-import { localizedUrl, pageAlternates } from "@/lib/seo";
+import { HOME_SHARE_IMAGE, localizedUrl, pageAlternates } from "@/lib/seo";
 import {
   HOME_SITE_PAGES,
   HOME_SITE_SLUGS,
@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: localizedUrl(getOriginForSurface("home"), locale, slug),
       siteName: "Nordora Vital Home",
       type: "website",
+      images: [HOME_SHARE_IMAGE],
     },
   };
 }
@@ -51,7 +52,7 @@ export default async function HomeSiteDetailPage({ params }: Props) {
             className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_12%_12%,rgba(111,138,122,0.17),transparent_30%),linear-gradient(145deg,#fbf7ef_0%,#f1e8da_56%,#e5d8c8_100%)]"
           />
           <div className="mx-auto max-w-[980px]">
-            <p className="mb-5 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[#6f8a7a]">
+            <p className="mb-5 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[#507040]">
               {page.eyebrow}
             </p>
             <h1 className="max-w-[820px] font-heading text-[clamp(2.35rem,5.2vw,5.1rem)] leading-[1.01] tracking-tight text-[#17221d]">

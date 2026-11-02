@@ -33,6 +33,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
@@ -46,3 +47,7 @@ next-env.d.ts
 /exports/
 /outputs/
 /scripts/scrape_*.py
+
+# test output
+/playwright-report/
+/test-results/

@@ -24,7 +24,7 @@ export function HomeLegalPage({
           className="absolute inset-0 bg-[radial-gradient(circle_at_82%_12%,rgba(165,133,146,0.16),transparent_30%),radial-gradient(circle_at_12%_12%,rgba(111,138,122,0.16),transparent_30%)]"
         />
         <div className="relative mx-auto max-w-[980px]">
-          <p className="mb-5 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[#6f8a7a]">
+          <p className="mb-5 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[#507040]">
             {eyebrow}
           </p>
           <h1 className="font-heading text-[clamp(2.45rem,6vw,5.7rem)] leading-[0.98] tracking-tight text-[#17221d]">
@@ -33,7 +33,7 @@ export function HomeLegalPage({
           <p className="mt-7 max-w-[760px] text-[1.08rem] leading-[1.75] text-[#1e2a22]/90 sm:text-[1.24rem]">
             {description}
           </p>
-          <p className="mt-6 text-sm font-medium text-[#6f8a7a]">{updated}</p>
+          <p className="mt-6 text-sm font-medium text-[#507040]">{updated}</p>
         </div>
       </section>
 

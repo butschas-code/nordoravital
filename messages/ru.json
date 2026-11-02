@@ -16,7 +16,8 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "mobileMenuTitle": "Menu",
-    "visitShop": "visit shop"
+    "visitShop": "visit shop",
+    "skipToContent": "Перейти к основному содержанию"
   },
   "Home": {
     "heroKicker": "Технология <strong>sanza</strong> · создана для терапевтов, клиник и владельцев",
@@ -394,7 +395,8 @@
     "socialFacebook": "Facebook (profile link coming soon)",
     "socialNote": "Social profile links will be added here soon.",
     "tagline": "<strong>sanza</strong> wellbeing technology for practices that care how every visit feels.",
-    "linkCookiePolicy": "Cookie Policy"
+    "linkCookiePolicy": "Cookie Policy",
+    "linkCookieSettings": "Настройки cookie"
   },
   "Imprint": {
     "metaTitle": "Legal Notice | Nordora Vital",
@@ -512,7 +514,10 @@
     "imprintLink": "Imprint",
     "legalNote": "Full privacy policy and imprint pages will be published here soon.",
     "drawerTitle": "Contact us",
-    "drawerClose": "Close"
+    "drawerClose": "Close",
+    "bookingTitle": "Хотите сначала поговорить?",
+    "bookingLead": "Запишитесь на 15-минутный ознакомительный звонок, и мы посмотрим, как sanza может вписаться в вашу практику.",
+    "bookingCta": "Записаться на звонок"
   },
   "Language": {
     "label": "Язык",
@@ -759,5 +764,17 @@
     "originFact2Body": "sanza на рынке более 20 лет — в профессиональном и частном использовании.",
     "originFact3Title": "Используется по всей Европе",
     "originFact3Body": "От практик и домов престарелых до спа-отелей премиум-класса. Nordora Vital — партнёр sanza в Балтии."
+  },
+  "NotFound": {
+    "title": "Страница не найдена",
+    "body": "Этой страницы не существует или она была перемещена. Эти ссылки помогут продолжить.",
+    "home": "На главную",
+    "contact": "Связаться с нами"
+  },
+  "Error": {
+    "title": "Что-то пошло не так",
+    "body": "Не удалось загрузить страницу. Пожалуйста, попробуйте ещё раз. Если ошибка повторяется, напишите нам на info@nordoravital.com.",
+    "retry": "Попробовать ещё раз",
+    "home": "На главную"
   }
 }

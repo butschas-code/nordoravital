@@ -42,7 +42,7 @@ export async function HomeRollout() {
                 className="flex gap-2.5 rounded-xl border border-[var(--border)] bg-[var(--surface)]/90 px-4 py-3.5 text-base shadow-sm transition duration-300 hover:border-[var(--brand)]/40 hover:shadow-[var(--shadow-raised)]"
               >
                 <span
-                  className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--brand)] text-xs font-bold text-white shadow-sm"
+                  className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--brand-strong)] text-xs font-bold text-white shadow-sm"
                   aria-hidden
                 >
                   {step.n}

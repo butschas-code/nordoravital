@@ -11,9 +11,12 @@ import { PostHogAnalytics } from "@/components/posthog-analytics";
 import { SanzaBoldener } from "@/components/sanza-boldener";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { SkipLink } from "@/components/skip-link";
 import { routing, type Locale } from "@/i18n/routing";
 import type { SiteSurface } from "@/lib/domains";
 import {
+  HOME_SHARE_IMAGE,
+  PRO_SHARE_IMAGE,
   ROOT_INDEXABLE_ORIGIN,
   getIndexableOrigin,
   localizedUrl,
@@ -75,6 +78,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
   const canonical = isGateway ? ROOT_INDEXABLE_ORIGIN : localizedUrl(origin, locale, path);
   const siteName = indexableSurface === "home" ? "Nordora Vital Home" : "Nordora Vital";
+  // Default share image; pages with their own hero override `openGraph` entirely.
+  const shareImage = indexableSurface === "home" ? HOME_SHARE_IMAGE : PRO_SHARE_IMAGE;
 
   return {
     title: messages.Meta.title,
@@ -90,6 +95,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName,
       locale: OG_LOCALE[locale] ?? "en_US",
       type: "website",
+      images: [shareImage],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: messages.Meta.title,
+      description: messages.Meta.description,
+      images: [shareImage.url],
     },
     robots: isDeck
       ? { index: false, follow: true }
@@ -166,6 +178,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           />
         ) : null}
         <NextIntlClientProvider locale={locale} messages={messages}>
+          {!deckFullscreen ? <SkipLink /> : null}
           <SanzaBoldener />
           {deckFullscreen || gatewayOnly || homeOnly ? (
             children
@@ -173,7 +186,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <ContactDrawerProvider>
               <div className="flex min-h-full flex-col">
                 <SiteHeader />
-                <main className="layout-main flex flex-col gap-0 flex-1 px-4 pb-12 pt-0 sm:px-6 md:px-8 lg:mx-auto lg:max-w-[1200px] lg:px-10 [&:has(.campaign-page-root)]:pb-0 [&:has(.site-marketing-root)]:px-0 [&:has(.site-marketing-root)]:pb-0 [&:has(.site-marketing-root)]:sm:px-0 [&:has(.site-marketing-root)]:md:px-0 [&:has(.site-marketing-root)]:lg:max-w-none [&:has(.site-marketing-root)]:lg:px-0">
+                <main id="main-content" className="layout-main flex flex-col gap-0 flex-1 px-4 pb-12 pt-0 sm:px-6 md:px-8 lg:mx-auto lg:max-w-[1200px] lg:px-10 [&:has(.campaign-page-root)]:pb-0 [&:has(.site-marketing-root)]:px-0 [&:has(.site-marketing-root)]:pb-0 [&:has(.site-marketing-root)]:sm:px-0 [&:has(.site-marketing-root)]:md:px-0 [&:has(.site-marketing-root)]:lg:max-w-none [&:has(.site-marketing-root)]:lg:px-0">
                   {children}
                 </main>
                 <SiteFooter />

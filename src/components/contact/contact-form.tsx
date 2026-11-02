@@ -206,10 +206,11 @@ export function ContactForm({
           autoComplete="name"
           className={inputClass}
           aria-invalid={errors.name ? "true" : undefined}
+          aria-describedby={errors.name ? fid("name-error") : undefined}
           {...register("name")}
         />
         {errors.name?.message && (
-          <p className="mt-1 text-sm text-red-600" role="alert">
+          <p id={fid("name-error")} className="mt-1 text-sm text-red-600" role="alert">
             {t(errors.name.message as "validationName")}
           </p>
         )}
@@ -245,10 +246,11 @@ export function ContactForm({
           autoComplete="email"
           className={inputClass}
           aria-invalid={errors.email ? "true" : undefined}
+          aria-describedby={errors.email ? fid("email-error") : undefined}
           {...register("email")}
         />
         {errors.email?.message && (
-          <p className="mt-1 text-sm text-red-600" role="alert">
+          <p id={fid("email-error")} className="mt-1 text-sm text-red-600" role="alert">
             {t(errors.email.message as "validationEmail")}
           </p>
         )}
@@ -294,10 +296,11 @@ export function ContactForm({
           rows={5}
           className={inputClass}
           aria-invalid={errors.message ? "true" : undefined}
+          aria-describedby={errors.message ? fid("message-error") : undefined}
           {...register("message")}
         />
         {errors.message?.message && (
-          <p className="mt-1 text-sm text-red-600" role="alert">
+          <p id={fid("message-error")} className="mt-1 text-sm text-red-600" role="alert">
             {t(errors.message.message as "validationMessage")}
           </p>
         )}

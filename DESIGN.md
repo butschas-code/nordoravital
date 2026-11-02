@@ -13,6 +13,7 @@ colors:
   deep-green: "#0E3D34"
   mauve-secondary: "#A58592"
   mauve-strong: "#8E6F7C"
+  mauve-ink: "#7D5F6C"
   line-beige: "#D8CEC2"
   stone-focus: "#CFC7BE"
   clay-accent: "#C88B6A"
@@ -62,17 +63,17 @@ spacing:
   section-lg: "128px"
 components:
   button-primary:
-    backgroundColor: "{colors.sage-brand}"
+    backgroundColor: "{colors.moss-strong}"
     textColor: "{colors.soft-white}"
     rounded: "{rounded.button}"
     padding: "12px 28px"
     typography: "{typography.body}"
   button-primary-hover:
-    backgroundColor: "{colors.moss-strong}"
+    backgroundColor: "{colors.deep-green}"
     textColor: "{colors.soft-white}"
     rounded: "{rounded.button}"
   button-secondary:
-    backgroundColor: "{colors.mauve-secondary}"
+    backgroundColor: "{colors.mauve-ink}"
     textColor: "{colors.soft-white}"
     rounded: "{rounded.button}"
     padding: "12px 28px"
@@ -115,14 +116,15 @@ The palette is warm, low-chroma, and treatment-room grounded: evergreen authorit
 
 ### Primary
 
-- **Sage Brand** (`#6F8A7A`): Primary action color, subtle icon fields, and calm emphasis.
-- **Moss Strong** (`#507040`): Hover state and stronger text accents where sage needs more contrast.
+- **Sage Brand** (`#6F8A7A`): Subtle icon fields, borders, decorative accents and calm emphasis. Not for text or behind white text: it reaches only 3.1–3.8:1 on the beige surfaces.
+- **Moss Strong** (`#507040`): Primary buttons, links and accent text (5.6:1 with white, 4.7–5.2:1 on beige). Changed from hover-only in November 2026 to meet WCAG AA contrast.
 - **Deep Green** (`#0E3D34`): Hero bands, dark sections, footer, modal depth, and high-confidence brand moments.
 
 ### Secondary
 
 - **Mauve Secondary** (`#A58592`): Demo conversion emphasis, secondary CTA color, quote warmth, and premium emotional accents.
-- **Mauve Strong** (`#8E6F7C`): Hover state for mauve CTAs and selected warm accents.
+- **Mauve Strong** (`#8E6F7C`): Selected warm accents (4.45:1 with white, just under AA for button text).
+- **Mauve Ink** (`#7D5F6C`, token `--brand-secondary-ink`): Background of mauve CTAs with white text (5.6:1). Added in November 2026 for WCAG AA; Mauve Secondary stays for gradients and decorative warmth.
 
 ### Tertiary
 

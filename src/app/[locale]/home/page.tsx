@@ -8,7 +8,7 @@ import { HomeHeroPicture } from "@/components/home-site/home-hero-picture";
 import { Link } from "@/i18n/navigation";
 import { HomeSiteLayout } from "@/components/home-site/home-site-shell";
 import { getOriginForSurface, getSiteSurface } from "@/lib/domains";
-import { localizedUrl, pageAlternates } from "@/lib/seo";
+import { HOME_SHARE_IMAGE, localizedUrl, pageAlternates } from "@/lib/seo";
 import { getHomeDisplayPath, homeLocale } from "@/lib/home-copy";
 import { IMAGE_PATHS } from "@/lib/public-images";
 import { mergeRussianContent } from "@/lib/russian-content";
@@ -216,6 +216,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: localizedUrl(getOriginForSurface("home"), locale, ""),
       siteName: "Nordora Vital Home",
       type: "website",
+      images: [HOME_SHARE_IMAGE],
     },
   };
 }
@@ -283,7 +284,7 @@ export default async function HomeUserPage({ params }: Props) {
         <section className="campaign-band-soft relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] px-5 py-20 sm:px-8 sm:py-24 md:py-28 lg:px-10">
           <div className="mx-auto grid max-w-[1200px] gap-12 lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1fr)] lg:items-center lg:gap-16">
             <div>
-              <p className="campaign-eyebrow campaign-eyebrow--left mb-5 inline-block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-[#6f8a7a]">
+              <p className="campaign-eyebrow campaign-eyebrow--left mb-5 inline-block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-[#507040]">
                 {copy.eyebrow}
               </p>
               <h2 className="font-heading text-[clamp(1.85rem,4.2vw,2.8rem)] font-bold leading-[1.1] tracking-tight text-[#1e2a22]">
@@ -376,7 +377,7 @@ export default async function HomeUserPage({ params }: Props) {
               />
             </div>
             <div>
-              <p className="campaign-eyebrow campaign-eyebrow--left mb-5 inline-block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-[#6f8a7a]">
+              <p className="campaign-eyebrow campaign-eyebrow--left mb-5 inline-block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-[#507040]">
                 {copy.designEyebrow}
               </p>
               <h2 className="font-heading text-[clamp(1.85rem,4.2vw,2.8rem)] font-bold leading-[1.1] tracking-tight text-[#1e2a22]">
@@ -402,7 +403,7 @@ export default async function HomeUserPage({ params }: Props) {
         <section className="home-contact-band relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] px-5 py-20 sm:px-8 sm:py-24 lg:px-10">
           <div className="home-contact-band__inner mx-auto grid max-w-[1200px] gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(320px,0.5fr)] lg:items-center lg:gap-16">
             <div className="relative z-10">
-              <p className="campaign-eyebrow campaign-eyebrow--left mb-5 inline-block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-[#6f8a7a]">
+              <p className="campaign-eyebrow campaign-eyebrow--left mb-5 inline-block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-[#507040]">
                 {copy.contactEyebrow}
               </p>
               <h2 className="font-heading text-[clamp(1.85rem,4.2vw,2.8rem)] font-bold leading-[1.1] tracking-tight text-[#1e2a22]">
@@ -411,7 +412,7 @@ export default async function HomeUserPage({ params }: Props) {
               <p className="mt-6 max-w-[620px] text-[1.05rem] leading-[1.76] text-[#1e2a22]/90 sm:text-[1.12rem]">
                 {copy.contactBody}
               </p>
-              <div className="mt-7 flex max-w-[620px] flex-wrap gap-2.5 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-[#6f8a7a]">
+              <div className="mt-7 flex max-w-[620px] flex-wrap gap-2.5 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-[#507040]">
                 {copy.contactPills.map((pill) => (
                   <span key={pill} className="home-contact-pill">
                     {pill}

@@ -119,10 +119,12 @@ export function PilotBookingForm() {
           type="text"
           autoComplete="name"
           className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2.5 text-base text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
+          aria-invalid={errors.name ? "true" : undefined}
+          aria-describedby={errors.name ? "pilot-name-error" : undefined}
           {...register("name")}
         />
         {errors.name && (
-          <p className="mt-1 text-sm text-red-600">{t("error")}</p>
+          <p id="pilot-name-error" className="mt-1 text-sm text-red-600">{t("error")}</p>
         )}
       </div>
 
@@ -133,6 +135,8 @@ export function PilotBookingForm() {
         <select
           id="pilot-sector"
           className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2.5 text-base text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
+          aria-invalid={errors.sector ? "true" : undefined}
+          aria-describedby={errors.sector ? "pilot-sector-error" : undefined}
           {...register("sector")}
         >
           {SECTOR_VALUES.map((v) => (
@@ -142,7 +146,7 @@ export function PilotBookingForm() {
           ))}
         </select>
         {errors.sector && (
-          <p className="mt-1 text-sm text-red-600">{t("error")}</p>
+          <p id="pilot-sector-error" className="mt-1 text-sm text-red-600">{t("error")}</p>
         )}
       </div>
 
@@ -155,10 +159,12 @@ export function PilotBookingForm() {
           type="email"
           autoComplete="email"
           className="mt-1 w-full rounded-lg border border-[var(--brand-border)] bg-white px-3 py-2.5 text-base text-[var(--brand-heading)] shadow-sm outline-none ring-[var(--brand-primary)] focus:ring-2 dark:bg-zinc-900"
+          aria-invalid={errors.email ? "true" : undefined}
+          aria-describedby={errors.email ? "pilot-email-error" : undefined}
           {...register("email")}
         />
         {errors.email && (
-          <p className="mt-1 text-sm text-red-600">{t("error")}</p>
+          <p id="pilot-email-error" className="mt-1 text-sm text-red-600">{t("error")}</p>
         )}
       </div>
 

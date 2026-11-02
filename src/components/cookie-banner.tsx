@@ -1,11 +1,13 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-
-const CONSENT_KEY = "nv_cookie_consent";
-const POSTHOG_CONSENT_EVENT = "nv-cookie-consent";
+import {
+  CONSENT_KEY,
+  COOKIE_SETTINGS_EVENT,
+  POSTHOG_CONSENT_EVENT,
+} from "@/lib/cookie-consent";
 
 type ConsentState =
   | "all"       // user accepted all cookies
@@ -33,6 +35,14 @@ export function CookieBanner() {
 
   // undefined = "not yet hydrated" (prevents SSR mismatch flash)
   const [consent, setConsent] = useState<ConsentState | undefined>(storedConsent);
+  const [reopened, setReopened] = useState(false);
+
+  // Footer "Cookie settings" reopens the banner; the previous choice stays in force until a new one.
+  useEffect(() => {
+    const reopen = () => setReopened(true);
+    window.addEventListener(COOKIE_SETTINGS_EVENT, reopen);
+    return () => window.removeEventListener(COOKIE_SETTINGS_EVENT, reopen);
+  }, []);
 
   const handleConsent = (value: "all" | "essential") => {
     try {
@@ -42,12 +52,13 @@ export function CookieBanner() {
     }
     window.dispatchEvent(new CustomEvent(POSTHOG_CONSENT_EVENT, { detail: value }));
     setConsent(value);
+    setReopened(false);
   };
 
   const currentConsent = consent ?? storedConsent;
 
   // Don't render during SSR / before hydration, and hide once a choice is made
-  if (currentConsent === undefined || currentConsent !== null) return null;
+  if (!reopened && (currentConsent === undefined || currentConsent !== null)) return null;
 
   return (
     <div
@@ -70,7 +81,7 @@ export function CookieBanner() {
           {/* Header row */}
           <div className="mb-2 flex items-center gap-2">
             {/* Cookie icon */}
-            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--panel)] text-[var(--brand)]" aria-hidden>
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--panel)] text-[var(--brand-strong)]" aria-hidden>
               <svg className="h-4 w-4" viewBox="0 0 16 16" fill="none">
                 <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.3" />
                 <circle cx="5.5" cy="6" r="1" fill="currentColor" />
@@ -87,7 +98,7 @@ export function CookieBanner() {
             {t("body")}{" "}
             <Link
               href="/cookie-policy"
-              className="font-medium text-[var(--brand)] underline underline-offset-2 hover:text-[var(--brand-strong)]"
+              className="font-medium text-[var(--brand-strong)] underline underline-offset-2 hover:text-[var(--brand-strong)]"
             >
               {t("policyLink")}
             </Link>
@@ -103,7 +114,7 @@ export function CookieBanner() {
             </button>
             <button
               onClick={() => handleConsent("all")}
-              className="inline-flex min-h-11 items-center justify-center rounded-xl bg-[var(--brand)] px-5 py-2.5 text-[0.8125rem] font-semibold text-white shadow-sm transition hover:bg-[var(--brand-strong)] focus-visible:outline-2 focus-visible:outline-[var(--brand)] focus-visible:outline-offset-2"
+              className="inline-flex min-h-11 items-center justify-center rounded-xl bg-[var(--brand-strong)] px-5 py-2.5 text-[0.8125rem] font-semibold text-white shadow-sm transition hover:bg-[var(--brand-deep)] focus-visible:outline-2 focus-visible:outline-[var(--brand)] focus-visible:outline-offset-2"
             >
               {t("accept")}
             </button>

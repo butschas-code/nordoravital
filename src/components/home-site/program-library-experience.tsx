@@ -215,7 +215,7 @@ export function ProgramLibraryExperience({
                     <span
                       className={`rounded-full border px-2.5 py-1 text-[0.67rem] font-extrabold uppercase tracking-[0.16em] ${
                         selected
-                          ? "border-[#092d27]/16 text-[#6f8a7a]"
+                          ? "border-[#092d27]/16 text-[#507040]"
                           : "border-[#f6f1ea]/16 text-white/82"
                       }`}
                     >
