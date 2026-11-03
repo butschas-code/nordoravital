@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { headers } from "next/headers";
+import { setRequestLocale } from "next-intl/server";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { SiteFooter } from "@/components/site-footer";
-import { getSiteSurface, HOME_DOMAIN, PRO_DOMAIN } from "@/lib/domains";
+import { HOME_DOMAIN, LINKS_STAY_ON_HOST, PRO_DOMAIN } from "@/lib/domains";
 import { homeLocale } from "@/lib/home-copy";
 import { IMAGE_PATHS } from "@/lib/public-images";
 import { mergeRussianContent } from "@/lib/russian-content";
-import { ROOT_INDEXABLE_ORIGIN } from "@/lib/seo";
+import { pageMetadata } from "@/lib/page-metadata";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -152,38 +152,29 @@ const pageCopy = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const copy = mergeRussianContent(locale, "selector/gateway", pageCopy[homeLocale(locale)]);
-  return {
+  return pageMetadata({
+    surface: "root",
+    locale,
+    path: "",
     title: copy.metaTitle,
     description: copy.metaDescription,
-    alternates: {
-      canonical: ROOT_INDEXABLE_ORIGIN,
-    },
-    openGraph: {
-      title: copy.metaTitle,
-      description: copy.metaDescription,
-      url: ROOT_INDEXABLE_ORIGIN,
-      siteName: "Nordora Vital",
-      type: "website",
-    },
-  };
+  });
 }
 
 export default async function GatewayPage({ params }: Props) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const activeLocale = locale === "ru" ? "ru" : homeLocale(locale);
   const copy = mergeRussianContent(locale, "selector/gateway", pageCopy[homeLocale(locale)]);
-  const heads = await headers();
-  const surface = getSiteSurface(heads.get("x-forwarded-host") ?? heads.get("host"));
   const paths = copy.paths.map((pathway, index) => ({
     ...pathway,
-    href:
-      surface === "local"
-        ? index === 0
-          ? `/${activeLocale}`
-          : `/${activeLocale}/home`
-        : index === 0
-          ? `https://${PRO_DOMAIN}/${activeLocale}`
-          : `https://${HOME_DOMAIN}/${activeLocale}/home`,
+    href: LINKS_STAY_ON_HOST
+      ? index === 0
+        ? `/${activeLocale}`
+        : `/${activeLocale}/home`
+      : index === 0
+        ? `https://${PRO_DOMAIN}/${activeLocale}`
+        : `https://${HOME_DOMAIN}/${activeLocale}`,
   }));
 
   return (

@@ -38,6 +38,17 @@ describe("translation key parity", () => {
       expect(extra, `only in ${locale}`).toEqual([]);
     });
 
+    it(`${locale}.json keeps every {placeholder} name from English`, () => {
+      // A translated placeholder ({Währung} for {currency}) renders as raw text.
+      const names = (v: unknown) =>
+        typeof v === "string"
+          ? [...v.matchAll(/\{\s*([^},\s]+)\s*(?:,[^}]*)?\}/g)].map((m) => m[1]).sort().join("|")
+          : "";
+      const messages = load(locale);
+      const mismatched = enKeys.filter((k) => names(en[k]) !== names(messages[k]));
+      expect(mismatched).toEqual([]);
+    });
+
     it(`${locale}.json has no empty strings where English has text`, () => {
       const messages = load(locale);
       const empty = enKeys.filter((k) => en[k] !== "" && messages[k] === "");

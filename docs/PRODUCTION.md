@@ -11,9 +11,9 @@ README's "Production" section.
 | `npm audit` | 20 (2 critical, 9 high, 7 moderate, 2 low) | 1 high (`xlsx`, dev-only, see BLOCKED) · `npm audit --omit=dev`: 0 |
 | Typecheck (`tsc --noEmit`) | 0 errors | 0 errors |
 | Lint | 0 errors, 1 warning (in gitignored `outputs/`) | 0 errors, 0 warnings (local working folders are now ignored) |
-| Unit tests | none | 66 passing (Vitest, 9 files) |
-| E2E tests (Playwright, production build) | none | Desktop Chrome 66 passed · Pixel 7 39 · iPhone 15 38 · iPad 38 · 0 failed (skips are engine/viewport-specific checks) |
-| Build route table | 39 `[locale]` routes `ƒ` dynamic, robots/sitemap `ƒ` | unchanged; added `/api/health` `ƒ`, `/llms.txt` `○`, `/manifest.webmanifest` `○` |
+| Unit tests | none | 70 passing (Vitest, 9 files; after the static-rendering follow-up) |
+| E2E tests (Playwright, production build) | none | Desktop Chrome 77 passed · Pixel 7 39 · iPhone 15 38 · iPad 38 · 0 failed (skips are engine/viewport-specific checks) |
+| Build route table | 39 `[locale]` routes `ƒ` dynamic, robots/sitemap `ƒ` | all public pages `●` SSG (118 entries); `ƒ` only for `/api/*`, robots, sitemap and `/tr/<campaign>`; added `/llms.txt` `○`, `/manifest.webmanifest` `○` |
 | Next.js | 16.2.2 | 16.4.3 (minor; `eslint-config-next` matched) |
 
 ## Project surface
@@ -64,7 +64,7 @@ Legend: DONE = was already in place · DO = fixed in this pass · MANUAL = needs
 
 | Item | Status | Where / why |
 | --- | --- | --- |
-| Static vs dynamic | DEFERRED | Every page renders per request because `src/app/[locale]/layout.tsx` reads the host header to pick the surface. Fixing it means moving the surface into the URL the proxy rewrites to; deferred by the user as a separate task. No page became dynamic in this pass |
+| Static vs dynamic | DO (follow-up, 3 Nov) | All public pages are now prerendered (`●` SSG, served with `x-nextjs-cache: HIT`). See "Static rendering" below |
 | Images & media | DONE + DO | `next/image` throughout; videos `preload="metadata"` with poster (`src/components/optimized-background-video.tsx`). Fixed: `sanza, less wired.jpg` 404'd through `next/image` because the comma split `srcset`; references now use the copy `sanza-less-wired.jpg` |
 | Fonts | DONE | `next/font` Inter + Manrope, `display: "swap"` |
 | Cache headers | DO | `/images/*` and `/downloads/*` get `public, max-age=604800, stale-while-revalidate=86400`; `/_next/static` stays immutable (Next default); API responses `no-store` |
@@ -131,7 +131,27 @@ Implemented in `src/app/globals.css` (`--brand-primary` alias now points at Moss
 
 Before / after (`/en/contact`, 1280×900): `docs/hardening/contrast-before-contact.png`, `docs/hardening/contrast-after-contact.png`. axe reports no critical or serious violations on any template afterwards.
 
-## Final verification (2 November 2026, after the last change)
+## Static rendering (follow-up, 3 November 2026)
+
+**Before:** all 39 `[locale]` routes were `ƒ`, rendered per request, because `src/app/[locale]/layout.tsx` called `headers()` to learn the domain (pro / homeuse / gateway) and the path.
+
+**How it works now:** the proxy already rewrites each domain onto its own path segment (`homeuse.nordoravital.com/en/faq` → `/en/home/faq`, `www.nordoravital.com/` → `/en/gateway`, pro pages stay at `/en/…`), so the domain can be read from the route instead of the request:
+
+- `app/[locale]/layout.tsx` is the shared shell only: html, fonts, translations, skip link, analytics. No `headers()`.
+- Each surface has its own layout with its chrome, cookie banner, origin and Organization JSON-LD: `app/[locale]/(pro)/layout.tsx` (pro pages moved into this route group; URLs unchanged), `app/[locale]/home/layout.tsx`, `app/[locale]/gateway/layout.tsx`. The deck and the local flyer previews get no chrome; their full-screen/plain-scroll styling now comes from `data-deck-fullscreen` / `data-flyer-preview` markers in `globals.css`.
+- Every page sets its own canonical, hreflang, `og:url` and share image through `src/lib/page-metadata.ts`, and calls `setRequestLocale` so next-intl doesn't fall back to request headers.
+- Internal links that used the host to choose between local and production paths now use `LINK_SURFACE` in `src/lib/domains.ts`, a build-time constant: production builds link to the real domains; `next dev` and Vercel preview builds keep everything on one host, as before.
+- The proxy needed no change.
+
+**Result:** 118 entries prerender as `●` SSG across `de/en/lv/ru` (and `tr` where it applies). Still `ƒ`, by design: `/api/*`, `robots.txt` and `sitemap.xml` (they differ per domain), and `/tr/<campaign>`, which campaign pages don't build because the proxy sends Turkish non-deck URLs to English.
+
+**Found by prerendering:** the German and Latvian ROI-calculator strings on `/offers` had translated placeholders (`{Währung}`, `{Betrag}`, `{Monate}`, `{valūta}`, `{summa}`, `{mēneši}`), so visitors saw the raw text instead of values. Fixed in `messages/de.json` and `messages/lv.json`; `tests/unit/i18n-parity.test.ts` now checks placeholder names too.
+
+**Verification (3 Nov, after the last change):** `npm run check` (typecheck, lint 0 problems, 70 unit tests), `next build`, and the full E2E suite on all four devices pass with 0 failures. `tests/e2e/domains.spec.ts` requests every surface in every locale with the production host header and checks status, `x-nextjs-cache: HIT`, canonical, `og:url`, hreflang (de/en/lv/ru + x-default, no tr), Organization origin, link style and the cross-domain redirects. Against the previous commit's build the same spec fails on the prerender check.
+
+**Local note:** a production build served on `localhost` (as in E2E) renders homeuse links as `/en/faq`, the production path; browse homeuse locally with `next dev`, or send `x-forwarded-host: homeuse.nordoravital.com`.
+
+## Final verification (2 November 2026, hardening pass)
 
 `npm run check` (typecheck, lint 0 problems, 66 unit tests), `next build` (exit 0), `playwright test` on all four device projects: 0 failures. The suite now catches real bugs it found during this pass: the comma-named image 404, the sitemap redirect, the missing og:image, the WebKit focus return and the unfocusable scroll region.
 
@@ -204,7 +224,7 @@ Found by searching `src/` and `messages/` for each file name; a path built at ru
 
 ## Follow-ups
 
-- **Static rendering** (deferred by the user): move the surface (pro/home/root) from the host header into the path the proxy rewrites to (e.g. `/_pro/[locale]/…`), drop `headers()` from the layout and metadata, then make robots/sitemap per-host route handlers. Expect most pages to become `○`/`●`.
+- **Placeholders in the spreadsheets:** `translations-review.xlsx` probably still has the translated `{Währung}`/`{valūta}` placeholders; fix them there before the next `--write` (the parity test will fail if they come back).
 - **`xlsx`** install command above.
 
 ## Exposed secrets

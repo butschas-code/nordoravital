@@ -11,6 +11,7 @@ import { HOME_SHARE_IMAGE, localizedUrl, pageAlternates } from "@/lib/seo";
 import { homeLocale } from "@/lib/home-copy";
 import { IMAGE_PATHS } from "@/lib/public-images";
 import { mergeRussianContent } from "@/lib/russian-content";
+import { setRequestLocale } from "next-intl/server";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -503,6 +504,7 @@ function Eyebrow({ children, light = false }: { children: ReactNode; light?: boo
 
 export default async function ProgramsPage({ params }: Props) {
   const { locale: routeLocale } = await params;
+  setRequestLocale(routeLocale);
   const activeLocale = homeLocale(routeLocale);
   const copy = mergeRussianContent(routeLocale, "homeuse/programs", pageCopy[activeLocale]);
 

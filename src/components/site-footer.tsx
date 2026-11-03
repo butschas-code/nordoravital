@@ -1,13 +1,12 @@
 import type { CSSProperties } from "react";
 import Image from "next/image";
-import { headers } from "next/headers";
 import { getLocale, getTranslations } from "next-intl/server";
 import { CookieSettingsButton } from "@/components/cookie-settings-button";
 import { Link } from "@/i18n/navigation";
 import { richParts } from "@/lib/i18n-rich";
 import { FooterSocialPlaceholders } from "@/components/footer-social-placeholders";
 import { LanguageSwitcher } from "@/components/language-switcher";
-import { getSiteSurface, HOME_DOMAIN, PRO_DOMAIN } from "@/lib/domains";
+import { HOME_DOMAIN, LINK_SURFACE, PRO_DOMAIN } from "@/lib/domains";
 import { getHomeDisplayPath, getHomeSharedCopy, homeLocale } from "@/lib/home-copy";
 import { IMAGE_PATHS } from "@/lib/public-images";
 
@@ -18,9 +17,7 @@ export async function SiteFooter({ localeOverride }: { localeOverride?: string }
   const t = await getTranslations({ locale, namespace: "Footer" });
   const tNav = await getTranslations({ locale, namespace: "Nav" });
   const year = new Date().getFullYear();
-  const heads = await headers();
-  const surface = getSiteSurface(heads.get("x-forwarded-host") ?? heads.get("host"));
-  const useLocalLinks = surface === "local";
+  const useLocalLinks = LINK_SURFACE === "local";
   const proHref = (path = "") =>
     useLocalLinks ? `/${rawLocale}${path}` : `https://${PRO_DOMAIN}/${rawLocale}${path}`;
   const homeHref = (path = "") => {

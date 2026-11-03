@@ -10,6 +10,7 @@ import {
 } from "@/lib/home-site-content";
 import { homeLocale } from "@/lib/home-copy";
 import { mergeRussianContent } from "@/lib/russian-content";
+import { setRequestLocale } from "next-intl/server";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -39,6 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function HomeSiteDetailPage({ params }: Props) {
   const { locale, slug } = await params;
+  setRequestLocale(locale);
   if (!isHomeSiteSlug(slug)) notFound();
 
   const page = mergeRussianContent(locale, `homeuse/${slug}`, HOME_SITE_PAGES[slug][homeLocale(locale)]);

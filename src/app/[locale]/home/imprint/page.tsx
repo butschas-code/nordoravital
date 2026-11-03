@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { HomeLegalLinks, HomeLegalPage } from "@/components/home-site/home-legal-page";
 import { HomeSiteLayout } from "@/components/home-site/home-site-shell";
-import { getOriginForSurface } from "@/lib/domains";
-import { pageAlternates } from "@/lib/seo";
 import { homeLocale } from "@/lib/home-copy";
 import { mergeRussianContent } from "@/lib/russian-content";
+import { setRequestLocale } from "next-intl/server";
+import { pageMetadata } from "@/lib/page-metadata";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -134,16 +134,18 @@ const pageCopy = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const copy = mergeRussianContent(locale, "homeuse/imprint", pageCopy[homeLocale(locale)]);
-  return {
+  return pageMetadata({
+    surface: "home",
+    locale,
+    path: "imprint",
     title: copy.metaTitle,
     description: copy.metaDescription,
-    metadataBase: new URL(getOriginForSurface("home")),
-    alternates: pageAlternates(getOriginForSurface("home"), locale, "imprint"),
-  };
+  });
 }
 
 export default async function HomeImprintPage({ params }: Props) {
   const { locale: routeLocale } = await params;
+  setRequestLocale(routeLocale);
   const activeLocale = homeLocale(routeLocale);
   const copy = mergeRussianContent(routeLocale, "homeuse/imprint", pageCopy[activeLocale]);
 

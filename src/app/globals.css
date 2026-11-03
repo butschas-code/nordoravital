@@ -88,6 +88,16 @@ body {
   line-height: 1.6;
 }
 
+/* Deck (/[locale]/deck): full-screen dark presentation without the skip link. */
+body:has([data-deck-fullscreen]) {
+  height: 100%;
+  overflow: hidden;
+  background: #070a09;
+}
+body:has([data-deck-fullscreen]) > a[href="#main-content"] {
+  display: none;
+}
+
 ::selection {
   background: var(--brand);
   color: var(--bg);

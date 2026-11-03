@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Image from "next/image";
-import { headers } from "next/headers";
 import { BrandArc } from "@/components/brand-arc";
 import { ContactDrawerTrigger } from "@/components/contact/contact-drawer-trigger";
 import { DarkMarketingCard } from "@/components/home/dark-marketing-card";
 import { HomeHeroPicture } from "@/components/home-site/home-hero-picture";
 import { Link } from "@/i18n/navigation";
 import { HomeSiteLayout } from "@/components/home-site/home-site-shell";
-import { getOriginForSurface, getSiteSurface } from "@/lib/domains";
+import { getOriginForSurface, LINK_SURFACE } from "@/lib/domains";
 import { HOME_SHARE_IMAGE, localizedUrl, pageAlternates } from "@/lib/seo";
 import { getHomeDisplayPath, getHomeSharedCopy, homeLocale } from "@/lib/home-copy";
 import { IMAGE_PATHS } from "@/lib/public-images";
 import { mergeRussianContent } from "@/lib/russian-content";
+import { setRequestLocale } from "next-intl/server";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -419,12 +419,11 @@ function Eyebrow({ children, light = false }: { children: ReactNode; light?: boo
 
 export default async function TheSanzaExperiencePage({ params }: Props) {
   const { locale: routeLocale } = await params;
+  setRequestLocale(routeLocale);
   const activeLocale = homeLocale(routeLocale);
   const copy = mergeRussianContent(routeLocale, "homeuse/how-it-works", pageCopy[activeLocale]);
   const shared = getHomeSharedCopy(routeLocale);
-  const heads = await headers();
-  const surface = getSiteSurface(heads.get("x-forwarded-host") ?? heads.get("host"));
-  const programsHref = getHomeDisplayPath(surface, "/programs");
+  const programsHref = getHomeDisplayPath(LINK_SURFACE, "/programs");
 
   const systemIntro = copy.sections[0];
   const accessorySections = copy.sections.slice(1);

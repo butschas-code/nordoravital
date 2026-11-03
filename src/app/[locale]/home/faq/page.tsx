@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Image from "next/image";
-import { headers } from "next/headers";
 import { Link } from "@/i18n/navigation";
 import { HomeHeroPicture } from "@/components/home-site/home-hero-picture";
 import { HomeSiteLayout } from "@/components/home-site/home-site-shell";
-import { getOriginForSurface, getSiteSurface } from "@/lib/domains";
+import { getOriginForSurface, LINK_SURFACE } from "@/lib/domains";
 import { HOME_SHARE_IMAGE, localizedUrl, pageAlternates } from "@/lib/seo";
 import { getHomeDisplayPath, getHomeSharedCopy, homeLocale } from "@/lib/home-copy";
 import { mergeRussianContent } from "@/lib/russian-content";
+import { setRequestLocale } from "next-intl/server";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -448,12 +448,11 @@ function FaqItem({
 
 export default async function HomeFaqPage({ params }: Props) {
   const { locale: routeLocale } = await params;
+  setRequestLocale(routeLocale);
   const activeLocale = homeLocale(routeLocale);
   const copy = mergeRussianContent(routeLocale, "homeuse/faq", pageCopy[activeLocale]);
   const shared = getHomeSharedCopy(routeLocale);
-  const heads = await headers();
-  const surface = getSiteSurface(heads.get("x-forwarded-host") ?? heads.get("host"));
-  const programsHref = getHomeDisplayPath(surface, "/programs");
+  const programsHref = getHomeDisplayPath(LINK_SURFACE, "/programs");
   const faqs = copy.faqs.map(([question, answer]) => ({ question, answer }));
   const heroBody = [copy.subheadline, copy.heroBody, copy.heroClosing];
   const faqSchema = {

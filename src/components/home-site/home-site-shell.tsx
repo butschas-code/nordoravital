@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { headers } from "next/headers";
 import { getLocale } from "next-intl/server";
 import { ContactDrawerProvider } from "@/components/contact/contact-drawer-context";
 import { LanguageSwitcher } from "@/components/language-switcher";
@@ -7,15 +6,13 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeaderDesktopNav } from "@/components/site-header-desktop-nav";
 import { SiteHeaderMobileNav } from "@/components/site-header-mobile-nav";
 import { Link } from "@/i18n/navigation";
-import { getSiteSurface } from "@/lib/domains";
+import { LINK_SURFACE } from "@/lib/domains";
 import { getHomeDisplayPath, getHomeSharedCopy } from "@/lib/home-copy";
 import { IMAGE_PATHS } from "@/lib/public-images";
 
 export async function HomeSiteNav({ locale }: { locale: string }) {
   const copy = getHomeSharedCopy(locale);
-  const heads = await headers();
-  const surface = getSiteSurface(heads.get("x-forwarded-host") ?? heads.get("host"));
-  const homePath = (path = "") => getHomeDisplayPath(surface, path);
+  const homePath = (path = "") => getHomeDisplayPath(LINK_SURFACE, path);
   const navItems = [
     { label: copy.nav.home, href: homePath(), external: false },
     { label: copy.nav.experience, href: homePath("/how-it-works"), external: false },
@@ -124,9 +121,7 @@ export async function HomeSiteNav({ locale }: { locale: string }) {
 
 export async function HomeSiteFooter() {
   const copy = getHomeSharedCopy(await getLocale());
-  const heads = await headers();
-  const surface = getSiteSurface(heads.get("x-forwarded-host") ?? heads.get("host"));
-  const legalPath = (path: string) => getHomeDisplayPath(surface, path);
+  const legalPath = (path: string) => getHomeDisplayPath(LINK_SURFACE, path);
   const legalLinks = [
     { label: copy.footer.imprint, href: legalPath("/imprint") },
     { label: copy.footer.privacy, href: legalPath("/privacy") },

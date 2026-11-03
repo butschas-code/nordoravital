@@ -20,6 +20,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+/** The marker lets globals.css give the body the deck's full-screen dark styling. */
 export default function DeckSegmentLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <div data-deck-fullscreen className="contents">
+      {children}
+    </div>
+  );
 }
