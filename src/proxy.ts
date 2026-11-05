@@ -35,7 +35,7 @@ function redirectDeckOnlyLocaleFromNonDeck(pathname: string): string | null {
     return "/en";
   }
   const segments = parsed.rest.split("/").filter(Boolean);
-  if (segments[0] === "deck") {
+  if (segments[0] === "deck" || segments[0] === "flyers") {
     return null;
   }
   return `/en/${segments.join("/")}`;
@@ -113,6 +113,9 @@ function homeInternalPath(pathname: string, locale: string) {
   const cleanPathname = pathnameHasLocale(pathname)
     ? pathnameWithoutLocalePrefix(pathname)?.rest || "/"
     : pathname;
+  if (cleanPathname === "/flyers" || cleanPathname.startsWith("/flyers/")) {
+    return `/${locale}${cleanPathname}`;
+  }
   if (cleanPathname === "/" || cleanPathname === "") {
     return `/${locale}/home`;
   }
@@ -201,8 +204,22 @@ export default function proxy(request: NextRequest) {
     return withPathnameHeader(request);
   }
 
+  if (process.env.NODE_ENV === "production" && /\/flyers(?:\/|$)/.test(pathname)) {
+    return new NextResponse(null, { status: 404 });
+  }
+
   if (isPublicAsset(pathname)) {
     return withPathnameHeader(request);
+  }
+
+  /** Private CF Liepāja proposal. One Latvian URL, never the public sales shell. */
+  if (pathname === "/cf-liepaja" || pathname === "/cf-liepaja/") {
+    return rewriteToLocalePath(request, "/lv/cf-liepaja", surface, "lv", "/cf-liepaja");
+  }
+  if (/^\/(de|en|ru|tr)\/cf-liepaja\/?$/.test(pathname)) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/cf-liepaja";
+    return NextResponse.redirect(url, 308);
   }
 
   if (surface === "legacyHome") {

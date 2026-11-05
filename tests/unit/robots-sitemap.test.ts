@@ -17,7 +17,9 @@ describe("robots.txt", () => {
     const result = await robots();
     const rules = Array.isArray(result.rules) ? result.rules : [result.rules];
     for (const rule of rules) {
-      expect(rule.disallow).toEqual(expect.arrayContaining(["/api/", "/deck", "/flyers"]));
+      expect(rule.disallow).toEqual(
+        expect.arrayContaining(["/api/", "/deck", "/flyers", "/cf-liepaja", "/*/cf-liepaja"]),
+      );
       expect(rule.allow).toBe("/");
     }
     const agents = rules.flatMap((r) => r.userAgent);
@@ -33,7 +35,7 @@ describe("sitemap.xml", () => {
     expect(new Set(urls).size).toBe(urls.length);
     for (const url of urls) expect(url.startsWith("https://pro.nordoravital.com/")).toBe(true);
     expect(urls).toContain("https://pro.nordoravital.com/ru/contact");
-    expect(urls.some((u) => u.includes("/tr/") || u.includes("/deck") || u.includes("/flyers"))).toBe(false);
+    expect(urls.some((u) => u.includes("/tr/") || u.includes("/deck") || u.includes("/flyers") || u.includes("cf-liepaja"))).toBe(false);
   });
 
   it("serves the homeuse pages on the homeuse host", async () => {

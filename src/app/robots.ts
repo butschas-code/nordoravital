@@ -3,7 +3,15 @@ import { headers } from "next/headers";
 import { getSiteSurface } from "@/lib/domains";
 import { getIndexableOrigin } from "@/lib/seo";
 
-const PRIVATE_PATHS = ["/api/", "/deck", "/*/deck", "/flyers", "/*/flyers"];
+const PRIVATE_PATHS = [
+  "/api/",
+  "/deck",
+  "/*/deck",
+  "/flyers",
+  "/*/flyers",
+  "/cf-liepaja",
+  "/*/cf-liepaja",
+];
 
 /** Search and answer engines we explicitly welcome, so a future blanket rule can't shut them out. */
 const AI_CRAWLERS = [
