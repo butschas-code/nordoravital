@@ -113,7 +113,7 @@ export const cfLiepajaPage: CampaignPageContent = {
   whatChangesPracticeTitle: "Ja klubs tā grib",
   whatChangesPracticeItems: [
     "Var iepazīstināt komandu ar kontrolleri",
-    "Var arī neatstāt palaišanu personālam",
+    "Palaišanai nav jāpaliek personālam",
     "Vienā brīdī viens pieaugušais biedrs. Ne junioru boksa grupas",
   ],
   whatChangesPracticeImage: IMAGES.corner,
