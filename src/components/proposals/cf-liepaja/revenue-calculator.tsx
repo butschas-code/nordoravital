@@ -3,6 +3,31 @@
 import { useId, useState } from "react";
 import { formatEuro, illustrativeGrossRevenue } from "@/lib/proposals/cf-liepaja";
 
+const COPY = {
+  lv: {
+    result: "Mēneša bruto ieņēmumi",
+    formula: (price: number, sessions: number, days: number) =>
+      `${price} € × ${sessions} sesijas dienā × ${days} dienas`,
+    price: "Cena par sesiju",
+    sessions: "Sesijas dienā",
+    sessionsUnit: "sesijas",
+    days: "Dienas mēnesī",
+    daysUnit: "dienas",
+    note: "Ilustratīvs aprēķins, nevis solījums. Viena stacija = viens biedrs. 5–10 minūšu programma plus pāris minūtes, lai apgultos un pieceltos, ir aptuveni 15 minūtes. Stundā sanāk apmēram 4 maiņas. Pieci pieraksti dienā ir piesardzīgs starts, nevis stacijas griesti.",
+  },
+  en: {
+    result: "Monthly gross revenue",
+    formula: (price: number, sessions: number, days: number) =>
+      `€${price} × ${sessions} sessions a day × ${days} days`,
+    price: "Price per session",
+    sessions: "Sessions per day",
+    sessionsUnit: "sessions",
+    days: "Days per month",
+    daysUnit: "days",
+    note: "Illustrative calculation, not a promise. One station means one member. A 5–10 minute program, plus a couple of minutes to lie down and get up, is about 15 minutes. That is about 4 turns an hour. Five bookings a day is a cautious start, not the station’s ceiling.",
+  },
+} as const;
+
 const LIMITS = {
   price: { min: 0, max: 80, initial: 10 },
   sessions: { min: 0, max: 30, initial: 5 },
@@ -14,44 +39,28 @@ function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, Math.round(value)));
 }
 
-export function RevenueCalculator() {
+export function RevenueCalculator({ locale = "lv" }: { locale?: "lv" | "en" }) {
+  const copy = COPY[locale];
   const baseId = useId();
   const [price, setPrice] = useState<number>(LIMITS.price.initial);
   const [sessions, setSessions] = useState<number>(LIMITS.sessions.initial);
   const [days, setDays] = useState<number>(LIMITS.days.initial);
-  const { monthly, yearly } = illustrativeGrossRevenue(price, sessions, days);
+  const { monthly } = illustrativeGrossRevenue(price, sessions, days);
 
   return (
-    <div
-      style={{ colorScheme: "light" }}
-      className="grid gap-10 bg-[#f6f1ea] p-6 text-[#1e2a22] sm:p-8 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:gap-12 md:p-10"
-    >
+    <div className="rounded-[var(--radius-card)] border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-card)] sm:p-8">
       <div aria-live="polite">
-        <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-[#5c534c]">
-          Ilustratīvs pieņēmums
+        <p className="text-sm text-[var(--muted)]">{copy.result}</p>
+        <p className="mt-1 font-heading text-5xl font-bold tabular-nums tracking-tight text-[var(--text)]">
+          {formatEuro(monthly, locale)}
         </p>
-        <p className="mt-6 text-sm text-[#3c3834]">Potenciālie mēneša bruto ieņēmumi</p>
-        <p className="mt-1 font-heading text-5xl tabular-nums tracking-[-0.03em] text-[#1e2a22] md:text-6xl">
-          {formatEuro(monthly)}
-        </p>
-        <p className="mt-8 text-sm text-[#3c3834]">Potenciālie gada bruto ieņēmumi</p>
-        <p className="mt-1 font-heading text-3xl tabular-nums tracking-[-0.02em]">
-          {formatEuro(yearly)}
-        </p>
-        <p className="mt-6 max-w-[42ch] text-sm leading-relaxed text-[#1e2a22]">
-          {price} € × {sessions} sesijas dienā × {days} dienas mēnesī. Rādītājs ir bruto
-          ieņēmumi, nevis peļņa.
-        </p>
-        <p className="mt-6 border-t border-[#d8cec2] pt-6 text-sm leading-relaxed text-[#1e2a22]">
-          Aprēķins ir ilustratīvs. Faktiskie ieņēmumi būs atkarīgi no pieprasījuma, cenām un
-          noslodzes. Nav iekļautas aprīkojuma, personāla, telpu, nodokļu un citas izmaksas.
-        </p>
+        <p className="mt-3 text-sm text-[var(--muted)]">{copy.formula(price, sessions, days)}</p>
       </div>
 
-      <div className="flex flex-col justify-center gap-7">
+      <div className="mt-8 grid gap-6 md:grid-cols-3">
         <Control
           id={`${baseId}-price`}
-          label="Cena par sesiju"
+          label={copy.price}
           unit="€"
           min={LIMITS.price.min}
           max={LIMITS.price.max}
@@ -60,8 +69,8 @@ export function RevenueCalculator() {
         />
         <Control
           id={`${baseId}-sessions`}
-          label="Sesijas dienā"
-          unit="sesijas"
+          label={copy.sessions}
+          unit={copy.sessionsUnit}
           min={LIMITS.sessions.min}
           max={LIMITS.sessions.max}
           value={sessions}
@@ -69,14 +78,18 @@ export function RevenueCalculator() {
         />
         <Control
           id={`${baseId}-days`}
-          label="Dienas mēnesī"
-          unit="dienas"
+          label={copy.days}
+          unit={copy.daysUnit}
           min={LIMITS.days.min}
           max={LIMITS.days.max}
           value={days}
           onChange={setDays}
         />
       </div>
+
+      <p className="mt-8 text-sm leading-relaxed text-[var(--muted)]">
+        {copy.note}
+      </p>
     </div>
   );
 }
@@ -100,11 +113,11 @@ function Control({
 }) {
   return (
     <div className="grid gap-2">
-      <div className="flex items-baseline justify-between gap-4">
-        <label htmlFor={id} className="text-sm font-semibold">
+      <div className="flex items-baseline justify-between gap-3">
+        <label htmlFor={id} className="text-sm font-semibold text-[var(--text)]">
           {label}
         </label>
-        <span className="font-heading text-lg tabular-nums">
+        <span className="font-heading text-base font-bold tabular-nums text-[var(--brand-strong)]">
           {value} {unit}
         </span>
       </div>
@@ -117,7 +130,7 @@ function Control({
         step={1}
         value={value}
         onChange={(event) => onChange(clamp(event.target.valueAsNumber, min, max))}
-        className="h-11 w-full border border-[#d8cec2] bg-white px-3 text-base text-[#1e2a22] outline-none focus-visible:border-[#507040]"
+        className="input-brand min-h-11"
       />
       <input
         type="range"
@@ -127,7 +140,7 @@ function Control({
         value={value}
         aria-label={`${label}, ${unit}`}
         onChange={(event) => onChange(clamp(event.target.valueAsNumber, min, max))}
-        className="h-11 w-full accent-[#507040]"
+        className="h-11 w-full accent-[var(--brand-strong)]"
       />
     </div>
   );

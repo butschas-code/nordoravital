@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { BrandArc } from "@/components/brand-arc";
@@ -26,6 +27,11 @@ type Props = {
   locale?: string;
   campaignSlug?: string;
   propertyName?: string | null;
+  /** Private proposals skip the public medical-business schema. */
+  includeJsonLd?: boolean;
+  /** Clinic-day simulator. On for the public sales pages. */
+  showWorkflowSimulator?: boolean;
+  insertBeforeDemo?: ReactNode;
 };
 
 function getSimulatorSector(slug?: string, category?: string): string {
@@ -61,6 +67,30 @@ function IconArrow() {
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden className="h-4 w-4">
       <path d="M5 12h14M13 6l6 6-6 6" />
     </svg>
+  );
+}
+
+function SecondaryCta({
+  href,
+  className,
+  children,
+}: {
+  href?: string;
+  className: string;
+  children: ReactNode;
+}) {
+  const target = href || "/how-it-works";
+  if (target.startsWith("mailto:") || target.startsWith("http") || target.startsWith("tel:")) {
+    return (
+      <a href={target} className={className}>
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link href={target} className={className}>
+      {children}
+    </Link>
   );
 }
 
@@ -116,6 +146,9 @@ export async function CampaignLanding({
   locale = "en",
   campaignSlug,
   propertyName,
+  includeJsonLd = true,
+  showWorkflowSimulator = true,
+  insertBeforeDemo,
 }: Props) {
   const heroTextAlign = content.heroTextAlign ?? "right";
   const heroCopyClass =
@@ -143,7 +176,7 @@ export async function CampaignLanding({
 
   return (
     <div className="campaign-page-root flex flex-col gap-0">
-      <JsonLd
+      {includeJsonLd ? <JsonLd
         breadcrumbs={[
           { name: "Home", url: "https://pro.nordoravital.com" },
           { name: "Sectors", url: `https://pro.nordoravital.com/${locale}/professionals/sectors` },
@@ -155,7 +188,7 @@ export async function CampaignLanding({
           url: `https://pro.nordoravital.com/${locale}/${campaignSlug ?? ""}`,
           medicalSpecialty: [content.segmentName],
         }}
-      />
+      /> : null}
       {/* ═════════ HERO ═════════ */}
       <section
         className="relative isolate left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] overflow-hidden bg-[var(--brand-deep)]"
@@ -233,9 +266,12 @@ export async function CampaignLanding({
                     <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-0.5">→</span>
                   </ContactDrawerTrigger>
                   {content.heroCtaSecondary ? (
-                    <Link href="/how-it-works" className="btn-ghost-white inline-flex justify-center">
+                    <SecondaryCta
+                      href={content.heroCtaSecondaryHref}
+                      className="btn-ghost-white inline-flex justify-center"
+                    >
                       {content.heroCtaSecondary}
-                    </Link>
+                    </SecondaryCta>
                   ) : null}
                 </div>
               </FadeUp>
@@ -552,7 +588,7 @@ export async function CampaignLanding({
       </section>
 
       {/* Clinic workflow stays on clinical routes. The spa page uses a guest-journey section instead. */}
-      {isSpaWellness ? null : (
+      {showWorkflowSimulator && !isSpaWellness ? (
       <section
         className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] bg-[#fbf7ef] py-16 sm:py-20 md:py-24"
         aria-label="Interactive Clinic Workflow Simulator"
@@ -566,7 +602,7 @@ export async function CampaignLanding({
           </FadeUp>
         </div>
       </section>
-      )}
+      ) : null}
 
       {/* ═════════ SOCIAL PROOF (light w/ image-bg quote panel) ═════════ */}
       <section
@@ -624,6 +660,8 @@ export async function CampaignLanding({
           </FadeUp>
         </div>
       </section>
+
+      {insertBeforeDemo}
 
       {/* ═════════ DEMO HANDOFF (light, conversion reassurance) ═════════ */}
       <section
@@ -762,9 +800,12 @@ export async function CampaignLanding({
                   className="btn-ghost-white inline-flex justify-center"
                 />
               ) : content.finalCtaSecondary ? (
-                <Link href="/how-it-works" className="btn-ghost-white inline-flex justify-center">
+                <SecondaryCta
+                  href={content.finalCtaSecondaryHref}
+                  className="btn-ghost-white inline-flex justify-center"
+                >
                   {content.finalCtaSecondary}
-                </Link>
+                </SecondaryCta>
               ) : null}
             </div>
           </FadeUp>

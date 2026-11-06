@@ -1,8 +1,12 @@
 import { describe, expect, it } from "vitest";
 import {
   DEMO_SUBJECT,
+  DEMO_SUBJECT_EN,
+  TRIAL_SUBJECT,
+  TRIAL_SUBJECT_EN,
   demoMailto,
   illustrativeGrossRevenue,
+  trialMailto,
 } from "@/lib/proposals/cf-liepaja";
 
 describe("CF Liepāja proposal", () => {
@@ -20,5 +24,19 @@ describe("CF Liepāja proposal", () => {
     expect(href.startsWith("mailto:sascha@nordoravital.com?")).toBe(true);
     expect(decodeURIComponent(href)).toContain(DEMO_SUBJECT);
     expect(href).not.toContain("newsletter");
+  });
+
+  it("opens a separate inquiry about trial or rental options", () => {
+    const href = trialMailto();
+    expect(href.startsWith("mailto:sascha@nordoravital.com?")).toBe(true);
+    expect(decodeURIComponent(href)).toContain(TRIAL_SUBJECT);
+    expect(decodeURIComponent(href).toLowerCase()).not.toContain("bez maksas");
+    expect(href).not.toBe(demoMailto());
+  });
+
+  it("opens English demonstration and trial emails", () => {
+    expect(decodeURIComponent(demoMailto("en"))).toContain(DEMO_SUBJECT_EN);
+    expect(decodeURIComponent(trialMailto("en"))).toContain(TRIAL_SUBJECT_EN);
+    expect(demoMailto("en")).not.toBe(demoMailto());
   });
 });

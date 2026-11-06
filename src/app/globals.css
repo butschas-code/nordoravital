@@ -98,25 +98,6 @@ body:has([data-deck-fullscreen]) > a[href="#main-content"] {
   display: none;
 }
 
-body:has([data-cf-proposal]) {
-  background: #14171b;
-  color: #f4f0e8;
-}
-
-html:has([data-cf-proposal]) {
-  scroll-padding-top: 5.5rem;
-  color-scheme: dark;
-}
-
-[data-cf-proposal] ::selection {
-  background: #507040;
-  color: #f6f1ea;
-}
-
-[data-cf-proposal] :focus-visible {
-  outline-color: #f4f0e8;
-}
-
 /* Local flyer previews (/[locale]/flyers/*): no header offset, no smooth scrolling. */
 html:has([data-flyer-preview]) {
   scroll-padding-top: 0;

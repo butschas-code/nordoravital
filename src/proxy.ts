@@ -212,11 +212,11 @@ export default function proxy(request: NextRequest) {
     return withPathnameHeader(request);
   }
 
-  /** Private CF Liepāja proposal. One Latvian URL, never the public sales shell. */
+  /** Private CF Liepāja proposal. Unprefixed URL is Latvian. English stays at /en/cf-liepaja. */
   if (pathname === "/cf-liepaja" || pathname === "/cf-liepaja/") {
     return rewriteToLocalePath(request, "/lv/cf-liepaja", surface, "lv", "/cf-liepaja");
   }
-  if (/^\/(de|en|ru|tr)\/cf-liepaja\/?$/.test(pathname)) {
+  if (/^\/(de|ru|tr)\/cf-liepaja\/?$/.test(pathname)) {
     const url = request.nextUrl.clone();
     url.pathname = "/cf-liepaja";
     return NextResponse.redirect(url, 308);

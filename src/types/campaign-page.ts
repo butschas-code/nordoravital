@@ -18,6 +18,8 @@ export type CampaignPageContent = {
   heroSubhead: string;
   heroCtaPrimary: string;
   heroCtaSecondary?: string;
+  /** When set, the secondary hero button uses this href instead of /how-it-works. */
+  heroCtaSecondaryHref?: string;
   /** Three short trust pills below the hero subhead. */
   heroValueProps: [string, string, string];
   contactCategory?:
@@ -87,6 +89,8 @@ export type CampaignPageContent = {
   finalCtaBody: string;
   finalCtaPrimary: string;
   finalCtaSecondary?: string;
+  /** When set, the secondary closing button uses this href instead of /how-it-works. */
+  finalCtaSecondaryHref?: string;
   finalCtaTrustItems?: [string, string, string];
 };
 
