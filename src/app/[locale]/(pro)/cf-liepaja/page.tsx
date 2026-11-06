@@ -17,6 +17,7 @@ export default async function CfLiepajaPage({
       content={cfLiepajaContent(language)}
       locale={language}
       campaignSlug="sporta-zales"
+      heroOverlayClassName="home-hero-overlay home-hero-overlay--cf-lighter pointer-events-none absolute inset-0"
       includeJsonLd={false}
       showWorkflowSimulator={false}
       showSocialProof={false}

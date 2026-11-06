@@ -33,6 +33,8 @@ type Props = {
   showWorkflowSimulator?: boolean;
   /** Quote panel. Off for a private proposal that has no quotation. */
   showSocialProof?: boolean;
+  /** Hero gradient overlay class; default matches other campaign pages. */
+  heroOverlayClassName?: string;
   insertBeforeDemo?: ReactNode;
 };
 
@@ -177,6 +179,7 @@ export async function CampaignLanding({
   includeJsonLd = true,
   showWorkflowSimulator = true,
   showSocialProof = true,
+  heroOverlayClassName,
   insertBeforeDemo,
 }: Props) {
   const heroTextAlign = content.heroTextAlign ?? "right";
@@ -193,15 +196,18 @@ export async function CampaignLanding({
       ? "campaign-eyebrow campaign-eyebrow--left inline-block max-w-full text-[0.72rem] font-semibold uppercase leading-snug tracking-[0.11em] text-white/85 sm:text-[0.875rem] sm:tracking-[0.16em] md:text-[0.9375rem] md:tracking-[0.18em]"
       : "campaign-eyebrow campaign-eyebrow--responsive-right inline-block max-w-full text-[0.72rem] font-semibold uppercase leading-snug tracking-[0.11em] text-white/85 sm:text-[0.875rem] sm:tracking-[0.16em] md:text-[0.9375rem] md:tracking-[0.18em]";
   const heroOverlayClass =
-    heroTextAlign === "left"
+    heroOverlayClassName ??
+    (heroTextAlign === "left"
       ? "home-hero-overlay home-hero-overlay--left pointer-events-none absolute inset-0"
-      : "home-hero-overlay pointer-events-none absolute inset-0";
+      : "home-hero-overlay pointer-events-none absolute inset-0");
   const fitsImages = content.fitsImages ?? FITS_IMAGES;
   const demoSteps = content.demoSteps ?? DEMO_STEPS_FALLBACK;
   const isSpaWellness = campaignSlug === "spa-wellness";
   const showSpaBusiness = isSpaWellness && locale === "en";
   const demoMessage = showSpaBusiness ? SPA_DEMO_MESSAGE : content.demoRequestMessage;
-  const demoLabel = showSpaBusiness ? SPA_DEMO_CTA : content.heroCtaPrimary;
+  const drawerPrimaryLabel =
+    content.primaryContactDrawerLabel ?? content.heroCtaPrimary;
+  const demoLabel = showSpaBusiness ? SPA_DEMO_CTA : drawerPrimaryLabel;
 
   return (
     <div className="campaign-page-root flex flex-col gap-0">
@@ -298,21 +304,42 @@ export async function CampaignLanding({
 
               <FadeUp immediate delay={5} className="mt-7 sm:mt-10">
                 <div className={heroCtaClass}>
-                  <ContactDrawerTrigger
-                    label={content.heroCtaPrimary}
-                    options={DEMO_OPTIONS(content.demoRequestMessage, content.contactCategory)}
-                    className="btn-primary group inline-flex justify-center"
-                  >
-                    {content.heroCtaPrimary}
-                    <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-0.5">→</span>
-                  </ContactDrawerTrigger>
-                  {content.heroCtaSecondary ? (
+                  {content.heroCtaPrimaryHref ? (
                     <SecondaryCta
-                      href={content.heroCtaSecondaryHref}
-                      className="btn-ghost-white inline-flex justify-center"
+                      href={content.heroCtaPrimaryHref}
+                      className="btn-primary group inline-flex justify-center"
                     >
-                      {content.heroCtaSecondary}
+                      {content.heroCtaPrimary}
+                      <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-0.5">→</span>
                     </SecondaryCta>
+                  ) : (
+                    <ContactDrawerTrigger
+                      label={content.heroCtaPrimary}
+                      options={DEMO_OPTIONS(content.demoRequestMessage, content.contactCategory)}
+                      className="btn-primary group inline-flex justify-center"
+                    >
+                      {content.heroCtaPrimary}
+                      <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-0.5">→</span>
+                    </ContactDrawerTrigger>
+                  )}
+                  {content.heroCtaSecondary ? (
+                    content.heroCtaSecondaryContactMessage ? (
+                      <ContactDrawerTrigger
+                        label={content.heroCtaSecondary}
+                        options={DEMO_OPTIONS(
+                          content.heroCtaSecondaryContactMessage,
+                          content.contactCategory,
+                        )}
+                        className="btn-ghost-white inline-flex justify-center"
+                      />
+                    ) : (
+                      <SecondaryCta
+                        href={content.heroCtaSecondaryHref}
+                        className="btn-ghost-white inline-flex justify-center"
+                      >
+                        {content.heroCtaSecondary}
+                      </SecondaryCta>
+                    )
                   ) : null}
                 </div>
               </FadeUp>
@@ -378,34 +405,79 @@ export async function CampaignLanding({
                   wrapperClassName="mt-6 grid max-w-[68ch] gap-4"
                   className="text-base leading-[1.65] text-[var(--muted)] sm:text-lg"
                 />
+                {content.disclosureFooter ? (
+                  <p className="mt-6 max-w-[68ch] text-pretty text-sm leading-relaxed text-[var(--muted)]">
+                    {content.disclosureFooter}
+                  </p>
+                ) : null}
               </FadeUp>
             </div>
 
             {/* Problem image */}
             <FadeUp delay={2} className="relative">
-              <div className="relative mx-auto aspect-[4/3] w-full max-w-md sm:aspect-[4/5] lg:max-w-none">
-                <div className="absolute inset-0 overflow-hidden rounded-2xl shadow-[var(--shadow-raised)] ring-1 ring-[var(--border)] sm:rounded-3xl">
-                  <Image
-                    src={content.problemImage ?? PROBLEM_IMAGE}
-                    alt=""
-                    fill
-                    sizes="(min-width: 1024px) 45vw, 90vw"
-                    className="object-cover"
-                    style={
-                      content.problemImagePosition
-                        ? { objectPosition: content.problemImagePosition }
-                        : undefined
-                    }
-                  />
-                  <div
-                    className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-[var(--brand-deep)]/30 via-transparent to-[var(--brand-secondary)]/15"
-                    aria-hidden
-                  />
+              <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+                <div className="relative mx-auto aspect-[4/3] w-full sm:aspect-[4/5]">
+                  <div className="absolute inset-0 overflow-hidden rounded-2xl shadow-[var(--shadow-raised)] ring-1 ring-[var(--border)] sm:rounded-3xl">
+                    <Image
+                      src={content.problemImage ?? PROBLEM_IMAGE}
+                      alt=""
+                      fill
+                      sizes="(min-width: 1024px) 45vw, 90vw"
+                      className="object-cover"
+                      style={
+                        content.problemImagePosition
+                          ? { objectPosition: content.problemImagePosition }
+                          : undefined
+                      }
+                    />
+                    <div
+                      className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-[var(--brand-deep)]/30 via-transparent to-[var(--brand-secondary)]/15"
+                      aria-hidden
+                    />
+                  </div>
                 </div>
-
+                {content.problemImageCaption ? (
+                  <p className="mt-4 text-center text-xs leading-relaxed text-[var(--muted)] sm:text-left sm:text-sm">
+                    {content.problemImageCaption}
+                  </p>
+                ) : null}
               </div>
             </FadeUp>
           </div>
+
+          {content.technologySection ? (
+            <div className="mx-auto mt-14 max-w-[1200px] border-t border-[var(--border)] pt-14 sm:mt-20 sm:pt-16">
+              <FadeUp>
+                <p className="text-[0.72rem] font-semibold uppercase leading-snug tracking-[0.11em] text-[var(--brand-strong)] sm:text-sm sm:tracking-[0.16em] md:text-[0.9375rem] md:tracking-[0.18em]">
+                  {content.technologySection.eyebrow}
+                </p>
+                <h2 className="mt-3 max-w-[40ch] text-balance font-heading text-[clamp(1.65rem,5vw,2.35rem)] font-bold leading-[1.12] tracking-[-0.015em] text-[var(--text)]">
+                  {content.technologySection.title}
+                </h2>
+                <p className="mt-5 max-w-[68ch] text-pretty text-base leading-[1.65] text-[var(--muted)] sm:text-lg">
+                  {content.technologySection.intro}
+                </p>
+                <p className="mt-4 max-w-[68ch] text-pretty text-base leading-[1.65] text-[var(--muted)] sm:text-lg">
+                  {content.technologySection.pemfLine}
+                </p>
+                <ul className="mt-8 grid gap-4 sm:grid-cols-3 sm:gap-6">
+                  {content.technologySection.highlights.map((h) => (
+                    <li
+                      key={h.label}
+                      className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 shadow-[var(--shadow-card)] sm:p-6"
+                    >
+                      <p className="text-xs font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)]">
+                        {h.label}
+                      </p>
+                      <p className="mt-3 text-pretty text-[0.9375rem] leading-relaxed text-[var(--muted)] sm:text-base">
+                        {h.body}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </FadeUp>
+            </div>
+          ) : null}
         </div>
       </section>
 
@@ -454,55 +526,57 @@ export async function CampaignLanding({
             ) : null}
           </FadeUp>
 
-          {/* 3 spec cards — horizontal, full-width, generous padding */}
-          <FadeUp delay={2}>
-            <ul className="mt-10 grid grid-cols-1 gap-4 sm:mt-12 md:mt-14 md:grid-cols-3 md:gap-5">
-              {content.solutionSpecs.map((spec, i) => (
-                <li
-                  key={i}
-                  className="flex flex-col gap-5 rounded-2xl border border-white/10 bg-white/[0.05] p-5 backdrop-blur-sm sm:rounded-3xl sm:p-7 md:p-8"
-                >
-                  {/* Icon */}
-                  <span
-                    aria-hidden
-                    className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/15 text-white"
+          {content.solutionClosingStatement ? (
+            <FadeUp delay={2}>
+              <p className="mx-auto mt-10 max-w-[70ch] text-pretty text-center text-base leading-[1.65] text-white/82 sm:mt-12 sm:text-lg">
+                <RichLine text={content.solutionClosingStatement} variant="onDark" />
+              </p>
+            </FadeUp>
+          ) : content.solutionSpecs ? (
+            <FadeUp delay={2}>
+              <ul className="mt-10 grid grid-cols-1 gap-4 sm:mt-12 md:mt-14 md:grid-cols-3 md:gap-5">
+                {content.solutionSpecs.map((spec, i) => (
+                  <li
+                    key={i}
+                    className="flex flex-col gap-5 rounded-2xl border border-white/10 bg-white/[0.05] p-5 backdrop-blur-sm sm:rounded-3xl sm:p-7 md:p-8"
                   >
-                    {i === 0 && (
-                      /* PEMF — pulse / electromagnetic wave */
-                      <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7">
-                        <path d="M2 14h4l3-8 4 16 3-10 3 6 3-4h4" />
-                      </svg>
-                    )}
-                    {i === 1 && (
-                      /* Chronobiological — clock with rhythm arc */
-                      <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7">
-                        <circle cx="14" cy="14" r="10" />
-                        <path d="M14 8v6l4 2" />
-                        <path d="M5 5c2.4-2 5.5-3 9-3" strokeOpacity={0.45} />
-                        <path d="M23 5c2 2.4 3 5.5 3 9" strokeOpacity={0.45} />
-                      </svg>
-                    )}
-                    {i === 2 && (
-                      /* Modular — layered grid */
-                      <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7">
-                        <rect x="3" y="3" width="9" height="9" rx="2" />
-                        <rect x="16" y="3" width="9" height="9" rx="2" />
-                        <rect x="3" y="16" width="9" height="9" rx="2" />
-                        <rect x="16" y="16" width="9" height="9" rx="2" />
-                      </svg>
-                    )}
-                  </span>
-                  {/* Text */}
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-white/55 sm:text-sm">
-                      {spec.title}
-                    </p>
-                    <p className="mt-3 text-[1rem] leading-relaxed text-white/90">{spec.body}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </FadeUp>
+                    <span
+                      aria-hidden
+                      className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/15 text-white"
+                    >
+                      {i === 0 && (
+                        <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7">
+                          <path d="M2 14h4l3-8 4 16 3-10 3 6 3-4h4" />
+                        </svg>
+                      )}
+                      {i === 1 && (
+                        <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7">
+                          <circle cx="14" cy="14" r="10" />
+                          <path d="M14 8v6l4 2" />
+                          <path d="M5 5c2.4-2 5.5-3 9-3" strokeOpacity={0.45} />
+                          <path d="M23 5c2 2.4 3 5.5 3 9" strokeOpacity={0.45} />
+                        </svg>
+                      )}
+                      {i === 2 && (
+                        <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7">
+                          <rect x="3" y="3" width="9" height="9" rx="2" />
+                          <rect x="16" y="3" width="9" height="9" rx="2" />
+                          <rect x="3" y="16" width="9" height="9" rx="2" />
+                          <rect x="16" y="16" width="9" height="9" rx="2" />
+                        </svg>
+                      )}
+                    </span>
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-[0.16em] text-white/55 sm:text-sm">
+                        {spec.title}
+                      </p>
+                      <p className="mt-3 text-[1rem] leading-relaxed text-white/90">{spec.body}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </FadeUp>
+          ) : null}
         </div>
       </section>
 
@@ -769,6 +843,15 @@ export async function CampaignLanding({
                       options={DEMO_OPTIONS(SPA_PILOT_MESSAGE, content.contactCategory)}
                       className="btn-outline inline-flex justify-center"
                     />
+                  ) : content.demoStepsSecondaryCta && content.demoStepsSecondaryContactMessage ? (
+                    <ContactDrawerTrigger
+                      label={content.demoStepsSecondaryCta}
+                      options={DEMO_OPTIONS(
+                        content.demoStepsSecondaryContactMessage,
+                        content.contactCategory,
+                      )}
+                      className="btn-outline inline-flex justify-center"
+                    />
                   ) : null}
                 </div>
               </div>
@@ -856,7 +939,9 @@ export async function CampaignLanding({
               <ContactDrawerTrigger
                 label={content.finalCtaPrimary}
                 options={DEMO_OPTIONS(
-                  showSpaBusiness ? SPA_MEETING_MESSAGE : content.demoRequestMessage,
+                  showSpaBusiness
+                    ? SPA_MEETING_MESSAGE
+                    : (content.finalCtaPrimaryContactMessage ?? content.demoRequestMessage),
                   content.contactCategory,
                 )}
                 className="btn-secondary group inline-flex justify-center"
@@ -873,12 +958,23 @@ export async function CampaignLanding({
                   className="btn-ghost-white inline-flex justify-center"
                 />
               ) : content.finalCtaSecondary ? (
-                <SecondaryCta
-                  href={content.finalCtaSecondaryHref}
-                  className="btn-ghost-white inline-flex justify-center"
-                >
-                  {content.finalCtaSecondary}
-                </SecondaryCta>
+                content.finalCtaSecondaryContactMessage ? (
+                  <ContactDrawerTrigger
+                    label={content.finalCtaSecondary}
+                    options={DEMO_OPTIONS(
+                      content.finalCtaSecondaryContactMessage,
+                      content.contactCategory,
+                    )}
+                    className="btn-ghost-white inline-flex justify-center"
+                  />
+                ) : (
+                  <SecondaryCta
+                    href={content.finalCtaSecondaryHref}
+                    className="btn-ghost-white inline-flex justify-center"
+                  >
+                    {content.finalCtaSecondary}
+                  </SecondaryCta>
+                )
               ) : null}
             </div>
           </FadeUp>

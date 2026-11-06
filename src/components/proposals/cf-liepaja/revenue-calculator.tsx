@@ -13,7 +13,7 @@ const COPY = {
     sessionsUnit: "sesijas",
     days: "Dienas mēnesī",
     daysUnit: "dienas",
-    note: "Ilustratīvs aprēķins, nevis solījums un nevis peļņa. Sesija ir 16 minūtes. Viena stacija, viens biedrs.",
+    note: "Tikai ilustratīvs bruto ieņēmumu aprēķins. Faktiskais pieprasījums un rentabilitāte atkarīgi no cenas, noslogojuma, iekārtas izmaksām un izdevumiem.",
   },
   en: {
     result: "Monthly gross revenue",
@@ -24,7 +24,7 @@ const COPY = {
     sessionsUnit: "sessions",
     days: "Days per month",
     daysUnit: "days",
-    note: "Illustrative calculation, not a promise and not profit. The session is 16 minutes. One station, one member.",
+    note: "Illustrative gross revenue only. Actual demand and profitability depend on pricing, utilization, equipment costs, and operating expenses.",
   },
 } as const;
 
