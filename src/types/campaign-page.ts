@@ -42,13 +42,19 @@ export type CampaignPageContent = {
   /** Second contact-drawer prefilled message (e.g. trial vs demo). */
   trialRequestMessage?: string;
 
-  /** Four big numbers in the stat strip below the hero. */
-  quickStats: [
-    { value: string; label: string },
-    { value: string; label: string },
-    { value: string; label: string },
-    { value: string; label: string },
-  ];
+  /** Big figures in the stat strip below the hero (three or four columns). */
+  quickStats:
+    | [
+        { value: string; label: string },
+        { value: string; label: string },
+        { value: string; label: string },
+      ]
+    | [
+        { value: string; label: string },
+        { value: string; label: string },
+        { value: string; label: string },
+        { value: string; label: string },
+      ];
 
   problemEyebrow: string;
   problemTitle: string;

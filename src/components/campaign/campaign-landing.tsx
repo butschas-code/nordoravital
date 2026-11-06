@@ -35,6 +35,8 @@ type Props = {
   showSocialProof?: boolean;
   /** Hero gradient overlay class; default matches other campaign pages. */
   heroOverlayClassName?: string;
+  /** Sticky bottom CTA pill. Off when section CTAs are enough (e.g. CF Liepāja). */
+  showFloatingCta?: boolean;
   insertBeforeDemo?: ReactNode;
 };
 
@@ -110,6 +112,13 @@ function SecondaryCta({
   children: ReactNode;
 }) {
   const target = href || "/how-it-works";
+  if (target.startsWith("#")) {
+    return (
+      <a href={target} className={className}>
+        {children}
+      </a>
+    );
+  }
   if (target.startsWith("mailto:") || target.startsWith("http") || target.startsWith("tel:")) {
     return (
       <a href={target} className={className}>
@@ -180,6 +189,7 @@ export async function CampaignLanding({
   showWorkflowSimulator = true,
   showSocialProof = true,
   heroOverlayClassName,
+  showFloatingCta = true,
   insertBeforeDemo,
 }: Props) {
   const heroTextAlign = content.heroTextAlign ?? "right";
@@ -334,7 +344,7 @@ export async function CampaignLanding({
                       />
                     ) : (
                       <SecondaryCta
-                        href={content.heroCtaSecondaryHref}
+                        href={content.heroCtaSecondaryHref ?? "#campaign-problem-heading"}
                         className="btn-ghost-white inline-flex justify-center"
                       >
                         {content.heroCtaSecondary}
@@ -354,7 +364,11 @@ export async function CampaignLanding({
         aria-label="Quick facts"
       >
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
-          <ul className="grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 md:grid-cols-4 md:gap-0">
+          <ul
+            className={`grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 md:gap-0 ${
+              content.quickStats.length === 3 ? "md:grid-cols-3" : "md:grid-cols-4"
+            }`}
+          >
             {content.quickStats.map((stat, i) => (
               <li
                 key={i}
@@ -362,12 +376,20 @@ export async function CampaignLanding({
               >
                 <FadeUp delay={Math.min(i + 1, 4) as 1 | 2 | 3 | 4}>
                   <div className="flex items-baseline gap-4 md:flex-col md:items-start md:gap-3">
-                    <span className="shrink-0 whitespace-nowrap font-heading text-[2rem] font-bold leading-none tracking-[-0.02em] text-white tabular-nums [text-shadow:0_2px_18px_rgba(0,0,0,0.45)] md:text-[clamp(1.65rem,2vw,2.4rem)]">
+                    <span
+                      className={`min-w-0 font-heading text-[2rem] font-bold tracking-[-0.02em] text-white [text-shadow:0_2px_18px_rgba(0,0,0,0.45)] md:text-[clamp(1.65rem,2vw,2.4rem)] ${
+                        stat.value.includes("\n")
+                          ? "whitespace-pre-line leading-[1.15]"
+                          : "whitespace-nowrap leading-none tabular-nums"
+                      }`}
+                    >
                       {stat.value}
                     </span>
-                    <span className="min-w-0 text-balance text-[0.75rem] font-semibold uppercase leading-snug tracking-[0.08em] text-[var(--brand-secondary)]/95">
-                      {stat.label}
-                    </span>
+                    {stat.label ? (
+                      <span className="min-w-0 text-balance text-[0.75rem] font-semibold uppercase leading-snug tracking-[0.08em] text-[var(--brand-secondary)]/95">
+                        {stat.label}
+                      </span>
+                    ) : null}
                   </div>
                 </FadeUp>
               </li>
@@ -407,7 +429,7 @@ export async function CampaignLanding({
                 />
                 {content.disclosureFooter ? (
                   <p className="mt-6 max-w-[68ch] text-pretty text-sm leading-relaxed text-[var(--muted)]">
-                    {content.disclosureFooter}
+                    <RichLine text={content.disclosureFooter} />
                   </p>
                 ) : null}
               </FadeUp>
@@ -843,15 +865,6 @@ export async function CampaignLanding({
                       options={DEMO_OPTIONS(SPA_PILOT_MESSAGE, content.contactCategory)}
                       className="btn-outline inline-flex justify-center"
                     />
-                  ) : content.demoStepsSecondaryCta && content.demoStepsSecondaryContactMessage ? (
-                    <ContactDrawerTrigger
-                      label={content.demoStepsSecondaryCta}
-                      options={DEMO_OPTIONS(
-                        content.demoStepsSecondaryContactMessage,
-                        content.contactCategory,
-                      )}
-                      className="btn-outline inline-flex justify-center"
-                    />
                   ) : null}
                 </div>
               </div>
@@ -982,10 +995,12 @@ export async function CampaignLanding({
         </div>
       </section>
 
-      <CampaignFloatingCta
-        label={demoLabel}
-        options={DEMO_OPTIONS(demoMessage, content.contactCategory)}
-      />
+      {showFloatingCta ? (
+        <CampaignFloatingCta
+          label={demoLabel}
+          options={DEMO_OPTIONS(demoMessage, content.contactCategory)}
+        />
+      ) : null}
     </div>
   );
 }

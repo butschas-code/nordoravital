@@ -1,14 +1,10 @@
 import type { CampaignPageContent } from "@/types/campaign-page";
 
-/** Prefilled contact-drawer text (matches mailto intent in cf-liepaja.ts). */
+/** Prefilled contact drawer (matches mailto intent in cf-liepaja.ts). */
 const DEMO_CONTACT_LV =
   "CF Liepāja — vēlamies vienoties par sanza demonstrāciju un pārrunāt, kā vienas nedēļas izmēģinājums varētu darboties jūsu klubā. Lūdzam ierosināt laiku zvanam.";
 const DEMO_CONTACT_EN =
   "CF Liepāja — we would like to arrange a sanza demonstration and explore how a one-week trial could work at your facility. Please suggest a time for a call.";
-const TRIAL_CONTACT_LV =
-  "CF Liepāja — vēlamies pārrunāt vienas nedēļas sanza izmēģinājumu. Lūdzam komerciālos noteikumus izklāstīt zvanā.";
-const TRIAL_CONTACT_EN =
-  "CF Liepāja — we would like to discuss a one-week sanza trial. Please outline the commercial terms on a call.";
 
 const IMAGES = {
   hero: "/images/proposals/cf-liepaja/gym-floor.webp",
@@ -31,20 +27,16 @@ export const cfLiepajaPage: CampaignPageContent = {
   heroHeadline: "Jauna atjaunošanās pieredze\nCF Liepāja klubā.",
   heroSubhead:
     "Dodiet biedriem īpašu labsajūtas pieredzi pirms vai pēc treniņa — vienlaikus veidojot papildu ieņēmumu iespēju klubam.",
-  heroCtaPrimary: "Iepazīties ar konceptu",
-  heroCtaPrimaryHref: "#campaign-problem-heading",
-  heroCtaSecondary: "Vienoties par demonstrāciju",
-  heroCtaSecondaryContactMessage: DEMO_CONTACT_LV,
-  primaryContactDrawerLabel: "Vienoties par demonstrāciju",
+  heroCtaPrimary: "Vienoties par demonstrāciju",
+  heroCtaSecondary: "Iepazīties ar konceptu",
+  heroCtaSecondaryHref: "#campaign-problem-heading",
   heroValueProps: ["16 min", "SANZA", "CF Liepāja"],
   contactCategory: "sports-performance",
   demoRequestMessage: DEMO_CONTACT_LV,
-  trialRequestMessage: TRIAL_CONTACT_LV,
   quickStats: [
-    { value: "16 min", label: "strukturēta sesija" },
-    { value: "5", label: "programmas šim fokusam" },
-    { value: "€", label: "ilustratīvs piemērs" },
-    { value: "Zvans", label: "demonstrācija un izmēģinājums" },
+    { value: "16 MINŪTES\nViena labsajūtas sesija", label: "" },
+    { value: "5 PROGRAMMAS\nDažādas labsajūtas pieredzes", label: "" },
+    { value: "JAUNAS IEŅĒMUMU IESPĒJAS\nElastīgi servisa modeļi", label: "" },
   ],
   problemEyebrow: "Izvietojums zālē",
   problemTitle: "Viena kompakta SANZA stacija. Pielāgojama jūsu telpai.",
@@ -79,7 +71,7 @@ export const cfLiepajaPage: CampaignPageContent = {
     ],
   },
   solutionEyebrow: "Programmas",
-  solutionTitle: "Komanda iepazīstas vienreiz. Pēc tam viss notiek vienkārši.",
+  solutionTitle: "Piecas labsajūtas programmas. Viena vienkārša pieredze.",
   solutionBody:
     "Pieejamas labsajūtas programmas, kas pielāgotas sporta videi. Katrai sesijai ir skaidrs, laika kontrolēts formāts.",
   solutionPrograms: [
@@ -138,8 +130,6 @@ export const cfLiepajaPage: CampaignPageContent = {
   demoStepsTitle: "Jauna pieredze biedriem. Jauna ieņēmumu iespēja CF Liepāja.",
   demoStepsLead:
     "Kalkulators rāda piemēru: €10 × 5 sesijas dienā × 22 dienas = €1 100 bruto mēnesī. Pieprasījums un rentabilitāte atkarīga no cenas, noslogojuma, iekārtas izmaksām un izdevumiem.",
-  demoStepsSecondaryCta: "Pārrunāt vienas nedēļas izmēģinājumu",
-  demoStepsSecondaryContactMessage: TRIAL_CONTACT_LV,
   demoSteps: [
     {
       title: "Atsevišķa maksas sesija",
@@ -156,11 +146,9 @@ export const cfLiepajaPage: CampaignPageContent = {
   ],
   finalCtaTitle: "Uzziniet, ko SANZA varētu dot CF Liepāja.",
   finalCtaBody:
-    "Vienosimies par demonstrāciju un pārrunāsim, kā vienas nedēļas izmēģinājums varētu darboties jūsu telpā. Novērtējiet sistēmu klātienē un izvērtējiet, vai tā atbilst jūsu biedriem un biznesam.",
-  finalCtaPrimary: "Vienoties par SANZA demonstrāciju",
+    "Vienosimies par demonstrāciju un pārrunāsim, vai un kā vienas nedēļas izmēģinājums varētu būt piemērots jūsu klubam. Noteikumus vienojamies zvanā.",
+  finalCtaPrimary: "Vienoties par demonstrāciju",
   finalCtaPrimaryContactMessage: DEMO_CONTACT_LV,
-  finalCtaSecondary: "Pārrunāt vienas nedēļas izmēģinājumu",
-  finalCtaSecondaryContactMessage: TRIAL_CONTACT_LV,
 };
 
 export const cfLiepajaPageEn: CampaignPageContent = {
@@ -175,20 +163,16 @@ export const cfLiepajaPageEn: CampaignPageContent = {
   heroHeadline: "A new recovery experience\nfor CF Liepāja.",
   heroSubhead:
     "Give your members a dedicated wellness experience before or after training — while creating an additional revenue opportunity for your club.",
-  heroCtaPrimary: "Explore the concept",
-  heroCtaPrimaryHref: "#campaign-problem-heading",
-  heroCtaSecondary: "Arrange a demonstration",
-  heroCtaSecondaryContactMessage: DEMO_CONTACT_EN,
-  primaryContactDrawerLabel: "Arrange a demonstration",
+  heroCtaPrimary: "Arrange a demonstration",
+  heroCtaSecondary: "Explore the concept",
+  heroCtaSecondaryHref: "#campaign-problem-heading",
   heroValueProps: ["16 min", "SANZA", "CF Liepāja"],
   contactCategory: "sports-performance",
   demoRequestMessage: DEMO_CONTACT_EN,
-  trialRequestMessage: TRIAL_CONTACT_EN,
   quickStats: [
-    { value: "16 min", label: "structured session" },
-    { value: "5", label: "programs in this focus" },
-    { value: "€", label: "illustrative example" },
-    { value: "Call", label: "demo and trial" },
+    { value: "16 MINUTES\nPer wellness session", label: "" },
+    { value: "5 PROGRAMS\nDifferent wellness experiences", label: "" },
+    { value: "NEW REVENUE POTENTIAL\nFlexible service models", label: "" },
   ],
   problemEyebrow: "In the gym",
   problemTitle: "One compact SANZA station. Designed for your space.",
@@ -222,7 +206,7 @@ export const cfLiepajaPageEn: CampaignPageContent = {
     ],
   },
   solutionEyebrow: "Programs",
-  solutionTitle: "The team learns it once. The program then runs itself.",
+  solutionTitle: "Five wellness programs. One simple experience.",
   solutionBody:
     "Wellness programs suited to a sports environment. Each session follows a clear, time-based format.",
   solutionPrograms: [
@@ -280,8 +264,6 @@ export const cfLiepajaPageEn: CampaignPageContent = {
   demoStepsTitle: "A new experience for members. A new revenue opportunity for CF Liepāja.",
   demoStepsLead:
     "The calculator shows an example: €10 × 5 sessions a day × 22 days = €1,100 gross per month. Demand and profitability depend on pricing, utilization, equipment costs, and operating expenses.",
-  demoStepsSecondaryCta: "Discuss a one-week trial",
-  demoStepsSecondaryContactMessage: TRIAL_CONTACT_EN,
   demoSteps: [
     {
       title: "Individual paid sessions",
@@ -298,11 +280,9 @@ export const cfLiepajaPageEn: CampaignPageContent = {
   ],
   finalCtaTitle: "See what SANZA could bring to CF Liepāja.",
   finalCtaBody:
-    "Let’s arrange a demonstration and explore how a one-week trial could work at your facility. Experience the system firsthand and evaluate whether it fits your members and your business.",
-  finalCtaPrimary: "Arrange a SANZA demonstration",
+    "Let’s arrange a demonstration and discuss whether and how a one-week trial could suit your club. Commercial terms are agreed on a call — nothing is offered as unconditional or free by default.",
+  finalCtaPrimary: "Arrange a demonstration",
   finalCtaPrimaryContactMessage: DEMO_CONTACT_EN,
-  finalCtaSecondary: "Discuss a one-week trial",
-  finalCtaSecondaryContactMessage: TRIAL_CONTACT_EN,
 };
 
 export function cfLiepajaContent(locale: string): CampaignPageContent {
