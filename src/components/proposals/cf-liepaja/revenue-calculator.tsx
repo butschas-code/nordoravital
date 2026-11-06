@@ -87,7 +87,7 @@ export function RevenueCalculator({ locale = "lv" }: { locale?: "lv" | "en" }) {
         />
       </div>
 
-      <p className="mt-8 text-sm leading-relaxed text-[var(--muted)]">
+      <p className="mt-8 text-pretty text-sm leading-[1.6] text-[var(--muted)]">
         {copy.note}
       </p>
     </div>

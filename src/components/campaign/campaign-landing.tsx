@@ -62,6 +62,32 @@ function IconCheck() {
     </svg>
   );
 }
+function RichBlocks({
+  text,
+  variant = "default",
+  className,
+  wrapperClassName = "grid gap-4",
+}: {
+  text: string;
+  variant?: "default" | "onDark" | "muted";
+  className: string;
+  wrapperClassName?: string;
+}) {
+  const blocks = text.split(/\n{2,}/);
+  return (
+    <div className={wrapperClassName}>
+      {blocks.map((block, index) => (
+        <p
+          key={index}
+          className={`${block.includes("\n") ? "whitespace-pre-line" : "text-pretty"} ${className}`}
+        >
+          <RichLine text={block} variant={variant} />
+        </p>
+      ))}
+    </div>
+  );
+}
+
 function IconArrow() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden className="h-4 w-4">
@@ -153,8 +179,8 @@ export async function CampaignLanding({
   const heroTextAlign = content.heroTextAlign ?? "right";
   const heroCopyClass =
     heroTextAlign === "left"
-      ? "mr-auto w-full max-w-xl text-left sm:max-w-2xl"
-      : "ml-auto w-full max-w-xl text-left sm:max-w-2xl md:text-right";
+      ? "mr-auto w-full max-w-xl text-left sm:max-w-2xl lg:max-w-[44rem]"
+      : "ml-auto w-full max-w-xl text-left sm:max-w-2xl lg:max-w-[44rem] md:text-right";
   const heroCtaClass =
     heroTextAlign === "left"
       ? "flex flex-col items-stretch justify-start gap-3 sm:flex-row sm:items-center sm:gap-4"
@@ -244,15 +270,27 @@ export async function CampaignLanding({
               <FadeUp immediate delay={2} className="mt-4">
                 <h1
                   id="campaign-hero-heading"
-                  className="font-heading text-[clamp(2rem,11vw,3.6rem)] font-bold leading-[1.04] tracking-tight text-white whitespace-pre-line [text-shadow:0_2px_28px_rgba(0,0,0,0.45)] sm:text-[clamp(2.3rem,7vw,3.6rem)] md:text-[clamp(2.4rem,5vw,3.6rem)]"
+                  className="text-balance font-heading text-[clamp(2rem,8.2vw,3.25rem)] font-bold leading-[1.12] tracking-[-0.015em] text-white [text-shadow:0_2px_28px_rgba(0,0,0,0.45)] sm:text-[clamp(2.1rem,3.6vw,3.25rem)]"
                 >
-                  <RichLine text={content.heroHeadline} variant="onDark" />
+                  {content.heroHeadline.split("\n").map((line, index, lines) => (
+                    <span key={line} className={lines.length > 1 ? "lg:block" : undefined}>
+                      {index > 0 ? <span className="lg:hidden"> </span> : null}
+                      <RichLine text={line} variant="onDark" />
+                    </span>
+                  ))}
                 </h1>
               </FadeUp>
               <FadeUp immediate delay={3} className="mt-5 sm:mt-7">
-                <p className="whitespace-pre-line text-base leading-relaxed text-white/92 [text-shadow:0_1px_10px_rgba(0,0,0,0.3)] sm:text-lg">
-                  <RichLine text={content.heroSubhead} variant="onDark" />
-                </p>
+                <RichBlocks
+                  text={content.heroSubhead}
+                  variant="onDark"
+                  className="text-base leading-[1.65] text-white/92 [text-shadow:0_1px_10px_rgba(0,0,0,0.3)] sm:text-lg md:ml-auto md:max-w-[62ch]"
+                />
+                {content.heroNote ? (
+                  <p className="mt-4 text-pretty text-sm leading-relaxed text-white/75 [text-shadow:0_1px_8px_rgba(0,0,0,0.35)]">
+                    {content.heroNote}
+                  </p>
+                ) : null}
               </FadeUp>
 
               <FadeUp immediate delay={5} className="mt-7 sm:mt-10">
@@ -286,15 +324,18 @@ export async function CampaignLanding({
         aria-label="Quick facts"
       >
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
-          <ul className="grid grid-cols-1 divide-y divide-white/10 sm:grid-cols-2 sm:divide-x sm:divide-y-0 md:grid-cols-4">
+          <ul className="grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 md:grid-cols-4 md:gap-0">
             {content.quickStats.map((stat, i) => (
-              <li key={i} className="px-2 py-4 sm:px-5 sm:py-3 md:px-6">
+              <li
+                key={i}
+                className="md:border-l md:border-white/10 md:px-6 md:first:border-l-0 md:first:pl-0"
+              >
                 <FadeUp delay={Math.min(i + 1, 4) as 1 | 2 | 3 | 4}>
-                  <div className="grid grid-cols-[4.75rem_minmax(0,1fr)] items-center gap-4 text-left sm:flex sm:flex-col sm:items-center sm:text-center md:items-start md:text-left">
-                    <span className="font-heading text-[2.4rem] font-bold leading-none tracking-tight text-white [text-shadow:0_2px_18px_rgba(0,0,0,0.45)] sm:text-[clamp(2.2rem,4.8vw,3.2rem)]">
+                  <div className="flex items-baseline gap-4 md:flex-col md:items-start md:gap-3">
+                    <span className="shrink-0 whitespace-nowrap font-heading text-[2rem] font-bold leading-none tracking-[-0.02em] text-white tabular-nums [text-shadow:0_2px_18px_rgba(0,0,0,0.45)] md:text-[clamp(1.65rem,2vw,2.4rem)]">
                       {stat.value}
                     </span>
-                    <span className="text-[0.7rem] font-semibold uppercase leading-snug tracking-[0.11em] text-[var(--brand-secondary)]/95 sm:mt-3 sm:text-xs sm:tracking-[0.14em] md:text-sm md:tracking-[0.16em]">
+                    <span className="min-w-0 text-balance text-[0.75rem] font-semibold uppercase leading-snug tracking-[0.08em] text-[var(--brand-secondary)]/95">
                       {stat.label}
                     </span>
                   </div>
@@ -323,15 +364,17 @@ export async function CampaignLanding({
               <FadeUp delay={1}>
                 <h2
                   id="campaign-problem-heading"
-                  className={`${content.problemEyebrow ? "mt-3 " : ""}font-heading text-[clamp(1.8rem,8vw,2.7rem)] font-bold leading-[1.08] tracking-tight text-[var(--text)] sm:text-[clamp(2rem,5vw,2.7rem)] md:text-[clamp(2rem,4vw,2.7rem)]`}
+                  className={`${content.problemEyebrow ? "mt-3 " : ""}text-balance font-heading text-[clamp(1.8rem,7vw,2.6rem)] font-bold leading-[1.12] tracking-[-0.015em] text-[var(--text)]`}
                 >
                   {content.problemTitle}
                 </h2>
               </FadeUp>
               <FadeUp delay={2}>
-                <p className="mt-6 whitespace-pre-line text-base leading-relaxed text-[var(--muted)] sm:text-lg">
-                  <RichLine text={content.problemBody} />
-                </p>
+                <RichBlocks
+                  text={content.problemBody}
+                  wrapperClassName="mt-6 grid max-w-[68ch] gap-4"
+                  className="text-base leading-[1.65] text-[var(--muted)] sm:text-lg"
+                />
               </FadeUp>
             </div>
 
@@ -370,19 +413,42 @@ export async function CampaignLanding({
       >
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">
           {/* Header — full-width centred */}
-          <FadeUp className="mx-auto max-w-3xl text-center">
-            <p className="text-[0.72rem] font-semibold uppercase leading-snug tracking-[0.11em] text-white/60 sm:text-sm sm:tracking-[0.16em] md:text-[0.9375rem] md:tracking-[0.18em]">
+          <FadeUp className="mx-auto max-w-[70ch]">
+            <p className="text-center text-[0.72rem] font-semibold uppercase leading-snug tracking-[0.11em] text-white/60 sm:text-sm sm:tracking-[0.16em] md:text-[0.9375rem] md:tracking-[0.18em]">
               {content.solutionEyebrow}
             </p>
             <h2
               id="campaign-solution-heading"
-              className="mt-3 font-heading text-[clamp(1.8rem,8vw,2.9rem)] font-bold leading-[1.08] tracking-tight text-white [text-shadow:0_1px_18px_rgba(0,0,0,0.4)] sm:text-[clamp(2rem,5vw,2.9rem)] md:text-[clamp(2rem,4vw,2.9rem)]"
+              className="mt-3 text-balance text-center font-heading text-[clamp(1.8rem,7vw,2.7rem)] font-bold leading-[1.12] tracking-[-0.015em] text-white [text-shadow:0_1px_18px_rgba(0,0,0,0.4)]"
             >
               <RichLine text={content.solutionTitle} variant="onDark" />
             </h2>
-            <p className="mt-5 whitespace-pre-line text-base leading-relaxed text-white/80 sm:text-lg">
-              <RichLine text={content.solutionBody} variant="onDark" />
-            </p>
+            <RichBlocks
+              text={content.solutionBody}
+              variant="onDark"
+              wrapperClassName="mt-6 grid gap-4 text-left"
+              className="text-base leading-[1.65] text-white/80 sm:text-lg"
+            />
+            {content.solutionPrograms?.length ? (
+              <ul className="mt-8 grid gap-3 text-left">
+                {content.solutionPrograms.map((program) => (
+                  <li
+                    key={program.name}
+                    className="grid grid-cols-1 gap-1 border-t border-white/15 pt-3 sm:grid-cols-[9.5rem_minmax(0,1fr)] sm:items-baseline sm:gap-6"
+                  >
+                    <p className="font-heading text-base font-semibold tracking-[-0.01em] text-white">
+                      {program.name}
+                    </p>
+                    <p className="text-pretty text-base leading-relaxed text-white/78">{program.detail}</p>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+            {content.solutionProgramNote ? (
+              <p className="mt-6 text-pretty text-left text-base leading-[1.65] text-white/75 sm:text-lg">
+                <RichLine text={content.solutionProgramNote} variant="onDark" />
+              </p>
+            ) : null}
           </FadeUp>
 
           {/* 3 spec cards — horizontal, full-width, generous padding */}
@@ -449,16 +515,19 @@ export async function CampaignLanding({
             </p>
             <h2
               id="campaign-fits-heading"
-              className="mt-3 font-heading text-[clamp(1.8rem,8vw,2.7rem)] font-bold leading-[1.08] tracking-tight text-[var(--text)] sm:text-[clamp(2rem,5vw,2.7rem)] md:text-[clamp(2rem,4vw,2.7rem)]"
+              className="mt-3 text-balance font-heading text-[clamp(1.8rem,7vw,2.6rem)] font-bold leading-[1.12] tracking-[-0.015em] text-[var(--text)]"
             >
               {content.fitsTitle}
             </h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--muted)] sm:text-lg">
+            <p className="mt-4 max-w-[68ch] text-pretty text-base leading-[1.65] text-[var(--muted)] sm:text-lg">
               <RichLine text={content.fitsLead} />
             </p>
           </FadeUp>
 
-          <ul className="mt-9 grid gap-5 sm:mt-12 sm:grid-cols-2 lg:gap-7" style={{ gridAutoRows: "1fr" }}>
+          <ul
+            className={`mt-9 grid gap-5 sm:mt-12 sm:grid-cols-2 lg:gap-7 ${content.fitsItems.length === 3 ? "lg:grid-cols-3" : ""}`}
+            style={{ gridAutoRows: "1fr" }}
+          >
             {content.fitsItems.map((item, idx) => (
               <li key={idx} className="h-full">
                 <FadeUp delay={Math.min(idx + 1, 6) as 1 | 2 | 3 | 4 | 5 | 6} className="h-full">
@@ -493,7 +562,7 @@ export async function CampaignLanding({
                     </div>
                     {/* Body */}
                     <div className="flex flex-1 flex-col p-5 sm:p-7">
-                      <p className="text-base leading-relaxed text-[var(--muted)] sm:text-[1.0625rem]">
+                      <p className="text-pretty text-base leading-[1.65] text-[var(--muted)] sm:text-[1.0625rem]">
                         <RichLine text={item.body} />
                       </p>
                     </div>
@@ -519,7 +588,7 @@ export async function CampaignLanding({
             </p>
             <h2
               id="campaign-changes-heading"
-              className="mt-3 font-heading text-[clamp(1.8rem,8vw,2.7rem)] font-bold leading-[1.08] tracking-tight text-white [text-shadow:0_1px_18px_rgba(0,0,0,0.4)] sm:text-[clamp(2rem,5vw,2.7rem)] md:text-[clamp(2rem,4vw,2.7rem)]"
+              className="mt-3 text-balance font-heading text-[clamp(1.8rem,7vw,2.6rem)] font-bold leading-[1.12] tracking-[-0.015em] text-white [text-shadow:0_1px_18px_rgba(0,0,0,0.4)]"
             >
               {content.whatChangesTitle}
             </h2>
@@ -634,7 +703,7 @@ export async function CampaignLanding({
                   <p className="text-[0.72rem] font-semibold uppercase leading-snug tracking-[0.11em] text-white/76 sm:text-sm sm:tracking-[0.16em] md:text-[0.9375rem] md:tracking-[0.18em]">
                     {content.socialProofLabel}
                   </p>
-                  <blockquote className="mt-5 font-heading text-[clamp(1.35rem,6vw,2.1rem)] font-semibold leading-snug text-white [text-shadow:0_1px_14px_rgba(0,0,0,0.4)] sm:text-[clamp(1.5rem,3vw,2.1rem)] md:text-[clamp(1.5rem,2.6vw,2.1rem)]">
+                  <blockquote className="mt-5 text-balance font-heading text-[clamp(1.35rem,4.5vw,2rem)] font-semibold leading-[1.3] tracking-[-0.015em] text-white [text-shadow:0_1px_14px_rgba(0,0,0,0.4)]">
                     “<RichLine text={content.socialProofQuote} variant="onDark" />”
                   </blockquote>
                   <figcaption className="mt-6 text-base leading-relaxed text-white/78">
@@ -677,11 +746,11 @@ export async function CampaignLanding({
                 </p>
                 <h2
                   id="campaign-demo-heading"
-                  className="mt-3 font-heading text-[clamp(1.75rem,8vw,2.55rem)] font-bold leading-[1.08] tracking-tight text-[var(--text)] sm:text-[clamp(1.9rem,5vw,2.55rem)] md:text-[clamp(1.9rem,3.8vw,2.55rem)]"
+                  className="mt-3 text-balance font-heading text-[clamp(1.75rem,6vw,2.45rem)] font-bold leading-[1.12] tracking-[-0.015em] text-[var(--text)]"
                 >
                   <RichLine text={content.demoStepsTitle} />
                 </h2>
-                <p className="mt-5 text-base leading-relaxed text-[var(--muted)] sm:text-lg">
+                <p className="mt-5 max-w-[68ch] text-pretty text-base leading-[1.65] text-[var(--muted)] sm:text-lg">
                   <RichLine text={content.demoStepsLead} />
                 </p>
                 <div className="mt-7 flex flex-col items-stretch gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center">
@@ -756,13 +825,13 @@ export async function CampaignLanding({
           <FadeUp>
             <h2
               id="campaign-final-cta-heading"
-              className="font-heading text-[clamp(1.85rem,8vw,3.1rem)] font-bold leading-[1.08] tracking-tight text-white [text-shadow:0_2px_28px_rgba(0,0,0,0.4)] sm:text-[clamp(2rem,5vw,3.1rem)] md:text-[clamp(2rem,4.6vw,3.1rem)]"
+              className="text-balance font-heading text-[clamp(1.85rem,6.5vw,2.9rem)] font-bold leading-[1.12] tracking-[-0.015em] text-white [text-shadow:0_2px_28px_rgba(0,0,0,0.4)]"
             >
               <RichLine text={content.finalCtaTitle} variant="onDark" />
             </h2>
           </FadeUp>
           <FadeUp delay={1}>
-            <p className="mx-auto mt-6 max-w-2xl whitespace-pre-line text-base leading-relaxed text-white/88 sm:text-lg">
+            <p className="mx-auto mt-6 max-w-[62ch] text-pretty text-base leading-[1.65] text-white/88 sm:text-lg">
               <RichLine text={content.finalCtaBody} variant="onDark" />
             </p>
           </FadeUp>

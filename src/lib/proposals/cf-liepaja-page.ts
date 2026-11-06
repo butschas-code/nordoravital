@@ -22,9 +22,11 @@ export const cfLiepajaPage: CampaignPageContent = {
   heroImagePosition: "22% center",
   heroTextAlign: "right",
   heroKicker: "Sagatavots CF Liepāja",
-  heroHeadline: "Viena stacija.\nViens biedrs. Numurēta programma.",
+  heroHeadline: "Viena stacija. Viens biedrs.\nNumurēta programma.",
   heroSubhead:
-    "Pēc HYROX, funkcionālā treniņa vai pieaugušo boksa biedrs apguļas uz MAT. Personāls vai pats biedrs palaiž numurētu programmu kontrollerī. Sesija sporta lietojumā ir 5–10 minūtes.\n\nKoncepta vizualizācija. Attēli rāda iespējamo izvietojumu, nevis uzstādītu iekārtu.",
+    "Pēc HYROX, funkcionālā treniņa vai pieaugušo boksa biedrs apguļas uz MAT. Personāls vai pats biedrs palaiž numurētu programmu kontrollerī. Sesija sporta lietojumā ir 5–10 minūtes.",
+  heroNote:
+    "Koncepta vizualizācija. Attēli rāda iespējamo izvietojumu, nevis uzstādītu iekārtu.",
   heroCtaPrimary: "Vienosimies par demonstrāciju",
   heroCtaSecondary: "Uzzināt par izmēģinājuma iespējām",
   heroCtaSecondaryHref: TRIAL,
@@ -47,7 +49,16 @@ export const cfLiepajaPage: CampaignPageContent = {
   solutionEyebrow: "Kas notiek sesijā",
   solutionTitle: "Komanda iemācās vienreiz. Programma pēc tam iet pati.",
   solutionBody:
-    "Kontrollerī ir 15 numurētas programmas. Parametrus treniņa laikā nav jāregulē. Numurētas programmas palaišana aizņem mazāk nekā 15 sekundes.\n\nKluba izvēlne, ko iesakām sākt:\nSport — aktivizācija pirms aktivitātes\nVital — rīta aktivizācija\nAlpha — mierīga koncentrēšanās un gatavība\nRelax — atjaunojoša atbalsta programma\nAnti-Stress — līdzsvarojoša relaksācija\n\nKontrollerī ir arī Sleep, Lymph un Manual. Kopā ir 15 numurētas programmas. Klubs izvēlas, kuras no tām biedri redz.",
+    "Kontrollerī ir 15 numurētas programmas. Parametrus treniņa laikā nav jāregulē. Numurētas programmas palaišana aizņem mazāk nekā 15 sekundes.",
+  solutionPrograms: [
+    { name: "Sport", detail: "Aktivizācija pirms aktivitātes" },
+    { name: "Vital", detail: "Rīta aktivizācija" },
+    { name: "Alpha", detail: "Mierīga koncentrēšanās un gatavība" },
+    { name: "Relax", detail: "Atjaunojoša atbalsta programma" },
+    { name: "Anti-Stress", detail: "Līdzsvarojoša relaksācija" },
+  ],
+  solutionProgramNote:
+    "Kontrollerī ir arī Sleep, Lymph un Manual. Kopā ir 15 numurētas programmas. Klubs izvēlas, kuras no tām biedri redz.",
   solutionSpecs: [
     {
       title: "Personāls",
@@ -139,9 +150,10 @@ export const cfLiepajaPageEn: CampaignPageContent = {
   heroImagePosition: "22% center",
   heroTextAlign: "right",
   heroKicker: "Prepared for CF Liepāja",
-  heroHeadline: "One station.\nOne member. A numbered program.",
+  heroHeadline: "One station. One member.\nA numbered program.",
   heroSubhead:
-    "After HYROX, functional training, or adult boxing, a member lies on the MAT. Staff, or the member, starts a numbered program on the controller. In the sports use, that session is 5–10 minutes.\n\nConcept visualization. The images show a possible layout, not installed equipment.",
+    "After HYROX, functional training, or adult boxing, a member lies on the MAT. Staff, or the member, starts a numbered program on the controller. In the sports use, that session is 5–10 minutes.",
+  heroNote: "Concept visualization. The images show a possible layout, not installed equipment.",
   heroCtaPrimary: "Arrange a demonstration",
   heroCtaSecondary: "Ask about trial options",
   heroCtaSecondaryHref: TRIAL_EN,
@@ -164,7 +176,16 @@ export const cfLiepajaPageEn: CampaignPageContent = {
   solutionEyebrow: "What a session actually is",
   solutionTitle: "The team learns it once. The program then runs itself.",
   solutionBody:
-    "The controller has 15 numbered programs. Nobody adjusts frequencies during a busy floor. Starting a numbered program takes under 15 seconds.\n\nThe club menu we would start with:\nSport — activation before activity\nVital — morning activation\nAlpha — calm focus and readiness\nRelax — regeneration-style support\nAnti-Stress — balancing relaxation\n\nSleep, Lymph and Manual are on the controller too. The full set is 15 numbered programs. The club chooses which of them members see.",
+    "The controller has 15 numbered programs. Nobody adjusts frequencies during a busy floor. Starting a numbered program takes under 15 seconds.",
+  solutionPrograms: [
+    { name: "Sport", detail: "Activation before activity" },
+    { name: "Vital", detail: "Morning activation" },
+    { name: "Alpha", detail: "Calm focus and readiness" },
+    { name: "Relax", detail: "Regeneration-style support" },
+    { name: "Anti-Stress", detail: "Balancing relaxation" },
+  ],
+  solutionProgramNote:
+    "Sleep, Lymph and Manual are on the controller too. The full set is 15 numbered programs. The club chooses which of them members see.",
   solutionSpecs: [
     {
       title: "Staff",

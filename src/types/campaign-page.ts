@@ -13,9 +13,11 @@ export type CampaignPageContent = {
   heroTextAlign?: "left" | "right";
   heroBadge?: string;
   heroKicker: string;
-  /** May contain a single newline `\n` for visual line break. */
+  /** A single `\n` is a deliberate break. Soft wraps are balanced in the hero. */
   heroHeadline: string;
   heroSubhead: string;
+  /** Smaller line under the subhead. Use for a caveat, not a second pitch. */
+  heroNote?: string;
   heroCtaPrimary: string;
   heroCtaSecondary?: string;
   /** When set, the secondary hero button uses this href instead of /how-it-works. */
@@ -49,6 +51,9 @@ export type CampaignPageContent = {
   solutionEyebrow: string;
   solutionTitle: string;
   solutionBody: string;
+  /** Named programs, set apart from the prose so each name keeps its own line. */
+  solutionPrograms?: { name: string; detail: string }[];
+  solutionProgramNote?: string;
   /** Three iconified spec pills shown beneath the solution body. */
   solutionSpecs: [
     { title: string; body: string },

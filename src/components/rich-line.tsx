@@ -16,6 +16,7 @@ export function RichLine({
   text: string;
   variant?: keyof typeof variantClass;
 }): ReactNode {
+  if (!text.includes("<strong>")) return text;
   const strongClass = variantClass[variant];
   const parts = text.split(/(<strong>[\s\S]*?<\/strong>)/g);
   return (
