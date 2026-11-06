@@ -16,9 +16,9 @@ describe("robots.txt", () => {
   it("keeps private paths out and points at this host's sitemap", async () => {
     const result = await robots();
     const rules = Array.isArray(result.rules) ? result.rules : [result.rules];
-    const openai = rules.find((rule) =>
-      ([] as string[]).concat(rule.userAgent).includes("ChatGPT-User"),
-    );
+    const agentsOf = (userAgent: string | string[] | undefined) =>
+      userAgent === undefined ? [] : Array.isArray(userAgent) ? userAgent : [userAgent];
+    const openai = rules.find((rule) => agentsOf(rule.userAgent).includes("ChatGPT-User"));
     const others = rules.filter((rule) => rule !== openai);
     expect(openai?.allow).toEqual(expect.arrayContaining(["/cf-liepaja", "/*/cf-liepaja"]));
     expect(openai?.disallow).not.toEqual(expect.arrayContaining(["/cf-liepaja", "/*/cf-liepaja"]));
@@ -28,7 +28,7 @@ describe("robots.txt", () => {
       );
       expect(rule.allow).toBe("/");
     }
-    const agents = rules.flatMap((r) => r.userAgent);
+    const agents = rules.flatMap((r) => agentsOf(r.userAgent));
     expect(agents).toEqual(expect.arrayContaining(["*", "GPTBot", "ChatGPT-User", "ClaudeBot", "PerplexityBot", "Google-Extended"]));
     expect(result.sitemap).toBe("https://pro.nordoravital.com/sitemap.xml");
   });
