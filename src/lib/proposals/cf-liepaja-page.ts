@@ -19,7 +19,7 @@ export const cfLiepajaPage: CampaignPageContent = {
   segmentName: "CF Liepāja",
   metaTitle: "Jauna atjaunošanās pieredze CF Liepāja klubā — sanza — Nordora Vital",
   metaDescription:
-    "Koncepts, kā sanza stacija varētu izskatīties CF Liepāja zālē: programmas, biedru pieredze un ilustratīvs ieņēmumu piemērs — demonstrācija un izmēģinājums pēc vienošanās.",
+    "Koncepts, kā sanza stacija varētu izskatīties CF Liepāja zālē: programmas, biedru pieredze un ilustratīvs ieņēmumu piemērs — demonstrācija un izmēģinājums pēc sarunas un vienošanās.",
   heroImage: IMAGES.hero,
   heroImagePosition: "22% center",
   heroTextAlign: "right",
@@ -30,7 +30,7 @@ export const cfLiepajaPage: CampaignPageContent = {
   heroCtaPrimary: "Vienoties par demonstrāciju",
   heroCtaSecondary: "Iepazīties ar konceptu",
   heroCtaSecondaryHref: "#campaign-problem-heading",
-  heroValueProps: ["16 min", "SANZA", "CF Liepāja"],
+  heroValueProps: ["16 minūtes", "SANZA", "CF Liepāja"],
   contactCategory: "sports-performance",
   demoRequestMessage: DEMO_CONTACT_LV,
   quickStats: [
@@ -73,7 +73,7 @@ export const cfLiepajaPage: CampaignPageContent = {
   solutionEyebrow: "Programmas",
   solutionTitle: "Piecas labsajūtas programmas. Viena vienkārša pieredze.",
   solutionBody:
-    "Pieejamas labsajūtas programmas, kas pielāgotas sporta videi. Katrai sesijai ir skaidrs, laika kontrolēts formāts.",
+    "Labsajūtas programmas, kas piemērotas sporta videi. Katrai sesijai ir skaidrs, laika noteikts formāts.",
   solutionPrograms: [
     { name: "Sport", detail: "Aktivizācija pirms aktivitātes" },
     { name: "Vital", detail: "Rīta aktivizācija" },
@@ -85,7 +85,7 @@ export const cfLiepajaPage: CampaignPageContent = {
     "Biedrs izvēlas piemērotu programmu un izbauda strukturētu sesiju. Klubs izlemj, kā sesijas tiek piedāvātas un ieplānotas.",
   fitsEyebrow: "Biedru pieredze",
   fitsTitle: "Labsajūtas pieredze, kas iekļaujas treniņu rutīnā.",
-  fitsLead: "Trīs veidi, kā šo piedāvāt biedriem atbilstoši jūsu grafikam.",
+  fitsLead: "Trīs veidi, kā to piedāvāt līdzās jūsu grafikam.",
   fitsImages: [IMAGES.journey, IMAGES.member, IMAGES.corner],
   fitsImagePositions: ["8% center", "62% center", "center"],
   fitsItems: [
@@ -146,7 +146,7 @@ export const cfLiepajaPage: CampaignPageContent = {
   ],
   finalCtaTitle: "Uzziniet, ko SANZA varētu dot CF Liepāja.",
   finalCtaBody:
-    "Vienosimies par demonstrāciju un pārrunāsim, vai un kā vienas nedēļas izmēģinājums varētu būt piemērots jūsu klubam. Noteikumus vienojamies zvanā.",
+    "Vienosimies par demonstrāciju un pārrunāsim, vai un kā vienas nedēļas izmēģinājums varētu atbilst jūsu klubam. Komerciālos noteikumus vienojamies zvanā — nekas netiek piedāvāts kā bez nosacījumiem vai bez maksas pēc noklusējuma.",
   finalCtaPrimary: "Vienoties par demonstrāciju",
   finalCtaPrimaryContactMessage: DEMO_CONTACT_LV,
 };
