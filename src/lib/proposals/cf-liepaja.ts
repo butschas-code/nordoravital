@@ -10,10 +10,10 @@ export function illustrativeGrossRevenue(
 
 export const DEMO_EMAIL = "sascha@nordoravital.com";
 export const DEMO_PHONE = "+371 20727915";
-export const DEMO_SUBJECT = "CF Liepāja — Sanza demonstrācija";
-export const TRIAL_SUBJECT = "CF Liepāja — Sanza izmēģinājuma iespējas";
-export const DEMO_SUBJECT_EN = "CF Liepāja — sanza demonstration";
-export const TRIAL_SUBJECT_EN = "CF Liepāja — sanza trial options";
+export const DEMO_SUBJECT = "CF Liepāja — zvans par vienas nedēļas izmēģinājumu";
+export const TRIAL_SUBJECT = "CF Liepāja — vienas nedēļas izmēģinājums";
+export const DEMO_SUBJECT_EN = "CF Liepāja — call about a one-week trial";
+export const TRIAL_SUBJECT_EN = "CF Liepāja — one-week trial";
 
 function mailto(subject: string, body: string) {
   return `mailto:${DEMO_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -23,12 +23,12 @@ export function demoMailto(locale: "lv" | "en" = "lv") {
   if (locale === "en") {
     return mailto(
       DEMO_SUBJECT_EN,
-      "Hello,\n\nwe would like to arrange a sanza demonstration for CF Liepāja.\n\n",
+      "Hello,\n\nwe would like a call about a one-week sanza trial at CF Liepāja. We want to discuss the terms.\n\n",
     );
   }
   return mailto(
     DEMO_SUBJECT,
-    "Labdien,\n\nvēlamies vienoties par sanza demonstrāciju CF Liepāja.\n\n",
+    "Labdien,\n\nvēlamies zvanu par vienas nedēļas sanza izmēģinājumu CF Liepāja. Noteikumus gribam pārrunāt.\n\n",
   );
 }
 
@@ -36,12 +36,12 @@ export function trialMailto(locale: "lv" | "en" = "lv") {
   if (locale === "en") {
     return mailto(
       TRIAL_SUBJECT_EN,
-      "Hello,\n\nwe would like to know which rental or trial options are available for a sanza system at CF Liepāja. Please tell us what is possible.\n\n",
+      "Hello,\n\nwe would like to discuss a one-week sanza trial at CF Liepāja. Please tell us the terms on a call.\n\n",
     );
   }
   return mailto(
     TRIAL_SUBJECT,
-    "Labdien,\n\nvēlamies uzzināt, kādas nomas vai izmēģinājuma iespējas sanza sistēmai ir pieejamas CF Liepāja. Lūdzu, pastāstiet par iespējamiem variantiem.\n\n",
+    "Labdien,\n\nvēlamies pārrunāt vienas nedēļas sanza izmēģinājumu CF Liepāja. Noteikumus lūdzam noskaidrot zvanā.\n\n",
   );
 }
 

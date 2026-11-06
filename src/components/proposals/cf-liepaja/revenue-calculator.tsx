@@ -13,7 +13,7 @@ const COPY = {
     sessionsUnit: "sesijas",
     days: "Dienas mēnesī",
     daysUnit: "dienas",
-    note: "Ilustratīvs aprēķins, nevis solījums. Viena stacija = viens biedrs. 5–10 minūšu programma plus pāris minūtes, lai apgultos un pieceltos, ir aptuveni 15 minūtes. Stundā sanāk apmēram 4 maiņas. Pieci pieraksti dienā ir piesardzīgs starts, nevis stacijas griesti.",
+    note: "Ilustratīvs aprēķins, nevis solījums un nevis peļņa. Sesija ir 16 minūtes. Viena stacija, viens biedrs.",
   },
   en: {
     result: "Monthly gross revenue",
@@ -24,7 +24,7 @@ const COPY = {
     sessionsUnit: "sessions",
     days: "Days per month",
     daysUnit: "days",
-    note: "Illustrative calculation, not a promise. One station means one member. A 5–10 minute program, plus a couple of minutes to lie down and get up, is about 15 minutes. That is about 4 turns an hour. Five bookings a day is a cautious start, not the station’s ceiling.",
+    note: "Illustrative calculation, not a promise and not profit. The session is 16 minutes. One station, one member.",
   },
 } as const;
 

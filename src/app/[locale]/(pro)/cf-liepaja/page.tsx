@@ -19,6 +19,7 @@ export default async function CfLiepajaPage({
       campaignSlug="sporta-zales"
       includeJsonLd={false}
       showWorkflowSimulator={false}
+      showSocialProof={false}
       insertBeforeDemo={
         <section className="bg-[var(--bg)] pb-4 sm:pb-8">
           <div className="mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8 lg:px-10">

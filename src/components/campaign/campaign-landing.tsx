@@ -31,6 +31,8 @@ type Props = {
   includeJsonLd?: boolean;
   /** Clinic-day simulator. On for the public sales pages. */
   showWorkflowSimulator?: boolean;
+  /** Quote panel. Off for a private proposal that has no quotation. */
+  showSocialProof?: boolean;
   insertBeforeDemo?: ReactNode;
 };
 
@@ -174,6 +176,7 @@ export async function CampaignLanding({
   propertyName,
   includeJsonLd = true,
   showWorkflowSimulator = true,
+  showSocialProof = true,
   insertBeforeDemo,
 }: Props) {
   const heroTextAlign = content.heroTextAlign ?? "right";
@@ -673,7 +676,7 @@ export async function CampaignLanding({
       </section>
       ) : null}
 
-      {/* ═════════ SOCIAL PROOF (light w/ image-bg quote panel) ═════════ */}
+      {showSocialProof ? (
       <section
         className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-[100vw] bg-[var(--bg)] py-16 sm:py-20 md:py-24 lg:py-28"
         aria-label={content.socialProofLabel}
@@ -729,6 +732,7 @@ export async function CampaignLanding({
           </FadeUp>
         </div>
       </section>
+      ) : null}
 
       {insertBeforeDemo}
 
