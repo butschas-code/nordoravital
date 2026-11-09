@@ -3,12 +3,14 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PilotBookingForm } from "@/components/pilot/pilot-booking-form";
 import { PilotTimeline } from "@/components/pilot/pilot-timeline";
 import { richParts } from "@/lib/i18n-rich";
+import { routing, type Locale } from "@/i18n/routing";
 import { proPageMetadata } from "@/lib/page-metadata";
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  if (!routing.locales.includes(locale as Locale)) return {};
   const messages = (await import(`../../../../../messages/${locale}.json`)).default as {
     Pilot: { metaTitle: string; metaDescription: string };
   };

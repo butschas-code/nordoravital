@@ -1,7 +1,12 @@
+import type { Metadata } from "next";
 import { CampaignLanding } from "@/components/campaign/campaign-landing";
 import { RevenueCalculator } from "@/components/proposals/cf-liepaja/revenue-calculator";
 import { cfLiepajaContent } from "@/lib/proposals/cf-liepaja-page";
 import { setRequestLocale } from "next-intl/server";
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
 
 export default async function CfLiepajaPage({
   params,

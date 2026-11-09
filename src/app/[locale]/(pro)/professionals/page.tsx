@@ -9,6 +9,7 @@ import { ProfessionalsHero } from "@/components/professionals/professionals-hero
 import { ProfessionalsGrid, type SectorItem } from "@/components/professionals/professionals-grid";
 import { ClinicWorkflowSimulator } from "@/components/professionals/clinic-workflow-simulator";
 import { JsonLd } from "@/components/seo/json-ld";
+import { routing, type Locale } from "@/i18n/routing";
 import { proPageMetadata } from "@/lib/page-metadata";
 
 const DIRECTORY_BANNER_DATA: Record<
@@ -167,6 +168,7 @@ type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  if (!routing.locales.includes(locale as Locale)) return {};
   const m = (await import(`../../../../../messages/${locale}.json`)).default as {
     ProfessionalsIndex: { metaTitle: string; metaDescription: string };
   };

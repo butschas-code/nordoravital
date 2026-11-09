@@ -8,7 +8,7 @@ import { CampaignFloatingCta } from "@/components/campaign/campaign-floating-cta
 import { ContactDrawerTrigger } from "@/components/contact/contact-drawer-trigger";
 import { ClinicWorkflowSimulator } from "@/components/professionals/clinic-workflow-simulator";
 import { FadeUp } from "@/components/fade-up";
-import { CAMPAIGN_SHARE_ALIASES, type CampaignSlug } from "@/lib/campaign-slugs";
+import { type CampaignSlug } from "@/lib/campaign-slugs";
 import type {
   ProfessionalCategoryGroup,
   ProfessionalDirectoryContent,
@@ -75,17 +75,7 @@ export function ProfessionalDirectoryView({ content, locale }: ProfessionalDirec
     });
   }, [content.sectors, selectedCategory, searchQuery]);
 
-  const getSectorHref = (slug: CampaignSlug) => {
-    if (locale === "de") {
-      const alias = CAMPAIGN_SHARE_ALIASES.de[slug];
-      return `/${alias ?? slug}`;
-    }
-    if (locale === "en") {
-      const alias = CAMPAIGN_SHARE_ALIASES.en[slug];
-      return `/${alias ?? slug}`;
-    }
-    return `/${slug}`;
-  };
+  const getSectorHref = (slug: CampaignSlug) => `/${slug}`;
 
   const filterTabs: { id: ProfessionalCategoryGroup; label: string }[] = [
     { id: "all", label: content.allFilter },

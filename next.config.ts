@@ -11,6 +11,7 @@ const isDev = process.env.NODE_ENV === "development";
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["127.0.0.1", "192.168.0.242"],
+  devIndicators: false,
   poweredByHeader: false,
   async headers() {
     return [

@@ -1,0 +1,543 @@
+.root {
+  background: #f6f1ea;
+  color: #1e2a22;
+}
+
+.page {
+  width: min(100%, 540px);
+  margin: 0 auto;
+  aspect-ratio: 1080 / 2337;
+  container-type: inline-size;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+}
+
+.page:focus {
+  outline: none;
+}
+
+.canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1080px;
+  height: 2337px;
+  transform-origin: top left;
+  transform: scale(calc(100cqw / 1080px));
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(ellipse 78% 34% at 0% 6%, rgba(111, 138, 122, 0.24) 0%, transparent 58%),
+    radial-gradient(ellipse 68% 30% at 100% 0%, rgba(165, 133, 146, 0.18) 0%, transparent 56%),
+    radial-gradient(ellipse 90% 26% at 72% 100%, rgba(200, 139, 106, 0.12) 0%, transparent 52%),
+    linear-gradient(168deg, #fbf6ee 0%, #f6f1ea 46%, #efe9e2 100%);
+  color: #1e2a22;
+}
+
+.canvas::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  width: 720px;
+  height: 720px;
+  right: -470px;
+  top: -400px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle, transparent 60%, rgba(111, 138, 122, 0.34) 60.9%, transparent 62.4%),
+    radial-gradient(circle, transparent 76%, rgba(165, 133, 146, 0.28) 76.8%, transparent 78.2%);
+}
+
+.canvasDeep {
+  color: #f6f1ea;
+  background:
+    radial-gradient(ellipse 65% 42% at 16% 16%, rgba(111, 138, 122, 0.36) 0%, transparent 56%),
+    radial-gradient(ellipse 58% 48% at 92% 78%, rgba(165, 133, 146, 0.22) 0%, transparent 54%),
+    radial-gradient(ellipse 90% 50% at 40% 108%, rgba(80, 112, 64, 0.42) 0%, transparent 62%),
+    linear-gradient(168deg, #082721 0%, #0e3d34 45%, #11463b 100%);
+}
+
+.canvasDeep::before {
+  background:
+    radial-gradient(circle, transparent 60%, rgba(246, 241, 234, 0.22) 60.9%, transparent 62.4%),
+    radial-gradient(circle, transparent 76%, rgba(165, 133, 146, 0.32) 76.8%, transparent 78.2%);
+}
+
+.canvasDeep::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  width: 780px;
+  height: 780px;
+  left: -390px;
+  bottom: -80px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle, transparent 58%, rgba(111, 138, 122, 0.28) 58.8%, transparent 60.4%),
+    radial-gradient(circle, transparent 76%, rgba(200, 139, 106, 0.2) 76.7%, transparent 78%);
+}
+
+.copy {
+  position: relative;
+  z-index: 1;
+  flex: none;
+  padding: 156px 120px 40px;
+}
+
+.copyGrow {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.copyCenter {
+  text-align: center;
+}
+
+.display,
+.headline,
+.subhead,
+.lead,
+.stackLines,
+.names,
+.brandLine,
+.contactValue,
+.markName,
+.markProduct,
+.caption {
+  font-family: var(--font-manrope), "Plus Jakarta Sans", sans-serif;
+}
+
+.body,
+.support,
+.contactLabel {
+  font-family: var(--font-inter), sans-serif;
+}
+
+.display {
+  position: relative;
+  margin: 0;
+  font-weight: 700;
+  font-size: 188px;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+.headline {
+  position: relative;
+  margin: 0;
+  font-weight: 700;
+  font-size: 86px;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.display::after,
+.headline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -16px;
+  width: 128px;
+  height: 3px;
+  background: linear-gradient(90deg, #6f8a7a 0%, #a58592 72%, transparent 100%);
+}
+
+.copyCenter .display::after,
+.copyCenter .headline::after {
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent 0%, #6f8a7a 28%, #c88b6a 72%, transparent 100%);
+}
+
+.canvasDeep .display::after,
+.canvasDeep .headline::after {
+  background: linear-gradient(90deg, #f6f1ea 0%, #a58592 78%, transparent 100%);
+}
+
+.canvasDeep.copyCenter .display::after,
+.canvasDeep.copyCenter .headline::after {
+  background: linear-gradient(90deg, transparent 0%, #f6f1ea 30%, #c88b6a 74%, transparent 100%);
+}
+
+.subhead {
+  margin: 52px 0 0;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #507040;
+}
+
+.canvasDeep .subhead {
+  color: rgba(246, 241, 234, 0.78);
+}
+
+.lead {
+  margin: 56px 0 0;
+  font-weight: 600;
+  font-size: 52px;
+  line-height: 1.16;
+  letter-spacing: -0.022em;
+}
+
+.body {
+  margin: 48px 0 0;
+  max-width: 900px;
+  font-weight: 400;
+  font-size: 46px;
+  line-height: 1.38;
+  color: #3d4b43;
+  text-wrap: pretty;
+}
+
+.support {
+  margin: 22px 0 0;
+  font-size: 42px;
+  line-height: 1.4;
+  color: #5c5148;
+}
+
+.copyCenter .body,
+.copyCenter .support,
+.copyCenter .lead {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.canvasDeep .body,
+.canvasDeep .support {
+  color: rgba(246, 241, 234, 0.88);
+}
+
+.stackLines {
+  margin: 40px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 46px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.visual {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    165deg,
+    rgba(200, 139, 106, 0.1) 0%,
+    transparent 42%,
+    rgba(165, 133, 146, 0.14) 100%
+  );
+}
+
+.visual .photo {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 13%, #000 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 13%, #000 100%);
+}
+
+.canvasDeep .visual::after {
+  background: linear-gradient(
+    180deg,
+    rgba(8, 39, 33, 0.35) 0%,
+    transparent 22%,
+    rgba(165, 133, 146, 0.12) 100%
+  );
+}
+
+.visualQuiet {
+  flex: none;
+  height: 1080px;
+}
+
+.containFrame {
+  position: absolute;
+  inset: 8px 36px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo {
+  object-fit: cover;
+}
+
+.photoContain {
+  object-fit: contain;
+}
+
+.posLife {
+  object-position: 18% 42%;
+}
+
+.posRoom {
+  object-position: 62% 48%;
+}
+
+.posBed {
+  object-position: 34% 48%;
+}
+
+.posDaybed {
+  object-position: 58% 48%;
+}
+
+.posMat {
+  object-position: center 42%;
+}
+
+.posHands {
+  object-position: center 68%;
+}
+
+.posPen {
+  object-position: 62% 62%;
+}
+
+.posPad {
+  object-position: center 40%;
+}
+
+.posDevice {
+  object-position: center 58%;
+}
+
+.posProRoom {
+  object-position: 42% 46%;
+}
+
+.posProFaces {
+  object-position: 36% 14%;
+}
+
+.posProOperator {
+  object-position: 8% 72%;
+}
+
+.posProDevice {
+  object-position: 20% 64%;
+}
+
+.posArrival {
+  object-position: 22% 42%;
+}
+
+.posLounge {
+  object-position: 78% 40%;
+}
+
+.posRecovery {
+  object-position: 22% 72%;
+}
+
+.posElectrode {
+  object-position: 42% 42%;
+}
+
+.posHome {
+  object-position: 14% 58%;
+}
+
+.posLaserHome {
+  object-position: 62% 46%;
+}
+
+.posRest {
+  object-position: 62% 38%;
+}
+
+.posForYou {
+  object-position: 48% 42%;
+}
+
+.posChaise {
+  object-position: 0% 46%;
+}
+
+.posSpa {
+  object-position: 78% 46%;
+}
+
+.posPines {
+  object-position: 58% 62%;
+}
+
+.posMassage {
+  object-position: 80% 70%;
+}
+
+.posSettle {
+  object-position: 36% 46%;
+}
+
+.posDaySpa {
+  object-position: 84% 48%;
+}
+
+.posYoga {
+  object-position: 72% 74%;
+}
+
+.stack {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-bottom: 10px;
+}
+
+.stack figure {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.caption {
+  padding: 8px 120px 12px;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #507040;
+}
+
+.stackPhoto {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.names {
+  list-style: none;
+  margin: 40px 0 8px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 56px;
+}
+
+.names li {
+  border-top: 1px solid rgba(111, 138, 122, 0.35);
+  padding: 20px 0 6px;
+  font-size: 46px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.brandLine {
+  margin: 72px 0 0;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.contactLines {
+  margin-top: 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.contactLabel {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6d6158;
+}
+
+.canvasDeep .contactLabel {
+  color: rgba(246, 241, 234, 0.82);
+}
+
+.contactValue {
+  font-size: 46px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: inherit;
+  text-decoration: none;
+}
+
+.contactValue:focus-visible {
+  outline: 2px solid #6f8a7a;
+  outline-offset: 6px;
+}
+
+.canvasDeep .contactValue:focus-visible {
+  outline-color: #f6f1ea;
+}
+
+.foot {
+  position: relative;
+  z-index: 1;
+  flex: none;
+  height: 132px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 120px;
+  border-top: 1px solid #d8cec2;
+  background: transparent;
+}
+
+.canvasDeep .foot {
+  background: transparent;
+  border-top-color: rgba(246, 241, 234, 0.22);
+}
+
+.mark {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.logo {
+  height: 62px;
+  width: auto;
+}
+
+.canvasDeep .logo {
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
+}
+
+.markName {
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.markProduct {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.root ::selection {
+  background: #c88b6a;
+  color: #1e2a22;
+}

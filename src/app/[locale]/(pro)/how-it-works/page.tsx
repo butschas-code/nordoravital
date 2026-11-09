@@ -5,12 +5,14 @@ import { HowItWorksHero } from "@/components/how-it-works/how-it-works-hero";
 import { HowItWorksSections } from "@/components/how-it-works/how-it-works-sections";
 import { stripRichTags } from "@/lib/i18n-rich";
 import { setRequestLocale } from "next-intl/server";
+import { routing, type Locale } from "@/i18n/routing";
 import { proPageMetadata } from "@/lib/page-metadata";
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  if (!routing.locales.includes(locale as Locale)) return {};
   const messages = (await import(`../../../../../messages/${locale}.json`)).default;
   const hw = messages.HowItWorks as { metaTitle: string; metaDescription: string };
   return proPageMetadata(locale, "how-it-works", `${stripRichTags(hw.metaTitle)} | Nordora Vital`, hw.metaDescription);

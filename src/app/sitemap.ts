@@ -92,5 +92,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly",
       priority: 1,
     },
+    ...entriesFor(originFor("pro"), PRO_PATHS),
+    ...entriesFor(originFor("home"), HOME_PATHS),
   ];
 }

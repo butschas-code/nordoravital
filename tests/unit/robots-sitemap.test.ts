@@ -50,4 +50,12 @@ describe("sitemap.xml", () => {
     expect(urls).toContain("https://homeuse.nordoravital.com/lv/faq");
     for (const url of urls) expect(url.startsWith("https://homeuse.nordoravital.com/")).toBe(true);
   });
+
+  it("serves comprehensive sitemap on the root domain", async () => {
+    host = "www.nordoravital.com";
+    const urls = (await sitemap()).map((e) => e.url);
+    expect(urls).toContain("https://www.nordoravital.com");
+    expect(urls).toContain("https://pro.nordoravital.com/en/offers");
+    expect(urls).toContain("https://homeuse.nordoravital.com/en/faq");
+  });
 });

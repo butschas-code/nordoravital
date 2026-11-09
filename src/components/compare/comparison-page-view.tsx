@@ -112,7 +112,7 @@ export const ComparisonPageView: FC<ComparisonPageViewProps> = ({
     <div className="comparison-page site-marketing-root w-full overflow-hidden bg-[#f6f1ea] text-[#1e2a22]">
       <JsonLd
         breadcrumbs={[
-          { name: "Home", url: "https://pro.nordoravital.com" },
+          { name: "Home", url: `https://pro.nordoravital.com/${locale}` },
           {
             name: "Comparisons",
             url: `https://pro.nordoravital.com/${locale}/compare`,

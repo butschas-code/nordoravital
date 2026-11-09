@@ -22,6 +22,8 @@ export interface ProductData {
   description: string;
   brand?: string;
   url?: string;
+  priceCurrency?: string;
+  price?: string | number;
 }
 
 export function professionalServiceJsonLd(data: MedicalBusinessData): Record<string, unknown> {
@@ -114,6 +116,17 @@ export const JsonLd: FC<JsonLdProps> = ({
         name: product.brand ?? "sanza",
       },
       url: product.url,
+      ...(product.url
+        ? {
+            offers: {
+              "@type": "Offer",
+              priceCurrency: product.priceCurrency ?? "EUR",
+              price: product.price ?? "0",
+              availability: "https://schema.org/InStock",
+              url: product.url,
+            },
+          }
+        : {}),
     });
   }
 

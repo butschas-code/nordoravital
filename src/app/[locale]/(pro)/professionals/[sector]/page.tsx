@@ -11,6 +11,7 @@ import type {
   ProfessionalProductsCopy,
   ProfessionalSectorContent,
 } from "@/types/professional-page";
+import { routing, type Locale } from "@/i18n/routing";
 import { proPageMetadata } from "@/lib/page-metadata";
 
 type Props = { params: Promise<{ locale: string; sector: string }> };
@@ -21,6 +22,9 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { sector, locale } = await params;
+  if (!routing.locales.includes(locale as Locale)) {
+    return {};
+  }
   if (!SECTOR_SLUGS.includes(sector as SectorSlug)) {
     return {};
   }

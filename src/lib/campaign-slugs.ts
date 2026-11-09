@@ -146,17 +146,13 @@ export function getCampaignStaticPathsForLocale(locale: string): string[] {
 export function getCampaignPathnameForLocale(
   pathname: string,
   currentLocale: string,
-  targetLocale: string,
+  _targetLocale?: string,
 ): string | null {
   const [firstSegment, ...rest] = pathname.replace(/^\/+/, "").split("/");
   if (!firstSegment || rest.length > 0) return null;
 
   const campaignSlug = resolveCampaignSlugForLocale(firstSegment, currentLocale);
   if (!campaignSlug) return null;
-
-  if (targetLocale === "de" || targetLocale === "en") {
-    return `/${CAMPAIGN_SHARE_ALIASES[targetLocale][campaignSlug] ?? campaignSlug}`;
-  }
 
   return `/${campaignSlug}`;
 }

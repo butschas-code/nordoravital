@@ -5,7 +5,7 @@ import { CampaignLanding } from "@/components/campaign/campaign-landing";
 import { SITE_LOCALES, routing, type Locale } from "@/i18n/routing";
 import { getCampaignPageContent } from "@/lib/campaign-page-content";
 import {
-  getCampaignStaticPathsForLocale,
+  CAMPAIGN_SLUGS,
   resolveCampaignSlugForLocale,
   type CampaignSlug,
 } from "@/lib/campaign-slugs";
@@ -27,9 +27,9 @@ function getContent(slug: string, locale: Locale) {
 
 export function generateStaticParams() {
   return SITE_LOCALES.flatMap((locale) =>
-    getCampaignStaticPathsForLocale(locale)
+    CAMPAIGN_SLUGS
       .filter(
-        (slug) => !HANDCRAFTED_STATIC_CAMPAIGNS.includes(slug as CampaignSlug),
+        (slug) => !HANDCRAFTED_STATIC_CAMPAIGNS.includes(slug),
       )
       .map((campaign) => ({ locale, campaign })),
   );

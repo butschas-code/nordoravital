@@ -241,7 +241,29 @@ export default function proxy(request: NextRequest) {
       url.pathname = "/";
       return NextResponse.redirect(url, 301);
     }
-    return redirectToSurface(request, "pro");
+
+    const locale = pathnameHasLocale(pathname)
+      ? localeFromPrefixedPath(pathname, request)
+      : resolveDefaultLocale(request);
+
+    if (pathname === "/pilot-program" || pathname.endsWith("/pilot-program")) {
+      return redirectToSurface(request, "pro", `/${locale}/pilot`, 301);
+    }
+
+    if (isHomeInternalPath(pathname)) {
+      const parsed = pathnameWithoutLocalePrefix(pathname);
+      const rest = parsed?.rest ?? "";
+      const publicRest = rest === "/home" ? "" : rest.replace(/^\/home/, "");
+      return redirectToSurface(request, "home", `/${locale}${publicRest}`, 301);
+    }
+
+    const cleanPath = pathnameHasLocale(pathname)
+      ? pathname
+      : pathname === "/"
+        ? `/${locale}`
+        : `/${locale}${pathname}`;
+
+    return redirectToSurface(request, "pro", cleanPath, 301);
   }
 
   if (surface === "local" && (pathname === "/" || pathname === "")) {

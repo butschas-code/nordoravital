@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import { LegalPageShell } from "@/components/legal/legal-page-shell";
 import { RussianLegalContent, russianLegalMeta } from "@/components/legal/russian-legal-content";
 import { setRequestLocale } from "next-intl/server";
+import { routing, type Locale } from "@/i18n/routing";
 import { proPageMetadata } from "@/lib/page-metadata";
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  if (!routing.locales.includes(locale as Locale)) return {};
   const m = (await import(`../../../../../messages/${locale}.json`)).default as {
     Imprint: { metaTitle: string; metaDescription: string };
   };
