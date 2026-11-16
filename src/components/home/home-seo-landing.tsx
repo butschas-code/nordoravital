@@ -160,7 +160,7 @@ export function HomeSeoLanding({ content, locale }: HomeSeoLandingProps) {
       },
       category: "Wellness & Recovery Equipment",
       offers: {
-        "@type": "AggregateOffer",
+        "@type": "Offer",
         priceCurrency: "EUR",
         price: "4990",
         availability: "https://schema.org/InStock",

@@ -201,7 +201,7 @@ export default async function ProfessionalsIndexPage({ params }: Props) {
     <>
       <JsonLd
         breadcrumbs={[
-          { name: "Home", url: "https://pro.nordoravital.com" },
+          { name: "Home", url: `https://pro.nordoravital.com/${locale}` },
           { name: "Professionals", url: `https://pro.nordoravital.com/${locale}/professionals` },
         ]}
         medicalBusiness={{
@@ -280,6 +280,7 @@ export default async function ProfessionalsIndexPage({ params }: Props) {
             labels={{
               learnMore: tHome("learnMore"),
               popupClose: t("popupClose"),
+              popupCta: t("popupCta"),
             }}
           />
         </div>

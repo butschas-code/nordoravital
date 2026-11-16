@@ -124,7 +124,7 @@ export default async function ComparisonHubPage({ params }: Props) {
     <div className="comparison-hub site-marketing-root overflow-hidden bg-[#f6f1ea] text-[#1e2a22]">
       <JsonLd
         breadcrumbs={[
-          { name: "Home", url: "https://pro.nordoravital.com" },
+          { name: "Home", url: `https://pro.nordoravital.com/${locale}` },
           {
             name: "Technology Comparisons",
             url: `https://pro.nordoravital.com/${locale}/compare`,

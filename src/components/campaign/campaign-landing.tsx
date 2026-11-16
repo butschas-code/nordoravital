@@ -223,7 +223,7 @@ export async function CampaignLanding({
     <div className="campaign-page-root flex flex-col gap-0">
       {includeJsonLd ? <JsonLd
         breadcrumbs={[
-          { name: "Home", url: "https://pro.nordoravital.com" },
+          { name: "Home", url: `https://pro.nordoravital.com/${locale}` },
           { name: "Sectors", url: `https://pro.nordoravital.com/${locale}/professionals/sectors` },
           { name: content.segmentName, url: `https://pro.nordoravital.com/${locale}/${campaignSlug ?? ""}` },
         ]}

@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
+import { Link } from "@/i18n/navigation";
 import type { SectorSlug } from "@/lib/sector-slugs";
 
 export interface SectorItem {
@@ -19,6 +20,7 @@ interface ProfessionalsGridProps {
   labels: {
     learnMore: string;
     popupClose: string;
+    popupCta: string;
   };
 }
 
@@ -72,38 +74,52 @@ export function ProfessionalsGrid({ sectors, labels }: ProfessionalsGridProps) {
       {/* ── Sector cards — glass on dark ── */}
       <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {sectors.map((sector) => (
-          <li key={sector.slug}>
+          <li
+            key={sector.slug}
+            className="glass-card-dark group relative flex h-full w-full flex-col p-7 text-left transition hover:border-white/30 sm:p-8"
+          >
+            {/* Clickable button backdrop for opening popup preview */}
             <button
+              type="button"
               onClick={() => setOpenSlug(sector.slug)}
-              className="glass-card-dark group flex h-full w-full flex-col p-7 text-left focus-visible:outline-2 focus-visible:outline-white/50 focus-visible:outline-offset-2 sm:p-8"
+              className="absolute inset-0 h-full w-full rounded-2xl focus-visible:outline-2 focus-visible:outline-white/50 focus-visible:outline-offset-2"
               aria-haspopup="dialog"
-            >
-              {/* Icon chip */}
-              <div className="mb-5 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 transition-colors duration-300 group-hover:bg-white/[0.16]">
-                <div className="relative h-6 w-6">
-                  <Image
-                    src={sector.icon}
-                    alt={sector.imageAlt}
-                    fill
-                    className="object-contain brightness-0 invert opacity-70 transition group-hover:opacity-90"
-                    sizes="24px"
-                  />
-                </div>
+              aria-label={`${sector.title} — ${labels.learnMore}`}
+            />
+
+            {/* Icon chip */}
+            <div className="pointer-events-none mb-5 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 transition-colors duration-300 group-hover:bg-white/[0.16]">
+              <div className="relative h-6 w-6">
+                <Image
+                  src={sector.icon}
+                  alt={sector.imageAlt}
+                  fill
+                  className="object-contain brightness-0 invert opacity-70 transition group-hover:opacity-90"
+                  sizes="24px"
+                />
               </div>
+            </div>
 
-              {/* Text */}
-              <h2 className="text-base font-semibold leading-snug text-white sm:text-lg">
-                {sector.title}
-              </h2>
-              <p className="mt-2 flex-1 text-base leading-[1.65] text-white/75 sm:text-[1.0625rem]">
-                {sector.teaser}
-              </p>
+            {/* Text */}
+            <h2 className="pointer-events-none text-base font-semibold leading-snug text-white sm:text-lg">
+              {sector.title}
+            </h2>
+            <p className="pointer-events-none mt-2 flex-1 text-base leading-[1.65] text-white/75 sm:text-[1.0625rem]">
+              {sector.teaser}
+            </p>
 
-              {/* CTA row */}
-              <div className="mt-6 flex items-center gap-2 text-base font-semibold text-white/60 transition-colors group-hover:text-white/85">
-                <span>{labels.learnMore}</span>
+            {/* Action footer */}
+            <div className="relative z-10 mt-6 flex items-center justify-between gap-2 border-t border-white/10 pt-4">
+              <span className="pointer-events-none text-sm font-semibold text-white/60 transition-colors group-hover:text-white/85">
+                {labels.learnMore}
+              </span>
+              <Link
+                href={`/professionals/${sector.slug}`}
+                className="inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-white transition hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-white"
+              >
+                <span>{labels.popupCta}</span>
                 <svg
-                  className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+                  className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5"
                   viewBox="0 0 16 16"
                   fill="none"
                   aria-hidden
@@ -116,8 +132,8 @@ export function ProfessionalsGrid({ sectors, labels }: ProfessionalsGridProps) {
                     strokeLinejoin="round"
                   />
                 </svg>
-              </div>
-            </button>
+              </Link>
+            </div>
           </li>
         ))}
       </ul>
@@ -206,14 +222,22 @@ export function ProfessionalsGrid({ sectors, labels }: ProfessionalsGridProps) {
                 ))}
               </div>
 
-              {/* Close CTA */}
-              <div className="mt-8">
+              {/* Action CTAs */}
+              <div className="mt-8 flex flex-col-reverse gap-3 sm:flex-row">
                 <button
+                  type="button"
                   onClick={close}
-                  className="btn-outline w-full justify-center"
+                  className="btn-outline flex-1 justify-center"
                 >
                   {labels.popupClose}
                 </button>
+                <Link
+                  href={`/professionals/${openSector.slug}`}
+                  onClick={close}
+                  className="btn-primary flex-1 justify-center text-center"
+                >
+                  {labels.popupCta} →
+                </Link>
               </div>
             </div>
           </div>

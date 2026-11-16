@@ -6,7 +6,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeaderDesktopNav } from "@/components/site-header-desktop-nav";
 import { SiteHeaderMobileNav } from "@/components/site-header-mobile-nav";
 import { Link } from "@/i18n/navigation";
-import { LINK_SURFACE } from "@/lib/domains";
+import { LINK_SURFACE, PRO_DOMAIN } from "@/lib/domains";
 import { getHomeDisplayPath, getHomeSharedCopy } from "@/lib/home-copy";
 import { IMAGE_PATHS } from "@/lib/public-images";
 
@@ -120,7 +120,8 @@ export async function HomeSiteNav({ locale }: { locale: string }) {
 }
 
 export async function HomeSiteFooter() {
-  const copy = getHomeSharedCopy(await getLocale());
+  const locale = await getLocale();
+  const copy = getHomeSharedCopy(locale);
   const legalPath = (path: string) => getHomeDisplayPath(LINK_SURFACE, path);
   const legalLinks = [
     { label: copy.footer.imprint, href: legalPath("/imprint") },
@@ -157,7 +158,7 @@ export async function HomeSiteFooter() {
         </div>
         <div className="flex flex-col gap-3 text-sm font-semibold text-[#efe9e2] lg:items-end">
           <a
-            href="https://pro.nordoravital.com"
+            href={`https://${PRO_DOMAIN}/${locale}`}
             className="underline underline-offset-4 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d8cec2]"
           >
             {copy.footer.pro}

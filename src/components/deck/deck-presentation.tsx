@@ -744,7 +744,7 @@ function SlideRollout() {
   );
 }
 
-const DECK_CLOSING_SITE_URL = "https://nordoravital.com";
+const DECK_CLOSING_SITE_URL = "https://www.nordoravital.com";
 
 /* ─── Slide 11: Closing — hero + website & contact (no CTAs) ──────────────── */
 function SlideClosing() {

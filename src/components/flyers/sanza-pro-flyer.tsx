@@ -396,7 +396,7 @@ export function SanzaProFlyer({ locale }: { locale: string }) {
             <div className={styles.contactLines}>
               <p>
                 <span className={styles.contactLabel}>{t.website}</span>
-                <a className={styles.contactValue} href="https://nordoravital.com">
+                <a className={styles.contactValue} href="https://www.nordoravital.com">
                   nordoravital.com
                 </a>
               </p>
