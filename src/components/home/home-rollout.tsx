@@ -63,7 +63,7 @@ export async function HomeRollout() {
             <Link href="/contact" className="btn-primary inline-flex">
               {t("stepsCtaContact")}
             </Link>
-            <Link href="/pilot-program" className="btn-outline inline-flex">
+            <Link href="/pilot" className="btn-outline inline-flex">
               {t("stepsCtaPilot")}
             </Link>
           </div>

@@ -127,6 +127,8 @@ export const ComparisonPageView: FC<ComparisonPageViewProps> = ({
           description: content.metaDescription,
           brand: "sanza",
           url: `https://pro.nordoravital.com/${locale}/compare/${content.slug}`,
+          price: "4990",
+          priceCurrency: "EUR",
         }}
         faq={content.faqs}
       />

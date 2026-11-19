@@ -273,7 +273,7 @@ export async function HomeClosing() {
             >
               {t("ctaFeel")}
             </ContactDrawerTrigger>
-            <Link href="/pilot-program" className="btn-ghost-white inline-flex justify-center">
+            <Link href="/pilot" className="btn-ghost-white inline-flex justify-center">
               {t("closingSecondaryCta")}
             </Link>
           </div>

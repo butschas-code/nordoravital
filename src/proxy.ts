@@ -231,6 +231,17 @@ export default function proxy(request: NextRequest) {
     return legacyHomeExperienceRedirect;
   }
 
+  const pilotMatch = pathname.match(/^(\/(?:de|en|lv|ru|tr))?\/pilot-program\/?$/);
+  if (pilotMatch) {
+    const locale = pilotMatch[1] ? (pilotMatch[1].slice(1) as Locale) : resolveDefaultLocale(request);
+    if (surface === "root") {
+      return redirectToSurface(request, "pro", `/${locale}/pilot`, 301);
+    }
+    const url = request.nextUrl.clone();
+    url.pathname = `/${locale}/pilot`;
+    return setLocaleCookie(NextResponse.redirect(url, 301), locale);
+  }
+
   if (surface === "root") {
     if (pathname === "/" || pathname === "") {
       const locale = resolveDefaultLocale(request);
@@ -245,10 +256,6 @@ export default function proxy(request: NextRequest) {
     const locale = pathnameHasLocale(pathname)
       ? localeFromPrefixedPath(pathname, request)
       : resolveDefaultLocale(request);
-
-    if (pathname === "/pilot-program" || pathname.endsWith("/pilot-program")) {
-      return redirectToSurface(request, "pro", `/${locale}/pilot`, 301);
-    }
 
     if (isHomeInternalPath(pathname)) {
       const parsed = pathnameWithoutLocalePrefix(pathname);
