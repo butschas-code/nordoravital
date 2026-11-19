@@ -13,6 +13,9 @@ const nextConfig: NextConfig = {
   allowedDevOrigins: ["127.0.0.1", "192.168.0.242"],
   devIndicators: false,
   poweredByHeader: false,
+  experimental: {
+    agentUpgrade: "security",
+  },
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders(isDev) },
